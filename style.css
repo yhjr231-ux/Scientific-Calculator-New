@@ -2398,3 +2398,63 @@ body[class*="theme-"] .btn-equals {
         radial-gradient(circle at 85% 80%, #b000ff, transparent 40%),
         linear-gradient(135deg, #071b3a, #17265c, #351052) !important;
 }
+/* ==========================================
+   FIX: شاشة اختيار طريقة الحساب
+   ========================================== */
+
+.calculator-home {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 99999 !important;
+    box-sizing: border-box !important;
+}
+
+.calculator-home .home-buttons {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(140px, 220px)) !important;
+    gap: 20px !important;
+    width: auto !important;
+    max-width: 90vw !important;
+}
+
+.calculator-home .home-choice {
+    width: 100% !important;
+    min-height: 130px !important;
+}
+
+.calculator-home.hidden {
+    display: none !important;
+}
+
+/* الآلة نفسها تكون مخفية أثناء شاشة الاختيار */
+body:has(.calculator-home:not(.hidden)) .calculator {
+    display: none !important;
+}
+
+/* ==========================================
+   التابلت والموبايل
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    .calculator-home {
+        padding: 20px !important;
+    }
+
+    .calculator-home .home-buttons {
+        grid-template-columns: repeat(2, minmax(120px, 1fr)) !important;
+        width: 100% !important;
+        max-width: 500px !important;
+        gap: 14px !important;
+    }
+
+    .calculator-home .home-choice {
+        min-height: 110px !important;
+    }
+}
