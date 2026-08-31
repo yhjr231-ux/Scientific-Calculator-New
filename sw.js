@@ -1,39 +1,34 @@
-const CACHE_NAME = "scientific-calculator-v7";
+const CACHE_NAME = "scientific-calculator-v8";
 
 const FILES_TO_CACHE = [
     "./",
     "./index.html",
     "./style.css",
     "./app.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./icons/calculator-icon-192.png",
+    "./icons/calculator-icon-512.png"
 ];
+
+// ===============================
+// INSTALL
+// ===============================
 
 self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(async cache => {
-
-            for (const file of FILES_TO_CACHE) {
-                try {
-                    const response = await fetch(file, {
-                        cache: "no-store"
-                    });
-
-                    if (response.ok) {
-                        await cache.put(file, response);
-                    }
-
-                } catch (error) {
-                    console.log("Cache skipped:", file);
-                }
-            }
-
-        }).then(() => self.skipWaiting())
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(FILES_TO_CACHE))
     );
+
+    self.skipWaiting();
 });
 
 
-self.addEventListener("activate", event => {
+// ===============================
+// ACTIVATE
+// ===============================
 
+self.addEventListener("activate", event => {
     event.waitUntil(
         caches.keys().then(keys =>
             Promise.all(
@@ -43,53 +38,65 @@ self.addEventListener("activate", event => {
             )
         ).then(() => self.clients.claim())
     );
-
 });
 
+
+// ===============================
+// FETCH
+// ===============================
 
 self.addEventListener("fetch", event => {
 
     const url = new URL(event.request.url);
 
-    // ملفات المشروع الأساسية:
-    // حاول دائمًا تجيب أحدث نسخة
+    // لا تجعل Service Worker يمسك طلب sw.js نفسه
+    if (url.pathname.endsWith("/sw.js")) {
+        return;
+    }
+
+    // الملفات المهمة:
+    // الإنترنت أولاً ثم الكاش
     if (
-        url.pathname.endsWith("/app.js") ||
-        url.pathname.endsWith("/style.css") ||
         url.pathname.endsWith("/index.html") ||
-        url.pathname.endsWith("/")
+        url.pathname.endsWith("/style.css") ||
+        url.pathname.endsWith("/app.js")
     ) {
 
         event.respondWith(
-
             fetch(event.request, {
                 cache: "no-store"
             })
-
             .then(response => {
 
-                const copy = response.clone();
+                if (response && response.ok) {
+                    const copy = response.clone();
 
-                caches.open(CACHE_NAME)
-                    .then(cache => cache.put(event.request, copy));
+                    caches.open(CACHE_NAME)
+                        .then(cache => cache.put(event.request, copy));
+                }
 
                 return response;
             })
-
-            .catch(() => caches.match(event.request))
-
+            .catch(() => {
+                return caches.match(event.request);
+            })
         );
 
         return;
     }
 
 
-    // باقي الملفات
+    // باقي الملفات:
+    // الكاش أولاً ثم الإنترنت
     event.respondWith(
-
         caches.match(event.request)
-            .then(cached => cached || fetch(event.request))
+            .then(cachedResponse => {
 
+                if (cachedResponse) {
+                    return cachedResponse;
+                }
+
+                return fetch(event.request);
+            })
     );
-
 });
