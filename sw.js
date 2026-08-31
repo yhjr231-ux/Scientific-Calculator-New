@@ -1,25 +1,39 @@
-const CACHE_NAME = "scientific-calculator-v6";
+const CACHE_NAME = "scientific-calculator-v7";
 
 const FILES_TO_CACHE = [
     "./",
     "./index.html",
     "./style.css",
     "./app.js",
-    "./manifest.json",
-    "./icons/calculator-icon-192.png",
-    "./icons/calculator-icon-512.png"
+    "./manifest.json"
 ];
 
 self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(FILES_TO_CACHE))
-    );
+        caches.open(CACHE_NAME).then(async cache => {
 
-    self.skipWaiting();
+            for (const file of FILES_TO_CACHE) {
+                try {
+                    const response = await fetch(file, {
+                        cache: "no-store"
+                    });
+
+                    if (response.ok) {
+                        await cache.put(file, response);
+                    }
+
+                } catch (error) {
+                    console.log("Cache skipped:", file);
+                }
+            }
+
+        }).then(() => self.skipWaiting())
+    );
 });
 
+
 self.addEventListener("activate", event => {
+
     event.waitUntil(
         caches.keys().then(keys =>
             Promise.all(
@@ -27,43 +41,55 @@ self.addEventListener("activate", event => {
                     .filter(key => key !== CACHE_NAME)
                     .map(key => caches.delete(key))
             )
-        )
+        ).then(() => self.clients.claim())
     );
 
-    self.clients.claim();
 });
+
 
 self.addEventListener("fetch", event => {
 
-    // الملفات المهمة: هات أحدث نسخة من السيرفر
+    const url = new URL(event.request.url);
+
+    // ملفات المشروع الأساسية:
+    // حاول دائمًا تجيب أحدث نسخة
     if (
-        event.request.url.includes("app.js") ||
-        event.request.url.includes("style.css") ||
-        event.request.url.includes("index.html")
+        url.pathname.endsWith("/app.js") ||
+        url.pathname.endsWith("/style.css") ||
+        url.pathname.endsWith("/index.html") ||
+        url.pathname.endsWith("/")
     ) {
+
         event.respondWith(
-            fetch(event.request)
-                .then(response => {
 
-                    const copy = response.clone();
+            fetch(event.request, {
+                cache: "no-store"
+            })
 
-                    caches.open(CACHE_NAME)
-                        .then(cache => cache.put(event.request, copy));
+            .then(response => {
 
-                    return response;
-                })
-                .catch(() => caches.match(event.request))
+                const copy = response.clone();
+
+                caches.open(CACHE_NAME)
+                    .then(cache => cache.put(event.request, copy));
+
+                return response;
+            })
+
+            .catch(() => caches.match(event.request))
+
         );
 
         return;
     }
 
-    // باقي الملفات: Cache أولًا
+
+    // باقي الملفات
     event.respondWith(
+
         caches.match(event.request)
-            .then(cachedResponse => {
-                return cachedResponse || fetch(event.request);
-            })
+            .then(cached => cached || fetch(event.request))
+
     );
 
 });
