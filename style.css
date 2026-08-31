@@ -2532,3 +2532,63 @@ body:has(.calculator-home:not(.hidden)) .calculator {
         margin-bottom: 20px !important;
     }
 }
+/* ==========================================
+   HOME SCREEN - FIX
+   ========================================== */
+
+.calculator-home {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    margin: 0 !important;
+    padding: 30px !important;
+
+    box-sizing: border-box !important;
+
+    z-index: 99999 !important;
+
+    background: linear-gradient(135deg, #0f172a, #1e3a8a) !important;
+}
+
+.calculator-home.hidden {
+    display: none !important;
+}
+
+.calculator-home .home-buttons {
+    display: grid !important;
+
+    grid-template-columns: repeat(2, minmax(180px, 260px)) !important;
+
+    gap: 20px !important;
+
+    width: auto !important;
+    max-width: 560px !important;
+
+    margin: 25px auto 0 !important;
+}
+
+.calculator-home .home-choice {
+    width: 100% !important;
+    min-height: 130px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    box-sizing: border-box !important;
+}
+
+.calculator-home + .theme-page {
+    z-index: 100000 !important;
+}
