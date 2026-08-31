@@ -1,5 +1,5 @@
-// ==========================================
-// 🔊 صوت أزرار الآلة
+﻿// ==========================================
+// ًں”ٹ طµظˆطھ ط£ط²ط±ط§ط± ط§ظ„ط¢ظ„ط©
 // ==========================================
 
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -37,7 +37,7 @@ function playKeySound(frequency = 520) {
         audioCtx.currentTime + 0.045
     );
 }
-// تشغيل صوت عند الضغط على أي زر
+// طھط´ط؛ظٹظ„ طµظˆطھ ط¹ظ†ط¯ ط§ظ„ط¶ط؛ط· ط¹ظ„ظ‰ ط£ظٹ ط²ط±
 document.querySelectorAll("button").forEach(button => {
 
     button.addEventListener("click", () => {
@@ -69,10 +69,10 @@ document.querySelectorAll("button").forEach(button => {
     });
 
 });
-console.log("🔥 NEW APP.JS LOADED 🔥");
+console.log("ًں”¥ NEW APP.JS LOADED ًں”¥");
 
 // ==========================================
-// مؤشر الكتابة
+// ظ…ط¤ط´ط± ط§ظ„ظƒطھط§ط¨ط©
 // ==========================================
 
 let cursorPosition = 0;
@@ -83,13 +83,13 @@ function updateCursor() {
 
     const text = display.value || "";
 
-    // منع المؤشر من الخروج عن حدود النص
+    // ظ…ظ†ط¹ ط§ظ„ظ…ط¤ط´ط± ظ…ظ† ط§ظ„ط®ط±ظˆط¬ ط¹ظ† ط­ط¯ظˆط¯ ط§ظ„ظ†طµ
     cursorPosition = Math.max(
         0,
         Math.min(cursorPosition, text.length)
     );
 
-    // نستخدم selection الحقيقي بتاع input
+    // ظ†ط³طھط®ط¯ظ… selection ط§ظ„ط­ظ‚ظٹظ‚ظٹ ط¨طھط§ط¹ input
     display.focus();
 
     display.setSelectionRange(
@@ -101,7 +101,7 @@ function updateCursor() {
 let regressionA = null;
 let regressionB = null;
 // ==========================================
-// 2. العناصر الأساسية ومتغيرات النظام
+// 2. ط§ظ„ط¹ظ†ط§طµط± ط§ظ„ط£ط³ط§ط³ظٹط© ظˆظ…طھط؛ظٹط±ط§طھ ط§ظ„ظ†ط¸ط§ظ…
 // ==========================================
 const display = document.getElementById("display");
 const expression = document.getElementById("expression");
@@ -124,7 +124,7 @@ function removeCustomModePanel() {
 
 }
 // ==========================================
-// 🏠 شاشة اختيار طريقة الحساب
+// ًںڈ  ط´ط§ط´ط© ط§ط®طھظٹط§ط± ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨
 // ==========================================
 
 const calculatorHome =
@@ -135,15 +135,15 @@ const homeChoices =
 
 
 // ==========================================
-// 🧹 حذف شاشة القسم الحالية
+// ًں§¹ ط­ط°ظپ ط´ط§ط´ط© ط§ظ„ظ‚ط³ظ… ط§ظ„ط­ط§ظ„ظٹط©
 // ==========================================
 
 function clearSectionScreen() {
 
-    // احذف أي شاشة قسم قديمة
+    // ط§ط­ط°ظپ ط£ظٹ ط´ط§ط´ط© ظ‚ط³ظ… ظ‚ط¯ظٹظ…ط©
     removeCustomModePanel();
 
-    // تأكيد حذف أي شاشات أقسام إضافية
+    // طھط£ظƒظٹط¯ ط­ط°ظپ ط£ظٹ ط´ط§ط´ط§طھ ط£ظ‚ط³ط§ظ… ط¥ط¶ط§ظپظٹط©
     document.querySelectorAll("[id^='customModePanel']").forEach(panel => {
         panel.remove();
     });
@@ -152,17 +152,17 @@ function clearSectionScreen() {
 
 
 // ==========================================
-// 🏠 فتح شاشة اختيار طريقة الحساب
+// ًںڈ  ظپطھط­ ط´ط§ط´ط© ط§ط®طھظٹط§ط± ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨
 // ==========================================
 
 function openCalculatorHome() {
 
-    console.log("🏠 فتح قائمة اختيار طريقة الحساب");
+    console.log("ًںڈ  ظپطھط­ ظ‚ط§ط¦ظ…ط© ط§ط®طھظٹط§ط± ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨");
 
-    // حذف أي شاشة قسم مفتوحة
+    // ط­ط°ظپ ط£ظٹ ط´ط§ط´ط© ظ‚ط³ظ… ظ…ظپطھظˆط­ط©
     closeCustomPanel();
 
-    // إظهار شاشة اختيار طريقة الحساب
+    // ط¥ط¸ظ‡ط§ط± ط´ط§ط´ط© ط§ط®طھظٹط§ط± ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨
     if (calculatorHome) {
 
         calculatorHome.classList.remove("hidden");
@@ -170,7 +170,7 @@ function openCalculatorHome() {
 
     }
 
-    // إخفاء الآلة الحاسبة
+    // ط¥ط®ظپط§ط، ط§ظ„ط¢ظ„ط© ط§ظ„ط­ط§ط³ط¨ط©
     const calculator = document.querySelector(".calculator");
 
     if (calculator) {
@@ -180,12 +180,12 @@ function openCalculatorHome() {
 
     }
 
-    console.log("✅ رجعنا لقائمة اختيار طريقة الحساب");
+    console.log("âœ… ط±ط¬ط¹ظ†ط§ ظ„ظ‚ط§ط¦ظ…ط© ط§ط®طھظٹط§ط± ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨");
 }
 
 
 // ==========================================
-// ❌ إغلاق شاشة اختيار طريقة الحساب
+// â‌Œ ط¥ط؛ظ„ط§ظ‚ ط´ط§ط´ط© ط§ط®طھظٹط§ط± ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨
 // ==========================================
 
 function closeCalculatorHome() {
@@ -198,7 +198,7 @@ function closeCalculatorHome() {
 
 
 // ==========================================
-// 🎯 اختيار القسم
+// ًںژ¯ ط§ط®طھظٹط§ط± ط§ظ„ظ‚ط³ظ…
 // ==========================================
 
 homeChoices.forEach(button => {
@@ -212,7 +212,7 @@ currentCalculationType = calculationType;
 
 
         // ==========================================
-        // 🧹 امسح أي قسم قديم قبل فتح الجديد
+        // ًں§¹ ط§ظ…ط³ط­ ط£ظٹ ظ‚ط³ظ… ظ‚ط¯ظٹظ… ظ‚ط¨ظ„ ظپطھط­ ط§ظ„ط¬ط¯ظٹط¯
         // ==========================================
 
         clearSectionScreen();
@@ -249,7 +249,7 @@ currentCalculationType = "math";
 
        
 // ==========================================
-// ⚛️ الفيزياء
+// âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 if (calculationType === "physics") {
@@ -266,7 +266,7 @@ hideFractionButton();
         text-align:center;
         margin-bottom:12px;
     ">
-        ⚛️ الفيزياء
+        âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط،
     </div>
 
     <div style="
@@ -274,57 +274,57 @@ hideFractionButton();
         font-weight:bold;
         margin-bottom:8px;
     ">
-        اختر القسم:
+        ط§ط®طھط± ط§ظ„ظ‚ط³ظ…:
     </div>
 
     <button onclick="openPhysicsMechanics()"
         style="width:100%; padding:10px; margin:3px 0;">
-        🏎️ الميكانيكا والحركة
+        ًںڈژï¸ڈ ط§ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§ ظˆط§ظ„ط­ط±ظƒط©
     </button>
 
     <button onclick="openPhysicsElectricity()"
         style="width:100%; padding:10px; margin:3px 0;">
-        ⚡ الكهرباء
+        âڑ، ط§ظ„ظƒظ‡ط±ط¨ط§ط،
     </button>
 
     <button onclick="openPhysicsHeat()"
         style="width:100%; padding:10px; margin:3px 0;">
-        🌡️ الحرارة والديناميكا الحرارية
+        ًںŒ،ï¸ڈ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
     </button>
 
     <button onclick="openPhysicsFluids()"
         style="width:100%; padding:10px; margin:3px 0;">
-        💧 الموائع والضغط
+        ًں’§ ط§ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
     </button>
 
     <button onclick="openPhysicsWaves()"
         style="width:100%; padding:10px; margin:3px 0;">
-        🌊 الموجات والصوت
+        ًںŒٹ ط§ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
     </button>
 
     <button onclick="openPhysicsOptics()"
         style="width:100%; padding:10px; margin:3px 0;">
-        🔦 البصريات
+        ًں”¦ ط§ظ„ط¨طµط±ظٹط§طھ
     </button>
 
     <button onclick="openPhysicsMagnetism()"
         style="width:100%; padding:10px; margin:3px 0;">
-        🧲 المغناطيسية
+        ًں§² ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
     </button>
 
     <button onclick="openPhysicsModern()"
         style="width:100%; padding:10px; margin:3px 0;">
-        ⚛️ الفيزياء الحديثة
+        âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
     </button>
 
     <button onclick="openCalculatorHome()"
         style="width:100%; padding:10px; margin-top:10px;">
-        ← الرجوع
+        â†گ ط§ظ„ط±ط¬ظˆط¹
     </button>
     
 `);
 // ==========================================
-// ⚡ قائمة الكهرباء
+// âڑ، ظ‚ط§ط¦ظ…ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط،
 // ==========================================
 
 window.openPhysicsElectricity = function () {
@@ -338,7 +338,7 @@ window.openPhysicsElectricity = function () {
             text-align:center;
             margin-bottom:15px;
         ">
-            ⚡ الكهرباء
+            âڑ، ط§ظ„ظƒظ‡ط±ط¨ط§ط،
         </div>
 
         <div style="
@@ -346,7 +346,7 @@ window.openPhysicsElectricity = function () {
             font-size:13px;
             margin-bottom:15px;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsOhm()"
@@ -356,58 +356,58 @@ window.openPhysicsElectricity = function () {
                 margin:3px 0;
                 font-size:13px;
             ">
-            🔌 قانون أوم
+            ًں”Œ ظ‚ط§ظ†ظˆظ† ط£ظˆظ…
         </button>
 
         <button onclick="physicsVoltage()"
     style="width:100%; padding:10px; margin:3px 0;">
-    ⚡ الجهد الكهربائي
+    âڑ، ط§ظ„ط¬ظ‡ط¯ ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹ
 </button>
 
        <button onclick="physicsCurrent()"
     style="width:100%; padding:10px; margin:3px 0;">
-    🔋 التيار الكهربائي
+    ًں”‹ ط§ظ„طھظٹط§ط± ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹ
 </button>
 
         <button onclick="physicsResistance()"
     style="width:100%; padding:10px; margin:3px 0;">
-    🧱 المقاومة الكهربائية
+    ًں§± ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 </button>
 
         <button onclick="physicsElectricalPower()"
     style="width:100%; padding:10px; margin:3px 0;">
-    💡 القدرة الكهربائية
+    ًں’، ط§ظ„ظ‚ط¯ط±ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 </button>
 
        <button onclick="physicsElectricalEnergy()"
     style="width:100%; padding:10px; margin:3px 0;">
-    🔋 الطاقة الكهربائية
+    ًں”‹ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 </button>
 
         <button onclick="physicsSeriesResistance()"
     style="width:100%; padding:10px; margin:3px 0;">
-    🔗 مقاومات التوالي
+    ًں”— ظ…ظ‚ط§ظˆظ…ط§طھ ط§ظ„طھظˆط§ظ„ظٹ
 </button>
 
         <button onclick="physicsParallelResistance()"
     style="width:100%; padding:10px; margin:3px 0;">
-    🔗 مقاومات التوازي
+    ًں”— ظ…ظ‚ط§ظˆظ…ط§طھ ط§ظ„طھظˆط§ط²ظٹ
 </button>
 
         <button onclick="physicsKirchhoff()"
     style="width:100%; padding:10px; margin:3px 0;">
-    ⚡ قانون كيرشوف
+    âڑ، ظ‚ط§ظ†ظˆظ† ظƒظٹط±ط´ظˆظپ
 </button>
 
         <button onclick="physicsElectricCharge()">
-    🔋 الشحنة الكهربائية
+    ًں”‹ ط§ظ„ط´ط­ظ†ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 </button>
 
         <button onclick="physicsCapacitance()">
-    ⚛️ السعة الكهربائية
+    âڑ›ï¸ڈ ط§ظ„ط³ط¹ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 </button>
         <button onclick="physicsElectromagneticInduction()">
-    🌀 الحث الكهرومغناطيسي
+    ًںŒ€ ط§ظ„ط­ط« ط§ظ„ظƒظ‡ط±ظˆظ…ط؛ظ†ط§ط·ظٹط³ظٹ
 </button>
 
         <button onclick="openPhysicsHome()"
@@ -417,11 +417,11 @@ window.openPhysicsElectricity = function () {
                 margin-top:10px;
                 font-size:13px;
             ">
-            ← رجوع للفيزياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
         </button>
     `);
     // ==========================================
-// 🌡️ الحرارة والديناميكا الحرارية
+// ًںŒ،ï¸ڈ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
 // ==========================================
 
 window.openPhysicsThermal = function () {
@@ -435,7 +435,7 @@ window.openPhysicsThermal = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🌡️ الحرارة والديناميكا الحرارية
+            ًںŒ،ï¸ڈ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
         </div>
 
         <div style="
@@ -444,11 +444,11 @@ window.openPhysicsThermal = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsTemperature()">
-    🌡️ درجة الحرارة
+    ًںŒ،ï¸ڈ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
 </button>
 
         <button onclick="physicsHeatQuantity()"
@@ -457,7 +457,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔥 كمية الحرارة
+            ًں”¥ ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط©
         </button>
 
         <button onclick="physicsHeatCapacity()"
@@ -466,7 +466,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚖️ السعة الحرارية
+            âڑ–ï¸ڈ ط§ظ„ط³ط¹ط© ط§ظ„ط­ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="physicsSpecificHeat()"
@@ -475,7 +475,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ♨️ الحرارة النوعية
+            â™¨ï¸ڈ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ظˆط¹ظٹط©
         </button>
 
         <button onclick="physicsLatentHeat()"
@@ -484,7 +484,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🧊 الحرارة الكامنة
+            ًں§ٹ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظƒط§ظ…ظ†ط©
         </button>
 
         <button onclick="physicsIdealGas()"
@@ -493,7 +493,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            💨 قانون الغاز المثالي
+            ًں’¨ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
         </button>
 
         <button onclick="physicsThermalExpansion()"
@@ -502,7 +502,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📈 التمدد الحراري
+            ًں“ˆ ط§ظ„طھظ…ط¯ط¯ ط§ظ„ط­ط±ط§ط±ظٹ
         </button>
 
         <button onclick="physicsThermalWork()"
@@ -511,7 +511,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔄 الشغل الحراري
+            ًں”„ ط§ظ„ط´ط؛ظ„ ط§ظ„ط­ط±ط§ط±ظٹ
         </button>
 
         <button onclick="physicsFirstLaw()"
@@ -520,7 +520,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚙️ القانون الأول للديناميكا الحرارية
+            âڑ™ï¸ڈ ط§ظ„ظ‚ط§ظ†ظˆظ† ط§ظ„ط£ظˆظ„ ظ„ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="physicsThermalEfficiency()"
@@ -529,7 +529,7 @@ window.openPhysicsThermal = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📊 الكفاءة الحرارية
+            ًں“ٹ ط§ظ„ظƒظپط§ط،ط© ط§ظ„ط­ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="backToPhysics()"
@@ -538,12 +538,12 @@ window.openPhysicsThermal = function () {
             padding:9px;
             margin-top:10px;
         ">
-    ← رجوع للفيزياء
+    â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
 </button>
     `);
 };
 // ==========================================
-// 🔄 حاسبة تحويل درجات الحرارة
+// ًں”„ ط­ط§ط³ط¨ط© طھط­ظˆظٹظ„ ط¯ط±ط¬ط§طھ ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.physicsTemperatureConversion = function () {
@@ -557,7 +557,7 @@ window.physicsTemperatureConversion = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔄 تحويل درجات الحرارة
+            ًں”„ طھط­ظˆظٹظ„ ط¯ط±ط¬ط§طھ ط§ظ„ط­ط±ط§ط±ط©
         </div>
 
         <div style="
@@ -566,37 +566,37 @@ window.physicsTemperatureConversion = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر نوع التحويل:
+            ط§ط®طھط± ظ†ظˆط¹ ط§ظ„طھط­ظˆظٹظ„:
         </div>
 
         <button onclick="convertTemperature('CtoF')"
             style="width:100%; padding:10px; margin:3px 0;">
-            °C → °F
+            آ°C â†’ آ°F
         </button>
 
         <button onclick="convertTemperature('FtoC')"
             style="width:100%; padding:10px; margin:3px 0;">
-            °F → °C
+            آ°F â†’ آ°C
         </button>
 
         <button onclick="convertTemperature('CtoK')"
             style="width:100%; padding:10px; margin:3px 0;">
-            °C → K
+            آ°C â†’ K
         </button>
 
         <button onclick="convertTemperature('KtoC')"
             style="width:100%; padding:10px; margin:3px 0;">
-            K → °C
+            K â†’ آ°C
         </button>
 
         <button onclick="convertTemperature('FtoK')"
             style="width:100%; padding:10px; margin:3px 0;">
-            °F → K
+            آ°F â†’ K
         </button>
 
         <button onclick="convertTemperature('KtoF')"
             style="width:100%; padding:10px; margin:3px 0;">
-            K → °F
+            K â†’ آ°F
         </button>
 
         <button onclick="openPhysicsThermal()"
@@ -605,14 +605,14 @@ window.physicsTemperatureConversion = function () {
                 padding:9px;
                 margin-top:10px;
             ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 };
 
 
 // ==========================================
-// 🧮 تنفيذ تحويل درجة الحرارة
+// ًں§® طھظ†ظپظٹط° طھط­ظˆظٹظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.convertTemperature = function (type) {
@@ -621,32 +621,32 @@ window.convertTemperature = function (type) {
     let unit = "";
 
     if (type === "CtoF") {
-        title = "°C → °F";
-        unit = "°C";
+        title = "آ°C â†’ آ°F";
+        unit = "آ°C";
     }
 
     if (type === "FtoC") {
-        title = "°F → °C";
-        unit = "°F";
+        title = "آ°F â†’ آ°C";
+        unit = "آ°F";
     }
 
     if (type === "CtoK") {
-        title = "°C → K";
-        unit = "°C";
+        title = "آ°C â†’ K";
+        unit = "آ°C";
     }
 
     if (type === "KtoC") {
-        title = "K → °C";
+        title = "K â†’ آ°C";
         unit = "K";
     }
 
     if (type === "FtoK") {
-        title = "°F → K";
-        unit = "°F";
+        title = "آ°F â†’ K";
+        unit = "آ°F";
     }
 
     if (type === "KtoF") {
-        title = "K → °F";
+        title = "K â†’ آ°F";
         unit = "K";
     }
 
@@ -657,13 +657,13 @@ window.convertTemperature = function (type) {
             text-align:center;
             margin-bottom:15px;
         ">
-            🔄 ${title}
+            ًں”„ ${title}
         </div>
 
         <input
             id="temperatureConversionInput"
             type="number"
-            placeholder="أدخل درجة الحرارة"
+            placeholder="ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©"
             style="
                 width:100%;
                 box-sizing:border-box;
@@ -679,7 +679,7 @@ window.convertTemperature = function (type) {
             font-size:13px;
             margin-bottom:10px;
         ">
-            الوحدة: ${unit}
+            ط§ظ„ظˆط­ط¯ط©: ${unit}
         </div>
 
         <button onclick="calculateTemperatureConversion('${type}')"
@@ -707,7 +707,7 @@ window.convertTemperature = function (type) {
                 padding:9px;
                 margin-top:10px;
             ">
-            ← أنواع التحويل
+            â†گ ط£ظ†ظˆط§ط¹ ط§ظ„طھط­ظˆظٹظ„
         </button>
     `);
 
@@ -718,7 +718,7 @@ window.convertTemperature = function (type) {
 
 
 // ==========================================
-// 🧮 حساب التحويل
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھط­ظˆظٹظ„
 // ==========================================
 
 window.calculateTemperatureConversion = function (type) {
@@ -731,7 +731,7 @@ window.calculateTemperatureConversion = function (type) {
     const value = Number(input.value);
 
     if (input.value === "" || !Number.isFinite(value)) {
-        result.innerHTML = "⚠️ أدخل قيمة صحيحة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© طµط­ظٹط­ط©";
         return;
     }
 
@@ -742,12 +742,12 @@ window.calculateTemperatureConversion = function (type) {
 
         case "CtoF":
             answer = (value * 9 / 5) + 32;
-            unit = "°F";
+            unit = "آ°F";
             break;
 
         case "FtoC":
             answer = (value - 32) * 5 / 9;
-            unit = "°C";
+            unit = "آ°C";
             break;
 
         case "CtoK":
@@ -757,7 +757,7 @@ window.calculateTemperatureConversion = function (type) {
 
         case "KtoC":
             answer = value - 273.15;
-            unit = "°C";
+            unit = "آ°C";
             break;
 
         case "FtoK":
@@ -767,19 +767,19 @@ window.calculateTemperatureConversion = function (type) {
 
         case "KtoF":
             answer = (value - 273.15) * 9 / 5 + 32;
-            unit = "°F";
+            unit = "آ°F";
             break;
 
         default:
-            result.innerHTML = "⚠️ نوع تحويل غير معروف";
+            result.innerHTML = "âڑ ï¸ڈ ظ†ظˆط¹ طھط­ظˆظٹظ„ ط؛ظٹط± ظ…ط¹ط±ظˆظپ";
             return;
     }
 
-    result.innerHTML = `✅ ${answer.toFixed(6)} ${unit}`;
+    result.innerHTML = `âœ… ${answer.toFixed(6)} ${unit}`;
 };
 };
 return;
-// 🎯 تحديد خانة الفيزياء النشطة
+// ًںژ¯ طھط­ط¯ظٹط¯ ط®ط§ظ†ط© ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ظ†ط´ط·ط©
 const physicsInput1 = document.getElementById("physicsInput1");
 const physicsInput2 = document.getElementById("physicsInput2");
 
@@ -795,7 +795,7 @@ if (physicsInput2) {
     });
 }
     // ==========================================
-    // ⚛️ تغيير القانون
+    // âڑ›ï¸ڈ طھط؛ظٹظٹط± ط§ظ„ظ‚ط§ظ†ظˆظ†
     // ==========================================
 
     const formulaSelect =
@@ -813,33 +813,33 @@ if (physicsInput2) {
         const formula = formulaSelect.value;
 
         if (formula === "speed") {
-            input1.placeholder = "المسافة d";
-            input2.placeholder = "الزمن t";
+            input1.placeholder = "ط§ظ„ظ…ط³ط§ظپط© d";
+            input2.placeholder = "ط§ظ„ط²ظ…ظ† t";
         }
 
         else if (formula === "distance") {
-            input1.placeholder = "السرعة v";
-            input2.placeholder = "الزمن t";
+            input1.placeholder = "ط§ظ„ط³ط±ط¹ط© v";
+            input2.placeholder = "ط§ظ„ط²ظ…ظ† t";
         }
 
         else if (formula === "time") {
-            input1.placeholder = "المسافة d";
-            input2.placeholder = "السرعة v";
+            input1.placeholder = "ط§ظ„ظ…ط³ط§ظپط© d";
+            input2.placeholder = "ط§ظ„ط³ط±ط¹ط© v";
         }
 
         else if (formula === "force") {
-            input1.placeholder = "الكتلة m";
-            input2.placeholder = "التسارع a";
+            input1.placeholder = "ط§ظ„ظƒطھظ„ط© m";
+            input2.placeholder = "ط§ظ„طھط³ط§ط±ط¹ a";
         }
 
         else if (formula === "mass") {
-            input1.placeholder = "القوة F";
-            input2.placeholder = "التسارع a";
+            input1.placeholder = "ط§ظ„ظ‚ظˆط© F";
+            input2.placeholder = "ط§ظ„طھط³ط§ط±ط¹ a";
         }
 
         else if (formula === "acceleration") {
-            input1.placeholder = "القوة F";
-            input2.placeholder = "الكتلة m";
+            input1.placeholder = "ط§ظ„ظ‚ظˆط© F";
+            input2.placeholder = "ط§ظ„ظƒطھظ„ط© m";
         }
     }
 
@@ -848,7 +848,7 @@ if (physicsInput2) {
 
 
     // ==========================================
-    // 🧮 الحساب
+    // ًں§® ط§ظ„ط­ط³ط§ط¨
     // ==========================================
 
     document
@@ -869,7 +869,7 @@ if (physicsInput2) {
                 input2.value === ""
             ) {
                 document.getElementById("physicsResult").textContent =
-                    "⚠️ من فضلك أدخل القيمتين";
+                    "âڑ ï¸ڈ ظ…ظ† ظپط¶ظ„ظƒ ط£ط¯ط®ظ„ ط§ظ„ظ‚ظٹظ…طھظٹظ†";
                 return;
             }
 
@@ -877,7 +877,7 @@ if (physicsInput2) {
             if (formula === "speed") {
 
                 if (b === 0) {
-                    result = "لا يمكن القسمة على صفر";
+                    result = "ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 } else {
                     result = a / b;
                     unit = "m/s";
@@ -897,7 +897,7 @@ if (physicsInput2) {
             else if (formula === "time") {
 
                 if (b === 0) {
-                    result = "لا يمكن القسمة على صفر";
+                    result = "ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 } else {
                     result = a / b;
                     unit = "s";
@@ -917,7 +917,7 @@ if (physicsInput2) {
             else if (formula === "mass") {
 
                 if (b === 0) {
-                    result = "لا يمكن القسمة على صفر";
+                    result = "ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 } else {
                     result = a / b;
                     unit = "kg";
@@ -929,10 +929,10 @@ if (physicsInput2) {
             else if (formula === "acceleration") {
 
                 if (b === 0) {
-                    result = "لا يمكن القسمة على صفر";
+                    result = "ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 } else {
                     result = a / b;
-                    unit = "m/s²";
+                    unit = "m/sآ²";
                     symbol = "a";
                 }
 
@@ -944,12 +944,12 @@ if (physicsInput2) {
                 result = Number(result.toFixed(10));
 
                 document.getElementById("physicsResult").textContent =
-                    `✅ ${symbol} = ${result} ${unit}`;
+                    `âœ… ${symbol} = ${result} ${unit}`;
 
             } else {
 
                 document.getElementById("physicsResult").textContent =
-                    `⚠️ ${result}`;
+                    `âڑ ï¸ڈ ${result}`;
 
             }
 
@@ -971,7 +971,7 @@ currentCalculationType = "chemistry";
 }
 
         // ==========================================
-// 💻 البرمجة
+// ًں’» ط§ظ„ط¨ط±ظ…ط¬ط©
 // ==========================================
 
 if (calculationType === "programming") {
@@ -986,7 +986,7 @@ setupProgrammingKeys();
             text-align:center;
             margin-bottom:15px;
         ">
-            💻 البرمجة
+            ًں’» ط§ظ„ط¨ط±ظ…ط¬ط©
         </div>
 
         <button
@@ -998,7 +998,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            1️⃣ 🔢 التحويل بين الأنظمة
+            1ï¸ڈâƒ£ ًں”¢ ط§ظ„طھط­ظˆظٹظ„ ط¨ظٹظ† ط§ظ„ط£ظ†ط¸ظ…ط©
         </button>
 
         <button
@@ -1010,7 +1010,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            2️⃣ ⚙️ AND
+            2ï¸ڈâƒ£ âڑ™ï¸ڈ AND
         </button>
 
         <button
@@ -1022,7 +1022,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            3️⃣ ⚙️ OR
+            3ï¸ڈâƒ£ âڑ™ï¸ڈ OR
         </button>
 
         <button
@@ -1034,7 +1034,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            4️⃣ ⚙️ XOR
+            4ï¸ڈâƒ£ âڑ™ï¸ڈ XOR
         </button>
 
         <button
@@ -1046,7 +1046,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            5️⃣ 🚫 NOT
+            5ï¸ڈâƒ£ ًںڑ« NOT
         </button>
 
         <button
@@ -1058,7 +1058,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            6️⃣ ⬅️ إزاحة لليسار
+            6ï¸ڈâƒ£ â¬…ï¸ڈ ط¥ط²ط§ط­ط© ظ„ظ„ظٹط³ط§ط±
         </button>
 
         <button
@@ -1070,7 +1070,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            7️⃣ ➡️ إزاحة لليمين
+            7ï¸ڈâƒ£ â‍،ï¸ڈ ط¥ط²ط§ط­ط© ظ„ظ„ظٹظ…ظٹظ†
         </button>
 
         <button
@@ -1082,7 +1082,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            8️⃣ 🧮 العمليات الثنائية
+            8ï¸ڈâƒ£ ًں§® ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط«ظ†ط§ط¦ظٹط©
         </button>
 <button
     onclick="programmingComplements()"
@@ -1093,7 +1093,7 @@ setupProgrammingKeys();
         font-size:14px;
     "
 >
-    9️⃣ 🔄 المكملات والمتممات
+    9ï¸ڈâƒ£ ًں”„ ط§ظ„ظ…ظƒظ…ظ„ط§طھ ظˆط§ظ„ظ…طھظ…ظ…ط§طھ
 </button>
 <button
     onclick="programmingArithmetic()"
@@ -1104,7 +1104,7 @@ setupProgrammingKeys();
         font-size:14px;
     "
 >
-    🔟 🧮 العمليات الحسابية
+    ًں”ں ًں§® ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط­ط³ط§ط¨ظٹط©
 </button>
 <button
     onclick="programmingComplementArithmetic()"
@@ -1115,7 +1115,7 @@ setupProgrammingKeys();
         font-size:14px;
     "
 >
-    1️⃣1️⃣ 🔄 العمليات باستخدام المكملات
+    1ï¸ڈâƒ£1ï¸ڈâƒ£ ًں”„ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط¨ط§ط³طھط®ط¯ط§ظ… ط§ظ„ظ…ظƒظ…ظ„ط§طھ
 </button>
 <button
     onclick="programmingHexArithmetic()"
@@ -1126,7 +1126,7 @@ setupProgrammingKeys();
         font-size:14px;
     "
 >
-    1️⃣2️⃣ 🧮 حسابات Hexadecimal
+    1ï¸ڈâƒ£2ï¸ڈâƒ£ ًں§® ط­ط³ط§ط¨ط§طھ Hexadecimal
 </button>
 <button
     onclick="programmingOctalArithmetic()"
@@ -1137,7 +1137,7 @@ setupProgrammingKeys();
         font-size:14px;
     "
 >
-    1️⃣3️⃣ 🧮 حسابات Octal
+    1ï¸ڈâƒ£3ï¸ڈâƒ£ ًں§® ط­ط³ط§ط¨ط§طھ Octal
 </button>
 <button
     onclick="programmingAdvancedComplements()"
@@ -1148,7 +1148,7 @@ setupProgrammingKeys();
         font-size:14px;
     "
 >
-    1️⃣4️⃣ 🔄 مكملات Hex وOctal
+    1ï¸ڈâƒ£4ï¸ڈâƒ£ ًں”„ ظ…ظƒظ…ظ„ط§طھ Hex ظˆOctal
 </button>
         <button
             onclick="openCalculatorHome()"
@@ -1159,7 +1159,7 @@ setupProgrammingKeys();
                 font-size:14px;
             "
         >
-            ← الرجوع للقائمة الرئيسية
+            â†گ ط§ظ„ط±ط¬ظˆط¹ ظ„ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©
         </button>
 
         
@@ -1179,58 +1179,58 @@ window.openPhysicsMechanics = function() {
             text-align:center;
             margin-bottom:10px;
         ">
-            🏎️ الميكانيكا والحركة
+            ًںڈژï¸ڈ ط§ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§ ظˆط§ظ„ط­ط±ظƒط©
         </div>
 
         <button onclick="physicsSpeed()"
             style="width:100%; padding:9px; margin:2px 0;">
-            🚗 السرعة
+            ًںڑ— ط§ظ„ط³ط±ط¹ط©
         </button>
 
         <button onclick="physicsAcceleration()"
             style="width:100%; padding:9px; margin:2px 0;">
-            🏎️ العجلة
+            ًںڈژï¸ڈ ط§ظ„ط¹ط¬ظ„ط©
         </button>
 
         <button onclick="physicsForce()"
             style="width:100%; padding:9px; margin:2px 0;">
-            💪 القوة
+            ًں’ھ ط§ظ„ظ‚ظˆط©
         </button>
 
         <button onclick="physicsWeight()"
             style="width:100%; padding:9px; margin:2px 0;">
-            ⚖️ الوزن
+            âڑ–ï¸ڈ ط§ظ„ظˆط²ظ†
         </button>
 
         <button onclick="physicsKineticEnergy()">
-    🔋 الطاقة الحركية
+    ًں”‹ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒظٹط©
 </button>
        <button onclick="physicsPotentialEnergy()">
-    🏔️ طاقة الوضع
+    ًںڈ”ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ظˆط¶ط¹
 </button>
 
         <button onclick="physicsMomentum()">
-    🏎️ الزخم
+    ًںڈژï¸ڈ ط§ظ„ط²ط®ظ…
 </button>
 
         <button onclick="physicsWork()"
             style="width:100%; padding:9px; margin:2px 0;">
-            🔨 الشغل
+            ًں”¨ ط§ظ„ط´ط؛ظ„
         </button>
 
         <button onclick="physicsPower()"
             style="width:100%; padding:9px; margin:2px 0;">
-            ⚡ القدرة
+            âڑ، ط§ظ„ظ‚ط¯ط±ط©
         </button>
 
         <button onclick="openCalculatorHome()"
             style="width:100%; padding:9px; margin-top:8px;">
-            ← الرجوع
+            â†گ ط§ظ„ط±ط¬ظˆط¹
         </button>
     `);
 };
 // ==========================================
-// 🚗 PHYSICS - حاسبة السرعة
+// ًںڑ— PHYSICS - ط­ط§ط³ط¨ط© ط§ظ„ط³ط±ط¹ط©
 // ==========================================
 
 window.physicsSpeed = function () {
@@ -1244,11 +1244,11 @@ window.physicsSpeed = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🚗 حاسبة السرعة
+            ًںڑ— ط­ط§ط³ط¨ط© ط§ظ„ط³ط±ط¹ط©
         </div>
 
         <div style="margin:6px 0;">
-            المسافة (m):
+            ط§ظ„ظ…ط³ط§ظپط© (m):
         </div>
 
         <input id="physicsSpeedDistance"
@@ -1266,7 +1266,7 @@ onclick="window.activePhysicsField='physicsSpeedDistance'"
                ">
 
         <div style="margin:6px 0;">
-            الزمن (s):
+            ط§ظ„ط²ظ…ظ† (s):
         </div>
 
         <input id="physicsSpeedTime"
@@ -1289,7 +1289,7 @@ onclick="window.activePhysicsField='physicsSpeedTime'"
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب السرعة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط³ط±ط¹ط©
         </button>
 
         <div id="physicsSpeedResult"
@@ -1307,11 +1307,11 @@ onclick="window.activePhysicsField='physicsSpeedTime'"
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
-    // جعل أول خانة هي النشطة
+    // ط¬ط¹ظ„ ط£ظˆظ„ ط®ط§ظ†ط© ظ‡ظٹ ط§ظ„ظ†ط´ط·ط©
     window.activePhysicsField = "physicsSpeedDistance";
     document.getElementById("physicsSpeedDistance")
     ?.addEventListener("focus", () => {
@@ -1328,8 +1328,8 @@ document.getElementById("physicsSpeedTime")
 
 
 // ==========================================
-// 🏎️ حاسبة العجلة
-// a = (v₂ - v₁) / t
+// ًںڈژï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط¹ط¬ظ„ط©
+// a = (vâ‚‚ - vâ‚پ) / t
 // ==========================================
 
 window.physicsAcceleration = function () {
@@ -1343,11 +1343,11 @@ window.physicsAcceleration = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🏎️ حاسبة العجلة
+            ًںڈژï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط¹ط¬ظ„ط©
         </div>
 
         <div style="margin:6px 0;">
-            السرعة الابتدائية v₁ (m/s):
+            ط§ظ„ط³ط±ط¹ط© ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹط© vâ‚پ (m/s):
         </div>
 
         <input id="physicsAccelerationV1"
@@ -1364,7 +1364,7 @@ window.physicsAcceleration = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة النهائية v₂ (m/s):
+            ط§ظ„ط³ط±ط¹ط© ط§ظ„ظ†ظ‡ط§ط¦ظٹط© vâ‚‚ (m/s):
         </div>
 
         <input id="physicsAccelerationV2"
@@ -1381,7 +1381,7 @@ window.physicsAcceleration = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsAccelerationTime"
@@ -1403,7 +1403,7 @@ window.physicsAcceleration = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب العجلة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¹ط¬ظ„ط©
         </button>
 
         <div id="physicsAccelerationResult"
@@ -1421,11 +1421,11 @@ window.physicsAcceleration = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
-    // أول خانة نشطة
+    // ط£ظˆظ„ ط®ط§ظ†ط© ظ†ط´ط·ط©
     window.activePhysicsField = "physicsAccelerationV1";
 
     document.getElementById("physicsAccelerationV1")
@@ -1449,7 +1449,7 @@ window.physicsAcceleration = function () {
 
 
 // ==========================================
-// 🧮 حساب العجلة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¹ط¬ظ„ط©
 // ==========================================
 
 window.calculatePhysicsAcceleration = function () {
@@ -1475,14 +1475,14 @@ window.calculatePhysicsAcceleration = function () {
         !Number.isFinite(v2) ||
         !Number.isFinite(t)) {
 
-        result.innerHTML = "❌ أدخل جميع القيم";
+        result.innerHTML = "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     if (t === 0) {
 
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يساوي صفر";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -1490,18 +1490,18 @@ window.calculatePhysicsAcceleration = function () {
     const acceleration = (v2 - v1) / t;
 
     result.innerHTML =
-        `✅ a = ${acceleration} m/s²`;
+        `âœ… a = ${acceleration} m/sآ²`;
 
     console.log(
-        "🏎️ ACCELERATION:",
+        "ًںڈژï¸ڈ ACCELERATION:",
         acceleration,
-        "m/s²"
+        "m/sآ²"
     );
 };
 
 // ==========================================
-// 💪 حاسبة القوة
-// F = m × a
+// ًں’ھ ط­ط§ط³ط¨ط© ط§ظ„ظ‚ظˆط©
+// F = m أ— a
 // ==========================================
 
 window.physicsForce = function () {
@@ -1515,11 +1515,11 @@ window.physicsForce = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💪 حاسبة القوة
+            ًں’ھ ط­ط§ط³ط¨ط© ط§ظ„ظ‚ظˆط©
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsForceMass"
@@ -1536,7 +1536,7 @@ window.physicsForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            العجلة a (m/s²):
+            ط§ظ„ط¹ط¬ظ„ط© a (m/sآ²):
         </div>
 
         <input id="physicsForceAcceleration"
@@ -1558,7 +1558,7 @@ window.physicsForce = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القوة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ظˆط©
         </button>
 
         <div id="physicsForceResult"
@@ -1576,11 +1576,11 @@ window.physicsForce = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
-    // أول خانة نشطة
+    // ط£ظˆظ„ ط®ط§ظ†ط© ظ†ط´ط·ط©
     window.activePhysicsField = "physicsForceMass";
 
     document.getElementById("physicsForceMass")
@@ -1596,7 +1596,7 @@ window.physicsForce = function () {
 
 
 // ==========================================
-// 🧮 حساب القوة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ‚ظˆط©
 // ==========================================
 
 window.calculatePhysicsForce = function () {
@@ -1617,25 +1617,25 @@ window.calculatePhysicsForce = function () {
     if (!Number.isFinite(mass) ||
         !Number.isFinite(acceleration)) {
 
-        result.innerHTML = "❌ أدخل جميع القيم";
+        result.innerHTML = "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     const force = mass * acceleration;
 
     result.innerHTML =
-        `✅ F = ${force} N`;
+        `âœ… F = ${force} N`;
 
     console.log(
-        "💪 FORCE:",
+        "ًں’ھ FORCE:",
         force,
         "N"
     );
 };
 
 // ==========================================
-// ⚖️ حاسبة الوزن
-// W = m × g
+// âڑ–ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ظˆط²ظ†
+// W = m أ— g
 // ==========================================
 window.physicsWeightGravityEdited = false;
 window.physicsWeight = function () {
@@ -1649,11 +1649,11 @@ window.physicsWeight = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚖️ حاسبة الوزن
+            âڑ–ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ظˆط²ظ†
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsWeightMass"
@@ -1670,7 +1670,7 @@ window.physicsWeight = function () {
                ">
 
         <div style="margin:6px 0;">
-            عجلة الجاذبية g (m/s²):
+            ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط© g (m/sآ²):
         </div>
 
         <input id="physicsWeightGravity"
@@ -1692,7 +1692,7 @@ window.physicsWeight = function () {
                    padding:10px;
                    margin:4px 0;
                 ">
-            🧮 احسب الوزن
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظˆط²ظ†
         </button>
 
         <div id="physicsWeightResult"
@@ -1710,7 +1710,7 @@ window.physicsWeight = function () {
                    padding:9px;
                    margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
@@ -1735,7 +1735,7 @@ document.getElementById("physicsWeightGravity")
 
 
 // ==========================================
-// 🧮 حساب الوزن
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظˆط²ظ†
 // ==========================================
 
 window.calculatePhysicsWeight = function () {
@@ -1756,25 +1756,25 @@ window.calculatePhysicsWeight = function () {
     if (!Number.isFinite(mass) ||
         !Number.isFinite(gravity)) {
 
-        result.innerHTML = "❌ أدخل جميع القيم";
+        result.innerHTML = "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     const weight = mass * gravity;
 
     result.innerHTML =
-        `✅ W = ${weight.toFixed(6)} N`;
+        `âœ… W = ${weight.toFixed(6)} N`;
 
     console.log(
-        "⚖️ WEIGHT:",
+        "âڑ–ï¸ڈ WEIGHT:",
         weight,
         "N"
     );
 };
 
 // ==========================================
-// 🔋 الطاقة الحركية
-// KE = 1/2 × m × v²
+// ًں”‹ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒظٹط©
+// KE = 1/2 أ— m أ— vآ²
 // ==========================================
 
 window.physicsKineticEnergy = function () {
@@ -1789,11 +1789,11 @@ window.physicsKineticEnergy = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔋 حاسبة الطاقة الحركية
+            ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒظٹط©
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsKEMass"
@@ -1810,7 +1810,7 @@ window.physicsKineticEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة v (m/s):
+            ط§ظ„ط³ط±ط¹ط© v (m/s):
         </div>
 
         <input id="physicsKEVelocity"
@@ -1832,7 +1832,7 @@ window.physicsKineticEnergy = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الطاقة الحركية
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒظٹط©
         </button>
 
         <div id="physicsKEResult"
@@ -1850,7 +1850,7 @@ window.physicsKineticEnergy = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
@@ -1871,7 +1871,7 @@ window.physicsKineticEnergy = function () {
 
 
 // ==========================================
-// 🧮 حساب الطاقة الحركية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒظٹط©
 // ==========================================
 
 window.calculatePhysicsKineticEnergy = function () {
@@ -1893,7 +1893,7 @@ window.calculatePhysicsKineticEnergy = function () {
         !Number.isFinite(velocity)) {
 
         result.innerHTML =
-            "⚠️ أدخل الكتلة والسرعة أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط³ط±ط¹ط© ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -1902,11 +1902,11 @@ window.calculatePhysicsKineticEnergy = function () {
         0.5 * mass * velocity * velocity;
 
     result.innerHTML =
-        `✅ KE = ${kineticEnergy.toFixed(6)} J`;
+        `âœ… KE = ${kineticEnergy.toFixed(6)} J`;
 };
 // ==========================================
-// 🏔️ طاقة الوضع
-// PE = m × g × h
+// ًںڈ”ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ظˆط¶ط¹
+// PE = m أ— g أ— h
 // ==========================================
 
 window.physicsPotentialEnergy = function () {
@@ -1921,11 +1921,11 @@ window.physicsPotentialEnergy = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🏔️ حاسبة طاقة الوضع
+            ًںڈ”ï¸ڈ ط­ط§ط³ط¨ط© ط·ط§ظ‚ط© ط§ظ„ظˆط¶ط¹
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsPEMass"
@@ -1942,7 +1942,7 @@ window.physicsPotentialEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            عجلة الجاذبية g (m/s²):
+            ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط© g (m/sآ²):
         </div>
 
         <input id="physicsPEGravity"
@@ -1960,7 +1960,7 @@ window.physicsPotentialEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            الارتفاع h (m):
+            ط§ظ„ط§ط±طھظپط§ط¹ h (m):
         </div>
 
         <input id="physicsPEHeight"
@@ -1982,7 +1982,7 @@ window.physicsPotentialEnergy = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب طاقة الوضع
+            ًں§® ط§ط­ط³ط¨ ط·ط§ظ‚ط© ط§ظ„ظˆط¶ط¹
         </button>
 
         <div id="physicsPEResult"
@@ -2000,7 +2000,7 @@ window.physicsPotentialEnergy = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
@@ -2028,7 +2028,7 @@ window.physicsPotentialEnergy = function () {
 
 
 // ==========================================
-// 🧮 حساب طاقة الوضع
+// ًں§® ط­ط³ط§ط¨ ط·ط§ظ‚ط© ط§ظ„ظˆط¶ط¹
 // ==========================================
 
 window.calculatePhysicsPotentialEnergy = function () {
@@ -2058,7 +2058,7 @@ window.calculatePhysicsPotentialEnergy = function () {
     ) {
 
         result.innerHTML =
-            "⚠️ أدخل الكتلة والجاذبية والارتفاع أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط¬ط§ط°ط¨ظٹط© ظˆط§ظ„ط§ط±طھظپط§ط¹ ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -2067,11 +2067,11 @@ window.calculatePhysicsPotentialEnergy = function () {
         mass * gravity * height;
 
     result.innerHTML =
-        `✅ PE = ${potentialEnergy.toFixed(6)} J`;
+        `âœ… PE = ${potentialEnergy.toFixed(6)} J`;
 };
 // ==========================================
-// 🏎️ الزخم
-// p = m × v
+// ًںڈژï¸ڈ ط§ظ„ط²ط®ظ…
+// p = m أ— v
 // ==========================================
 
 window.physicsMomentum = function () {
@@ -2086,11 +2086,11 @@ window.physicsMomentum = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🏎️ حاسبة الزخم
+            ًںڈژï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط²ط®ظ…
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsMomentumMass"
@@ -2107,7 +2107,7 @@ window.physicsMomentum = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة v (m/s):
+            ط§ظ„ط³ط±ط¹ط© v (m/s):
         </div>
 
         <input id="physicsMomentumVelocity"
@@ -2129,7 +2129,7 @@ window.physicsMomentum = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الزخم
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط²ط®ظ…
         </button>
 
         <div id="physicsMomentumResult"
@@ -2147,7 +2147,7 @@ window.physicsMomentum = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
@@ -2169,7 +2169,7 @@ window.physicsMomentum = function () {
 
 
 // ==========================================
-// 🧮 حساب الزخم
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط²ط®ظ…
 // ==========================================
 
 window.calculatePhysicsMomentum = function () {
@@ -2192,18 +2192,18 @@ window.calculatePhysicsMomentum = function () {
         !Number.isFinite(velocity)
     ) {
         result.innerHTML =
-            "⚠️ أدخل الكتلة والسرعة أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط³ط±ط¹ط© ط£ظˆظ„ط§ظ‹";
         return;
     }
 
     const momentum = mass * velocity;
 
     result.innerHTML =
-        `✅ p = ${momentum.toFixed(6)} kg·m/s`;
+        `âœ… p = ${momentum.toFixed(6)} kgآ·m/s`;
 };
 // ==========================================
-// 🔨 الشغل
-// W = F × d × cos(θ)
+// ًں”¨ ط§ظ„ط´ط؛ظ„
+// W = F أ— d أ— cos(خ¸)
 // ==========================================
 
 window.physicsWork = function () {
@@ -2218,11 +2218,11 @@ window.physicsWork = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔨 حاسبة الشغل
+            ًں”¨ ط­ط§ط³ط¨ط© ط§ظ„ط´ط؛ظ„
         </div>
 
         <div style="margin:6px 0;">
-            القوة F (N):
+            ط§ظ„ظ‚ظˆط© F (N):
         </div>
 
         <input id="physicsWorkForce"
@@ -2239,7 +2239,7 @@ window.physicsWork = function () {
                ">
 
         <div style="margin:6px 0;">
-            الإزاحة d (m):
+            ط§ظ„ط¥ط²ط§ط­ط© d (m):
         </div>
 
         <input id="physicsWorkDistance"
@@ -2256,7 +2256,7 @@ window.physicsWork = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزاوية θ (درجة):
+            ط§ظ„ط²ط§ظˆظٹط© خ¸ (ط¯ط±ط¬ط©):
         </div>
 
         <input id="physicsWorkAngle"
@@ -2279,7 +2279,7 @@ window.physicsWork = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الشغل
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط´ط؛ظ„
         </button>
 
         <div id="physicsWorkResult"
@@ -2297,7 +2297,7 @@ window.physicsWork = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
@@ -2325,7 +2325,7 @@ window.physicsWork = function () {
 
 
 // ==========================================
-// 🧮 حساب الشغل
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط´ط؛ظ„
 // ==========================================
 
 window.calculatePhysicsWork = function () {
@@ -2354,7 +2354,7 @@ window.calculatePhysicsWork = function () {
         !Number.isFinite(angle)
     ) {
         result.innerHTML =
-            "⚠️ أدخل القوة والإزاحة والزاوية أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ظ‚ظˆط© ظˆط§ظ„ط¥ط²ط§ط­ط© ظˆط§ظ„ط²ط§ظˆظٹط© ط£ظˆظ„ط§ظ‹";
         return;
     }
 
@@ -2364,11 +2364,11 @@ window.calculatePhysicsWork = function () {
         force * distance * Math.cos(radians);
 
     result.innerHTML =
-        `✅ W = ${work.toFixed(6)} J`;
+        `âœ… W = ${work.toFixed(6)} J`;
 };
 // ==========================================
-// ⚡ القدرة
-// P = W ÷ t
+// âڑ، ط§ظ„ظ‚ط¯ط±ط©
+// P = W أ· t
 // ==========================================
 
 window.physicsPower = function () {
@@ -2383,11 +2383,11 @@ window.physicsPower = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚡ حاسبة القدرة
+            âڑ، ط­ط§ط³ط¨ط© ط§ظ„ظ‚ط¯ط±ط©
         </div>
 
         <div style="margin:6px 0;">
-            الشغل W (J):
+            ط§ظ„ط´ط؛ظ„ W (J):
         </div>
 
         <input id="physicsPowerWork"
@@ -2404,7 +2404,7 @@ window.physicsPower = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsPowerTime"
@@ -2426,7 +2426,7 @@ window.physicsPower = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القدرة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ط¯ط±ط©
         </button>
 
         <div id="physicsPowerResult"
@@ -2444,7 +2444,7 @@ window.physicsPower = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للميكانيكا
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§
         </button>
     `);
 
@@ -2466,7 +2466,7 @@ window.physicsPower = function () {
 
 
 // ==========================================
-// 🧮 حساب القدرة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ‚ط¯ط±ط©
 // ==========================================
 
 window.calculatePhysicsPower = function () {
@@ -2488,7 +2488,7 @@ window.calculatePhysicsPower = function () {
         !Number.isFinite(time)) {
 
         result.innerHTML =
-            "⚠️ أدخل الشغل والزمن أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط´ط؛ظ„ ظˆط§ظ„ط²ظ…ظ† ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -2496,7 +2496,7 @@ window.calculatePhysicsPower = function () {
     if (time === 0) {
 
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يساوي صفر";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -2504,13 +2504,13 @@ window.calculatePhysicsPower = function () {
     const power = work / time;
 
     result.innerHTML =
-        `✅ P = ${power.toFixed(6)} W`;
+        `âœ… P = ${power.toFixed(6)} W`;
 };
 // ==========================================
-// 🔌 قانون أوم
-// V = I × R
-// I = V ÷ R
-// R = V ÷ I
+// ًں”Œ ظ‚ط§ظ†ظˆظ† ط£ظˆظ…
+// V = I أ— R
+// I = V أ· R
+// R = V أ· I
 // ==========================================
 
 window.physicsOhm = function () {
@@ -2525,7 +2525,7 @@ window.physicsOhm = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔌 حاسبة قانون أوم
+            ًں”Œ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط£ظˆظ…
         </div>
 
         <div style="
@@ -2533,18 +2533,18 @@ window.physicsOhm = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            V = I × R
+            V = I أ— R
         </div>
 
         <div style="margin:6px 0;">
-            الجهد V (Volt):
+            ط§ظ„ط¬ظ‡ط¯ V (Volt):
         </div>
 
         <input id="physicsOhmVoltage"
                type="text"
                readonly
                dir="ltr"
-               placeholder="اتركها فارغة للحساب"
+               placeholder="ط§طھط±ظƒظ‡ط§ ظپط§ط±ط؛ط© ظ„ظ„ط­ط³ط§ط¨"
                style="
                    width:90%;
                    padding:8px;
@@ -2555,14 +2555,14 @@ window.physicsOhm = function () {
                ">
 
         <div style="margin:6px 0;">
-            التيار I (Ampere):
+            ط§ظ„طھظٹط§ط± I (Ampere):
         </div>
 
         <input id="physicsOhmCurrent"
                type="text"
                readonly
                dir="ltr"
-               placeholder="اتركها فارغة للحساب"
+               placeholder="ط§طھط±ظƒظ‡ط§ ظپط§ط±ط؛ط© ظ„ظ„ط­ط³ط§ط¨"
                style="
                    width:90%;
                    padding:8px;
@@ -2573,14 +2573,14 @@ window.physicsOhm = function () {
                ">
 
         <div style="margin:6px 0;">
-            المقاومة R (Ohm):
+            ط§ظ„ظ…ظ‚ط§ظˆظ…ط© R (Ohm):
         </div>
 
         <input id="physicsOhmResistance"
                type="text"
                readonly
                dir="ltr"
-               placeholder="اتركها فارغة للحساب"
+               placeholder="ط§طھط±ظƒظ‡ط§ ظپط§ط±ط؛ط© ظ„ظ„ط­ط³ط§ط¨"
                style="
                    width:90%;
                    padding:8px;
@@ -2596,7 +2596,7 @@ window.physicsOhm = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsOhmResult"
@@ -2614,7 +2614,7 @@ window.physicsOhm = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -2640,7 +2640,7 @@ window.physicsOhm = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون أوم
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط£ظˆظ…
 // ==========================================
 
 window.calculatePhysicsOhm = function () {
@@ -2671,59 +2671,59 @@ window.calculatePhysicsOhm = function () {
     if (count !== 2) {
 
         result.innerHTML =
-            "⚠️ أدخل قيمتين فقط لحساب الثالثة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ظ‚ظٹظ…طھظٹظ† ظپظ‚ط· ظ„ط­ط³ط§ط¨ ط§ظ„ط«ط§ظ„ط«ط©";
 
         return;
     }
 
-    // V = I × R
+    // V = I أ— R
     if (!hasV) {
 
         voltageField.value = I * R;
 
         result.innerHTML =
-            `✅ V = ${(I * R).toFixed(6)} V`;
+            `âœ… V = ${(I * R).toFixed(6)} V`;
 
         return;
     }
 
-    // I = V ÷ R
+    // I = V أ· R
     if (!hasI) {
 
         if (R === 0) {
             result.innerHTML =
-                "❌ المقاومة لا يمكن أن تساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
         currentField.value = V / R;
 
         result.innerHTML =
-            `✅ I = ${(V / R).toFixed(6)} A`;
+            `âœ… I = ${(V / R).toFixed(6)} A`;
 
         return;
     }
 
-    // R = V ÷ I
+    // R = V أ· I
     if (!hasR) {
 
         if (I === 0) {
             result.innerHTML =
-                "❌ التيار لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„طھظٹط§ط± ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
         resistanceField.value = V / I;
 
         result.innerHTML =
-            `✅ R = ${(V / I).toFixed(6)} Ω`;
+            `âœ… R = ${(V / I).toFixed(6)} خ©`;
 
         return;
     }
 };
 // ==========================================
-// ⚡ حاسبة الجهد الكهربائي
-// V = W ÷ Q
+// âڑ، ط­ط§ط³ط¨ط© ط§ظ„ط¬ظ‡ط¯ ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹ
+// V = W أ· Q
 // ==========================================
 
 window.physicsVoltage = function () {
@@ -2738,7 +2738,7 @@ window.physicsVoltage = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚡ حاسبة الجهد الكهربائي
+            âڑ، ط­ط§ط³ط¨ط© ط§ظ„ط¬ظ‡ط¯ ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹ
         </div>
 
         <div style="
@@ -2746,11 +2746,11 @@ window.physicsVoltage = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            V = W ÷ Q
+            V = W أ· Q
         </div>
 
         <div style="margin:6px 0;">
-            الشغل W (J):
+            ط§ظ„ط´ط؛ظ„ W (J):
         </div>
 
         <input id="physicsVoltageWork"
@@ -2767,7 +2767,7 @@ window.physicsVoltage = function () {
                ">
 
         <div style="margin:6px 0;">
-            الشحنة Q (C):
+            ط§ظ„ط´ط­ظ†ط© Q (C):
         </div>
 
         <input id="physicsVoltageCharge"
@@ -2789,7 +2789,7 @@ window.physicsVoltage = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الجهد
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¬ظ‡ط¯
         </button>
 
         <div id="physicsVoltageResult"
@@ -2807,7 +2807,7 @@ window.physicsVoltage = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -2826,7 +2826,7 @@ window.physicsVoltage = function () {
 
 
 // ==========================================
-// 🧮 حساب الجهد
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¬ظ‡ط¯
 // ==========================================
 
 window.calculatePhysicsVoltage = function () {
@@ -2848,7 +2848,7 @@ window.calculatePhysicsVoltage = function () {
         !Number.isFinite(charge)) {
 
         result.innerHTML =
-            "⚠️ أدخل الشغل والشحنة أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط´ط؛ظ„ ظˆط§ظ„ط´ط­ظ†ط© ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -2856,7 +2856,7 @@ window.calculatePhysicsVoltage = function () {
     if (charge === 0) {
 
         result.innerHTML =
-            "❌ الشحنة لا يمكن أن تساوي صفر";
+            "â‌Œ ط§ظ„ط´ط­ظ†ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -2864,11 +2864,11 @@ window.calculatePhysicsVoltage = function () {
     const voltage = work / charge;
 
     result.innerHTML =
-        `✅ V = ${voltage.toFixed(6)} V`;
+        `âœ… V = ${voltage.toFixed(6)} V`;
 };
 // ==========================================
-// 🔋 حاسبة التيار الكهربائي
-// I = Q ÷ t
+// ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„طھظٹط§ط± ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹ
+// I = Q أ· t
 // ==========================================
 
 window.physicsCurrent = function () {
@@ -2883,7 +2883,7 @@ window.physicsCurrent = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔋 حاسبة التيار الكهربائي
+            ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„طھظٹط§ط± ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹ
         </div>
 
         <div style="
@@ -2891,11 +2891,11 @@ window.physicsCurrent = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            I = Q ÷ t
+            I = Q أ· t
         </div>
 
         <div style="margin:6px 0;">
-            الشحنة Q (C):
+            ط§ظ„ط´ط­ظ†ط© Q (C):
         </div>
 
         <input id="physicsCurrentCharge"
@@ -2912,7 +2912,7 @@ window.physicsCurrent = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsCurrentTime"
@@ -2934,7 +2934,7 @@ window.physicsCurrent = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التيار
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھظٹط§ط±
         </button>
 
         <div id="physicsCurrentResult"
@@ -2952,7 +2952,7 @@ window.physicsCurrent = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -2973,7 +2973,7 @@ window.physicsCurrent = function () {
 
 
 // ==========================================
-// 🧮 حساب التيار
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھظٹط§ط±
 // ==========================================
 
 window.calculatePhysicsCurrent = function () {
@@ -2995,7 +2995,7 @@ window.calculatePhysicsCurrent = function () {
         !Number.isFinite(time)) {
 
         result.innerHTML =
-            "⚠️ أدخل الشحنة والزمن أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط´ط­ظ†ط© ظˆط§ظ„ط²ظ…ظ† ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -3003,7 +3003,7 @@ window.calculatePhysicsCurrent = function () {
     if (time === 0) {
 
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يساوي صفر";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -3011,11 +3011,11 @@ window.calculatePhysicsCurrent = function () {
     const current = charge / time;
 
     result.innerHTML =
-        `✅ I = ${current.toFixed(6)} A`;
+        `âœ… I = ${current.toFixed(6)} A`;
 };
 // ==========================================
-// 🧱 حاسبة المقاومة الكهربائية
-// R = V ÷ I
+// ًں§± ط­ط§ط³ط¨ط© ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
+// R = V أ· I
 // ==========================================
 
 window.physicsResistance = function () {
@@ -3030,7 +3030,7 @@ window.physicsResistance = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🧱 حاسبة المقاومة الكهربائية
+            ًں§± ط­ط§ط³ط¨ط© ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
         </div>
 
         <div style="
@@ -3038,11 +3038,11 @@ window.physicsResistance = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            R = V ÷ I
+            R = V أ· I
         </div>
 
         <div style="margin:6px 0;">
-            الجهد V (V):
+            ط§ظ„ط¬ظ‡ط¯ V (V):
         </div>
 
         <input id="physicsResistanceVoltage"
@@ -3059,7 +3059,7 @@ window.physicsResistance = function () {
                ">
 
         <div style="margin:6px 0;">
-            التيار I (A):
+            ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsResistanceCurrent"
@@ -3081,7 +3081,7 @@ window.physicsResistance = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب المقاومة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ…ظ‚ط§ظˆظ…ط©
         </button>
 
         <div id="physicsResistanceResult"
@@ -3099,7 +3099,7 @@ window.physicsResistance = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -3122,7 +3122,7 @@ window.physicsResistance = function () {
 
 
 // ==========================================
-// 🧮 حساب المقاومة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ…ظ‚ط§ظˆظ…ط©
 // ==========================================
 
 window.calculatePhysicsResistance = function () {
@@ -3150,7 +3150,7 @@ window.calculatePhysicsResistance = function () {
         !Number.isFinite(current)) {
 
         result.innerHTML =
-            "⚠️ أدخل الجهد والتيار أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط¬ظ‡ط¯ ظˆط§ظ„طھظٹط§ط± ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -3158,7 +3158,7 @@ window.calculatePhysicsResistance = function () {
     if (current === 0) {
 
         result.innerHTML =
-            "❌ التيار لا يمكن أن يساوي صفر";
+            "â‌Œ ط§ظ„طھظٹط§ط± ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -3166,13 +3166,13 @@ window.calculatePhysicsResistance = function () {
     const resistance = voltage / current;
 
     result.innerHTML =
-        `✅ R = ${resistance.toFixed(6)} Ω`;
+        `âœ… R = ${resistance.toFixed(6)} خ©`;
 };
 // ==========================================
-// 💡 حاسبة القدرة الكهربائية
-// P = V × I
-// P = I² × R
-// P = V² ÷ R
+// ًں’، ط­ط§ط³ط¨ط© ط§ظ„ظ‚ط¯ط±ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
+// P = V أ— I
+// P = Iآ² أ— R
+// P = Vآ² أ· R
 // ==========================================
 
 window.physicsElectricalPower = function () {
@@ -3186,7 +3186,7 @@ window.physicsElectricalPower = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💡 القدرة الكهربائية
+            ًں’، ط§ظ„ظ‚ط¯ط±ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
         </div>
 
         <div style="
@@ -3195,13 +3195,13 @@ window.physicsElectricalPower = function () {
             font-weight:bold;
             line-height:1.8;
         ">
-            P = V × I<br>
-            P = I² × R<br>
-            P = V² ÷ R
+            P = V أ— I<br>
+            P = Iآ² أ— R<br>
+            P = Vآ² أ· R
         </div>
 
         <div style="margin:6px 0;">
-            الجهد V (V):
+            ط§ظ„ط¬ظ‡ط¯ V (V):
         </div>
 
         <input id="physicsEPVoltage"
@@ -3218,7 +3218,7 @@ window.physicsElectricalPower = function () {
                ">
 
         <div style="margin:6px 0;">
-            التيار I (A):
+            ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsEPCurrent"
@@ -3235,7 +3235,7 @@ window.physicsElectricalPower = function () {
                ">
 
         <div style="margin:6px 0;">
-            المقاومة R (Ω):
+            ط§ظ„ظ…ظ‚ط§ظˆظ…ط© R (خ©):
         </div>
 
         <input id="physicsEPResistance"
@@ -3257,7 +3257,7 @@ window.physicsElectricalPower = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القدرة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ط¯ط±ط©
         </button>
 
         <div id="physicsEPResult"
@@ -3275,7 +3275,7 @@ window.physicsElectricalPower = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -3299,7 +3299,7 @@ window.physicsElectricalPower = function () {
 
 
 // ==========================================
-// 🧮 حساب القدرة الكهربائية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ‚ط¯ط±ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 // ==========================================
 
 window.calculatePhysicsElectricalPower = function () {
@@ -3332,7 +3332,7 @@ window.calculatePhysicsElectricalPower = function () {
         const power = voltage * current;
 
         result.innerHTML =
-            `✅ P = ${power.toFixed(6)} W`;
+            `âœ… P = ${power.toFixed(6)} W`;
 
         return;
     }
@@ -3343,7 +3343,7 @@ window.calculatePhysicsElectricalPower = function () {
         const power = current * current * resistance;
 
         result.innerHTML =
-            `✅ P = ${power.toFixed(6)} W`;
+            `âœ… P = ${power.toFixed(6)} W`;
 
         return;
     }
@@ -3354,7 +3354,7 @@ window.calculatePhysicsElectricalPower = function () {
         if (resistance === 0) {
 
             result.innerHTML =
-                "❌ المقاومة لا يمكن أن تساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -3363,18 +3363,18 @@ window.calculatePhysicsElectricalPower = function () {
             (voltage * voltage) / resistance;
 
         result.innerHTML =
-            `✅ P = ${power.toFixed(6)} W`;
+            `âœ… P = ${power.toFixed(6)} W`;
 
         return;
     }
 
     result.innerHTML =
-        "⚠️ أدخل أي قيمتين من V و I و R";
+        "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط£ظٹ ظ‚ظٹظ…طھظٹظ† ظ…ظ† V ظˆ I ظˆ R";
 };
 // ==========================================
-// 🔋 حاسبة الطاقة الكهربائية
-// E = P × t
-// E = V × I × t
+// ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„ط·ط§ظ‚ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
+// E = P أ— t
+// E = V أ— I أ— t
 // ==========================================
 
 window.physicsElectricalEnergy = function () {
@@ -3388,7 +3388,7 @@ window.physicsElectricalEnergy = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔋 الطاقة الكهربائية
+            ًں”‹ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
         </div>
 
         <div style="
@@ -3397,12 +3397,12 @@ window.physicsElectricalEnergy = function () {
             font-weight:bold;
             line-height:1.8;
         ">
-            E = P × t<br>
-            E = V × I × t
+            E = P أ— t<br>
+            E = V أ— I أ— t
         </div>
 
         <div style="margin:6px 0;">
-            القدرة P (W):
+            ط§ظ„ظ‚ط¯ط±ط© P (W):
         </div>
 
         <input id="physicsEEPower"
@@ -3419,7 +3419,7 @@ window.physicsElectricalEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            الجهد V (V):
+            ط§ظ„ط¬ظ‡ط¯ V (V):
         </div>
 
         <input id="physicsEEVoltage"
@@ -3436,7 +3436,7 @@ window.physicsElectricalEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            التيار I (A):
+            ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsEECurrent"
@@ -3453,7 +3453,7 @@ window.physicsElectricalEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsEETime"
@@ -3475,7 +3475,7 @@ window.physicsElectricalEnergy = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الطاقة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط·ط§ظ‚ط©
         </button>
 
         <div id="physicsEEResult"
@@ -3493,7 +3493,7 @@ window.physicsElectricalEnergy = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -3518,7 +3518,7 @@ window.physicsElectricalEnergy = function () {
 
 
 // ==========================================
-// 🧮 حساب الطاقة الكهربائية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 // ==========================================
 
 window.calculatePhysicsElectricalEnergy = function () {
@@ -3555,7 +3555,7 @@ window.calculatePhysicsElectricalEnergy = function () {
         const energy = power * time;
 
         result.innerHTML =
-            `✅ E = ${energy.toFixed(6)} J`;
+            `âœ… E = ${energy.toFixed(6)} J`;
 
         return;
     }
@@ -3571,16 +3571,16 @@ window.calculatePhysicsElectricalEnergy = function () {
             voltage * current * time;
 
         result.innerHTML =
-            `✅ E = ${energy.toFixed(6)} J`;
+            `âœ… E = ${energy.toFixed(6)} J`;
 
         return;
     }
 
     result.innerHTML =
-        "⚠️ أدخل P و t أو أدخل V و I و t";
+        "âڑ ï¸ڈ ط£ط¯ط®ظ„ P ظˆ t ط£ظˆ ط£ط¯ط®ظ„ V ظˆ I ظˆ t";
 };
 // ==========================================
-// 🔗 مقاومات التوالي
+// ًں”— ظ…ظ‚ط§ظˆظ…ط§طھ ط§ظ„طھظˆط§ظ„ظٹ
 // ==========================================
 
 window.physicsSeriesResistance = function () {
@@ -3594,7 +3594,7 @@ window.physicsSeriesResistance = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔗 مقاومات التوالي
+            ًں”— ظ…ظ‚ط§ظˆظ…ط§طھ ط§ظ„طھظˆط§ظ„ظٹ
         </div>
 
         <div style="
@@ -3606,7 +3606,7 @@ window.physicsSeriesResistance = function () {
         </div>
 
         <div style="margin:6px 0;">
-            عدد المقاومات:
+            ط¹ط¯ط¯ ط§ظ„ظ…ظ‚ط§ظˆظ…ط§طھ:
         </div>
 
         <input id="seriesCount"
@@ -3628,7 +3628,7 @@ window.physicsSeriesResistance = function () {
                     padding:9px;
                     margin-bottom:8px;
                 ">
-            ➕ إنشاء الخانات
+            â‍• ط¥ظ†ط´ط§ط، ط§ظ„ط®ط§ظ†ط§طھ
         </button>
 
         <div id="seriesInputs"
@@ -3646,7 +3646,7 @@ window.physicsSeriesResistance = function () {
                     padding:10px;
                     margin-top:8px;
                 ">
-            🧮 احسب المقاومة المكافئة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ط§ظ„ظ…ظƒط§ظپط¦ط©
         </button>
 
         <div id="seriesResult"
@@ -3664,11 +3664,11 @@ window.physicsSeriesResistance = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
-    // لا ننشئ الخانات تلقائيًا
+    // ظ„ط§ ظ†ظ†ط´ط¦ ط§ظ„ط®ط§ظ†ط§طھ طھظ„ظ‚ط§ط¦ظٹظ‹ط§
 };
 window.createSeriesInputs = function () {
 
@@ -3681,12 +3681,12 @@ window.createSeriesInputs = function () {
         document.getElementById("seriesInputs");
 
     if (!container) {
-        console.log("❌ seriesInputs غير موجود");
+        console.log("â‌Œ seriesInputs ط؛ظٹط± ظ…ظˆط¬ظˆط¯");
         return;
     }
 
     if (!Number.isInteger(count) || count < 1) {
-        console.log("❌ عدد المقاومات غير صحيح");
+        console.log("â‌Œ ط¹ط¯ط¯ ط§ظ„ظ…ظ‚ط§ظˆظ…ط§طھ ط؛ظٹط± طµط­ظٹط­");
         return;
     }
 
@@ -3701,7 +3701,7 @@ window.createSeriesInputs = function () {
         input.readOnly = true;
         input.dir = "ltr";
 
-        input.placeholder = `R${i} (Ω)`;
+        input.placeholder = `R${i} (خ©)`;
 
         input.style.cssText = `
             display:block;
@@ -3729,15 +3729,15 @@ window.createSeriesInputs = function () {
     window.activePhysicsField = "seriesR1";
 
     console.log(
-        "✅ تم إنشاء",
+        "âœ… طھظ… ط¥ظ†ط´ط§ط،",
         count,
-        "خانة مقاومة"
+        "ط®ط§ظ†ط© ظ…ظ‚ط§ظˆظ…ط©"
     );
 };
 
 
 // ==========================================
-// 🧮 حساب مقاومات التوالي
+// ًں§® ط­ط³ط§ط¨ ظ…ظ‚ط§ظˆظ…ط§طھ ط§ظ„طھظˆط§ظ„ظٹ
 // ==========================================
 
 window.calculateSeriesResistance = function () {
@@ -3761,7 +3761,7 @@ window.calculateSeriesResistance = function () {
         if (!Number.isFinite(value)) {
 
             result.innerHTML =
-                `⚠️ أدخل قيمة R${i}`;
+                `âڑ ï¸ڈ ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© R${i}`;
 
             return;
         }
@@ -3770,10 +3770,10 @@ window.calculateSeriesResistance = function () {
     }
 
     result.innerHTML =
-        `✅ Rt = ${total.toFixed(6)} Ω`;
+        `âœ… Rt = ${total.toFixed(6)} خ©`;
 };
 // ==========================================
-// 🔗 مقاومات التوازي
+// ًں”— ظ…ظ‚ط§ظˆظ…ط§طھ ط§ظ„طھظˆط§ط²ظٹ
 // 1/Rt = 1/R1 + 1/R2 + 1/R3 + ...
 // ==========================================
 
@@ -3788,7 +3788,7 @@ window.physicsParallelResistance = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔗 مقاومات التوازي
+            ًں”— ظ…ظ‚ط§ظˆظ…ط§طھ ط§ظ„طھظˆط§ط²ظٹ
         </div>
 
         <div style="
@@ -3800,7 +3800,7 @@ window.physicsParallelResistance = function () {
         </div>
 
         <div style="margin:6px 0;">
-            عدد المقاومات:
+            ط¹ط¯ط¯ ط§ظ„ظ…ظ‚ط§ظˆظ…ط§طھ:
         </div>
 
         <input id="parallelCount"
@@ -3822,7 +3822,7 @@ window.physicsParallelResistance = function () {
                     padding:9px;
                     margin-bottom:8px;
                 ">
-            ➕ إنشاء الخانات
+            â‍• ط¥ظ†ط´ط§ط، ط§ظ„ط®ط§ظ†ط§طھ
         </button>
 
         <div id="parallelInputs"
@@ -3840,7 +3840,7 @@ window.physicsParallelResistance = function () {
                     padding:10px;
                     margin-top:8px;
                 ">
-            🧮 احسب المقاومة المكافئة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ط§ظ„ظ…ظƒط§ظپط¦ط©
         </button>
 
         <div id="parallelResult"
@@ -3858,14 +3858,14 @@ window.physicsParallelResistance = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 };
 
 
 // ==========================================
-// إنشاء خانات التوازي
+// ط¥ظ†ط´ط§ط، ط®ط§ظ†ط§طھ ط§ظ„طھظˆط§ط²ظٹ
 // ==========================================
 
 window.createParallelInputs = function () {
@@ -3879,12 +3879,12 @@ window.createParallelInputs = function () {
         document.getElementById("parallelInputs");
 
     if (!container) {
-        console.log("❌ parallelInputs غير موجود");
+        console.log("â‌Œ parallelInputs ط؛ظٹط± ظ…ظˆط¬ظˆط¯");
         return;
     }
 
     if (!Number.isInteger(count) || count < 1) {
-        console.log("❌ عدد المقاومات غير صحيح");
+        console.log("â‌Œ ط¹ط¯ط¯ ط§ظ„ظ…ظ‚ط§ظˆظ…ط§طھ ط؛ظٹط± طµط­ظٹط­");
         return;
     }
 
@@ -3899,7 +3899,7 @@ window.createParallelInputs = function () {
         input.readOnly = true;
         input.dir = "ltr";
 
-        input.placeholder = `R${i} (Ω)`;
+        input.placeholder = `R${i} (خ©)`;
 
         input.style.cssText = `
             display:block;
@@ -3927,15 +3927,15 @@ window.createParallelInputs = function () {
     window.activePhysicsField = "parallelR1";
 
     console.log(
-        "✅ تم إنشاء",
+        "âœ… طھظ… ط¥ظ†ط´ط§ط،",
         count,
-        "خانة مقاومة توازي"
+        "ط®ط§ظ†ط© ظ…ظ‚ط§ظˆظ…ط© طھظˆط§ط²ظٹ"
     );
 };
 
 
 // ==========================================
-// 🧮 حساب المقاومة المكافئة للتوازي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ط§ظ„ظ…ظƒط§ظپط¦ط© ظ„ظ„طھظˆط§ط²ظٹ
 // ==========================================
 
 window.calculateParallelResistance = function () {
@@ -3953,7 +3953,7 @@ window.calculateParallelResistance = function () {
     if (!Number.isInteger(count) || count < 1) {
 
         result.innerHTML =
-            "⚠️ أدخل عددًا صحيحًا للمقاومات";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¹ط¯ط¯ظ‹ط§ طµط­ظٹط­ظ‹ط§ ظ„ظ„ظ…ظ‚ط§ظˆظ…ط§طھ";
 
         return;
     }
@@ -3971,7 +3971,7 @@ window.calculateParallelResistance = function () {
         if (!Number.isFinite(value)) {
 
             result.innerHTML =
-                `⚠️ أدخل قيمة R${i}`;
+                `âڑ ï¸ڈ ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© R${i}`;
 
             return;
         }
@@ -3979,7 +3979,7 @@ window.calculateParallelResistance = function () {
         if (value <= 0) {
 
             result.innerHTML =
-                `❌ قيمة R${i} يجب أن تكون أكبر من صفر`;
+                `â‌Œ ظ‚ظٹظ…ط© R${i} ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±`;
 
             return;
         }
@@ -3991,10 +3991,10 @@ window.calculateParallelResistance = function () {
         1 / reciprocalTotal;
 
     result.innerHTML =
-        `✅ Rt = ${total.toFixed(6)} Ω`;
+        `âœ… Rt = ${total.toFixed(6)} خ©`;
 };
 // ==========================================
-// ⚡ حاسبة قوانين كيرشوف
+// âڑ، ط­ط§ط³ط¨ط© ظ‚ظˆط§ظ†ظٹظ† ظƒظٹط±ط´ظˆظپ
 // KCL + KVL
 // ==========================================
 
@@ -4009,7 +4009,7 @@ window.physicsKirchhoff = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚡ قوانين كيرشوف
+            âڑ، ظ‚ظˆط§ظ†ظٹظ† ظƒظٹط±ط´ظˆظپ
         </div>
 
         <div style="
@@ -4017,7 +4017,7 @@ window.physicsKirchhoff = function () {
             font-size:13px;
             margin-bottom:12px;
         ">
-            اختر القانون:
+            ط§ط®طھط± ط§ظ„ظ‚ط§ظ†ظˆظ†:
         </div>
 
         <button onclick="kirchhoffCurrent()"
@@ -4026,7 +4026,7 @@ window.physicsKirchhoff = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔋 قانون التيار KCL
+            ًں”‹ ظ‚ط§ظ†ظˆظ† ط§ظ„طھظٹط§ط± KCL
         </button>
 
         <button onclick="kirchhoffVoltage()"
@@ -4035,7 +4035,7 @@ window.physicsKirchhoff = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚡ قانون الجهد KVL
+            âڑ، ظ‚ط§ظ†ظˆظ† ط§ظ„ط¬ظ‡ط¯ KVL
         </button>
 <button onclick="physicsKVLMinus()"
         style="
@@ -4044,7 +4044,7 @@ window.physicsKirchhoff = function () {
             margin:4px 0;
             font-size:14px;
         ">
-    − السالب
+    âˆ’ ط§ظ„ط³ط§ظ„ط¨
 </button>
         <button onclick="openPhysicsElectricity()"
                 style="
@@ -4052,15 +4052,15 @@ window.physicsKirchhoff = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 };
 
 
 // ==========================================
-// 🔋 KCL
-// مجموع التيارات الداخلة = مجموع التيارات الخارجة
+// ًں”‹ KCL
+// ظ…ط¬ظ…ظˆط¹ ط§ظ„طھظٹط§ط±ط§طھ ط§ظ„ط¯ط§ط®ظ„ط© = ظ…ط¬ظ…ظˆط¹ ط§ظ„طھظٹط§ط±ط§طھ ط§ظ„ط®ط§ط±ط¬ط©
 // ==========================================
 
 window.kirchhoffCurrent = function () {
@@ -4074,7 +4074,7 @@ window.kirchhoffCurrent = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔋 قانون التيار KCL
+            ًں”‹ ظ‚ط§ظ†ظˆظ† ط§ظ„طھظٹط§ط± KCL
         </div>
 
         <div style="
@@ -4082,17 +4082,17 @@ window.kirchhoffCurrent = function () {
             margin-bottom:10px;
             font-weight:bold;
         ">
-            مجموع التيارات الداخلة = الخارجة
+            ظ…ط¬ظ…ظˆط¹ ط§ظ„طھظٹط§ط±ط§طھ ط§ظ„ط¯ط§ط®ظ„ط© = ط§ظ„ط®ط§ط±ط¬ط©
         </div>
 
         <div style="margin:6px 0;">
-            التيارات الداخلة (A):
+            ط§ظ„طھظٹط§ط±ط§طھ ط§ظ„ط¯ط§ط®ظ„ط© (A):
         </div>
 
         <input id="kclIn"
                type="text"
                readonly
-               placeholder="مثال: 2,3,4"
+               placeholder="ظ…ط«ط§ظ„: 2,3,4"
                dir="ltr"
                style="
                    width:90%;
@@ -4103,13 +4103,13 @@ window.kirchhoffCurrent = function () {
                ">
 
         <div style="margin:6px 0;">
-            التيارات الخارجة (A):
+            ط§ظ„طھظٹط§ط±ط§طھ ط§ظ„ط®ط§ط±ط¬ط© (A):
         </div>
 
         <input id="kclOut"
                type="text"
                readonly
-               placeholder="مثال: 1,5"
+               placeholder="ظ…ط«ط§ظ„: 1,5"
                dir="ltr"
                style="
                    width:90%;
@@ -4124,7 +4124,7 @@ window.kirchhoffCurrent = function () {
                     width:100%;
                     padding:10px;
                 ">
-            🧮 تحقق من KCL
+            ًں§® طھط­ظ‚ظ‚ ظ…ظ† KCL
         </button>
 
         <div id="kclResult"
@@ -4141,7 +4141,7 @@ window.kirchhoffCurrent = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع لكيرشوف
+            â†گ ط±ط¬ظˆط¹ ظ„ظƒظٹط±ط´ظˆظپ
         </button>
     `);
 
@@ -4160,7 +4160,7 @@ window.kirchhoffCurrent = function () {
 
 
 // ==========================================
-// 🧮 حساب KCL
+// ًں§® ط­ط³ط§ط¨ KCL
 // ==========================================
 
 window.calculateKCL = function () {
@@ -4187,7 +4187,7 @@ window.calculateKCL = function () {
     if (!incoming.length || !outgoing.length) {
 
         result.innerHTML =
-            "⚠️ أدخل التيارات مفصولة بفواصل";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„طھظٹط§ط±ط§طھ ظ…ظپطµظˆظ„ط© ط¨ظپظˆط§طµظ„";
 
         return;
     }
@@ -4204,24 +4204,24 @@ window.calculateKCL = function () {
     if (Math.abs(difference) < 1e-10) {
 
         result.innerHTML =
-            `✅ KCL صحيح<br>
-             الداخل = ${sumIn.toFixed(6)} A<br>
-             الخارج = ${sumOut.toFixed(6)} A`;
+            `âœ… KCL طµط­ظٹط­<br>
+             ط§ظ„ط¯ط§ط®ظ„ = ${sumIn.toFixed(6)} A<br>
+             ط§ظ„ط®ط§ط±ط¬ = ${sumOut.toFixed(6)} A`;
 
     } else {
 
         result.innerHTML =
-            `❌ KCL غير متحقق<br>
-             الداخل = ${sumIn.toFixed(6)} A<br>
-             الخارج = ${sumOut.toFixed(6)} A<br>
-             الفرق = ${difference.toFixed(6)} A`;
+            `â‌Œ KCL ط؛ظٹط± ظ…طھط­ظ‚ظ‚<br>
+             ط§ظ„ط¯ط§ط®ظ„ = ${sumIn.toFixed(6)} A<br>
+             ط§ظ„ط®ط§ط±ط¬ = ${sumOut.toFixed(6)} A<br>
+             ط§ظ„ظپط±ظ‚ = ${difference.toFixed(6)} A`;
     }
 };
 
 
 // ==========================================
-// ⚡ KVL
-// مجموع فروق الجهد في الحلقة = 0
+// âڑ، KVL
+// ظ…ط¬ظ…ظˆط¹ ظپط±ظˆظ‚ ط§ظ„ط¬ظ‡ط¯ ظپظٹ ط§ظ„ط­ظ„ظ‚ط© = 0
 // ==========================================
 
 window.kirchhoffVoltage = function () {
@@ -4235,7 +4235,7 @@ window.kirchhoffVoltage = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚡ قانون الجهد KVL
+            âڑ، ظ‚ط§ظ†ظˆظ† ط§ظ„ط¬ظ‡ط¯ KVL
         </div>
 
         <div style="
@@ -4243,17 +4243,17 @@ window.kirchhoffVoltage = function () {
             margin-bottom:10px;
             font-weight:bold;
         ">
-            مجموع فروق الجهد = 0
+            ظ…ط¬ظ…ظˆط¹ ظپط±ظˆظ‚ ط§ظ„ط¬ظ‡ط¯ = 0
         </div>
 
         <div style="margin:6px 0;">
-            فروق الجهد (V):
+            ظپط±ظˆظ‚ ط§ظ„ط¬ظ‡ط¯ (V):
         </div>
 
         <input id="kvlValues"
                type="text"
                readonly
-               placeholder="مثال: 12,-5,-7"
+               placeholder="ظ…ط«ط§ظ„: 12,-5,-7"
                dir="ltr"
                style="
                    width:90%;
@@ -4269,14 +4269,14 @@ window.kirchhoffVoltage = function () {
             margin:4px 0;
             font-size:14px;
         ">
-    − السالب
+    âˆ’ ط§ظ„ط³ط§ظ„ط¨
 </button>
         <button onclick="calculateKVL()"
                 style="
                     width:100%;
                     padding:10px;
                 ">
-            🧮 تحقق من KVL
+            ًں§® طھط­ظ‚ظ‚ ظ…ظ† KVL
         </button>
 
         <div id="kvlResult"
@@ -4293,7 +4293,7 @@ window.kirchhoffVoltage = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع لكيرشوف
+            â†گ ط±ط¬ظˆط¹ ظ„ظƒظٹط±ط´ظˆظپ
         </button>
     `);
 
@@ -4306,7 +4306,7 @@ window.kirchhoffVoltage = function () {
 };
 
 // ==========================================
-// ⚛️ السالب داخل KVL
+// âڑ›ï¸ڈ ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ KVL
 // ==========================================
 
 window.physicsKVLMinus = function () {
@@ -4320,12 +4320,12 @@ window.physicsKVLMinus = function () {
     field.value += "-";
 
     console.log(
-        "⚡ KVL MINUS:",
+        "âڑ، KVL MINUS:",
         field.value
     );
 };
 // ==========================================
-// ⚡ KVL — تحديد خانة الإدخال
+// âڑ، KVL â€” طھط­ط¯ظٹط¯ ط®ط§ظ†ط© ط§ظ„ط¥ط¯ط®ط§ظ„
 // ==========================================
 
 document.addEventListener("click", function (e) {
@@ -4335,7 +4335,7 @@ document.addEventListener("click", function (e) {
         window.activePhysicsField = "kvlValues";
 
         console.log(
-            "⚡ KVL FIELD ACTIVE:",
+            "âڑ، KVL FIELD ACTIVE:",
             window.activePhysicsField
         );
     }
@@ -4343,7 +4343,7 @@ document.addEventListener("click", function (e) {
 });
 
 // ==========================================
-// 🧮 حساب KVL
+// ًں§® ط­ط³ط§ط¨ KVL
 // ==========================================
 
 window.calculateKVL = function () {
@@ -4362,7 +4362,7 @@ window.calculateKVL = function () {
     if (!values.length) {
 
         result.innerHTML =
-            "⚠️ أدخل فروق الجهد مفصولة بفواصل";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ظپط±ظˆظ‚ ط§ظ„ط¬ظ‡ط¯ ظ…ظپطµظˆظ„ط© ط¨ظپظˆط§طµظ„";
 
         return;
     }
@@ -4373,19 +4373,19 @@ window.calculateKVL = function () {
     if (Math.abs(total) < 1e-10) {
 
         result.innerHTML =
-            `✅ KVL صحيح<br>
-             المجموع = ${total.toFixed(6)} V`;
+            `âœ… KVL طµط­ظٹط­<br>
+             ط§ظ„ظ…ط¬ظ…ظˆط¹ = ${total.toFixed(6)} V`;
 
     } else {
 
         result.innerHTML =
-            `❌ KVL غير متحقق<br>
-             المجموع = ${total.toFixed(6)} V`;
+            `â‌Œ KVL ط؛ظٹط± ظ…طھط­ظ‚ظ‚<br>
+             ط§ظ„ظ…ط¬ظ…ظˆط¹ = ${total.toFixed(6)} V`;
     }
 };
 // ==========================================
-// 🔋 حاسبة الشحنة الكهربائية
-// Q = I × t
+// ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„ط´ط­ظ†ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
+// Q = I أ— t
 // ==========================================
 
 window.physicsElectricCharge = function () {
@@ -4400,7 +4400,7 @@ window.physicsElectricCharge = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔋 حاسبة الشحنة الكهربائية
+            ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„ط´ط­ظ†ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
         </div>
 
         <div style="
@@ -4408,11 +4408,11 @@ window.physicsElectricCharge = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Q = I × t
+            Q = I أ— t
         </div>
 
         <div style="margin:6px 0;">
-            التيار I (A):
+            ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsChargeCurrent"
@@ -4429,7 +4429,7 @@ window.physicsElectricCharge = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsChargeTime"
@@ -4451,7 +4451,7 @@ window.physicsElectricCharge = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الشحنة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط´ط­ظ†ط©
         </button>
 
         <div id="physicsChargeResult"
@@ -4469,7 +4469,7 @@ window.physicsElectricCharge = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -4496,7 +4496,7 @@ window.physicsElectricCharge = function () {
 
 
 // ==========================================
-// 🧮 حساب الشحنة الكهربائية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط´ط­ظ†ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 // ==========================================
 
 window.calculatePhysicsElectricCharge = function () {
@@ -4524,7 +4524,7 @@ window.calculatePhysicsElectricCharge = function () {
         !Number.isFinite(time)) {
 
         result.innerHTML =
-            "⚠️ أدخل التيار والزمن أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„طھظٹط§ط± ظˆط§ظ„ط²ظ…ظ† ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -4532,11 +4532,11 @@ window.calculatePhysicsElectricCharge = function () {
     const charge = current * time;
 
     result.innerHTML =
-        `✅ Q = ${charge.toFixed(6)} C`;
+        `âœ… Q = ${charge.toFixed(6)} C`;
 };
 // ==========================================
-// ⚛️ حاسبة السعة الكهربائية
-// C = Q ÷ V
+// âڑ›ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط³ط¹ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
+// C = Q أ· V
 // ==========================================
 
 window.physicsCapacitance = function () {
@@ -4551,7 +4551,7 @@ window.physicsCapacitance = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚛️ حاسبة السعة الكهربائية
+            âڑ›ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط³ط¹ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
         </div>
 
         <div style="
@@ -4559,11 +4559,11 @@ window.physicsCapacitance = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            C = Q ÷ V
+            C = Q أ· V
         </div>
 
         <div style="margin:6px 0;">
-            الشحنة Q (C):
+            ط§ظ„ط´ط­ظ†ط© Q (C):
         </div>
 
         <input id="physicsCapacitanceCharge"
@@ -4580,7 +4580,7 @@ window.physicsCapacitance = function () {
                ">
 
         <div style="margin:6px 0;">
-            الجهد V (V):
+            ط§ظ„ط¬ظ‡ط¯ V (V):
         </div>
 
         <input id="physicsCapacitanceVoltage"
@@ -4602,7 +4602,7 @@ window.physicsCapacitance = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب السعة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط³ط¹ط©
         </button>
 
         <div id="physicsCapacitanceResult"
@@ -4620,7 +4620,7 @@ window.physicsCapacitance = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -4650,7 +4650,7 @@ window.physicsCapacitance = function () {
 
 
 // ==========================================
-// 🧮 حساب السعة الكهربائية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط³ط¹ط© ط§ظ„ظƒظ‡ط±ط¨ط§ط¦ظٹط©
 // ==========================================
 
 window.calculatePhysicsCapacitance = function () {
@@ -4678,7 +4678,7 @@ window.calculatePhysicsCapacitance = function () {
         !Number.isFinite(voltage)) {
 
         result.innerHTML =
-            "⚠️ أدخل الشحنة والجهد أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط´ط­ظ†ط© ظˆط§ظ„ط¬ظ‡ط¯ ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -4686,7 +4686,7 @@ window.calculatePhysicsCapacitance = function () {
     if (voltage === 0) {
 
         result.innerHTML =
-            "❌ الجهد لا يمكن أن يساوي صفر";
+            "â‌Œ ط§ظ„ط¬ظ‡ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -4695,12 +4695,12 @@ window.calculatePhysicsCapacitance = function () {
         charge / voltage;
 
     result.innerHTML =
-        `✅ C = ${capacitance.toFixed(6)} F`;
+        `âœ… C = ${capacitance.toFixed(6)} F`;
 };
 // ==========================================
-// 🌀 حاسبة الحث الكهرومغناطيسي
-// قانون فاراداي
-// ε = -N × ΔΦ ÷ Δt
+// ًںŒ€ ط­ط§ط³ط¨ط© ط§ظ„ط­ط« ط§ظ„ظƒظ‡ط±ظˆظ…ط؛ظ†ط§ط·ظٹط³ظٹ
+// ظ‚ط§ظ†ظˆظ† ظپط§ط±ط§ط¯ط§ظٹ
+// خµ = -N أ— خ”خ¦ أ· خ”t
 // ==========================================
 
 window.physicsElectromagneticInduction = function () {
@@ -4715,7 +4715,7 @@ window.physicsElectromagneticInduction = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌀 الحث الكهرومغناطيسي
+            ًںŒ€ ط§ظ„ط­ط« ط§ظ„ظƒظ‡ط±ظˆظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </div>
 
         <div style="
@@ -4724,12 +4724,12 @@ window.physicsElectromagneticInduction = function () {
             font-weight:bold;
             line-height:1.8;
         ">
-            قانون فاراداي<br>
-            ε = −N × ΔΦ ÷ Δt
+            ظ‚ط§ظ†ظˆظ† ظپط§ط±ط§ط¯ط§ظٹ<br>
+            خµ = âˆ’N أ— خ”خ¦ أ· خ”t
         </div>
 
         <div style="margin:6px 0;">
-            عدد اللفات N:
+            ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ N:
         </div>
 
         <input id="physicsEMIN"
@@ -4746,7 +4746,7 @@ window.physicsElectromagneticInduction = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في الفيض ΔΦ (Wb):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ظپظٹط¶ خ”خ¦ (Wb):
         </div>
 
         <input id="physicsEMIFlux"
@@ -4763,7 +4763,7 @@ window.physicsElectromagneticInduction = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في الزمن Δt (s):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ط²ظ…ظ† خ”t (s):
         </div>
 
         <input id="physicsEMITime"
@@ -4785,7 +4785,7 @@ window.physicsElectromagneticInduction = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القوة الدافعة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط©
         </button>
 
         <div id="physicsEMIResult"
@@ -4803,7 +4803,7 @@ window.physicsElectromagneticInduction = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للكهرباء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
     `);
 
@@ -4828,7 +4828,7 @@ window.physicsElectromagneticInduction = function () {
 
 
 // ==========================================
-// 🧮 حساب الحث الكهرومغناطيسي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط­ط« ط§ظ„ظƒظ‡ط±ظˆظ…ط؛ظ†ط§ط·ظٹط³ظٹ
 // ==========================================
 
 window.calculatePhysicsElectromagneticInduction = function () {
@@ -4856,7 +4856,7 @@ window.calculatePhysicsElectromagneticInduction = function () {
         !Number.isFinite(time)) {
 
         result.innerHTML =
-            "⚠️ أدخل عدد اللفات والفيض والزمن أولاً";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظˆط§ظ„ظپظٹط¶ ظˆط§ظ„ط²ظ…ظ† ط£ظˆظ„ط§ظ‹";
 
         return;
     }
@@ -4864,7 +4864,7 @@ window.calculatePhysicsElectromagneticInduction = function () {
     if (N < 0) {
 
         result.innerHTML =
-            "❌ عدد اللفات لا يمكن أن يكون سالبًا";
+            "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
 
         return;
     }
@@ -4872,7 +4872,7 @@ window.calculatePhysicsElectromagneticInduction = function () {
     if (time === 0) {
 
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يساوي صفر";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -4881,10 +4881,10 @@ window.calculatePhysicsElectromagneticInduction = function () {
         -(N * flux) / time;
 
     result.innerHTML =
-        `✅ ε = ${emf.toFixed(6)} V`;
+        `âœ… خµ = ${emf.toFixed(6)} V`;
 };
 // ==========================================
-// 🌡️ قائمة الحرارة والديناميكا الحرارية
+// ًںŒ،ï¸ڈ ظ‚ط§ط¦ظ…ط© ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
 // ==========================================
 
 window.openPhysicsHeat = function () {
@@ -4898,7 +4898,7 @@ window.openPhysicsHeat = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🌡️ الحرارة والديناميكا الحرارية
+            ًںŒ،ï¸ڈ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
         </div>
 
         <div style="
@@ -4907,11 +4907,11 @@ window.openPhysicsHeat = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsTemperature()">
-    🌡️ درجة الحرارة
+    ًںŒ،ï¸ڈ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
 </button>
 
 
@@ -4921,7 +4921,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔥 كمية الحرارة
+            ًں”¥ ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط©
         </button>
 
         <button onclick="physicsSpecificHeat()"
@@ -4930,7 +4930,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🧪 الحرارة النوعية
+            ًں§ھ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ظˆط¹ظٹط©
         </button>
 
         <button onclick="physicsLatentHeat()"
@@ -4939,7 +4939,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🧊 الحرارة الكامنة
+            ًں§ٹ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظƒط§ظ…ظ†ط©
         </button>
 
         <button onclick="physicsThermalExpansion()"
@@ -4948,7 +4948,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📏 التمدد الحراري
+            ًں“ڈ ط§ظ„طھظ…ط¯ط¯ ط§ظ„ط­ط±ط§ط±ظٹ
         </button>
 
         <button onclick="physicsGasLaw()"
@@ -4957,7 +4957,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            💨 قانون الغازات
+            ًں’¨ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط²ط§طھ
         </button>
 
         <button onclick="physicsPressureTemperature()"
@@ -4966,7 +4966,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🎈 العلاقة بين الضغط ودرجة الحرارة
+            ًںژˆ ط§ظ„ط¹ظ„ط§ظ‚ط© ط¨ظٹظ† ط§ظ„ط¶ط؛ط· ظˆط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
         </button>
 
         <button onclick="physicsIdealGas()"
@@ -4975,7 +4975,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚛️ قانون الغاز المثالي
+            âڑ›ï¸ڈ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
         </button>
 
         <button onclick="physicsThermalEfficiency()"
@@ -4984,7 +4984,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚙️ الكفاءة الحرارية
+            âڑ™ï¸ڈ ط§ظ„ظƒظپط§ط،ط© ط§ظ„ط­ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="physicsFirstLaw()"
@@ -4993,7 +4993,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ♨️ القانون الأول للديناميكا الحرارية
+            â™¨ï¸ڈ ط§ظ„ظ‚ط§ظ†ظˆظ† ط§ظ„ط£ظˆظ„ ظ„ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="physicsHeatPower()"
@@ -5002,7 +5002,7 @@ window.openPhysicsHeat = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔥 معدل انتقال الحرارة
+            ًں”¥ ظ…ط¹ط¯ظ„ ط§ظ†طھظ‚ط§ظ„ ط§ظ„ط­ط±ط§ط±ط©
         </button>
 
         <button onclick="backToPhysics()"
@@ -5011,12 +5011,12 @@ window.openPhysicsHeat = function () {
             padding:9px;
             margin-top:10px;
         ">
-    ← رجوع للفيزياء
+    â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
 </button>
     `);
 };
 // ==========================================
-// 🔙 الرجوع من الحرارة إلى قائمة الفيزياء
+// ًں”™ ط§ظ„ط±ط¬ظˆط¹ ظ…ظ† ط§ظ„ط­ط±ط§ط±ط© ط¥ظ„ظ‰ ظ‚ط§ط¦ظ…ط© ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 window.backToPhysics = function () {
@@ -5029,7 +5029,7 @@ window.backToPhysics = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚛️ الفيزياء
+            âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط،
         </div>
 
         <div style="
@@ -5037,57 +5037,57 @@ window.backToPhysics = function () {
             font-weight:bold;
             margin-bottom:8px;
         ">
-            اختر القسم:
+            ط§ط®طھط± ط§ظ„ظ‚ط³ظ…:
         </div>
 
         <button onclick="openPhysicsMechanics()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🏎️ الميكانيكا والحركة
+            ًںڈژï¸ڈ ط§ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§ ظˆط§ظ„ط­ط±ظƒط©
         </button>
 
         <button onclick="openPhysicsElectricity()"
             style="width:100%; padding:10px; margin:3px 0;">
-            ⚡ الكهرباء
+            âڑ، ط§ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
 
         <button onclick="openPhysicsHeat()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🌡️ الحرارة والديناميكا الحرارية
+            ًںŒ،ï¸ڈ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="openPhysicsFluids()"
             style="width:100%; padding:10px; margin:3px 0;">
-            💧 الموائع والضغط
+            ًں’§ ط§ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
 
         <button onclick="openPhysicsWaves()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🌊 الموجات والصوت
+            ًںŒٹ ط§ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
 
         <button onclick="openPhysicsOptics()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🔦 البصريات
+            ًں”¦ ط§ظ„ط¨طµط±ظٹط§طھ
         </button>
 
         <button onclick="openPhysicsMagnetism()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🧲 المغناطيسية
+            ًں§² ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
 
         <button onclick="openPhysicsModern()"
             style="width:100%; padding:10px; margin:3px 0;">
-            ⚛️ الفيزياء الحديثة
+            âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
 
         <button onclick="openCalculatorHome()"
             style="width:100%; padding:10px; margin-top:10px;">
-            ← الرجوع
+            â†گ ط§ظ„ط±ط¬ظˆط¹
         </button>
     `);
 };
 // ==========================================
-// 💧 قائمة الموائع والضغط
+// ًں’§ ظ‚ط§ط¦ظ…ط© ط§ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
 // ==========================================
 
 window.openPhysicsFluids = function () {
@@ -5101,7 +5101,7 @@ window.openPhysicsFluids = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            💧 الموائع والضغط
+            ًں’§ ط§ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </div>
 
         <div style="
@@ -5110,7 +5110,7 @@ window.openPhysicsFluids = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsDensity()"
@@ -5119,7 +5119,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            💧 الكثافة
+            ًں’§ ط§ظ„ظƒط«ط§ظپط©
         </button>
 
         <button onclick="physicsPressure()"
@@ -5128,7 +5128,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚖️ الضغط
+            âڑ–ï¸ڈ ط§ظ„ط¶ط؛ط·
         </button>
 
         <button onclick="physicsFluidPressure()"
@@ -5137,7 +5137,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌊 ضغط السائل
+            ًںŒٹ ط¶ط؛ط· ط§ظ„ط³ط§ط¦ظ„
         </button>
 
         <button onclick="physicsPascalLaw()"
@@ -5146,7 +5146,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🏗️ مبدأ باسكال
+            ًںڈ—ï¸ڈ ظ…ط¨ط¯ط£ ط¨ط§ط³ظƒط§ظ„
         </button>
 
         <button onclick="physicsBuoyantForce()"
@@ -5155,7 +5155,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🚢 قوة الطفو
+            ًںڑ¢ ظ‚ظˆط© ط§ظ„ط·ظپظˆ
         </button>
 
         <button onclick="physicsArchimedes()"
@@ -5164,7 +5164,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚓ مبدأ أرخميدس
+            âڑ“ ظ…ط¨ط¯ط£ ط£ط±ط®ظ…ظٹط¯ط³
         </button>
 
         <button onclick="physicsContinuity()"
@@ -5173,7 +5173,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            💨 معادلة الاستمرارية
+            ًں’¨ ظ…ط¹ط§ط¯ظ„ط© ط§ظ„ط§ط³طھظ…ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="physicsBernoulli()"
@@ -5182,7 +5182,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌪️ معادلة برنولي
+            ًںŒھï¸ڈ ظ…ط¹ط§ط¯ظ„ط© ط¨ط±ظ†ظˆظ„ظٹ
         </button>
 
         <button onclick="physicsAtmosphericPressure()"
@@ -5191,7 +5191,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🧭 الضغط الجوي
+            ًں§­ ط§ظ„ط¶ط؛ط· ط§ظ„ط¬ظˆظٹ
         </button>
 
         <button onclick="physicsTotalFluidPressure()"
@@ -5200,7 +5200,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🪣 الضغط الكلي في السائل
+            ًںھ£ ط§ظ„ط¶ط؛ط· ط§ظ„ظƒظ„ظٹ ظپظٹ ط§ظ„ط³ط§ط¦ظ„
         </button>
 
         <button onclick="window.physicsVolumetricFlow()"
@@ -5209,7 +5209,7 @@ window.openPhysicsFluids = function () {
             padding:10px;
             margin:3px 0;
         ">
-    💦 معدل التدفق الحجمي
+    ًں’¦ ظ…ط¹ط¯ظ„ ط§ظ„طھط¯ظپظ‚ ط§ظ„ط­ط¬ظ…ظٹ
 </button>
 
         <button onclick="physicsViscosity()"
@@ -5218,7 +5218,7 @@ window.openPhysicsFluids = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🧪 اللزوجة
+            ًں§ھ ط§ظ„ظ„ط²ظˆط¬ط©
         </button>
 
         <button onclick="openPhysics()"
@@ -5227,12 +5227,12 @@ window.openPhysicsFluids = function () {
             padding:9px;
             margin-top:10px;
         ">
-    ← رجوع للفيزياء
+    â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
 </button>
     `);
 };
 // ==========================================
-// 🌊 الموجات والصوت
+// ًںŒٹ ط§ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
 // ==========================================
 
 window.openPhysicsWaves = function () {
@@ -5246,7 +5246,7 @@ window.openPhysicsWaves = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🌊 الموجات والصوت
+            ًںŒٹ ط§ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </div>
 
         <div style="
@@ -5255,7 +5255,7 @@ window.openPhysicsWaves = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsWaveSpeed()"
@@ -5264,7 +5264,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌊 سرعة الموجة
+            ًںŒٹ ط³ط±ط¹ط© ط§ظ„ظ…ظˆط¬ط©
         </button>
 
         <button onclick="physicsWavelength()"
@@ -5273,7 +5273,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📏 الطول الموجي
+            ًں“ڈ ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ
         </button>
 
         <button onclick="physicsFrequency()"
@@ -5282,7 +5282,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔄 التردد
+            ًں”„ ط§ظ„طھط±ط¯ط¯
         </button>
 
         <button onclick="physicsPeriod()"
@@ -5291,7 +5291,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⏱️ الزمن الدوري
+            âڈ±ï¸ڈ ط§ظ„ط²ظ…ظ† ط§ظ„ط¯ظˆط±ظٹ
         </button>
 
         <button onclick="physicsSoundIntensity()"
@@ -5300,7 +5300,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📢 شدة الصوت
+            ًں“¢ ط´ط¯ط© ط§ظ„طµظˆطھ
         </button>
 
         <button onclick="physicsSoundLevel()"
@@ -5309,7 +5309,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔊 مستوى شدة الصوت
+            ًں”ٹ ظ…ط³طھظˆظ‰ ط´ط¯ط© ط§ظ„طµظˆطھ
         </button>
 
         <button onclick="physicsWaveFrequency()"
@@ -5318,7 +5318,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🎵 تردد الموجة
+            ًںژµ طھط±ط¯ط¯ ط§ظ„ظ…ظˆط¬ط©
         </button>
 
         <button onclick="physicsStringFrequency()"
@@ -5327,7 +5327,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🪕 تردد الوتر
+            ًںھ• طھط±ط¯ط¯ ط§ظ„ظˆطھط±
         </button>
 
         <button onclick="physicsSoundSpeed()"
@@ -5336,7 +5336,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌡️ سرعة الصوت في الهواء
+            ًںŒ،ï¸ڈ ط³ط±ط¹ط© ط§ظ„طµظˆطھ ظپظٹ ط§ظ„ظ‡ظˆط§ط،
         </button>
 
         <button onclick="physicsDopplerEffect()"
@@ -5345,7 +5345,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📡 تأثير دوبلر
+            ًں“، طھط£ط«ظٹط± ط¯ظˆط¨ظ„ط±
         </button>
 
         <button onclick="physicsResonance()"
@@ -5354,7 +5354,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🎶 الرنين
+            ًںژ¶ ط§ظ„ط±ظ†ظٹظ†
         </button>
 
         <button onclick="physicsHarmonics()"
@@ -5363,7 +5363,7 @@ window.openPhysicsWaves = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔔 التوافقيات
+            ًں”” ط§ظ„طھظˆط§ظپظ‚ظٹط§طھ
         </button>
 
         <button onclick="openPhysics()"
@@ -5372,12 +5372,12 @@ window.openPhysicsWaves = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للفيزياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
         </button>
     `);
 };
 // ==========================================
-// ⚛️ فتح قائمة الفيزياء
+// âڑ›ï¸ڈ ظپطھط­ ظ‚ط§ط¦ظ…ط© ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 window.openPhysics = function () {
@@ -5394,7 +5394,7 @@ window.openPhysics = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚛️ الفيزياء
+            âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط،
         </div>
 
         <div style="
@@ -5402,58 +5402,58 @@ window.openPhysics = function () {
             font-weight:bold;
             margin-bottom:8px;
         ">
-            اختر القسم:
+            ط§ط®طھط± ط§ظ„ظ‚ط³ظ…:
         </div>
 
         <button onclick="openPhysicsMechanics()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🏎️ الميكانيكا والحركة
+            ًںڈژï¸ڈ ط§ظ„ظ…ظٹظƒط§ظ†ظٹظƒط§ ظˆط§ظ„ط­ط±ظƒط©
         </button>
 
         <button onclick="openPhysicsElectricity()"
             style="width:100%; padding:10px; margin:3px 0;">
-            ⚡ الكهرباء
+            âڑ، ط§ظ„ظƒظ‡ط±ط¨ط§ط،
         </button>
 
         <button onclick="openPhysicsHeat()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🌡️ الحرارة والديناميكا الحرارية
+            ًںŒ،ï¸ڈ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
         </button>
 
         <button onclick="openPhysicsFluids()"
             style="width:100%; padding:10px; margin:3px 0;">
-            💧 الموائع والضغط
+            ًں’§ ط§ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
 
         <button onclick="openPhysicsWaves()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🌊 الموجات والصوت
+            ًںŒٹ ط§ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
 
         <button onclick="openPhysicsOptics()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🔦 البصريات
+            ًں”¦ ط§ظ„ط¨طµط±ظٹط§طھ
         </button>
 
         <button onclick="openPhysicsMagnetism()"
             style="width:100%; padding:10px; margin:3px 0;">
-            🧲 المغناطيسية
+            ًں§² ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
 
         <button onclick="openPhysicsModern()"
             style="width:100%; padding:10px; margin:3px 0;">
-            ⚛️ الفيزياء الحديثة
+            âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
 
         <button onclick="openCalculatorHome()"
             style="width:100%; padding:10px; margin-top:10px;">
-            ← الرجوع
+            â†گ ط§ظ„ط±ط¬ظˆط¹
         </button>
     `);
 };
 // ==========================================
-// 🌡️ حاسبة درجة الحرارة
-// تحويل بين °C و °F و K
+// ًںŒ،ï¸ڈ ط­ط§ط³ط¨ط© ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
+// طھط­ظˆظٹظ„ ط¨ظٹظ† آ°C ظˆ آ°F ظˆ K
 // ==========================================
 
 window.physicsTemperature = function () {
@@ -5467,7 +5467,7 @@ window.physicsTemperature = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌡️ حاسبة درجة الحرارة
+            ًںŒ،ï¸ڈ ط­ط§ط³ط¨ط© ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
         </div>
 
         <div style="
@@ -5475,7 +5475,7 @@ window.physicsTemperature = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر نوع التحويل
+            ط§ط®طھط± ظ†ظˆط¹ ط§ظ„طھط­ظˆظٹظ„
         </div>
 
         <button onclick="temperatureCtoF()" style="
@@ -5483,7 +5483,7 @@ window.physicsTemperature = function () {
             padding:10px;
             margin:3px 0;
         ">
-            °C → °F
+            آ°C â†’ آ°F
         </button>
 
         <button onclick="temperatureFtoC()" style="
@@ -5491,7 +5491,7 @@ window.physicsTemperature = function () {
             padding:10px;
             margin:3px 0;
         ">
-            °F → °C
+            آ°F â†’ آ°C
         </button>
 
         <button onclick="temperatureCtoK()" style="
@@ -5499,7 +5499,7 @@ window.physicsTemperature = function () {
             padding:10px;
             margin:3px 0;
         ">
-            °C → K
+            آ°C â†’ K
         </button>
 
         <button onclick="temperatureKtoC()" style="
@@ -5507,7 +5507,7 @@ window.physicsTemperature = function () {
             padding:10px;
             margin:3px 0;
         ">
-            K → °C
+            K â†’ آ°C
         </button>
 
         <button onclick="temperatureFtoK()" style="
@@ -5515,7 +5515,7 @@ window.physicsTemperature = function () {
             padding:10px;
             margin:3px 0;
         ">
-            °F → K
+            آ°F â†’ K
         </button>
 
         <button onclick="temperatureKtoF()" style="
@@ -5523,7 +5523,7 @@ window.physicsTemperature = function () {
             padding:10px;
             margin:3px 0;
         ">
-            K → °F
+            K â†’ آ°F
         </button>
 
         <div id="temperatureResult" style="
@@ -5538,14 +5538,14 @@ window.physicsTemperature = function () {
             padding:9px;
             margin-top:10px;
         ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 };
 
 
 // ==========================================
-// 🌡️ دالة إدخال درجة الحرارة
+// ًںŒ،ï¸ڈ ط¯ط§ظ„ط© ط¥ط¯ط®ط§ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.temperatureInput = function (title, unit, calculate) {
@@ -5557,11 +5557,11 @@ window.temperatureInput = function (title, unit, calculate) {
             text-align:center;
             margin-bottom:12px;
         ">
-            🌡️ ${title}
+            ًںŒ،ï¸ڈ ${title}
         </div>
 
         <div style="margin:6px 0;">
-            درجة الحرارة (${unit}):
+            ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© (${unit}):
         </div>
 
         <input id="temperatureValue"
@@ -5582,7 +5582,7 @@ window.temperatureInput = function (title, unit, calculate) {
             padding:10px;
             margin:4px 0;
         ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="temperatureResult" style="
@@ -5597,7 +5597,7 @@ window.temperatureInput = function (title, unit, calculate) {
             padding:9px;
             margin-top:8px;
         ">
-            ← رجوع
+            â†گ ط±ط¬ظˆط¹
         </button>
     `);
 
@@ -5611,14 +5611,14 @@ window.temperatureInput = function (title, unit, calculate) {
 
 
 // ==========================================
-// °C → °F
+// آ°C â†’ آ°F
 // ==========================================
 
 window.temperatureCtoF = function () {
 
     temperatureInput(
-        "تحويل السيلسيوس إلى فهرنهايت",
-        "°C",
+        "طھط­ظˆظٹظ„ ط§ظ„ط³ظٹظ„ط³ظٹظˆط³ ط¥ظ„ظ‰ ظپظ‡ط±ظ†ظ‡ط§ظٹطھ",
+        "آ°C",
         "calculateCtoF"
     );
 };
@@ -5633,26 +5633,26 @@ window.calculateCtoF = function () {
         document.getElementById("temperatureResult");
 
     if (!Number.isFinite(c)) {
-        result.innerHTML = "⚠️ أدخل درجة الحرارة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
         return;
     }
 
     const f = (c * 9 / 5) + 32;
 
     result.innerHTML =
-        `✅ ${f.toFixed(6)} °F`;
+        `âœ… ${f.toFixed(6)} آ°F`;
 };
 
 
 // ==========================================
-// °F → °C
+// آ°F â†’ آ°C
 // ==========================================
 
 window.temperatureFtoC = function () {
 
     temperatureInput(
-        "تحويل الفهرنهايت إلى سيلسيوس",
-        "°F",
+        "طھط­ظˆظٹظ„ ط§ظ„ظپظ‡ط±ظ†ظ‡ط§ظٹطھ ط¥ظ„ظ‰ ط³ظٹظ„ط³ظٹظˆط³",
+        "آ°F",
         "calculateFtoC"
     );
 };
@@ -5667,26 +5667,26 @@ window.calculateFtoC = function () {
         document.getElementById("temperatureResult");
 
     if (!Number.isFinite(f)) {
-        result.innerHTML = "⚠️ أدخل درجة الحرارة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
         return;
     }
 
     const c = (f - 32) * 5 / 9;
 
     result.innerHTML =
-        `✅ ${c.toFixed(6)} °C`;
+        `âœ… ${c.toFixed(6)} آ°C`;
 };
 
 
 // ==========================================
-// °C → K
+// آ°C â†’ K
 // ==========================================
 
 window.temperatureCtoK = function () {
 
     temperatureInput(
-        "تحويل السيلسيوس إلى كلفن",
-        "°C",
+        "طھط­ظˆظٹظ„ ط§ظ„ط³ظٹظ„ط³ظٹظˆط³ ط¥ظ„ظ‰ ظƒظ„ظپظ†",
+        "آ°C",
         "calculateCtoK"
     );
 };
@@ -5701,25 +5701,25 @@ window.calculateCtoK = function () {
         document.getElementById("temperatureResult");
 
     if (!Number.isFinite(c)) {
-        result.innerHTML = "⚠️ أدخل درجة الحرارة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
         return;
     }
 
     const k = c + 273.15;
 
     result.innerHTML =
-        `✅ ${k.toFixed(6)} K`;
+        `âœ… ${k.toFixed(6)} K`;
 };
 
 
 // ==========================================
-// K → °C
+// K â†’ آ°C
 // ==========================================
 
 window.temperatureKtoC = function () {
 
     temperatureInput(
-        "تحويل الكلفن إلى سيلسيوس",
+        "طھط­ظˆظٹظ„ ط§ظ„ظƒظ„ظپظ† ط¥ظ„ظ‰ ط³ظٹظ„ط³ظٹظˆط³",
         "K",
         "calculateKtoC"
     );
@@ -5735,32 +5735,32 @@ window.calculateKtoC = function () {
         document.getElementById("temperatureResult");
 
     if (!Number.isFinite(k)) {
-        result.innerHTML = "⚠️ أدخل درجة الحرارة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
         return;
     }
 
     if (k < 0) {
         result.innerHTML =
-            "❌ درجة الحرارة بالكلفن لا يمكن أن تكون سالبة";
+            "â‌Œ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط¨ط§ظ„ظƒظ„ظپظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     const c = k - 273.15;
 
     result.innerHTML =
-        `✅ ${c.toFixed(6)} °C`;
+        `âœ… ${c.toFixed(6)} آ°C`;
 };
 
 
 // ==========================================
-// °F → K
+// آ°F â†’ K
 // ==========================================
 
 window.temperatureFtoK = function () {
 
     temperatureInput(
-        "تحويل الفهرنهايت إلى كلفن",
-        "°F",
+        "طھط­ظˆظٹظ„ ط§ظ„ظپظ‡ط±ظ†ظ‡ط§ظٹطھ ط¥ظ„ظ‰ ظƒظ„ظپظ†",
+        "آ°F",
         "calculateFtoK"
     );
 };
@@ -5775,7 +5775,7 @@ window.calculateFtoK = function () {
         document.getElementById("temperatureResult");
 
     if (!Number.isFinite(f)) {
-        result.innerHTML = "⚠️ أدخل درجة الحرارة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
         return;
     }
 
@@ -5783,23 +5783,23 @@ window.calculateFtoK = function () {
 
     if (k < 0) {
         result.innerHTML =
-            "❌ درجة الحرارة الناتجة أقل من الصفر المطلق";
+            "â‌Œ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ط§طھط¬ط© ط£ظ‚ظ„ ظ…ظ† ط§ظ„طµظپط± ط§ظ„ظ…ط·ظ„ظ‚";
         return;
     }
 
     result.innerHTML =
-        `✅ ${k.toFixed(6)} K`;
+        `âœ… ${k.toFixed(6)} K`;
 };
 
 
 // ==========================================
-// K → °F
+// K â†’ آ°F
 // ==========================================
 
 window.temperatureKtoF = function () {
 
     temperatureInput(
-        "تحويل الكلفن إلى فهرنهايت",
+        "طھط­ظˆظٹظ„ ط§ظ„ظƒظ„ظپظ† ط¥ظ„ظ‰ ظپظ‡ط±ظ†ظ‡ط§ظٹطھ",
         "K",
         "calculateKtoF"
     );
@@ -5815,26 +5815,26 @@ window.calculateKtoF = function () {
         document.getElementById("temperatureResult");
 
     if (!Number.isFinite(k)) {
-        result.innerHTML = "⚠️ أدخل درجة الحرارة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
         return;
     }
 
     if (k < 0) {
         result.innerHTML =
-            "❌ درجة الحرارة بالكلفن لا يمكن أن تكون سالبة";
+            "â‌Œ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط¨ط§ظ„ظƒظ„ظپظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     const f = (k - 273.15) * 9 / 5 + 32;
 
     result.innerHTML =
-        `✅ ${f.toFixed(6)} °F`;
+        `âœ… ${f.toFixed(6)} آ°F`;
 };
 
 
 // ==========================================
-// 🌡️ حاسبة كمية الحرارة
-// Q = m × c × ΔT
+// ًںŒ،ï¸ڈ ط­ط§ط³ط¨ط© ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط©
+// Q = m أ— c أ— خ”T
 // ==========================================
 
 window.physicsHeatQuantity = function () {
@@ -5849,7 +5849,7 @@ window.physicsHeatQuantity = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌡️ حاسبة كمية الحرارة
+            ًںŒ،ï¸ڈ ط­ط§ط³ط¨ط© ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط©
         </div>
 
         <div style="
@@ -5857,11 +5857,11 @@ window.physicsHeatQuantity = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Q = m × c × ΔT
+            Q = m أ— c أ— خ”T
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsHeatMass"
@@ -5878,7 +5878,7 @@ window.physicsHeatQuantity = function () {
                ">
 
         <div style="margin:6px 0;">
-            السعة الحرارية النوعية c (J/kg·°C):
+            ط§ظ„ط³ط¹ط© ط§ظ„ط­ط±ط§ط±ظٹط© ط§ظ„ظ†ظˆط¹ظٹط© c (J/kgآ·آ°C):
         </div>
 
         <input id="physicsHeatSpecific"
@@ -5895,7 +5895,7 @@ window.physicsHeatQuantity = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في درجة الحرارة ΔT (°C):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© خ”T (آ°C):
         </div>
 
         <input id="physicsHeatDeltaT"
@@ -5917,7 +5917,7 @@ window.physicsHeatQuantity = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب كمية الحرارة
+            ًں§® ط§ط­ط³ط¨ ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط©
         </button>
 
         <div id="physicsHeatResult"
@@ -5935,7 +5935,7 @@ window.physicsHeatQuantity = function () {
             padding:9px;
             margin-top:8px;
         ">
-    ← رجوع للحرارة
+    â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
 </button>
     `);
 
@@ -5958,15 +5958,15 @@ window.physicsHeatQuantity = function () {
     });
 };
 // ==========================================
-// 🔙 رجوع لقائمة الحرارة
+// ًں”™ ط±ط¬ظˆط¹ ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.backToPhysicsThermal = function () {
     openPhysicsThermal();
 };
 // ==========================================
-// 🧪 حاسبة الحرارة النوعية
-// c = Q ÷ (m × ΔT)
+// ًں§ھ ط­ط§ط³ط¨ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ظˆط¹ظٹط©
+// c = Q أ· (m أ— خ”T)
 // ==========================================
 
 window.physicsSpecificHeat = function () {
@@ -5981,7 +5981,7 @@ window.physicsSpecificHeat = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🧪 حاسبة الحرارة النوعية
+            ًں§ھ ط­ط§ط³ط¨ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ظˆط¹ظٹط©
         </div>
 
         <div style="
@@ -5989,11 +5989,11 @@ window.physicsSpecificHeat = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            c = Q ÷ (m × ΔT)
+            c = Q أ· (m أ— خ”T)
         </div>
 
         <div style="margin:6px 0;">
-            كمية الحرارة Q (J):
+            ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط© Q (J):
         </div>
 
         <input id="physicsSpecificHeatQ"
@@ -6010,7 +6010,7 @@ window.physicsSpecificHeat = function () {
                ">
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsSpecificHeatMass"
@@ -6027,7 +6027,7 @@ window.physicsSpecificHeat = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في درجة الحرارة ΔT (°C):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© خ”T (آ°C):
         </div>
 
         <input id="physicsSpecificHeatDeltaT"
@@ -6049,7 +6049,7 @@ window.physicsSpecificHeat = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الحرارة النوعية
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ظˆط¹ظٹط©
         </button>
 
         <div id="physicsSpecificHeatResult"
@@ -6067,7 +6067,7 @@ window.physicsSpecificHeat = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -6092,7 +6092,7 @@ window.physicsSpecificHeat = function () {
 
 
 // ==========================================
-// 🧮 حساب الحرارة النوعية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ظˆط¹ظٹط©
 // ==========================================
 
 window.calculatePhysicsSpecificHeat = function () {
@@ -6119,29 +6119,29 @@ window.calculatePhysicsSpecificHeat = function () {
         !Number.isFinite(m) ||
         !Number.isFinite(deltaT)
     ) {
-        result.innerHTML = "⚠️ أدخل جميع القيم";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     if (m === 0) {
-        result.innerHTML = "❌ الكتلة لا يمكن أن تساوي صفرًا";
+        result.innerHTML = "â‌Œ ط§ظ„ظƒطھظ„ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     if (deltaT === 0) {
         result.innerHTML =
-            "❌ التغير في درجة الحرارة لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط§ظ„طھط؛ظٹط± ظپظٹ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const c = Q / (m * deltaT);
 
     result.innerHTML =
-        `✅ c = ${c.toFixed(6)} J/kg·°C`;
+        `âœ… c = ${c.toFixed(6)} J/kgآ·آ°C`;
 };
 // ==========================================
-// 🧊 حاسبة الحرارة الكامنة
-// Q = m × L
+// ًں§ٹ ط­ط§ط³ط¨ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظƒط§ظ…ظ†ط©
+// Q = m أ— L
 // ==========================================
 
 window.physicsLatentHeat = function () {
@@ -6156,7 +6156,7 @@ window.physicsLatentHeat = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🧊 حاسبة الحرارة الكامنة
+            ًں§ٹ ط­ط§ط³ط¨ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظƒط§ظ…ظ†ط©
         </div>
 
         <div style="
@@ -6164,11 +6164,11 @@ window.physicsLatentHeat = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Q = m × L
+            Q = m أ— L
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsLatentMass"
@@ -6185,7 +6185,7 @@ window.physicsLatentHeat = function () {
                ">
 
         <div style="margin:6px 0;">
-            الحرارة الكامنة النوعية L (J/kg):
+            ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظƒط§ظ…ظ†ط© ط§ظ„ظ†ظˆط¹ظٹط© L (J/kg):
         </div>
 
         <input id="physicsLatentL"
@@ -6207,7 +6207,7 @@ window.physicsLatentHeat = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الحرارة الكامنة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظƒط§ظ…ظ†ط©
         </button>
 
         <div id="physicsLatentResult"
@@ -6225,7 +6225,7 @@ window.physicsLatentHeat = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -6249,7 +6249,7 @@ window.physicsLatentHeat = function () {
 
 
 // ==========================================
-// 🧮 حساب الحرارة الكامنة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظƒط§ظ…ظ†ط©
 // ==========================================
 
 window.calculatePhysicsLatentHeat = function () {
@@ -6268,24 +6268,24 @@ window.calculatePhysicsLatentHeat = function () {
     if (!result) return;
 
     if (!Number.isFinite(m) || !Number.isFinite(L)) {
-        result.innerHTML = "⚠️ أدخل جميع القيم";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     if (m < 0) {
-        result.innerHTML = "❌ الكتلة لا يمكن أن تكون سالبة";
+        result.innerHTML = "â‌Œ ط§ظ„ظƒطھظ„ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     const Q = m * L;
 
     result.innerHTML =
-        `✅ Q = ${Q.toFixed(6)} J`;
+        `âœ… Q = ${Q.toFixed(6)} J`;
 };
 // ==========================================
-// 📏 حاسبة التمدد الحراري
-// ΔL = α × L₀ × ΔT
-// L = L₀ + ΔL
+// ًں“ڈ ط­ط§ط³ط¨ط© ط§ظ„طھظ…ط¯ط¯ ط§ظ„ط­ط±ط§ط±ظٹ
+// خ”L = خ± أ— Lâ‚€ أ— خ”T
+// L = Lâ‚€ + خ”L
 // ==========================================
 
 window.physicsThermalExpansion = function () {
@@ -6300,7 +6300,7 @@ window.physicsThermalExpansion = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📏 حاسبة التمدد الحراري
+            ًں“ڈ ط­ط§ط³ط¨ط© ط§ظ„طھظ…ط¯ط¯ ط§ظ„ط­ط±ط§ط±ظٹ
         </div>
 
         <div style="
@@ -6308,11 +6308,11 @@ window.physicsThermalExpansion = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            ΔL = α × L₀ × ΔT
+            خ”L = خ± أ— Lâ‚€ أ— خ”T
         </div>
 
         <div style="margin:6px 0;">
-            الطول الأصلي L₀ (m):
+            ط§ظ„ط·ظˆظ„ ط§ظ„ط£طµظ„ظٹ Lâ‚€ (m):
         </div>
 
         <input id="physicsExpansionLength"
@@ -6329,7 +6329,7 @@ window.physicsThermalExpansion = function () {
                ">
 
         <div style="margin:6px 0;">
-            معامل التمدد الخطي α (1/°C):
+            ظ…ط¹ط§ظ…ظ„ ط§ظ„طھظ…ط¯ط¯ ط§ظ„ط®ط·ظٹ خ± (1/آ°C):
         </div>
 
         <input id="physicsExpansionAlpha"
@@ -6346,7 +6346,7 @@ window.physicsThermalExpansion = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في درجة الحرارة ΔT (°C):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© خ”T (آ°C):
         </div>
 
         <input id="physicsExpansionDeltaT"
@@ -6368,7 +6368,7 @@ window.physicsThermalExpansion = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التمدد
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھظ…ط¯ط¯
         </button>
 
         <div id="physicsExpansionResult"
@@ -6386,7 +6386,7 @@ window.physicsThermalExpansion = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -6411,7 +6411,7 @@ window.physicsThermalExpansion = function () {
 
 
 // ==========================================
-// 🧮 حساب التمدد الحراري
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھظ…ط¯ط¯ ط§ظ„ط­ط±ط§ط±ظٹ
 // ==========================================
 
 window.calculatePhysicsThermalExpansion = function () {
@@ -6438,19 +6438,19 @@ window.calculatePhysicsThermalExpansion = function () {
         !Number.isFinite(alpha) ||
         !Number.isFinite(deltaT)
     ) {
-        result.innerHTML = "⚠️ أدخل جميع القيم";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     if (L0 < 0) {
         result.innerHTML =
-            "❌ الطول الأصلي لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ط·ظˆظ„ ط§ظ„ط£طµظ„ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (alpha < 0) {
         result.innerHTML =
-            "❌ معامل التمدد لا يمكن أن يكون سالبًا";
+            "â‌Œ ظ…ط¹ط§ظ…ظ„ ط§ظ„طھظ…ط¯ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
@@ -6458,13 +6458,13 @@ window.calculatePhysicsThermalExpansion = function () {
     const finalLength = L0 + deltaL;
 
     result.innerHTML = `
-        ✅ ΔL = ${deltaL.toFixed(6)} m<br>
-        📏 L = ${finalLength.toFixed(6)} m
+        âœ… خ”L = ${deltaL.toFixed(6)} m<br>
+        ًں“ڈ L = ${finalLength.toFixed(6)} m
     `;
 };
 // ==========================================
-// 💨 حاسبة قانون الغازات العام
-// P₁V₁ / T₁ = P₂V₂ / T₂
+// ًں’¨ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط²ط§طھ ط§ظ„ط¹ط§ظ…
+// Pâ‚پVâ‚پ / Tâ‚پ = Pâ‚‚Vâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.physicsGasLaw = function () {
@@ -6479,7 +6479,7 @@ window.physicsGasLaw = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💨 حاسبة قانون الغازات
+            ًں’¨ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط²ط§طھ
         </div>
 
         <div style="
@@ -6487,11 +6487,11 @@ window.physicsGasLaw = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            P₁V₁ / T₁ = P₂V₂ / T₂
+            Pâ‚پVâ‚پ / Tâ‚پ = Pâ‚‚Vâ‚‚ / Tâ‚‚
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsGasUnknown"
@@ -6502,16 +6502,16 @@ window.physicsGasLaw = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="P1">P₁ الضغط الأول</option>
-            <option value="V1">V₁ الحجم الأول</option>
-            <option value="T1">T₁ درجة الحرارة الأولى</option>
-            <option value="P2">P₂ الضغط الثاني</option>
-            <option value="V2">V₂ الحجم الثاني</option>
-            <option value="T2">T₂ درجة الحرارة الثانية</option>
+            <option value="P1">Pâ‚پ ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„</option>
+            <option value="V1">Vâ‚پ ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„</option>
+            <option value="T1">Tâ‚پ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰</option>
+            <option value="P2">Pâ‚‚ ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ</option>
+            <option value="V2">Vâ‚‚ ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ</option>
+            <option value="T2">Tâ‚‚ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط©</option>
         </select>
 
         <div style="margin:6px 0;">
-            P₁ الضغط الأول:
+            Pâ‚پ ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„:
         </div>
         <input id="physicsGasP1"
                type="text"
@@ -6520,7 +6520,7 @@ window.physicsGasLaw = function () {
                style="width:90%; padding:8px; margin-bottom:7px;">
 
         <div style="margin:6px 0;">
-            V₁ الحجم الأول:
+            Vâ‚پ ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„:
         </div>
         <input id="physicsGasV1"
                type="text"
@@ -6529,7 +6529,7 @@ window.physicsGasLaw = function () {
                style="width:90%; padding:8px; margin-bottom:7px;">
 
         <div style="margin:6px 0;">
-            T₁ درجة الحرارة الأولى (K):
+            Tâ‚پ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰ (K):
         </div>
         <input id="physicsGasT1"
                type="text"
@@ -6538,7 +6538,7 @@ window.physicsGasLaw = function () {
                style="width:90%; padding:8px; margin-bottom:7px;">
 
         <div style="margin:6px 0;">
-            P₂ الضغط الثاني:
+            Pâ‚‚ ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ:
         </div>
         <input id="physicsGasP2"
                type="text"
@@ -6547,7 +6547,7 @@ window.physicsGasLaw = function () {
                style="width:90%; padding:8px; margin-bottom:7px;">
 
         <div style="margin:6px 0;">
-            V₂ الحجم الثاني:
+            Vâ‚‚ ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
         <input id="physicsGasV2"
                type="text"
@@ -6556,7 +6556,7 @@ window.physicsGasLaw = function () {
                style="width:90%; padding:8px; margin-bottom:7px;">
 
         <div style="margin:6px 0;">
-            T₂ درجة الحرارة الثانية (K):
+            Tâ‚‚ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط© (K):
         </div>
         <input id="physicsGasT2"
                type="text"
@@ -6570,7 +6570,7 @@ window.physicsGasLaw = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsGasResult"
@@ -6588,7 +6588,7 @@ window.physicsGasLaw = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -6618,7 +6618,7 @@ window.physicsGasLaw = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون الغازات
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط²ط§طھ
 // ==========================================
 
 window.calculatePhysicsGasLaw = function () {
@@ -6650,7 +6650,7 @@ window.calculatePhysicsGasLaw = function () {
 
         if (!Number.isFinite(value)) {
             document.getElementById("physicsGasResult").innerHTML =
-                "⚠️ أدخل جميع القيم المطلوبة";
+                "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
             return;
         }
 
@@ -6666,7 +6666,7 @@ window.calculatePhysicsGasLaw = function () {
 
         case "P1":
             if (values.V1 === 0 || values.T1 === 0) {
-                result.innerHTML = "❌ لا يمكن القسمة على صفر";
+                result.innerHTML = "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
@@ -6677,7 +6677,7 @@ window.calculatePhysicsGasLaw = function () {
 
         case "V1":
             if (values.P1 === 0 || values.T1 === 0) {
-                result.innerHTML = "❌ لا يمكن القسمة على صفر";
+                result.innerHTML = "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
@@ -6688,7 +6688,7 @@ window.calculatePhysicsGasLaw = function () {
 
         case "T1":
             if (values.P1 === 0 || values.V1 === 0) {
-                result.innerHTML = "❌ لا يمكن القسمة على صفر";
+                result.innerHTML = "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
@@ -6699,7 +6699,7 @@ window.calculatePhysicsGasLaw = function () {
 
         case "P2":
             if (values.V2 === 0 || values.T1 === 0) {
-                result.innerHTML = "❌ لا يمكن القسمة على صفر";
+                result.innerHTML = "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
@@ -6710,7 +6710,7 @@ window.calculatePhysicsGasLaw = function () {
 
         case "V2":
             if (values.P2 === 0 || values.T1 === 0) {
-                result.innerHTML = "❌ لا يمكن القسمة على صفر";
+                result.innerHTML = "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
@@ -6721,7 +6721,7 @@ window.calculatePhysicsGasLaw = function () {
 
         case "T2":
             if (values.P2 === 0 || values.V2 === 0) {
-                result.innerHTML = "❌ لا يمكن القسمة على صفر";
+                result.innerHTML = "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
@@ -6732,16 +6732,16 @@ window.calculatePhysicsGasLaw = function () {
     }
 
     if (!Number.isFinite(answer)) {
-        result.innerHTML = "❌ لا يمكن حساب النتيجة بهذه القيم";
+        result.innerHTML = "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط­ط³ط§ط¨ ط§ظ„ظ†طھظٹط¬ط© ط¨ظ‡ط°ظ‡ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     result.innerHTML =
-        `✅ ${unknown} = ${answer.toFixed(6)}`;
+        `âœ… ${unknown} = ${answer.toFixed(6)}`;
 };
 // ==========================================
-// 🎈 العلاقة بين الضغط ودرجة الحرارة
-// P₁ / T₁ = P₂ / T₂
+// ًںژˆ ط§ظ„ط¹ظ„ط§ظ‚ط© ط¨ظٹظ† ط§ظ„ط¶ط؛ط· ظˆط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
+// Pâ‚پ / Tâ‚پ = Pâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.physicsPressureTemperature = function () {
@@ -6756,7 +6756,7 @@ window.physicsPressureTemperature = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🎈 العلاقة بين الضغط ودرجة الحرارة
+            ًںژˆ ط§ظ„ط¹ظ„ط§ظ‚ط© ط¨ظٹظ† ط§ظ„ط¶ط؛ط· ظˆط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
         </div>
 
         <div style="
@@ -6764,11 +6764,11 @@ window.physicsPressureTemperature = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            P₁ / T₁ = P₂ / T₂
+            Pâ‚پ / Tâ‚پ = Pâ‚‚ / Tâ‚‚
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsPTUnknown"
@@ -6779,14 +6779,14 @@ window.physicsPressureTemperature = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="P1">P₁ الضغط الأول</option>
-            <option value="T1">T₁ درجة الحرارة الأولى</option>
-            <option value="P2">P₂ الضغط الثاني</option>
-            <option value="T2">T₂ درجة الحرارة الثانية</option>
+            <option value="P1">Pâ‚پ ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„</option>
+            <option value="T1">Tâ‚پ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰</option>
+            <option value="P2">Pâ‚‚ ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ</option>
+            <option value="T2">Tâ‚‚ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط©</option>
         </select>
 
         <div style="margin:6px 0;">
-            P₁ الضغط الأول:
+            Pâ‚پ ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„:
         </div>
 
         <input id="physicsPTP1"
@@ -6802,7 +6802,7 @@ window.physicsPressureTemperature = function () {
                ">
 
         <div style="margin:6px 0;">
-            T₁ درجة الحرارة الأولى (K):
+            Tâ‚پ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰ (K):
         </div>
 
         <input id="physicsPTT1"
@@ -6818,7 +6818,7 @@ window.physicsPressureTemperature = function () {
                ">
 
         <div style="margin:6px 0;">
-            P₂ الضغط الثاني:
+            Pâ‚‚ ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input id="physicsPTP2"
@@ -6834,7 +6834,7 @@ window.physicsPressureTemperature = function () {
                ">
 
         <div style="margin:6px 0;">
-            T₂ درجة الحرارة الثانية (K):
+            Tâ‚‚ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط© (K):
         </div>
 
         <input id="physicsPTT2"
@@ -6855,7 +6855,7 @@ window.physicsPressureTemperature = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsPTResult"
@@ -6873,7 +6873,7 @@ window.physicsPressureTemperature = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -6901,7 +6901,7 @@ window.physicsPressureTemperature = function () {
 
 
 // ==========================================
-// 🧮 حساب العلاقة بين الضغط ودرجة الحرارة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¹ظ„ط§ظ‚ط© ط¨ظٹظ† ط§ظ„ط¶ط؛ط· ظˆط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.calculatePhysicsPressureTemperature = function () {
@@ -6925,7 +6925,7 @@ window.calculatePhysicsPressureTemperature = function () {
         if (!Number.isFinite(value)) {
 
             document.getElementById("physicsPTResult").innerHTML =
-                "⚠️ أدخل جميع القيم المطلوبة";
+                "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
 
             return;
         }
@@ -6944,7 +6944,7 @@ window.calculatePhysicsPressureTemperature = function () {
 
             if (values.T1 === 0) {
                 result.innerHTML =
-                    "❌ درجة الحرارة لا يمكن أن تساوي صفرًا";
+                    "â‌Œ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
@@ -6958,7 +6958,7 @@ window.calculatePhysicsPressureTemperature = function () {
 
             if (values.P2 === 0) {
                 result.innerHTML =
-                    "❌ الضغط لا يمكن أن يساوي صفرًا";
+                    "â‌Œ ط§ظ„ط¶ط؛ط· ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
@@ -6972,7 +6972,7 @@ window.calculatePhysicsPressureTemperature = function () {
 
             if (values.T1 === 0) {
                 result.innerHTML =
-                    "❌ درجة الحرارة لا يمكن أن تساوي صفرًا";
+                    "â‌Œ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
@@ -6986,7 +6986,7 @@ window.calculatePhysicsPressureTemperature = function () {
 
             if (values.P1 === 0) {
                 result.innerHTML =
-                    "❌ الضغط لا يمكن أن يساوي صفرًا";
+                    "â‌Œ ط§ظ„ط¶ط؛ط· ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
@@ -7000,16 +7000,16 @@ window.calculatePhysicsPressureTemperature = function () {
     if (!Number.isFinite(answer)) {
 
         result.innerHTML =
-            "❌ لا يمكن حساب النتيجة بهذه القيم";
+            "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط­ط³ط§ط¨ ط§ظ„ظ†طھظٹط¬ط© ط¨ظ‡ط°ظ‡ ط§ظ„ظ‚ظٹظ…";
 
         return;
     }
 
     result.innerHTML =
-        `✅ ${unknown} = ${answer.toFixed(6)}`;
+        `âœ… ${unknown} = ${answer.toFixed(6)}`;
 };
 // ==========================================
-// ⚛️ حاسبة قانون الغاز المثالي
+// âڑ›ï¸ڈ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
 // PV = nRT
 // ==========================================
 
@@ -7025,7 +7025,7 @@ window.physicsIdealGas = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚛️ حاسبة قانون الغاز المثالي
+            âڑ›ï¸ڈ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
         </div>
 
         <div style="
@@ -7037,7 +7037,7 @@ window.physicsIdealGas = function () {
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsIdealUnknown"
@@ -7048,14 +7048,14 @@ window.physicsIdealGas = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="P">P الضغط</option>
-            <option value="V">V الحجم</option>
-            <option value="n">n عدد المولات</option>
-            <option value="T">T درجة الحرارة</option>
+            <option value="P">P ط§ظ„ط¶ط؛ط·</option>
+            <option value="V">V ط§ظ„ط­ط¬ظ…</option>
+            <option value="n">n ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ</option>
+            <option value="T">T ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©</option>
         </select>
 
         <div style="margin:6px 0;">
-            P الضغط (Pa):
+            P ط§ظ„ط¶ط؛ط· (Pa):
         </div>
 
         <input id="physicsIdealP"
@@ -7071,7 +7071,7 @@ window.physicsIdealGas = function () {
                ">
 
         <div style="margin:6px 0;">
-            V الحجم (m³):
+            V ط§ظ„ط­ط¬ظ… (mآ³):
         </div>
 
         <input id="physicsIdealV"
@@ -7087,7 +7087,7 @@ window.physicsIdealGas = function () {
                ">
 
         <div style="margin:6px 0;">
-            n عدد المولات (mol):
+            n ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ (mol):
         </div>
 
         <input id="physicsIdealN"
@@ -7103,7 +7103,7 @@ window.physicsIdealGas = function () {
                ">
 
         <div style="margin:6px 0;">
-            T درجة الحرارة (K):
+            T ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© (K):
         </div>
 
         <input id="physicsIdealT"
@@ -7119,7 +7119,7 @@ window.physicsIdealGas = function () {
                ">
 
         <div style="margin:6px 0;">
-            R ثابت الغاز العام:
+            R ط«ط§ط¨طھ ط§ظ„ط؛ط§ط² ط§ظ„ط¹ط§ظ…:
         </div>
 
         <input id="physicsIdealR"
@@ -7141,7 +7141,7 @@ window.physicsIdealGas = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsIdealResult"
@@ -7159,7 +7159,7 @@ window.physicsIdealGas = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -7188,7 +7188,7 @@ window.physicsIdealGas = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون الغاز المثالي
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
 // ==========================================
 
 window.calculatePhysicsIdealGas = function () {
@@ -7213,7 +7213,7 @@ window.calculatePhysicsIdealGas = function () {
 
     if (!Number.isFinite(R) || R <= 0) {
         result.innerHTML =
-            "❌ ثابت الغاز R يجب أن يكون أكبر من صفر";
+            "â‌Œ ط«ط§ط¨طھ ط§ظ„ط؛ط§ط² R ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -7233,20 +7233,20 @@ window.calculatePhysicsIdealGas = function () {
                 !Number.isFinite(T)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (V === 0) {
                 result.innerHTML =
-                    "❌ الحجم لا يمكن أن يساوي صفرًا";
+                    "â‌Œ ط§ظ„ط­ط¬ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (n * R * T) / V;
 
             result.innerHTML =
-                `✅ P = ${answer.toFixed(6)} Pa`;
+                `âœ… P = ${answer.toFixed(6)} Pa`;
 
             return;
         }
@@ -7263,20 +7263,20 @@ window.calculatePhysicsIdealGas = function () {
                 !Number.isFinite(T)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (P === 0) {
                 result.innerHTML =
-                    "❌ الضغط لا يمكن أن يساوي صفرًا";
+                    "â‌Œ ط§ظ„ط¶ط؛ط· ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (n * R * T) / P;
 
             result.innerHTML =
-                `✅ V = ${answer.toFixed(6)} m³`;
+                `âœ… V = ${answer.toFixed(6)} mآ³`;
 
             return;
         }
@@ -7293,20 +7293,20 @@ window.calculatePhysicsIdealGas = function () {
                 !Number.isFinite(T)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (R === 0 || T === 0) {
                 result.innerHTML =
-                    "❌ لا يمكن القسمة على صفر";
+                    "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
             answer = (P * V) / (R * T);
 
             result.innerHTML =
-                `✅ n = ${answer.toFixed(6)} mol`;
+                `âœ… n = ${answer.toFixed(6)} mol`;
 
             return;
         }
@@ -7323,28 +7323,28 @@ window.calculatePhysicsIdealGas = function () {
                 !Number.isFinite(n)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (n === 0 || R === 0) {
                 result.innerHTML =
-                    "❌ لا يمكن القسمة على صفر";
+                    "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
             answer = (P * V) / (n * R);
 
             result.innerHTML =
-                `✅ T = ${answer.toFixed(6)} K`;
+                `âœ… T = ${answer.toFixed(6)} K`;
 
             return;
         }
     }
 };
 // ==========================================
-// ⚙️ حاسبة الكفاءة الحرارية
-// η = Wout ÷ Qin × 100
+// âڑ™ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ظƒظپط§ط،ط© ط§ظ„ط­ط±ط§ط±ظٹط©
+// خ· = Wout أ· Qin أ— 100
 // ==========================================
 
 window.physicsThermalEfficiency = function () {
@@ -7359,7 +7359,7 @@ window.physicsThermalEfficiency = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚙️ حاسبة الكفاءة الحرارية
+            âڑ™ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ظƒظپط§ط،ط© ط§ظ„ط­ط±ط§ط±ظٹط©
         </div>
 
         <div style="
@@ -7367,11 +7367,11 @@ window.physicsThermalEfficiency = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            η = Wout ÷ Qin × 100
+            خ· = Wout أ· Qin أ— 100
         </div>
 
         <div style="margin:6px 0;">
-            الشغل الناتج المفيد Wout (J):
+            ط§ظ„ط´ط؛ظ„ ط§ظ„ظ†ط§طھط¬ ط§ظ„ظ…ظپظٹط¯ Wout (J):
         </div>
 
         <input id="physicsEfficiencyWork"
@@ -7388,7 +7388,7 @@ window.physicsThermalEfficiency = function () {
                ">
 
         <div style="margin:6px 0;">
-            الحرارة الداخلة Qin (J):
+            ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط¯ط§ط®ظ„ط© Qin (J):
         </div>
 
         <input id="physicsEfficiencyHeatIn"
@@ -7410,7 +7410,7 @@ window.physicsThermalEfficiency = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الكفاءة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظƒظپط§ط،ط©
         </button>
 
         <div id="physicsEfficiencyResult"
@@ -7428,7 +7428,7 @@ window.physicsThermalEfficiency = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -7452,7 +7452,7 @@ window.physicsThermalEfficiency = function () {
 
 
 // ==========================================
-// 🧮 حساب الكفاءة الحرارية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظƒظپط§ط،ط© ط§ظ„ط­ط±ط§ط±ظٹط©
 // ==========================================
 
 window.calculatePhysicsThermalEfficiency = function () {
@@ -7475,19 +7475,19 @@ window.calculatePhysicsThermalEfficiency = function () {
         !Number.isFinite(heatIn)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     if (heatIn === 0) {
         result.innerHTML =
-            "❌ الحرارة الداخلة لا يمكن أن تساوي صفرًا";
+            "â‌Œ ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط¯ط§ط®ظ„ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     if (work < 0 || heatIn < 0) {
         result.innerHTML =
-            "❌ القيم لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظ‚ظٹظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
@@ -7495,11 +7495,11 @@ window.calculatePhysicsThermalEfficiency = function () {
         (work / heatIn) * 100;
 
     result.innerHTML =
-        `✅ η = ${efficiency.toFixed(6)} %`;
+        `âœ… خ· = ${efficiency.toFixed(6)} %`;
 };
 // ==========================================
-// ♨️ القانون الأول للديناميكا الحرارية
-// ΔU = Q − W
+// â™¨ï¸ڈ ط§ظ„ظ‚ط§ظ†ظˆظ† ط§ظ„ط£ظˆظ„ ظ„ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
+// خ”U = Q âˆ’ W
 // ==========================================
 
 window.physicsFirstLaw = function () {
@@ -7514,7 +7514,7 @@ window.physicsFirstLaw = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ♨️ القانون الأول للديناميكا الحرارية
+            â™¨ï¸ڈ ط§ظ„ظ‚ط§ظ†ظˆظ† ط§ظ„ط£ظˆظ„ ظ„ظ„ط¯ظٹظ†ط§ظ…ظٹظƒط§ ط§ظ„ط­ط±ط§ط±ظٹط©
         </div>
 
         <div style="
@@ -7522,11 +7522,11 @@ window.physicsFirstLaw = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            ΔU = Q − W
+            خ”U = Q âˆ’ W
         </div>
 
         <div style="margin:6px 0;">
-            الحرارة المضافة Q (J):
+            ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ…ط¶ط§ظپط© Q (J):
         </div>
 
         <input id="physicsFirstLawQ"
@@ -7543,7 +7543,7 @@ window.physicsFirstLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            الشغل الذي يبذله النظام W (J):
+            ط§ظ„ط´ط؛ظ„ ط§ظ„ط°ظٹ ظٹط¨ط°ظ„ظ‡ ط§ظ„ظ†ط¸ط§ظ… W (J):
         </div>
 
         <input id="physicsFirstLawW"
@@ -7565,7 +7565,7 @@ window.physicsFirstLaw = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التغير في الطاقة الداخلية
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ط·ط§ظ‚ط© ط§ظ„ط¯ط§ط®ظ„ظٹط©
         </button>
 
         <div id="physicsFirstLawResult"
@@ -7583,7 +7583,7 @@ window.physicsFirstLaw = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -7607,7 +7607,7 @@ window.physicsFirstLaw = function () {
 
 
 // ==========================================
-// 🧮 حساب القانون الأول
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ‚ط§ظ†ظˆظ† ط§ظ„ط£ظˆظ„
 // ==========================================
 
 window.calculatePhysicsFirstLaw = function () {
@@ -7630,18 +7630,18 @@ window.calculatePhysicsFirstLaw = function () {
         !Number.isFinite(W)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     const deltaU = Q - W;
 
     result.innerHTML =
-        `✅ ΔU = ${deltaU.toFixed(6)} J`;
+        `âœ… خ”U = ${deltaU.toFixed(6)} J`;
 };
 // ==========================================
-// 🔥 حاسبة معدل انتقال الحرارة
-// P = Q ÷ t
+// ًں”¥ ط­ط§ط³ط¨ط© ظ…ط¹ط¯ظ„ ط§ظ†طھظ‚ط§ظ„ ط§ظ„ط­ط±ط§ط±ط©
+// P = Q أ· t
 // ==========================================
 
 window.physicsHeatPower = function () {
@@ -7656,7 +7656,7 @@ window.physicsHeatPower = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔥 حاسبة معدل انتقال الحرارة
+            ًں”¥ ط­ط§ط³ط¨ط© ظ…ط¹ط¯ظ„ ط§ظ†طھظ‚ط§ظ„ ط§ظ„ط­ط±ط§ط±ط©
         </div>
 
         <div style="
@@ -7664,11 +7664,11 @@ window.physicsHeatPower = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            P = Q ÷ t
+            P = Q أ· t
         </div>
 
         <div style="margin:6px 0;">
-            كمية الحرارة Q (J):
+            ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط© Q (J):
         </div>
 
         <input id="physicsHeatPowerQ"
@@ -7685,7 +7685,7 @@ window.physicsHeatPower = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsHeatPowerTime"
@@ -7707,7 +7707,7 @@ window.physicsHeatPower = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب معدل انتقال الحرارة
+            ًں§® ط§ط­ط³ط¨ ظ…ط¹ط¯ظ„ ط§ظ†طھظ‚ط§ظ„ ط§ظ„ط­ط±ط§ط±ط©
         </button>
 
         <div id="physicsHeatPowerResult"
@@ -7725,7 +7725,7 @@ window.physicsHeatPower = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للحرارة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط­ط±ط§ط±ط©
         </button>
     `);
 
@@ -7749,7 +7749,7 @@ window.physicsHeatPower = function () {
 
 
 // ==========================================
-// 🧮 حساب معدل انتقال الحرارة
+// ًں§® ط­ط³ط§ط¨ ظ…ط¹ط¯ظ„ ط§ظ†طھظ‚ط§ظ„ ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.calculatePhysicsHeatPower = function () {
@@ -7772,24 +7772,24 @@ window.calculatePhysicsHeatPower = function () {
         !Number.isFinite(t)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
     if (t === 0) {
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const power = Q / t;
 
     result.innerHTML =
-        `✅ P = ${power.toFixed(6)} W`;
+        `âœ… P = ${power.toFixed(6)} W`;
 };
 // ==========================================
-// 💧 حاسبة الكثافة
-// ρ = m ÷ V
+// ًں’§ ط­ط§ط³ط¨ط© ط§ظ„ظƒط«ط§ظپط©
+// دپ = m أ· V
 // ==========================================
 
 window.physicsDensity = function () {
@@ -7804,7 +7804,7 @@ window.physicsDensity = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💧 حاسبة الكثافة
+            ًں’§ ط­ط§ط³ط¨ط© ط§ظ„ظƒط«ط§ظپط©
         </div>
 
         <div style="
@@ -7812,11 +7812,11 @@ window.physicsDensity = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            ρ = m ÷ V
+            دپ = m أ· V
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsDensityUnknown"
@@ -7827,13 +7827,13 @@ window.physicsDensity = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="rho">ρ الكثافة</option>
-            <option value="m">m الكتلة</option>
-            <option value="V">V الحجم</option>
+            <option value="rho">دپ ط§ظ„ظƒط«ط§ظپط©</option>
+            <option value="m">m ط§ظ„ظƒطھظ„ط©</option>
+            <option value="V">V ط§ظ„ط­ط¬ظ…</option>
         </select>
 
         <div style="margin:6px 0;">
-            ρ الكثافة (kg/m³):
+            دپ ط§ظ„ظƒط«ط§ظپط© (kg/mآ³):
         </div>
 
         <input id="physicsDensityRho"
@@ -7849,7 +7849,7 @@ window.physicsDensity = function () {
                ">
 
         <div style="margin:6px 0;">
-            m الكتلة (kg):
+            m ط§ظ„ظƒطھظ„ط© (kg):
         </div>
 
         <input id="physicsDensityMass"
@@ -7865,7 +7865,7 @@ window.physicsDensity = function () {
                ">
 
         <div style="margin:6px 0;">
-            V الحجم (m³):
+            V ط§ظ„ط­ط¬ظ… (mآ³):
         </div>
 
         <input id="physicsDensityVolume"
@@ -7886,7 +7886,7 @@ window.physicsDensity = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsDensityResult"
@@ -7904,7 +7904,7 @@ window.physicsDensity = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -7931,7 +7931,7 @@ window.physicsDensity = function () {
 
 
 // ==========================================
-// 🧮 حساب الكثافة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظƒط«ط§ظپط©
 // ==========================================
 
 window.calculatePhysicsDensity = function () {
@@ -7966,20 +7966,20 @@ window.calculatePhysicsDensity = function () {
                 !Number.isFinite(V)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (V === 0) {
                 result.innerHTML =
-                    "❌ الحجم لا يمكن أن يساوي صفرًا";
+                    "â‌Œ ط§ظ„ط­ط¬ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = m / V;
 
             result.innerHTML =
-                `✅ ρ = ${answer.toFixed(6)} kg/m³`;
+                `âœ… دپ = ${answer.toFixed(6)} kg/mآ³`;
 
             return;
         }
@@ -7994,14 +7994,14 @@ window.calculatePhysicsDensity = function () {
                 !Number.isFinite(V)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             answer = rho * V;
 
             result.innerHTML =
-                `✅ m = ${answer.toFixed(6)} kg`;
+                `âœ… m = ${answer.toFixed(6)} kg`;
 
             return;
         }
@@ -8016,28 +8016,28 @@ window.calculatePhysicsDensity = function () {
                 !Number.isFinite(m)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (rho === 0) {
                 result.innerHTML =
-                    "❌ الكثافة لا يمكن أن تساوي صفرًا";
+                    "â‌Œ ط§ظ„ظƒط«ط§ظپط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = m / rho;
 
             result.innerHTML =
-                `✅ V = ${answer.toFixed(6)} m³`;
+                `âœ… V = ${answer.toFixed(6)} mآ³`;
 
             return;
         }
     }
 };
 // ==========================================
-// ⚖️ حاسبة الضغط
-// P = F ÷ A
+// âڑ–ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط¶ط؛ط·
+// P = F أ· A
 // ==========================================
 
 window.physicsPressure = function () {
@@ -8052,7 +8052,7 @@ window.physicsPressure = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚖️ حاسبة الضغط
+            âڑ–ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط¶ط؛ط·
         </div>
 
         <div style="
@@ -8060,11 +8060,11 @@ window.physicsPressure = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            P = F ÷ A
+            P = F أ· A
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsPressureUnknown"
@@ -8075,13 +8075,13 @@ window.physicsPressure = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="P">P الضغط</option>
-            <option value="F">F القوة</option>
-            <option value="A">A المساحة</option>
+            <option value="P">P ط§ظ„ط¶ط؛ط·</option>
+            <option value="F">F ط§ظ„ظ‚ظˆط©</option>
+            <option value="A">A ط§ظ„ظ…ط³ط§ط­ط©</option>
         </select>
 
         <div style="margin:6px 0;">
-            P الضغط (Pa):
+            P ط§ظ„ط¶ط؛ط· (Pa):
         </div>
 
         <input id="physicsPressureP"
@@ -8097,7 +8097,7 @@ window.physicsPressure = function () {
                ">
 
         <div style="margin:6px 0;">
-            F القوة (N):
+            F ط§ظ„ظ‚ظˆط© (N):
         </div>
 
         <input id="physicsPressureF"
@@ -8113,7 +8113,7 @@ window.physicsPressure = function () {
                ">
 
         <div style="margin:6px 0;">
-            A المساحة (m²):
+            A ط§ظ„ظ…ط³ط§ط­ط© (mآ²):
         </div>
 
         <input id="physicsPressureA"
@@ -8134,7 +8134,7 @@ window.physicsPressure = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsPressureResult"
@@ -8152,7 +8152,7 @@ window.physicsPressure = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -8179,7 +8179,7 @@ window.physicsPressure = function () {
 
 
 // ==========================================
-// 🧮 حساب الضغط
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¶ط؛ط·
 // ==========================================
 
 window.calculatePhysicsPressure = function () {
@@ -8214,20 +8214,20 @@ window.calculatePhysicsPressure = function () {
                 !Number.isFinite(A)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (A === 0) {
                 result.innerHTML =
-                    "❌ المساحة لا يمكن أن تساوي صفرًا";
+                    "â‌Œ ط§ظ„ظ…ط³ط§ط­ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = F / A;
 
             result.innerHTML =
-                `✅ P = ${answer.toFixed(6)} Pa`;
+                `âœ… P = ${answer.toFixed(6)} Pa`;
 
             return;
         }
@@ -8242,14 +8242,14 @@ window.calculatePhysicsPressure = function () {
                 !Number.isFinite(A)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             answer = P * A;
 
             result.innerHTML =
-                `✅ F = ${answer.toFixed(6)} N`;
+                `âœ… F = ${answer.toFixed(6)} N`;
 
             return;
         }
@@ -8264,28 +8264,28 @@ window.calculatePhysicsPressure = function () {
                 !Number.isFinite(F)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (P === 0) {
                 result.innerHTML =
-                    "❌ الضغط لا يمكن أن يساوي صفرًا";
+                    "â‌Œ ط§ظ„ط¶ط؛ط· ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = F / P;
 
             result.innerHTML =
-                `✅ A = ${answer.toFixed(6)} m²`;
+                `âœ… A = ${answer.toFixed(6)} mآ²`;
 
             return;
         }
     }
 };
 // ==========================================
-// 🌊 حاسبة ضغط السائل
-// P = ρ × g × h
+// ًںŒٹ ط­ط§ط³ط¨ط© ط¶ط؛ط· ط§ظ„ط³ط§ط¦ظ„
+// P = دپ أ— g أ— h
 // ==========================================
 
 window.physicsFluidPressure = function () {
@@ -8300,7 +8300,7 @@ window.physicsFluidPressure = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌊 حاسبة ضغط السائل
+            ًںŒٹ ط­ط§ط³ط¨ط© ط¶ط؛ط· ط§ظ„ط³ط§ط¦ظ„
         </div>
 
         <div style="
@@ -8308,11 +8308,11 @@ window.physicsFluidPressure = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            P = ρ × g × h
+            P = دپ أ— g أ— h
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsFluidPressureUnknown"
@@ -8323,13 +8323,13 @@ window.physicsFluidPressure = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="P">P ضغط السائل</option>
-            <option value="rho">ρ كثافة السائل</option>
-            <option value="h">h العمق</option>
+            <option value="P">P ط¶ط؛ط· ط§ظ„ط³ط§ط¦ظ„</option>
+            <option value="rho">دپ ظƒط«ط§ظپط© ط§ظ„ط³ط§ط¦ظ„</option>
+            <option value="h">h ط§ظ„ط¹ظ…ظ‚</option>
         </select>
 
         <div style="margin:6px 0;">
-            P ضغط السائل (Pa):
+            P ط¶ط؛ط· ط§ظ„ط³ط§ط¦ظ„ (Pa):
         </div>
 
         <input id="physicsFluidPressureP"
@@ -8345,7 +8345,7 @@ window.physicsFluidPressure = function () {
                ">
 
         <div style="margin:6px 0;">
-            ρ كثافة السائل (kg/m³):
+            دپ ظƒط«ط§ظپط© ط§ظ„ط³ط§ط¦ظ„ (kg/mآ³):
         </div>
 
         <input id="physicsFluidPressureRho"
@@ -8361,7 +8361,7 @@ window.physicsFluidPressure = function () {
                ">
 
         <div style="margin:6px 0;">
-            g عجلة الجاذبية (m/s²):
+            g ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط© (m/sآ²):
         </div>
 
         <input id="physicsFluidPressureG"
@@ -8378,7 +8378,7 @@ window.physicsFluidPressure = function () {
                ">
 
         <div style="margin:6px 0;">
-            h العمق (m):
+            h ط§ظ„ط¹ظ…ظ‚ (m):
         </div>
 
         <input id="physicsFluidPressureH"
@@ -8399,7 +8399,7 @@ window.physicsFluidPressure = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب ضغط السائل
+            ًں§® ط§ط­ط³ط¨ ط¶ط؛ط· ط§ظ„ط³ط§ط¦ظ„
         </button>
 
         <div id="physicsFluidPressureResult"
@@ -8417,7 +8417,7 @@ window.physicsFluidPressure = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -8444,7 +8444,7 @@ window.physicsFluidPressure = function () {
 
 
 // ==========================================
-// 🧮 حساب ضغط السائل
+// ًں§® ط­ط³ط§ط¨ ط¶ط؛ط· ط§ظ„ط³ط§ط¦ظ„
 // ==========================================
 
 window.calculatePhysicsFluidPressure = function () {
@@ -8476,7 +8476,7 @@ window.calculatePhysicsFluidPressure = function () {
     if (!Number.isFinite(g) || g <= 0) {
 
         result.innerHTML =
-            "❌ عجلة الجاذبية يجب أن تكون أكبر من صفر";
+            "â‌Œ ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
         return;
     }
@@ -8495,7 +8495,7 @@ window.calculatePhysicsFluidPressure = function () {
                 !Number.isFinite(h)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
 
                 return;
             }
@@ -8503,7 +8503,7 @@ window.calculatePhysicsFluidPressure = function () {
             if (rho < 0 || h < 0) {
 
                 result.innerHTML =
-                    "❌ الكثافة والعمق لا يمكن أن يكونا سالبين";
+                    "â‌Œ ط§ظ„ظƒط«ط§ظپط© ظˆط§ظ„ط¹ظ…ظ‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ†ط§ ط³ط§ظ„ط¨ظٹظ†";
 
                 return;
             }
@@ -8511,7 +8511,7 @@ window.calculatePhysicsFluidPressure = function () {
             answer = rho * g * h;
 
             result.innerHTML =
-                `✅ P = ${answer.toFixed(6)} Pa`;
+                `âœ… P = ${answer.toFixed(6)} Pa`;
 
             return;
         }
@@ -8526,7 +8526,7 @@ window.calculatePhysicsFluidPressure = function () {
                 !Number.isFinite(h)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
 
                 return;
             }
@@ -8534,7 +8534,7 @@ window.calculatePhysicsFluidPressure = function () {
             if (g === 0 || h === 0) {
 
                 result.innerHTML =
-                    "❌ لا يمكن القسمة على صفر";
+                    "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
                 return;
             }
@@ -8542,7 +8542,7 @@ window.calculatePhysicsFluidPressure = function () {
             answer = P / (g * h);
 
             result.innerHTML =
-                `✅ ρ = ${answer.toFixed(6)} kg/m³`;
+                `âœ… دپ = ${answer.toFixed(6)} kg/mآ³`;
 
             return;
         }
@@ -8557,7 +8557,7 @@ window.calculatePhysicsFluidPressure = function () {
                 !Number.isFinite(rho)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
 
                 return;
             }
@@ -8565,7 +8565,7 @@ window.calculatePhysicsFluidPressure = function () {
             if (rho === 0 || g === 0) {
 
                 result.innerHTML =
-                    "❌ لا يمكن القسمة على صفر";
+                    "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
                 return;
             }
@@ -8573,15 +8573,15 @@ window.calculatePhysicsFluidPressure = function () {
             answer = P / (rho * g);
 
             result.innerHTML =
-                `✅ h = ${answer.toFixed(6)} m`;
+                `âœ… h = ${answer.toFixed(6)} m`;
 
             return;
         }
     }
 };
 // ==========================================
-// 🏗️ حاسبة مبدأ باسكال
-// F₁ / A₁ = F₂ / A₂
+// ًںڈ—ï¸ڈ ط­ط§ط³ط¨ط© ظ…ط¨ط¯ط£ ط¨ط§ط³ظƒط§ظ„
+// Fâ‚پ / Aâ‚پ = Fâ‚‚ / Aâ‚‚
 // ==========================================
 
 window.physicsPascalLaw = function () {
@@ -8596,7 +8596,7 @@ window.physicsPascalLaw = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🏗️ حاسبة مبدأ باسكال
+            ًںڈ—ï¸ڈ ط­ط§ط³ط¨ط© ظ…ط¨ط¯ط£ ط¨ط§ط³ظƒط§ظ„
         </div>
 
         <div style="
@@ -8604,11 +8604,11 @@ window.physicsPascalLaw = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            F₁ / A₁ = F₂ / A₂
+            Fâ‚پ / Aâ‚پ = Fâ‚‚ / Aâ‚‚
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsPascalUnknown"
@@ -8619,14 +8619,14 @@ window.physicsPascalLaw = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="F1">F₁ القوة الأولى</option>
-            <option value="A1">A₁ المساحة الأولى</option>
-            <option value="F2">F₂ القوة الثانية</option>
-            <option value="A2">A₂ المساحة الثانية</option>
+            <option value="F1">Fâ‚پ ط§ظ„ظ‚ظˆط© ط§ظ„ط£ظˆظ„ظ‰</option>
+            <option value="A1">Aâ‚پ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط£ظˆظ„ظ‰</option>
+            <option value="F2">Fâ‚‚ ط§ظ„ظ‚ظˆط© ط§ظ„ط«ط§ظ†ظٹط©</option>
+            <option value="A2">Aâ‚‚ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط«ط§ظ†ظٹط©</option>
         </select>
 
         <div style="margin:6px 0;">
-            F₁ القوة الأولى (N):
+            Fâ‚پ ط§ظ„ظ‚ظˆط© ط§ظ„ط£ظˆظ„ظ‰ (N):
         </div>
 
         <input id="physicsPascalF1"
@@ -8642,7 +8642,7 @@ window.physicsPascalLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            A₁ المساحة الأولى (m²):
+            Aâ‚پ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط£ظˆظ„ظ‰ (mآ²):
         </div>
 
         <input id="physicsPascalA1"
@@ -8658,7 +8658,7 @@ window.physicsPascalLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            F₂ القوة الثانية (N):
+            Fâ‚‚ ط§ظ„ظ‚ظˆط© ط§ظ„ط«ط§ظ†ظٹط© (N):
         </div>
 
         <input id="physicsPascalF2"
@@ -8674,7 +8674,7 @@ window.physicsPascalLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            A₂ المساحة الثانية (m²):
+            Aâ‚‚ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط«ط§ظ†ظٹط© (mآ²):
         </div>
 
         <input id="physicsPascalA2"
@@ -8695,7 +8695,7 @@ window.physicsPascalLaw = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsPascalResult"
@@ -8713,7 +8713,7 @@ window.physicsPascalLaw = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -8741,7 +8741,7 @@ window.physicsPascalLaw = function () {
 
 
 // ==========================================
-// 🧮 حساب مبدأ باسكال
+// ًں§® ط­ط³ط§ط¨ ظ…ط¨ط¯ط£ ط¨ط§ط³ظƒط§ظ„
 // ==========================================
 
 window.calculatePhysicsPascal = function () {
@@ -8784,20 +8784,20 @@ window.calculatePhysicsPascal = function () {
                 !Number.isFinite(A2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (A2 === 0) {
                 result.innerHTML =
-                    "❌ A₂ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ Aâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (F2 * A1) / A2;
 
             result.innerHTML =
-                `✅ F₁ = ${answer.toFixed(6)} N`;
+                `âœ… Fâ‚پ = ${answer.toFixed(6)} N`;
 
             return;
         }
@@ -8814,20 +8814,20 @@ window.calculatePhysicsPascal = function () {
                 !Number.isFinite(A2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (F2 === 0) {
                 result.innerHTML =
-                    "❌ F₂ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ Fâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (F1 * A2) / F2;
 
             result.innerHTML =
-                `✅ A₁ = ${answer.toFixed(6)} m²`;
+                `âœ… Aâ‚پ = ${answer.toFixed(6)} mآ²`;
 
             return;
         }
@@ -8844,20 +8844,20 @@ window.calculatePhysicsPascal = function () {
                 !Number.isFinite(A2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (A1 === 0) {
                 result.innerHTML =
-                    "❌ A₁ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ Aâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (F1 * A2) / A1;
 
             result.innerHTML =
-                `✅ F₂ = ${answer.toFixed(6)} N`;
+                `âœ… Fâ‚‚ = ${answer.toFixed(6)} N`;
 
             return;
         }
@@ -8874,28 +8874,28 @@ window.calculatePhysicsPascal = function () {
                 !Number.isFinite(F2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (F1 === 0) {
                 result.innerHTML =
-                    "❌ F₁ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ Fâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (F2 * A1) / F1;
 
             result.innerHTML =
-                `✅ A₂ = ${answer.toFixed(6)} m²`;
+                `âœ… Aâ‚‚ = ${answer.toFixed(6)} mآ²`;
 
             return;
         }
     }
 };
 // ==========================================
-// 🚢 حاسبة قوة الطفو
-// Fb = ρ × g × V
+// ًںڑ¢ ط­ط§ط³ط¨ط© ظ‚ظˆط© ط§ظ„ط·ظپظˆ
+// Fb = دپ أ— g أ— V
 // ==========================================
 
 window.physicsBuoyantForce = function () {
@@ -8910,7 +8910,7 @@ window.physicsBuoyantForce = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🚢 حاسبة قوة الطفو
+            ًںڑ¢ ط­ط§ط³ط¨ط© ظ‚ظˆط© ط§ظ„ط·ظپظˆ
         </div>
 
         <div style="
@@ -8918,11 +8918,11 @@ window.physicsBuoyantForce = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Fb = ρ × g × V
+            Fb = دپ أ— g أ— V
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsBuoyantUnknown"
@@ -8933,13 +8933,13 @@ window.physicsBuoyantForce = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="Fb">Fb قوة الطفو</option>
-            <option value="rho">ρ كثافة السائل</option>
-            <option value="V">V الحجم المزاح</option>
+            <option value="Fb">Fb ظ‚ظˆط© ط§ظ„ط·ظپظˆ</option>
+            <option value="rho">دپ ظƒط«ط§ظپط© ط§ظ„ط³ط§ط¦ظ„</option>
+            <option value="V">V ط§ظ„ط­ط¬ظ… ط§ظ„ظ…ط²ط§ط­</option>
         </select>
 
         <div style="margin:6px 0;">
-            Fb قوة الطفو (N):
+            Fb ظ‚ظˆط© ط§ظ„ط·ظپظˆ (N):
         </div>
 
         <input id="physicsBuoyantFb"
@@ -8955,7 +8955,7 @@ window.physicsBuoyantForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            ρ كثافة السائل (kg/m³):
+            دپ ظƒط«ط§ظپط© ط§ظ„ط³ط§ط¦ظ„ (kg/mآ³):
         </div>
 
         <input id="physicsBuoyantRho"
@@ -8971,7 +8971,7 @@ window.physicsBuoyantForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            g عجلة الجاذبية (m/s²):
+            g ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط© (m/sآ²):
         </div>
 
         <div style="
@@ -8987,7 +8987,7 @@ window.physicsBuoyantForce = function () {
         </div>
 
         <div style="margin:6px 0;">
-            V الحجم المزاح (m³):
+            V ط§ظ„ط­ط¬ظ… ط§ظ„ظ…ط²ط§ط­ (mآ³):
         </div>
 
         <input id="physicsBuoyantV"
@@ -9008,7 +9008,7 @@ window.physicsBuoyantForce = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب قوة الطفو
+            ًں§® ط§ط­ط³ط¨ ظ‚ظˆط© ط§ظ„ط·ظپظˆ
         </button>
 
         <div id="physicsBuoyantResult"
@@ -9026,7 +9026,7 @@ window.physicsBuoyantForce = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -9053,7 +9053,7 @@ window.physicsBuoyantForce = function () {
 
 
 // ==========================================
-// 🧮 حساب قوة الطفو
+// ًں§® ط­ط³ط§ط¨ ظ‚ظˆط© ط§ظ„ط·ظپظˆ
 // ==========================================
 
 window.calculatePhysicsBuoyantForce = function () {
@@ -9080,7 +9080,7 @@ window.calculatePhysicsBuoyantForce = function () {
         return Number(element?.value);
     };
 
-    // ثابت عجلة الجاذبية
+    // ط«ط§ط¨طھ ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط©
     const g = 9.80665;
 
     let answer;
@@ -9097,20 +9097,20 @@ window.calculatePhysicsBuoyantForce = function () {
                 !Number.isFinite(V)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (rho < 0 || V < 0) {
                 result.innerHTML =
-                    "❌ الكثافة والحجم لا يمكن أن يكونا سالبين";
+                    "â‌Œ ط§ظ„ظƒط«ط§ظپط© ظˆط§ظ„ط­ط¬ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ†ط§ ط³ط§ظ„ط¨ظٹظ†";
                 return;
             }
 
             answer = rho * g * V;
 
             result.innerHTML =
-                `✅ Fb = ${answer.toFixed(6)} N`;
+                `âœ… Fb = ${answer.toFixed(6)} N`;
 
             return;
         }
@@ -9125,20 +9125,20 @@ window.calculatePhysicsBuoyantForce = function () {
                 !Number.isFinite(V)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (g === 0 || V === 0) {
                 result.innerHTML =
-                    "❌ لا يمكن القسمة على صفر";
+                    "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
             answer = Fb / (g * V);
 
             result.innerHTML =
-                `✅ ρ = ${answer.toFixed(6)} kg/m³`;
+                `âœ… دپ = ${answer.toFixed(6)} kg/mآ³`;
 
             return;
         }
@@ -9153,29 +9153,29 @@ window.calculatePhysicsBuoyantForce = function () {
                 !Number.isFinite(rho)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (g === 0 || rho === 0) {
                 result.innerHTML =
-                    "❌ لا يمكن القسمة على صفر";
+                    "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
                 return;
             }
 
             answer = Fb / (rho * g);
 
             result.innerHTML =
-                `✅ V = ${answer.toFixed(6)} m³`;
+                `âœ… V = ${answer.toFixed(6)} mآ³`;
 
             return;
         }
     }
 };
 // ==========================================
-// ⚓ حاسبة مبدأ أرخميدس
-// Fb = ρ × g × V
-// W = m × g
+// âڑ“ ط­ط§ط³ط¨ط© ظ…ط¨ط¯ط£ ط£ط±ط®ظ…ظٹط¯ط³
+// Fb = دپ أ— g أ— V
+// W = m أ— g
 // ==========================================
 
 window.physicsArchimedes = function () {
@@ -9190,7 +9190,7 @@ window.physicsArchimedes = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚓ حاسبة مبدأ أرخميدس
+            âڑ“ ط­ط§ط³ط¨ط© ظ…ط¨ط¯ط£ ط£ط±ط®ظ…ظٹط¯ط³
         </div>
 
         <div style="
@@ -9198,11 +9198,11 @@ window.physicsArchimedes = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Fb = ρ × g × V
+            Fb = دپ أ— g أ— V
         </div>
 
         <div style="margin:6px 0;">
-            كثافة السائل ρ (kg/m³):
+            ظƒط«ط§ظپط© ط§ظ„ط³ط§ط¦ظ„ دپ (kg/mآ³):
         </div>
 
         <input id="physicsArchimedesRho"
@@ -9218,7 +9218,7 @@ window.physicsArchimedes = function () {
                ">
 
         <div style="margin:6px 0;">
-            الحجم المزاح V (m³):
+            ط§ظ„ط­ط¬ظ… ط§ظ„ظ…ط²ط§ط­ V (mآ³):
         </div>
 
         <input id="physicsArchimedesV"
@@ -9234,7 +9234,7 @@ window.physicsArchimedes = function () {
                ">
 
         <div style="margin:6px 0;">
-            كتلة الجسم m (kg):
+            ظƒطھظ„ط© ط§ظ„ط¬ط³ظ… m (kg):
         </div>
 
         <input id="physicsArchimedesM"
@@ -9256,7 +9256,7 @@ window.physicsArchimedes = function () {
             border:1px solid #ccc;
             direction:ltr;
         ">
-            g = 9.80665 m/s²
+            g = 9.80665 m/sآ²
         </div>
 
         <button onclick="calculatePhysicsArchimedes()"
@@ -9265,7 +9265,7 @@ window.physicsArchimedes = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsArchimedesResult"
@@ -9283,7 +9283,7 @@ window.physicsArchimedes = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -9310,7 +9310,7 @@ window.physicsArchimedes = function () {
 
 
 // ==========================================
-// 🧮 حساب مبدأ أرخميدس
+// ًں§® ط­ط³ط§ط¨ ظ…ط¨ط¯ط£ ط£ط±ط®ظ…ظٹط¯ط³
 // ==========================================
 
 window.calculatePhysicsArchimedes = function () {
@@ -9342,23 +9342,23 @@ window.calculatePhysicsArchimedes = function () {
         !Number.isFinite(m)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (rho < 0 || V < 0 || m < 0) {
         result.innerHTML =
-            "❌ القيم لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظ‚ظٹظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
-    // عجلة الجاذبية ثابتة
+    // ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط© ط«ط§ط¨طھط©
     const g = 9.80665;
 
-    // قوة الطفو
+    // ظ‚ظˆط© ط§ظ„ط·ظپظˆ
     const Fb = rho * g * V;
 
-    // وزن الجسم
+    // ظˆط²ظ† ط§ظ„ط¬ط³ظ…
     const W = m * g;
 
     let state;
@@ -9366,30 +9366,30 @@ window.calculatePhysicsArchimedes = function () {
     if (Fb > W) {
 
         state =
-            "⬆️ الجسم يميل إلى الطفو";
+            "â¬†ï¸ڈ ط§ظ„ط¬ط³ظ… ظٹظ…ظٹظ„ ط¥ظ„ظ‰ ط§ظ„ط·ظپظˆ";
 
     } else if (Fb < W) {
 
         state =
-            "⬇️ الجسم يميل إلى الغوص";
+            "â¬‡ï¸ڈ ط§ظ„ط¬ط³ظ… ظٹظ…ظٹظ„ ط¥ظ„ظ‰ ط§ظ„ط؛ظˆطµ";
 
     } else {
 
         state =
-            "⚖️ الجسم في حالة اتزان";
+            "âڑ–ï¸ڈ ط§ظ„ط¬ط³ظ… ظپظٹ ط­ط§ظ„ط© ط§طھط²ط§ظ†";
     }
 
     result.innerHTML = `
-        <div>✅ Fb = ${Fb.toFixed(6)} N</div>
-        <div>⚖️ W = ${W.toFixed(6)} N</div>
+        <div>âœ… Fb = ${Fb.toFixed(6)} N</div>
+        <div>âڑ–ï¸ڈ W = ${W.toFixed(6)} N</div>
         <div style="margin-top:8px;">
             ${state}
         </div>
     `;
 };
 // ==========================================
-// 💨 حاسبة معادلة الاستمرارية
-// A₁ × v₁ = A₂ × v₂
+// ًں’¨ ط­ط§ط³ط¨ط© ظ…ط¹ط§ط¯ظ„ط© ط§ظ„ط§ط³طھظ…ط±ط§ط±ظٹط©
+// Aâ‚پ أ— vâ‚پ = Aâ‚‚ أ— vâ‚‚
 // ==========================================
 
 window.physicsContinuity = function () {
@@ -9404,7 +9404,7 @@ window.physicsContinuity = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💨 حاسبة معادلة الاستمرارية
+            ًں’¨ ط­ط§ط³ط¨ط© ظ…ط¹ط§ط¯ظ„ط© ط§ظ„ط§ط³طھظ…ط±ط§ط±ظٹط©
         </div>
 
         <div style="
@@ -9412,11 +9412,11 @@ window.physicsContinuity = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            A₁ × v₁ = A₂ × v₂
+            Aâ‚پ أ— vâ‚پ = Aâ‚‚ أ— vâ‚‚
         </div>
 
         <div style="margin:6px 0;">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="physicsContinuityUnknown"
@@ -9427,14 +9427,14 @@ window.physicsContinuity = function () {
                     font-size:14px;
                     direction:ltr;
                 ">
-            <option value="A1">A₁ المساحة الأولى</option>
-            <option value="v1">v₁ السرعة الأولى</option>
-            <option value="A2">A₂ المساحة الثانية</option>
-            <option value="v2">v₂ السرعة الثانية</option>
+            <option value="A1">Aâ‚پ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط£ظˆظ„ظ‰</option>
+            <option value="v1">vâ‚پ ط§ظ„ط³ط±ط¹ط© ط§ظ„ط£ظˆظ„ظ‰</option>
+            <option value="A2">Aâ‚‚ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط«ط§ظ†ظٹط©</option>
+            <option value="v2">vâ‚‚ ط§ظ„ط³ط±ط¹ط© ط§ظ„ط«ط§ظ†ظٹط©</option>
         </select>
 
         <div style="margin:6px 0;">
-            A₁ المساحة الأولى (m²):
+            Aâ‚پ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط£ظˆظ„ظ‰ (mآ²):
         </div>
 
         <input id="physicsContinuityA1"
@@ -9450,7 +9450,7 @@ window.physicsContinuity = function () {
                ">
 
         <div style="margin:6px 0;">
-            v₁ السرعة الأولى (m/s):
+            vâ‚پ ط§ظ„ط³ط±ط¹ط© ط§ظ„ط£ظˆظ„ظ‰ (m/s):
         </div>
 
         <input id="physicsContinuityV1"
@@ -9466,7 +9466,7 @@ window.physicsContinuity = function () {
                ">
 
         <div style="margin:6px 0;">
-            A₂ المساحة الثانية (m²):
+            Aâ‚‚ ط§ظ„ظ…ط³ط§ط­ط© ط§ظ„ط«ط§ظ†ظٹط© (mآ²):
         </div>
 
         <input id="physicsContinuityA2"
@@ -9482,7 +9482,7 @@ window.physicsContinuity = function () {
                ">
 
         <div style="margin:6px 0;">
-            v₂ السرعة الثانية (m/s):
+            vâ‚‚ ط§ظ„ط³ط±ط¹ط© ط§ظ„ط«ط§ظ†ظٹط© (m/s):
         </div>
 
         <input id="physicsContinuityV2"
@@ -9503,7 +9503,7 @@ window.physicsContinuity = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="physicsContinuityResult"
@@ -9521,7 +9521,7 @@ window.physicsContinuity = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -9549,7 +9549,7 @@ window.physicsContinuity = function () {
 
 
 // ==========================================
-// 🧮 حساب معادلة الاستمرارية
+// ًں§® ط­ط³ط§ط¨ ظ…ط¹ط§ط¯ظ„ط© ط§ظ„ط§ط³طھظ…ط±ط§ط±ظٹط©
 // ==========================================
 
 window.calculatePhysicsContinuity = function () {
@@ -9592,20 +9592,20 @@ window.calculatePhysicsContinuity = function () {
                 !Number.isFinite(v2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (v1 === 0) {
                 result.innerHTML =
-                    "❌ v₁ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ vâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (A2 * v2) / v1;
 
             result.innerHTML =
-                `✅ A₁ = ${answer.toFixed(6)} m²`;
+                `âœ… Aâ‚پ = ${answer.toFixed(6)} mآ²`;
 
             return;
         }
@@ -9622,20 +9622,20 @@ window.calculatePhysicsContinuity = function () {
                 !Number.isFinite(v2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (A1 === 0) {
                 result.innerHTML =
-                    "❌ A₁ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ Aâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (A2 * v2) / A1;
 
             result.innerHTML =
-                `✅ v₁ = ${answer.toFixed(6)} m/s`;
+                `âœ… vâ‚پ = ${answer.toFixed(6)} m/s`;
 
             return;
         }
@@ -9652,20 +9652,20 @@ window.calculatePhysicsContinuity = function () {
                 !Number.isFinite(v2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (v2 === 0) {
                 result.innerHTML =
-                    "❌ v₂ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ vâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (A1 * v1) / v2;
 
             result.innerHTML =
-                `✅ A₂ = ${answer.toFixed(6)} m²`;
+                `âœ… Aâ‚‚ = ${answer.toFixed(6)} mآ²`;
 
             return;
         }
@@ -9682,28 +9682,28 @@ window.calculatePhysicsContinuity = function () {
                 !Number.isFinite(A2)
             ) {
                 result.innerHTML =
-                    "⚠️ أدخل جميع القيم المطلوبة";
+                    "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
                 return;
             }
 
             if (A2 === 0) {
                 result.innerHTML =
-                    "❌ A₂ لا يمكن أن تساوي صفرًا";
+                    "â‌Œ Aâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
                 return;
             }
 
             answer = (A1 * v1) / A2;
 
             result.innerHTML =
-                `✅ v₂ = ${answer.toFixed(6)} m/s`;
+                `âœ… vâ‚‚ = ${answer.toFixed(6)} m/s`;
 
             return;
         }
     }
 };// ==========================================
-// 🌪️ حاسبة معادلة برنولي
-// P₁ + ½ρv₁² + ρgh₁ =
-// P₂ + ½ρv₂² + ρgh₂
+// ًںŒھï¸ڈ ط­ط§ط³ط¨ط© ظ…ط¹ط§ط¯ظ„ط© ط¨ط±ظ†ظˆظ„ظٹ
+// Pâ‚پ + آ½دپvâ‚پآ² + دپghâ‚پ =
+// Pâ‚‚ + آ½دپvâ‚‚آ² + دپghâ‚‚
 // ==========================================
 
 window.physicsBernoulli = function () {
@@ -9718,7 +9718,7 @@ window.physicsBernoulli = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌪️ حاسبة معادلة برنولي
+            ًںŒھï¸ڈ ط­ط§ط³ط¨ط© ظ…ط¹ط§ط¯ظ„ط© ط¨ط±ظ†ظˆظ„ظٹ
         </div>
 
         <div style="
@@ -9726,12 +9726,12 @@ window.physicsBernoulli = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            P₁ + ½ρv₁² + ρgh₁ =
-            P₂ + ½ρv₂² + ρgh₂
+            Pâ‚پ + آ½دپvâ‚پآ² + دپghâ‚پ =
+            Pâ‚‚ + آ½دپvâ‚‚آ² + دپghâ‚‚
         </div>
 
         <div style="margin:6px 0;">
-            الضغط الأول P₁ (Pa):
+            ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„ Pâ‚پ (Pa):
         </div>
 
         <input id="physicsBernoulliP1"
@@ -9747,7 +9747,7 @@ window.physicsBernoulli = function () {
                ">
 
         <div style="margin:6px 0;">
-            الكثافة ρ (kg/m³):
+            ط§ظ„ظƒط«ط§ظپط© دپ (kg/mآ³):
         </div>
 
         <input id="physicsBernoulliRho"
@@ -9763,7 +9763,7 @@ window.physicsBernoulli = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة الأولى v₁ (m/s):
+            ط§ظ„ط³ط±ط¹ط© ط§ظ„ط£ظˆظ„ظ‰ vâ‚پ (m/s):
         </div>
 
         <input id="physicsBernoulliV1"
@@ -9779,7 +9779,7 @@ window.physicsBernoulli = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة الثانية v₂ (m/s):
+            ط§ظ„ط³ط±ط¹ط© ط§ظ„ط«ط§ظ†ظٹط© vâ‚‚ (m/s):
         </div>
 
         <input id="physicsBernoulliV2"
@@ -9795,7 +9795,7 @@ window.physicsBernoulli = function () {
                ">
 
         <div style="margin:6px 0;">
-            الارتفاع الأول h₁ (m):
+            ط§ظ„ط§ط±طھظپط§ط¹ ط§ظ„ط£ظˆظ„ hâ‚پ (m):
         </div>
 
         <input id="physicsBernoulliH1"
@@ -9811,7 +9811,7 @@ window.physicsBernoulli = function () {
                ">
 
         <div style="margin:6px 0;">
-            الارتفاع الثاني h₂ (m):
+            ط§ظ„ط§ط±طھظپط§ط¹ ط§ظ„ط«ط§ظ†ظٹ hâ‚‚ (m):
         </div>
 
         <input id="physicsBernoulliH2"
@@ -9835,7 +9835,7 @@ window.physicsBernoulli = function () {
             font-weight:bold;
             border:1px solid #ccc;
         ">
-            g = 9.80665 m/s²
+            g = 9.80665 m/sآ²
         </div>
 
         <button onclick="calculatePhysicsBernoulli()"
@@ -9844,7 +9844,7 @@ window.physicsBernoulli = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب P₂
+            ًں§® ط§ط­ط³ط¨ Pâ‚‚
         </button>
 
         <div id="physicsBernoulliResult"
@@ -9862,7 +9862,7 @@ window.physicsBernoulli = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -9892,7 +9892,7 @@ window.physicsBernoulli = function () {
 
 
 // ==========================================
-// 🧮 حساب P₂ من معادلة برنولي
+// ًں§® ط­ط³ط§ط¨ Pâ‚‚ ظ…ظ† ظ…ط¹ط§ط¯ظ„ط© ط¨ط±ظ†ظˆظ„ظٹ
 // ==========================================
 
 window.calculatePhysicsBernoulli = function () {
@@ -9930,19 +9930,19 @@ window.calculatePhysicsBernoulli = function () {
         !Number.isFinite(h2)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (rho <= 0) {
         result.innerHTML =
-            "❌ الكثافة يجب أن تكون أكبر من صفر";
+            "â‌Œ ط§ظ„ظƒط«ط§ظپط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (P1 < 0) {
         result.innerHTML =
-            "❌ الضغط لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ط¶ط؛ط· ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
@@ -9954,11 +9954,11 @@ window.calculatePhysicsBernoulli = function () {
         + rho * g * (h1 - h2);
 
     result.innerHTML =
-        `✅ P₂ = ${P2.toFixed(6)} Pa`;
+        `âœ… Pâ‚‚ = ${P2.toFixed(6)} Pa`;
 };
 // ==========================================
-// 🧭 حاسبة الضغط الجوي
-// P = P₀ × (1 - Lh/T₀)^(gM/RL)
+// ًں§­ ط­ط§ط³ط¨ط© ط§ظ„ط¶ط؛ط· ط§ظ„ط¬ظˆظٹ
+// P = Pâ‚€ أ— (1 - Lh/Tâ‚€)^(gM/RL)
 // ==========================================
 
 window.physicsAtmosphericPressure = function () {
@@ -9973,7 +9973,7 @@ window.physicsAtmosphericPressure = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🧭 حاسبة الضغط الجوي
+            ًں§­ ط­ط§ط³ط¨ط© ط§ظ„ط¶ط؛ط· ط§ظ„ط¬ظˆظٹ
         </div>
 
         <div style="
@@ -9981,11 +9981,11 @@ window.physicsAtmosphericPressure = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            الضغط الجوي حسب الارتفاع
+            ط§ظ„ط¶ط؛ط· ط§ظ„ط¬ظˆظٹ ط­ط³ط¨ ط§ظ„ط§ط±طھظپط§ط¹
         </div>
 
         <div style="margin:6px 0;">
-            الارتفاع h (m):
+            ط§ظ„ط§ط±طھظپط§ط¹ h (m):
         </div>
 
         <input id="physicsAtmosphericHeight"
@@ -10010,7 +10010,7 @@ window.physicsAtmosphericPressure = function () {
             border:1px solid #ccc;
             font-size:13px;
         ">
-            P₀ = 101325 Pa
+            Pâ‚€ = 101325 Pa
         </div>
 
         <div style="
@@ -10022,7 +10022,7 @@ window.physicsAtmosphericPressure = function () {
             border:1px solid #ccc;
             font-size:13px;
         ">
-            T₀ = 288.15 K
+            Tâ‚€ = 288.15 K
         </div>
 
         <div style="
@@ -10043,7 +10043,7 @@ window.physicsAtmosphericPressure = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الضغط الجوي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¶ط؛ط· ط§ظ„ط¬ظˆظٹ
         </button>
 
         <div id="physicsAtmosphericResult"
@@ -10061,7 +10061,7 @@ window.physicsAtmosphericPressure = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -10081,7 +10081,7 @@ window.physicsAtmosphericPressure = function () {
 
 
 // ==========================================
-// 🧮 حساب الضغط الجوي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¶ط؛ط· ط§ظ„ط¬ظˆظٹ
 // ==========================================
 
 window.calculatePhysicsAtmosphericPressure = function () {
@@ -10103,7 +10103,7 @@ window.calculatePhysicsAtmosphericPressure = function () {
     if (!Number.isFinite(height)) {
 
         result.innerHTML =
-            "⚠️ أدخل الارتفاع";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط§ط±طھظپط§ط¹";
 
         return;
     }
@@ -10111,18 +10111,18 @@ window.calculatePhysicsAtmosphericPressure = function () {
     if (height < 0) {
 
         result.innerHTML =
-            "❌ الارتفاع لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ط§ط±طھظپط§ط¹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
 
         return;
     }
 
-    // الثوابت
+    // ط§ظ„ط«ظˆط§ط¨طھ
     const P0 = 101325;      // Pa
     const T0 = 288.15;      // K
     const L = 0.0065;       // K/m
-    const g = 9.80665;      // m/s²
+    const g = 9.80665;      // m/sآ²
     const M = 0.0289644;    // kg/mol
-    const R = 8.31447;      // J/(mol·K)
+    const R = 8.31447;      // J/(molآ·K)
 
     const temperatureFactor =
         1 - (L * height / T0);
@@ -10130,7 +10130,7 @@ window.calculatePhysicsAtmosphericPressure = function () {
     if (temperatureFactor <= 0) {
 
         result.innerHTML =
-            "❌ الارتفاع خارج نطاق هذه المعادلة";
+            "â‌Œ ط§ظ„ط§ط±طھظپط§ط¹ ط®ط§ط±ط¬ ظ†ط·ط§ظ‚ ظ‡ط°ظ‡ ط§ظ„ظ…ط¹ط§ط¯ظ„ط©";
 
         return;
     }
@@ -10146,11 +10146,11 @@ window.calculatePhysicsAtmosphericPressure = function () {
         );
 
     result.innerHTML =
-        `✅ P = ${pressure.toFixed(6)} Pa`;
+        `âœ… P = ${pressure.toFixed(6)} Pa`;
 };
 // ==========================================
-// 🪣 حاسبة الضغط الكلي في السائل
-// P = Pₐ + ρ × g × h
+// ًںھ£ ط­ط§ط³ط¨ط© ط§ظ„ط¶ط؛ط· ط§ظ„ظƒظ„ظٹ ظپظٹ ط§ظ„ط³ط§ط¦ظ„
+// P = Pâ‚گ + دپ أ— g أ— h
 // ==========================================
 
 window.physicsTotalFluidPressure = function () {
@@ -10165,7 +10165,7 @@ window.physicsTotalFluidPressure = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🪣 حاسبة الضغط الكلي في السائل
+            ًںھ£ ط­ط§ط³ط¨ط© ط§ظ„ط¶ط؛ط· ط§ظ„ظƒظ„ظٹ ظپظٹ ط§ظ„ط³ط§ط¦ظ„
         </div>
 
         <div style="
@@ -10173,11 +10173,11 @@ window.physicsTotalFluidPressure = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            P = Pₐ + ρgh
+            P = Pâ‚گ + دپgh
         </div>
 
         <div style="margin:6px 0;">
-            الضغط الجوي Pₐ (Pa):
+            ط§ظ„ط¶ط؛ط· ط§ظ„ط¬ظˆظٹ Pâ‚گ (Pa):
         </div>
 
         <input id="physicsTotalPressurePa"
@@ -10194,7 +10194,7 @@ window.physicsTotalFluidPressure = function () {
                ">
 
         <div style="margin:6px 0;">
-            كثافة السائل ρ (kg/m³):
+            ظƒط«ط§ظپط© ط§ظ„ط³ط§ط¦ظ„ دپ (kg/mآ³):
         </div>
 
         <input id="physicsTotalPressureRho"
@@ -10211,7 +10211,7 @@ window.physicsTotalFluidPressure = function () {
                ">
 
         <div style="margin:6px 0;">
-            العمق h (m):
+            ط§ظ„ط¹ظ…ظ‚ h (m):
         </div>
 
         <input id="physicsTotalPressureH"
@@ -10236,7 +10236,7 @@ window.physicsTotalFluidPressure = function () {
             border:1px solid #ccc;
             font-size:13px;
         ">
-            g = 9.80665 m/s²
+            g = 9.80665 m/sآ²
         </div>
 
         <button onclick="calculatePhysicsTotalFluidPressure()"
@@ -10245,7 +10245,7 @@ window.physicsTotalFluidPressure = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الضغط الكلي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¶ط؛ط· ط§ظ„ظƒظ„ظٹ
         </button>
 
         <div id="physicsTotalPressureResult"
@@ -10263,7 +10263,7 @@ window.physicsTotalFluidPressure = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -10290,7 +10290,7 @@ window.physicsTotalFluidPressure = function () {
 
 
 // ==========================================
-// 🧮 حساب الضغط الكلي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¶ط؛ط· ط§ظ„ظƒظ„ظٹ
 // ==========================================
 
 window.calculatePhysicsTotalFluidPressure = function () {
@@ -10322,24 +10322,24 @@ window.calculatePhysicsTotalFluidPressure = function () {
         !Number.isFinite(h)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (Pa < 0 || rho < 0 || h < 0) {
         result.innerHTML =
-            "❌ القيم لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظ‚ظٹظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
-    // ثابت عجلة الجاذبية
+    // ط«ط§ط¨طھ ط¹ط¬ظ„ط© ط§ظ„ط¬ط§ط°ط¨ظٹط©
     const g = 9.80665;
 
     const P =
         Pa + (rho * g * h);
 
     result.innerHTML =
-        `✅ P = ${P.toFixed(6)} Pa`;
+        `âœ… P = ${P.toFixed(6)} Pa`;
 };
 window.physicsVolumetricFlow = function () {
 
@@ -10353,7 +10353,7 @@ window.physicsVolumetricFlow = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💦 حاسبة معدل التدفق الحجمي
+            ًں’¦ ط­ط§ط³ط¨ط© ظ…ط¹ط¯ظ„ ط§ظ„طھط¯ظپظ‚ ط§ظ„ط­ط¬ظ…ظٹ
         </div>
 
         <div style="
@@ -10365,7 +10365,7 @@ window.physicsVolumetricFlow = function () {
         </div>
 
         <div style="margin:6px 0;">
-            الحجم V (m³):
+            ط§ظ„ط­ط¬ظ… V (mآ³):
         </div>
 
         <input id="physicsFlowV"
@@ -10381,7 +10381,7 @@ window.physicsVolumetricFlow = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsFlowT"
@@ -10402,7 +10402,7 @@ window.physicsVolumetricFlow = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب معدل التدفق
+            ًں§® ط§ط­ط³ط¨ ظ…ط¹ط¯ظ„ ط§ظ„طھط¯ظپظ‚
         </button>
 
         <div id="physicsFlowResult"
@@ -10420,7 +10420,7 @@ window.physicsVolumetricFlow = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -10444,7 +10444,7 @@ window.physicsVolumetricFlow = function () {
 
 
 // ==========================================
-// 🧮 حساب معدل التدفق الحجمي
+// ًں§® ط­ط³ط§ط¨ ظ…ط¹ط¯ظ„ ط§ظ„طھط¯ظپظ‚ ط§ظ„ط­ط¬ظ…ظٹ
 // ==========================================
 
 window.calculatePhysicsVolumetricFlow = function () {
@@ -10461,28 +10461,28 @@ window.calculatePhysicsVolumetricFlow = function () {
         document.getElementById("physicsFlowResult");
 
     if (!Number.isFinite(V) || !Number.isFinite(t)) {
-        result.innerHTML = "⚠️ أدخل جميع القيم المطلوبة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (V < 0 || t < 0) {
-        result.innerHTML = "❌ القيم لا يمكن أن تكون سالبة";
+        result.innerHTML = "â‌Œ ط§ظ„ظ‚ظٹظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (t === 0) {
-        result.innerHTML = "❌ الزمن لا يمكن أن يساوي صفرًا";
+        result.innerHTML = "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const Q = V / t;
 
     result.innerHTML =
-        `✅ Q = ${Q.toFixed(6)} m³/s`;
+        `âœ… Q = ${Q.toFixed(6)} mآ³/s`;
 };
 // ==========================================
-// 🧪 حاسبة اللزوجة
-// η = F × L / (A × v)
+// ًں§ھ ط­ط§ط³ط¨ط© ط§ظ„ظ„ط²ظˆط¬ط©
+// خ· = F أ— L / (A أ— v)
 // ==========================================
 
 window.physicsViscosity = function () {
@@ -10497,7 +10497,7 @@ window.physicsViscosity = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🧪 حاسبة اللزوجة
+            ًں§ھ ط­ط§ط³ط¨ط© ط§ظ„ظ„ط²ظˆط¬ط©
         </div>
 
         <div style="
@@ -10505,11 +10505,11 @@ window.physicsViscosity = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            η = F × L / (A × v)
+            خ· = F أ— L / (A أ— v)
         </div>
 
         <div style="margin:6px 0;">
-            القوة F (N):
+            ط§ظ„ظ‚ظˆط© F (N):
         </div>
 
         <input id="physicsViscosityForce"
@@ -10526,7 +10526,7 @@ window.physicsViscosity = function () {
                ">
 
         <div style="margin:6px 0;">
-            طول طبقة السائل L (m):
+            ط·ظˆظ„ ط·ط¨ظ‚ط© ط§ظ„ط³ط§ط¦ظ„ L (m):
         </div>
 
         <input id="physicsViscosityLength"
@@ -10543,7 +10543,7 @@ window.physicsViscosity = function () {
                ">
 
         <div style="margin:6px 0;">
-            مساحة السطح A (m²):
+            ظ…ط³ط§ط­ط© ط§ظ„ط³ط·ط­ A (mآ²):
         </div>
 
         <input id="physicsViscosityArea"
@@ -10560,7 +10560,7 @@ window.physicsViscosity = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة v (m/s):
+            ط§ظ„ط³ط±ط¹ط© v (m/s):
         </div>
 
         <input id="physicsViscosityVelocity"
@@ -10582,7 +10582,7 @@ window.physicsViscosity = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب اللزوجة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ„ط²ظˆط¬ط©
         </button>
 
         <div id="physicsViscosityResult"
@@ -10600,7 +10600,7 @@ window.physicsViscosity = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموائع والضغط
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط§ط¦ط¹ ظˆط§ظ„ط¶ط؛ط·
         </button>
     `);
 
@@ -10628,7 +10628,7 @@ window.physicsViscosity = function () {
 
 
 // ==========================================
-// 🧮 حساب اللزوجة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ„ط²ظˆط¬ط©
 // ==========================================
 
 window.calculatePhysicsViscosity = function () {
@@ -10671,19 +10671,19 @@ window.calculatePhysicsViscosity = function () {
         !Number.isFinite(v)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (F < 0 || L < 0 || A < 0 || v < 0) {
         result.innerHTML =
-            "❌ القيم لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظ‚ظٹظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (A === 0 || v === 0) {
         result.innerHTML =
-            "❌ المساحة والسرعة يجب أن تكونا أكبر من صفر";
+            "â‌Œ ط§ظ„ظ…ط³ط§ط­ط© ظˆط§ظ„ط³ط±ط¹ط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ†ط§ ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -10691,11 +10691,11 @@ window.calculatePhysicsViscosity = function () {
         (F * L) / (A * v);
 
     result.innerHTML =
-        `✅ η = ${eta.toFixed(6)} Pa·s`;
+        `âœ… خ· = ${eta.toFixed(6)} Paآ·s`;
 };
 // ==========================================
-// 🌊 حاسبة سرعة الموجة
-// v = f × λ
+// ًںŒٹ ط­ط§ط³ط¨ط© ط³ط±ط¹ط© ط§ظ„ظ…ظˆط¬ط©
+// v = f أ— خ»
 // ==========================================
 
 window.physicsWaveSpeed = function () {
@@ -10710,7 +10710,7 @@ window.physicsWaveSpeed = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌊 حاسبة سرعة الموجة
+            ًںŒٹ ط­ط§ط³ط¨ط© ط³ط±ط¹ط© ط§ظ„ظ…ظˆط¬ط©
         </div>
 
         <div style="
@@ -10718,11 +10718,11 @@ window.physicsWaveSpeed = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            v = f × λ
+            v = f أ— خ»
         </div>
 
         <div style="margin:6px 0;">
-            التردد f (Hz):
+            ط§ظ„طھط±ط¯ط¯ f (Hz):
         </div>
 
         <input id="physicsWaveFrequency"
@@ -10739,7 +10739,7 @@ window.physicsWaveSpeed = function () {
                ">
 
         <div style="margin:6px 0;">
-            الطول الموجي λ (m):
+            ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ خ» (m):
         </div>
 
         <input id="physicsWaveLength"
@@ -10761,7 +10761,7 @@ window.physicsWaveSpeed = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب سرعة الموجة
+            ًں§® ط§ط­ط³ط¨ ط³ط±ط¹ط© ط§ظ„ظ…ظˆط¬ط©
         </button>
 
         <div id="physicsWaveSpeedResult"
@@ -10779,7 +10779,7 @@ window.physicsWaveSpeed = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -10803,7 +10803,7 @@ window.physicsWaveSpeed = function () {
 
 
 // ==========================================
-// 🧮 حساب سرعة الموجة
+// ًں§® ط­ط³ط§ط¨ ط³ط±ط¹ط© ط§ظ„ظ…ظˆط¬ط©
 // ==========================================
 
 window.calculatePhysicsWaveSpeed = function () {
@@ -10832,24 +10832,24 @@ window.calculatePhysicsWaveSpeed = function () {
         !Number.isFinite(lambda)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (f < 0 || lambda < 0) {
         result.innerHTML =
-            "❌ التردد والطول الموجي لا يمكن أن يكونا سالبين";
+            "â‌Œ ط§ظ„طھط±ط¯ط¯ ظˆط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ†ط§ ط³ط§ظ„ط¨ظٹظ†";
         return;
     }
 
     const v = f * lambda;
 
     result.innerHTML =
-        `✅ v = ${v.toFixed(6)} m/s`;
+        `âœ… v = ${v.toFixed(6)} m/s`;
 };
 // ==========================================
-// 📏 حاسبة الطول الموجي
-// λ = v / f
+// ًں“ڈ ط­ط§ط³ط¨ط© ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ
+// خ» = v / f
 // ==========================================
 
 window.physicsWavelength = function () {
@@ -10864,7 +10864,7 @@ window.physicsWavelength = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📏 حاسبة الطول الموجي
+            ًں“ڈ ط­ط§ط³ط¨ط© ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ
         </div>
 
         <div style="
@@ -10872,11 +10872,11 @@ window.physicsWavelength = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            λ = v / f
+            خ» = v / f
         </div>
 
         <div style="margin:6px 0;">
-            سرعة الموجة v (m/s):
+            ط³ط±ط¹ط© ط§ظ„ظ…ظˆط¬ط© v (m/s):
         </div>
 
         <input id="physicsWavelengthSpeed"
@@ -10893,7 +10893,7 @@ window.physicsWavelength = function () {
                ">
 
         <div style="margin:6px 0;">
-            التردد f (Hz):
+            ط§ظ„طھط±ط¯ط¯ f (Hz):
         </div>
 
         <input id="physicsWavelengthFrequency"
@@ -10915,7 +10915,7 @@ window.physicsWavelength = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الطول الموجي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ
         </button>
 
         <div id="physicsWavelengthResult"
@@ -10933,7 +10933,7 @@ window.physicsWavelength = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -10957,7 +10957,7 @@ window.physicsWavelength = function () {
 
 
 // ==========================================
-// 🧮 حساب الطول الموجي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ
 // ==========================================
 
 window.calculatePhysicsWavelength = function () {
@@ -10986,30 +10986,30 @@ window.calculatePhysicsWavelength = function () {
         !Number.isFinite(f)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (v < 0 || f < 0) {
         result.innerHTML =
-            "❌ السرعة والتردد لا يمكن أن يكونا سالبين";
+            "â‌Œ ط§ظ„ط³ط±ط¹ط© ظˆط§ظ„طھط±ط¯ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ†ط§ ط³ط§ظ„ط¨ظٹظ†";
         return;
     }
 
     if (f === 0) {
         result.innerHTML =
-            "❌ التردد لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط§ظ„طھط±ط¯ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const lambda = v / f;
 
     result.innerHTML =
-        `✅ λ = ${lambda.toFixed(6)} m`;
+        `âœ… خ» = ${lambda.toFixed(6)} m`;
 };
 // ==========================================
-// 🔄 حاسبة التردد
-// f = v / λ
+// ًں”„ ط­ط§ط³ط¨ط© ط§ظ„طھط±ط¯ط¯
+// f = v / خ»
 // ==========================================
 
 window.physicsFrequency = function () {
@@ -11024,7 +11024,7 @@ window.physicsFrequency = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔄 حاسبة التردد
+            ًں”„ ط­ط§ط³ط¨ط© ط§ظ„طھط±ط¯ط¯
         </div>
 
         <div style="
@@ -11032,11 +11032,11 @@ window.physicsFrequency = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            f = v / λ
+            f = v / خ»
         </div>
 
         <div style="margin:6px 0;">
-            سرعة الموجة v (m/s):
+            ط³ط±ط¹ط© ط§ظ„ظ…ظˆط¬ط© v (m/s):
         </div>
 
         <input id="physicsFrequencySpeed"
@@ -11053,7 +11053,7 @@ window.physicsFrequency = function () {
                ">
 
         <div style="margin:6px 0;">
-            الطول الموجي λ (m):
+            ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ خ» (m):
         </div>
 
         <input id="physicsFrequencyWavelength"
@@ -11075,7 +11075,7 @@ window.physicsFrequency = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التردد
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھط±ط¯ط¯
         </button>
 
         <div id="physicsFrequencyResult"
@@ -11093,7 +11093,7 @@ window.physicsFrequency = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -11117,7 +11117,7 @@ window.physicsFrequency = function () {
 
 
 // ==========================================
-// 🧮 حساب التردد
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھط±ط¯ط¯
 // ==========================================
 
 window.calculatePhysicsFrequency = function () {
@@ -11146,29 +11146,29 @@ window.calculatePhysicsFrequency = function () {
         !Number.isFinite(lambda)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (v < 0 || lambda < 0) {
         result.innerHTML =
-            "❌ السرعة والطول الموجي لا يمكن أن يكونا سالبين";
+            "â‌Œ ط§ظ„ط³ط±ط¹ط© ظˆط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ†ط§ ط³ط§ظ„ط¨ظٹظ†";
         return;
     }
 
     if (lambda === 0) {
         result.innerHTML =
-            "❌ الطول الموجي لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const f = v / lambda;
 
     result.innerHTML =
-        `✅ f = ${f.toFixed(6)} Hz`;
+        `âœ… f = ${f.toFixed(6)} Hz`;
 };
 // ==========================================
-// ⏱️ حاسبة الزمن الدوري
+// âڈ±ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط²ظ…ظ† ط§ظ„ط¯ظˆط±ظٹ
 // T = 1 / f
 // ==========================================
 
@@ -11184,7 +11184,7 @@ window.physicsPeriod = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⏱️ حاسبة الزمن الدوري
+            âڈ±ï¸ڈ ط­ط§ط³ط¨ط© ط§ظ„ط²ظ…ظ† ط§ظ„ط¯ظˆط±ظٹ
         </div>
 
         <div style="
@@ -11196,7 +11196,7 @@ window.physicsPeriod = function () {
         </div>
 
         <div style="margin:6px 0;">
-            التردد f (Hz):
+            ط§ظ„طھط±ط¯ط¯ f (Hz):
         </div>
 
         <input id="physicsPeriodFrequency"
@@ -11218,7 +11218,7 @@ window.physicsPeriod = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الزمن الدوري
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط²ظ…ظ† ط§ظ„ط¯ظˆط±ظٹ
         </button>
 
         <div id="physicsPeriodResult"
@@ -11236,7 +11236,7 @@ window.physicsPeriod = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -11255,7 +11255,7 @@ window.physicsPeriod = function () {
 
 
 // ==========================================
-// 🧮 حساب الزمن الدوري
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط²ظ…ظ† ط§ظ„ط¯ظˆط±ظٹ
 // ==========================================
 
 window.calculatePhysicsPeriod = function () {
@@ -11275,29 +11275,29 @@ window.calculatePhysicsPeriod = function () {
 
     if (!Number.isFinite(f)) {
         result.innerHTML =
-            "⚠️ أدخل التردد";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„طھط±ط¯ط¯";
         return;
     }
 
     if (f < 0) {
         result.innerHTML =
-            "❌ التردد لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„طھط±ط¯ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (f === 0) {
         result.innerHTML =
-            "❌ التردد لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط§ظ„طھط±ط¯ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const T = 1 / f;
 
     result.innerHTML =
-        `✅ T = ${T.toFixed(6)} s`;
+        `âœ… T = ${T.toFixed(6)} s`;
 };
 // ==========================================
-// 📢 حاسبة شدة الصوت
+// ًں“¢ ط­ط§ط³ط¨ط© ط´ط¯ط© ط§ظ„طµظˆطھ
 // I = P / A
 // ==========================================
 
@@ -11313,7 +11313,7 @@ window.physicsSoundIntensity = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📢 حاسبة شدة الصوت
+            ًں“¢ ط­ط§ط³ط¨ط© ط´ط¯ط© ط§ظ„طµظˆطھ
         </div>
 
         <div style="
@@ -11325,7 +11325,7 @@ window.physicsSoundIntensity = function () {
         </div>
 
         <div style="margin:6px 0;">
-            القدرة P (W):
+            ط§ظ„ظ‚ط¯ط±ط© P (W):
         </div>
 
         <input id="physicsSoundPower"
@@ -11342,7 +11342,7 @@ window.physicsSoundIntensity = function () {
                ">
 
         <div style="margin:6px 0;">
-            المساحة A (m²):
+            ط§ظ„ظ…ط³ط§ط­ط© A (mآ²):
         </div>
 
         <input id="physicsSoundArea"
@@ -11364,7 +11364,7 @@ window.physicsSoundIntensity = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب شدة الصوت
+            ًں§® ط§ط­ط³ط¨ ط´ط¯ط© ط§ظ„طµظˆطھ
         </button>
 
         <div id="physicsSoundIntensityResult"
@@ -11382,7 +11382,7 @@ window.physicsSoundIntensity = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -11406,7 +11406,7 @@ window.physicsSoundIntensity = function () {
 
 
 // ==========================================
-// 🧮 حساب شدة الصوت
+// ًں§® ط­ط³ط§ط¨ ط´ط¯ط© ط§ظ„طµظˆطھ
 // ==========================================
 
 window.calculatePhysicsSoundIntensity = function () {
@@ -11435,31 +11435,31 @@ window.calculatePhysicsSoundIntensity = function () {
         !Number.isFinite(A)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (P < 0 || A < 0) {
         result.innerHTML =
-            "❌ القدرة والمساحة لا يمكن أن تكونا سالبتين";
+            "â‌Œ ط§ظ„ظ‚ط¯ط±ط© ظˆط§ظ„ظ…ط³ط§ط­ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ†ط§ ط³ط§ظ„ط¨طھظٹظ†";
         return;
     }
 
     if (A === 0) {
         result.innerHTML =
-            "❌ المساحة لا يمكن أن تساوي صفرًا";
+            "â‌Œ ط§ظ„ظ…ط³ط§ط­ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const I = P / A;
 
     result.innerHTML =
-        `✅ I = ${I.toFixed(6)} W/m²`;
+        `âœ… I = ${I.toFixed(6)} W/mآ²`;
 };
 // ==========================================
-// 🔊 حاسبة مستوى شدة الصوت
-// β = 10 × log10(I / I₀)
-// I₀ = 10⁻¹² W/m²
+// ًں”ٹ ط­ط§ط³ط¨ط© ظ…ط³طھظˆظ‰ ط´ط¯ط© ط§ظ„طµظˆطھ
+// خ² = 10 أ— log10(I / Iâ‚€)
+// Iâ‚€ = 10âپ»آ¹آ² W/mآ²
 // ==========================================
 
 window.physicsSoundLevel = function () {
@@ -11474,7 +11474,7 @@ window.physicsSoundLevel = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔊 حاسبة مستوى شدة الصوت
+            ًں”ٹ ط­ط§ط³ط¨ط© ظ…ط³طھظˆظ‰ ط´ط¯ط© ط§ظ„طµظˆطھ
         </div>
 
         <div style="
@@ -11482,7 +11482,7 @@ window.physicsSoundLevel = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            β = 10 × log₁₀(I / I₀)
+            خ² = 10 أ— logâ‚پâ‚€(I / Iâ‚€)
         </div>
 
         <div style="
@@ -11490,11 +11490,11 @@ window.physicsSoundLevel = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            I₀ = 10⁻¹² W/m²
+            Iâ‚€ = 10âپ»آ¹آ² W/mآ²
         </div>
 
         <div style="margin:6px 0;">
-            شدة الصوت I (W/m²):
+            ط´ط¯ط© ط§ظ„طµظˆطھ I (W/mآ²):
         </div>
 
         <input id="physicsSoundLevelIntensity"
@@ -11516,7 +11516,7 @@ window.physicsSoundLevel = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب مستوى شدة الصوت
+            ًں§® ط§ط­ط³ط¨ ظ…ط³طھظˆظ‰ ط´ط¯ط© ط§ظ„طµظˆطھ
         </button>
 
         <div id="physicsSoundLevelResult"
@@ -11534,7 +11534,7 @@ window.physicsSoundLevel = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -11555,7 +11555,7 @@ window.physicsSoundLevel = function () {
 
 
 // ==========================================
-// 🧮 حساب مستوى شدة الصوت
+// ًں§® ط­ط³ط§ط¨ ظ…ط³طھظˆظ‰ ط´ط¯ط© ط§ظ„طµظˆطھ
 // ==========================================
 
 window.calculatePhysicsSoundLevel = function () {
@@ -11575,27 +11575,27 @@ window.calculatePhysicsSoundLevel = function () {
 
     if (!Number.isFinite(I)) {
         result.innerHTML =
-            "⚠️ أدخل شدة الصوت";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط´ط¯ط© ط§ظ„طµظˆطھ";
         return;
     }
 
     if (I <= 0) {
         result.innerHTML =
-            "❌ شدة الصوت يجب أن تكون أكبر من صفر";
+            "â‌Œ ط´ط¯ط© ط§ظ„طµظˆطھ ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
-    // شدة الصوت المرجعية
+    // ط´ط¯ط© ط§ظ„طµظˆطھ ط§ظ„ظ…ط±ط¬ط¹ظٹط©
     const I0 = 1e-12;
 
     const beta =
         10 * Math.log10(I / I0);
 
     result.innerHTML =
-        `✅ β = ${beta.toFixed(6)} dB`;
+        `âœ… خ² = ${beta.toFixed(6)} dB`;
 };
 // ==========================================
-// 🎵 حاسبة تردد الموجة
+// ًںژµ ط­ط§ط³ط¨ط© طھط±ط¯ط¯ ط§ظ„ظ…ظˆط¬ط©
 // f = N / t
 // ==========================================
 
@@ -11611,7 +11611,7 @@ window.physicsWaveFrequency = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🎵 حاسبة تردد الموجة
+            ًںژµ ط­ط§ط³ط¨ط© طھط±ط¯ط¯ ط§ظ„ظ…ظˆط¬ط©
         </div>
 
         <div style="
@@ -11623,7 +11623,7 @@ window.physicsWaveFrequency = function () {
         </div>
 
         <div style="margin:6px 0;">
-            عدد الذبذبات N:
+            ط¹ط¯ط¯ ط§ظ„ط°ط¨ط°ط¨ط§طھ N:
         </div>
 
         <input id="physicsWaveCycles"
@@ -11640,7 +11640,7 @@ window.physicsWaveFrequency = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t (s):
+            ط§ظ„ط²ظ…ظ† t (s):
         </div>
 
         <input id="physicsWaveCyclesTime"
@@ -11662,7 +11662,7 @@ window.physicsWaveFrequency = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التردد
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھط±ط¯ط¯
         </button>
 
         <div id="physicsWaveFrequencyResult"
@@ -11680,7 +11680,7 @@ window.physicsWaveFrequency = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -11704,7 +11704,7 @@ window.physicsWaveFrequency = function () {
 
 
 // ==========================================
-// 🧮 حساب تردد الموجة
+// ًں§® ط­ط³ط§ط¨ طھط±ط¯ط¯ ط§ظ„ظ…ظˆط¬ط©
 // ==========================================
 
 window.calculatePhysicsWaveFrequency = function () {
@@ -11733,30 +11733,30 @@ window.calculatePhysicsWaveFrequency = function () {
         !Number.isFinite(t)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N < 0 || t < 0) {
         result.innerHTML =
-            "❌ القيم لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظ‚ظٹظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (t === 0) {
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const f = N / t;
 
     result.innerHTML =
-        `✅ f = ${f.toFixed(6)} Hz`;
+        `âœ… f = ${f.toFixed(6)} Hz`;
 };
 // ==========================================
-// 🪕 حاسبة تردد الوتر
-// f = (1 / 2L) × √(T / μ)
+// ًںھ• ط­ط§ط³ط¨ط© طھط±ط¯ط¯ ط§ظ„ظˆطھط±
+// f = (1 / 2L) أ— âˆڑ(T / خ¼)
 // ==========================================
 
 window.physicsStringFrequency = function () {
@@ -11771,7 +11771,7 @@ window.physicsStringFrequency = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🪕 حاسبة تردد الوتر
+            ًںھ• ط­ط§ط³ط¨ط© طھط±ط¯ط¯ ط§ظ„ظˆطھط±
         </div>
 
         <div style="
@@ -11779,11 +11779,11 @@ window.physicsStringFrequency = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            f = (1 / 2L) × √(T / μ)
+            f = (1 / 2L) أ— âˆڑ(T / خ¼)
         </div>
 
         <div style="margin:6px 0;">
-            طول الوتر L (m):
+            ط·ظˆظ„ ط§ظ„ظˆطھط± L (m):
         </div>
 
         <input id="physicsStringLength"
@@ -11800,7 +11800,7 @@ window.physicsStringFrequency = function () {
                ">
 
         <div style="margin:6px 0;">
-            قوة الشد T (N):
+            ظ‚ظˆط© ط§ظ„ط´ط¯ T (N):
         </div>
 
         <input id="physicsStringTension"
@@ -11817,7 +11817,7 @@ window.physicsStringFrequency = function () {
                ">
 
         <div style="margin:6px 0;">
-            الكثافة الخطية μ (kg/m):
+            ط§ظ„ظƒط«ط§ظپط© ط§ظ„ط®ط·ظٹط© خ¼ (kg/m):
         </div>
 
         <input id="physicsStringLinearDensity"
@@ -11839,7 +11839,7 @@ window.physicsStringFrequency = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب تردد الوتر
+            ًں§® ط§ط­ط³ط¨ طھط±ط¯ط¯ ط§ظ„ظˆطھط±
         </button>
 
         <div id="physicsStringFrequencyResult"
@@ -11857,7 +11857,7 @@ window.physicsStringFrequency = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -11882,7 +11882,7 @@ window.physicsStringFrequency = function () {
 
 
 // ==========================================
-// 🧮 حساب تردد الوتر
+// ًں§® ط­ط³ط§ط¨ طھط±ط¯ط¯ ط§ظ„ظˆطھط±
 // ==========================================
 
 window.calculatePhysicsStringFrequency = function () {
@@ -11918,13 +11918,13 @@ window.calculatePhysicsStringFrequency = function () {
         !Number.isFinite(mu)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (L <= 0 || T < 0 || mu <= 0) {
         result.innerHTML =
-            "❌ يجب أن يكون طول الوتر والكثافة الخطية أكبر من صفر، والشد غير سالب";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط·ظˆظ„ ط§ظ„ظˆطھط± ظˆط§ظ„ظƒط«ط§ظپط© ط§ظ„ط®ط·ظٹط© ط£ظƒط¨ط± ظ…ظ† طµظپط±طŒ ظˆط§ظ„ط´ط¯ ط؛ظٹط± ط³ط§ظ„ط¨";
         return;
     }
 
@@ -11933,10 +11933,10 @@ window.calculatePhysicsStringFrequency = function () {
         Math.sqrt(T / mu);
 
     result.innerHTML =
-        `✅ f = ${f.toFixed(6)} Hz`;
+        `âœ… f = ${f.toFixed(6)} Hz`;
 };
 // ==========================================
-// 🌡️ حاسبة سرعة الصوت في الهواء
+// ًںŒ،ï¸ڈ ط­ط§ط³ط¨ط© ط³ط±ط¹ط© ط§ظ„طµظˆطھ ظپظٹ ط§ظ„ظ‡ظˆط§ط،
 // v = 331 + 0.6T
 // ==========================================
 
@@ -11952,7 +11952,7 @@ window.physicsSoundSpeed = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌡️ حاسبة سرعة الصوت في الهواء
+            ًںŒ،ï¸ڈ ط­ط§ط³ط¨ط© ط³ط±ط¹ط© ط§ظ„طµظˆطھ ظپظٹ ط§ظ„ظ‡ظˆط§ط،
         </div>
 
         <div style="
@@ -11964,7 +11964,7 @@ window.physicsSoundSpeed = function () {
         </div>
 
         <div style="margin:6px 0;">
-            درجة الحرارة T (°C):
+            ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© T (آ°C):
         </div>
 
         <input id="physicsSoundTemperature"
@@ -11986,7 +11986,7 @@ window.physicsSoundSpeed = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب سرعة الصوت
+            ًں§® ط§ط­ط³ط¨ ط³ط±ط¹ط© ط§ظ„طµظˆطھ
         </button>
 
         <div id="physicsSoundSpeedResult"
@@ -12004,7 +12004,7 @@ window.physicsSoundSpeed = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -12025,7 +12025,7 @@ window.physicsSoundSpeed = function () {
 
 
 // ==========================================
-// 🧮 حساب سرعة الصوت
+// ًں§® ط­ط³ط§ط¨ ط³ط±ط¹ط© ط§ظ„طµظˆطھ
 // ==========================================
 
 window.calculatePhysicsSoundSpeed = function () {
@@ -12045,7 +12045,7 @@ window.calculatePhysicsSoundSpeed = function () {
 
     if (!Number.isFinite(T)) {
         result.innerHTML =
-            "⚠️ أدخل درجة الحرارة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
         return;
     }
 
@@ -12053,16 +12053,16 @@ window.calculatePhysicsSoundSpeed = function () {
 
     if (v <= 0) {
         result.innerHTML =
-            "❌ درجة الحرارة خارج نطاق هذا التقريب";
+            "â‌Œ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط®ط§ط±ط¬ ظ†ط·ط§ظ‚ ظ‡ط°ط§ ط§ظ„طھظ‚ط±ظٹط¨";
         return;
     }
 
     result.innerHTML =
-        `✅ v = ${v.toFixed(6)} m/s`;
+        `âœ… v = ${v.toFixed(6)} m/s`;
 };
 // ==========================================
-// 📡 حاسبة تأثير دوبلر
-// f′ = f × (v ± vo) / (v ∓ vs)
+// ًں“، ط­ط§ط³ط¨ط© طھط£ط«ظٹط± ط¯ظˆط¨ظ„ط±
+// fâ€² = f أ— (v آ± vo) / (v âˆ“ vs)
 // ==========================================
 
 window.physicsDopplerEffect = function () {
@@ -12077,7 +12077,7 @@ window.physicsDopplerEffect = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📡 حاسبة تأثير دوبلر
+            ًں“، ط­ط§ط³ط¨ط© طھط£ط«ظٹط± ط¯ظˆط¨ظ„ط±
         </div>
 
         <div style="
@@ -12085,11 +12085,11 @@ window.physicsDopplerEffect = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            f′ = f × (v ± vₒ) / (v ∓ vₛ)
+            fâ€² = f أ— (v آ± vâ‚’) / (v âˆ“ vâ‚›)
         </div>
 
         <div style="margin:6px 0;">
-            تردد المصدر f (Hz):
+            طھط±ط¯ط¯ ط§ظ„ظ…طµط¯ط± f (Hz):
         </div>
 
         <input id="physicsDopplerFrequency"
@@ -12106,7 +12106,7 @@ window.physicsDopplerEffect = function () {
                ">
 
         <div style="margin:6px 0;">
-            سرعة الصوت v (m/s):
+            ط³ط±ط¹ط© ط§ظ„طµظˆطھ v (m/s):
         </div>
 
         <input id="physicsDopplerSoundSpeed"
@@ -12123,7 +12123,7 @@ window.physicsDopplerEffect = function () {
                ">
 
         <div style="margin:6px 0;">
-            سرعة المراقب vₒ (m/s):
+            ط³ط±ط¹ط© ط§ظ„ظ…ط±ط§ظ‚ط¨ vâ‚’ (m/s):
         </div>
 
         <input id="physicsDopplerObserverSpeed"
@@ -12140,7 +12140,7 @@ window.physicsDopplerEffect = function () {
                ">
 
         <div style="margin:6px 0;">
-            سرعة المصدر vₛ (m/s):
+            ط³ط±ط¹ط© ط§ظ„ظ…طµط¯ط± vâ‚› (m/s):
         </div>
 
         <input id="physicsDopplerSourceSpeed"
@@ -12160,7 +12160,7 @@ window.physicsDopplerEffect = function () {
             margin:8px 0 6px;
             font-weight:bold;
         ">
-            الحالة:
+            ط§ظ„ط­ط§ظ„ط©:
         </div>
 
         <select id="physicsDopplerDirection"
@@ -12171,11 +12171,11 @@ window.physicsDopplerEffect = function () {
                     font-size:14px;
                 ">
             <option value="approaching">
-                🚗 اقتراب
+                ًںڑ— ط§ظ‚طھط±ط§ط¨
             </option>
 
             <option value="receding">
-                🚶 ابتعاد
+                ًںڑ¶ ط§ط¨طھط¹ط§ط¯
             </option>
         </select>
 
@@ -12185,7 +12185,7 @@ window.physicsDopplerEffect = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التردد المسموع
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھط±ط¯ط¯ ط§ظ„ظ…ط³ظ…ظˆط¹
         </button>
 
         <div id="physicsDopplerResult"
@@ -12203,7 +12203,7 @@ window.physicsDopplerEffect = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -12230,7 +12230,7 @@ window.physicsDopplerEffect = function () {
 
 
 // ==========================================
-// 🧮 حساب تأثير دوبلر
+// ًں§® ط­ط³ط§ط¨ طھط£ط«ظٹط± ط¯ظˆط¨ظ„ط±
 // ==========================================
 
 window.calculatePhysicsDopplerEffect = function () {
@@ -12278,13 +12278,13 @@ window.calculatePhysicsDopplerEffect = function () {
         !Number.isFinite(vs)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (f <= 0 || v <= 0 || vo < 0 || vs < 0) {
         result.innerHTML =
-            "❌ تأكد من أن القيم المدخلة صحيحة";
+            "â‌Œ طھط£ظƒط¯ ظ…ظ† ط£ظ† ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط¯ط®ظ„ط© طµط­ظٹط­ط©";
         return;
     }
 
@@ -12292,12 +12292,12 @@ window.calculatePhysicsDopplerEffect = function () {
 
     if (direction === "approaching") {
 
-        // اقتراب:
-        // البسط يزيد والمقام يقل
+        // ط§ظ‚طھط±ط§ط¨:
+        // ط§ظ„ط¨ط³ط· ظٹط²ظٹط¯ ظˆط§ظ„ظ…ظ‚ط§ظ… ظٹظ‚ظ„
 
         if (vs >= v) {
             result.innerHTML =
-                "❌ سرعة المصدر يجب أن تكون أقل من سرعة الصوت";
+                "â‌Œ ط³ط±ط¹ط© ط§ظ„ظ…طµط¯ط± ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظ‚ظ„ ظ…ظ† ط³ط±ط¹ط© ط§ظ„طµظˆطھ";
             return;
         }
 
@@ -12306,26 +12306,26 @@ window.calculatePhysicsDopplerEffect = function () {
 
     } else {
 
-        // ابتعاد:
-        // البسط يقل والمقام يزيد
+        // ط§ط¨طھط¹ط§ط¯:
+        // ط§ظ„ط¨ط³ط· ظٹظ‚ظ„ ظˆط§ظ„ظ…ظ‚ط§ظ… ظٹط²ظٹط¯
 
         observedFrequency =
             f * (v - vo) / (v + vs);
 
         if (v - vo <= 0) {
             result.innerHTML =
-                "❌ سرعة المراقب يجب أن تكون أقل من سرعة الصوت";
+                "â‌Œ ط³ط±ط¹ط© ط§ظ„ظ…ط±ط§ظ‚ط¨ ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظ‚ظ„ ظ…ظ† ط³ط±ط¹ط© ط§ظ„طµظˆطھ";
             return;
         }
     }
 
     result.innerHTML =
-        `✅ f′ = ${observedFrequency.toFixed(6)} Hz`;
+        `âœ… fâ€² = ${observedFrequency.toFixed(6)} Hz`;
 };
 // ==========================================
-// 🎶 حاسبة تردد الرنين
-// للأنبوب المفتوح
-// fₙ = n × v / (2L)
+// ًںژ¶ ط­ط§ط³ط¨ط© طھط±ط¯ط¯ ط§ظ„ط±ظ†ظٹظ†
+// ظ„ظ„ط£ظ†ط¨ظˆط¨ ط§ظ„ظ…ظپطھظˆط­
+// fâ‚™ = n أ— v / (2L)
 // ==========================================
 
 window.physicsResonance = function () {
@@ -12340,7 +12340,7 @@ window.physicsResonance = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🎶 حاسبة الرنين
+            ًںژ¶ ط­ط§ط³ط¨ط© ط§ظ„ط±ظ†ظٹظ†
         </div>
 
         <div style="
@@ -12348,7 +12348,7 @@ window.physicsResonance = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            fₙ = n × v / (2L)
+            fâ‚™ = n أ— v / (2L)
         </div>
 
         <div style="
@@ -12356,11 +12356,11 @@ window.physicsResonance = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            أنبوب مفتوح من الطرفين
+            ط£ظ†ط¨ظˆط¨ ظ…ظپطھظˆط­ ظ…ظ† ط§ظ„ط·ط±ظپظٹظ†
         </div>
 
         <div style="margin:6px 0;">
-            رقم التوافق n:
+            ط±ظ‚ظ… ط§ظ„طھظˆط§ظپظ‚ n:
         </div>
 
         <input id="physicsResonanceHarmonic"
@@ -12377,7 +12377,7 @@ window.physicsResonance = function () {
                ">
 
         <div style="margin:6px 0;">
-            سرعة الصوت v (m/s):
+            ط³ط±ط¹ط© ط§ظ„طµظˆطھ v (m/s):
         </div>
 
         <input id="physicsResonanceSoundSpeed"
@@ -12394,7 +12394,7 @@ window.physicsResonance = function () {
                ">
 
         <div style="margin:6px 0;">
-            طول الأنبوب L (m):
+            ط·ظˆظ„ ط§ظ„ط£ظ†ط¨ظˆط¨ L (m):
         </div>
 
         <input id="physicsResonanceLength"
@@ -12416,7 +12416,7 @@ window.physicsResonance = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب تردد الرنين
+            ًں§® ط§ط­ط³ط¨ طھط±ط¯ط¯ ط§ظ„ط±ظ†ظٹظ†
         </button>
 
         <div id="physicsResonanceResult"
@@ -12434,7 +12434,7 @@ window.physicsResonance = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -12460,7 +12460,7 @@ window.physicsResonance = function () {
 
 
 // ==========================================
-// 🧮 حساب تردد الرنين
+// ًں§® ط­ط³ط§ط¨ طھط±ط¯ط¯ ط§ظ„ط±ظ†ظٹظ†
 // ==========================================
 
 window.calculatePhysicsResonance = function () {
@@ -12496,13 +12496,13 @@ window.calculatePhysicsResonance = function () {
         !Number.isFinite(L)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (n <= 0 || v <= 0 || L <= 0) {
         result.innerHTML =
-            "❌ يجب أن تكون جميع القيم أكبر من صفر";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -12510,11 +12510,11 @@ window.calculatePhysicsResonance = function () {
         (n * v) / (2 * L);
 
     result.innerHTML =
-        `✅ fₙ = ${f.toFixed(6)} Hz`;
+        `âœ… fâ‚™ = ${f.toFixed(6)} Hz`;
 };
 // ==========================================
-// 🔔 حاسبة التوافقيات
-// fₙ = n × f₁
+// ًں”” ط­ط§ط³ط¨ط© ط§ظ„طھظˆط§ظپظ‚ظٹط§طھ
+// fâ‚™ = n أ— fâ‚پ
 // ==========================================
 
 window.physicsHarmonics = function () {
@@ -12529,7 +12529,7 @@ window.physicsHarmonics = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔔 حاسبة التوافقيات
+            ًں”” ط­ط§ط³ط¨ط© ط§ظ„طھظˆط§ظپظ‚ظٹط§طھ
         </div>
 
         <div style="
@@ -12537,7 +12537,7 @@ window.physicsHarmonics = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            fₙ = n × f₁
+            fâ‚™ = n أ— fâ‚پ
         </div>
 
         <div style="
@@ -12545,11 +12545,11 @@ window.physicsHarmonics = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            التوافقية رقم n
+            ط§ظ„طھظˆط§ظپظ‚ظٹط© ط±ظ‚ظ… n
         </div>
 
         <div style="margin:6px 0;">
-            التردد الأساسي f₁ (Hz):
+            ط§ظ„طھط±ط¯ط¯ ط§ظ„ط£ط³ط§ط³ظٹ fâ‚پ (Hz):
         </div>
 
         <input id="physicsHarmonicsFundamental"
@@ -12566,7 +12566,7 @@ window.physicsHarmonics = function () {
                ">
 
         <div style="margin:6px 0;">
-            رقم التوافق n:
+            ط±ظ‚ظ… ط§ظ„طھظˆط§ظپظ‚ n:
         </div>
 
         <input id="physicsHarmonicsNumber"
@@ -12588,7 +12588,7 @@ window.physicsHarmonics = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التوافقية
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھظˆط§ظپظ‚ظٹط©
         </button>
 
         <div id="physicsHarmonicsResult"
@@ -12606,7 +12606,7 @@ window.physicsHarmonics = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للموجات والصوت
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ظˆط¬ط§طھ ظˆط§ظ„طµظˆطھ
         </button>
     `);
 
@@ -12631,7 +12631,7 @@ window.physicsHarmonics = function () {
 
 
 // ==========================================
-// 🧮 حساب التوافقيات
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھظˆط§ظپظ‚ظٹط§طھ
 // ==========================================
 
 window.calculatePhysicsHarmonics = function () {
@@ -12660,29 +12660,29 @@ window.calculatePhysicsHarmonics = function () {
         !Number.isFinite(n)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (f1 <= 0 || n <= 0) {
         result.innerHTML =
-            "❌ يجب أن يكون التردد الأساسي ورقم التوافق أكبر من صفر";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط§ظ„طھط±ط¯ط¯ ط§ظ„ط£ط³ط§ط³ظٹ ظˆط±ظ‚ظ… ط§ظ„طھظˆط§ظپظ‚ ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (!Number.isInteger(n)) {
         result.innerHTML =
-            "❌ رقم التوافق يجب أن يكون عددًا صحيحًا";
+            "â‌Œ ط±ظ‚ظ… ط§ظ„طھظˆط§ظپظ‚ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط¹ط¯ط¯ظ‹ط§ طµط­ظٹط­ظ‹ط§";
         return;
     }
 
     const fn = n * f1;
 
     result.innerHTML =
-        `✅ f${n} = ${fn.toFixed(6)} Hz`;
+        `âœ… f${n} = ${fn.toFixed(6)} Hz`;
 };
 // ==========================================
-// 🔦 البصريات
+// ًں”¦ ط§ظ„ط¨طµط±ظٹط§طھ
 // ==========================================
 
 window.openPhysicsOptics = function () {
@@ -12696,7 +12696,7 @@ window.openPhysicsOptics = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔦 البصريات
+            ًں”¦ ط§ظ„ط¨طµط±ظٹط§طھ
         </div>
 
         <div style="
@@ -12705,7 +12705,7 @@ window.openPhysicsOptics = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsReflectionLaw()"
@@ -12714,7 +12714,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            💡 قانون الانعكاس
+            ًں’، ظ‚ط§ظ†ظˆظ† ط§ظ„ط§ظ†ط¹ظƒط§ط³
         </button>
 
         <button onclick="physicsRefractiveIndex()"
@@ -12723,7 +12723,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔍 معامل الانكسار
+            ًں”چ ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط±
         </button>
 
         <button onclick="physicsSnellLaw()"
@@ -12732,7 +12732,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📐 قانون سنيل
+            ًں“گ ظ‚ط§ظ†ظˆظ† ط³ظ†ظٹظ„
         </button>
 
         <button onclick="physicsCriticalAngle()"
@@ -12741,7 +12741,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌊 الزاوية الحرجة
+            ًںŒٹ ط§ظ„ط²ط§ظˆظٹط© ط§ظ„ط­ط±ط¬ط©
         </button>
 
         <button onclick="physicsConvexLens()"
@@ -12750,7 +12750,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔭 العدسة المحدبة
+            ًں”­ ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ط­ط¯ط¨ط©
         </button>
 
         <button onclick="physicsConcaveLens()"
@@ -12759,7 +12759,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔎 العدسة المقعرة
+            ًں”ژ ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
         </button>
 
         <button onclick="physicsConcaveMirror()"
@@ -12768,7 +12768,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🪞 المرآة المقعرة
+            ًںھ‍ ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
         </button>
 
         <button onclick="physicsConvexMirror()"
@@ -12777,7 +12777,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🪞 المرآة المحدبة
+            ًںھ‍ ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ط­ط¯ط¨ط©
         </button>
 
         <button onclick="physicsMagnification()"
@@ -12786,7 +12786,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📏 التكبير
+            ًں“ڈ ط§ظ„طھظƒط¨ظٹط±
         </button>
 
         <button onclick="physicsLensPower()"
@@ -12795,7 +12795,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔬 قوة العدسة
+            ًں”¬ ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط©
         </button>
 
         <button onclick="physicsFocalLength()"
@@ -12804,7 +12804,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            👓 البعد البؤري
+            ًں‘“ ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ
         </button>
 
         <button onclick="physicsLightDispersion()"
@@ -12813,7 +12813,7 @@ window.openPhysicsOptics = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌈 تشتت الضوء
+            ًںŒˆ طھط´طھطھ ط§ظ„ط¶ظˆط،
         </button>
 
         <button onclick="openPhysics()"
@@ -12822,13 +12822,13 @@ window.openPhysicsOptics = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للفيزياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
         </button>
     `);
 };
 // ==========================================
-// 💡 حاسبة قانون الانعكاس
-// θᵢ = θᵣ
+// ًں’، ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط§ظ„ط§ظ†ط¹ظƒط§ط³
+// خ¸لµ¢ = خ¸لµ£
 // ==========================================
 
 window.physicsReflectionLaw = function () {
@@ -12843,7 +12843,7 @@ window.physicsReflectionLaw = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💡 حاسبة قانون الانعكاس
+            ًں’، ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط§ظ„ط§ظ†ط¹ظƒط§ط³
         </div>
 
         <div style="
@@ -12851,11 +12851,11 @@ window.physicsReflectionLaw = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            θᵢ = θᵣ
+            خ¸لµ¢ = خ¸لµ£
         </div>
 
         <div style="margin:6px 0;">
-            زاوية السقوط θᵢ (°):
+            ط²ط§ظˆظٹط© ط§ظ„ط³ظ‚ظˆط· خ¸لµ¢ (آ°):
         </div>
 
         <input id="physicsReflectionIncident"
@@ -12877,7 +12877,7 @@ window.physicsReflectionLaw = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب زاوية الانعكاس
+            ًں§® ط§ط­ط³ط¨ ط²ط§ظˆظٹط© ط§ظ„ط§ظ†ط¹ظƒط§ط³
         </button>
 
         <div id="physicsReflectionResult"
@@ -12895,7 +12895,7 @@ window.physicsReflectionLaw = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -12916,7 +12916,7 @@ window.physicsReflectionLaw = function () {
 
 
 // ==========================================
-// 🧮 حساب زاوية الانعكاس
+// ًں§® ط­ط³ط§ط¨ ط²ط§ظˆظٹط© ط§ظ„ط§ظ†ط¹ظƒط§ط³
 // ==========================================
 
 window.calculatePhysicsReflectionLaw = function () {
@@ -12936,7 +12936,7 @@ window.calculatePhysicsReflectionLaw = function () {
 
     if (!Number.isFinite(incidentAngle)) {
         result.innerHTML =
-            "⚠️ أدخل زاوية السقوط";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط²ط§ظˆظٹط© ط§ظ„ط³ظ‚ظˆط·";
         return;
     }
 
@@ -12945,17 +12945,17 @@ window.calculatePhysicsReflectionLaw = function () {
         incidentAngle > 90
     ) {
         result.innerHTML =
-            "❌ زاوية السقوط يجب أن تكون بين 0° و 90°";
+            "â‌Œ ط²ط§ظˆظٹط© ط§ظ„ط³ظ‚ظˆط· ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 90آ°";
         return;
     }
 
     const reflectedAngle = incidentAngle;
 
     result.innerHTML =
-        `✅ θᵣ = ${reflectedAngle.toFixed(6)}°`;
+        `âœ… خ¸لµ£ = ${reflectedAngle.toFixed(6)}آ°`;
 };
 // ==========================================
-// 🔍 حاسبة معامل الانكسار
+// ًں”چ ط­ط§ط³ط¨ط© ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط±
 // n = c / v
 // c = 299792458 m/s
 // ==========================================
@@ -12972,7 +12972,7 @@ window.physicsRefractiveIndex = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔍 حاسبة معامل الانكسار
+            ًں”چ ط­ط§ط³ط¨ط© ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط±
         </div>
 
         <div style="
@@ -12992,7 +12992,7 @@ window.physicsRefractiveIndex = function () {
         </div>
 
         <div style="margin:6px 0;">
-            سرعة الضوء في الوسط v (m/s):
+            ط³ط±ط¹ط© ط§ظ„ط¶ظˆط، ظپظٹ ط§ظ„ظˆط³ط· v (m/s):
         </div>
 
         <input id="physicsRefractiveSpeed"
@@ -13014,7 +13014,7 @@ window.physicsRefractiveIndex = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب معامل الانكسار
+            ًں§® ط§ط­ط³ط¨ ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط±
         </button>
 
         <div id="physicsRefractiveResult"
@@ -13032,7 +13032,7 @@ window.physicsRefractiveIndex = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -13053,7 +13053,7 @@ window.physicsRefractiveIndex = function () {
 
 
 // ==========================================
-// 🧮 حساب معامل الانكسار
+// ًں§® ط­ط³ط§ط¨ ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط±
 // ==========================================
 
 window.calculatePhysicsRefractiveIndex = function () {
@@ -13073,13 +13073,13 @@ window.calculatePhysicsRefractiveIndex = function () {
 
     if (!Number.isFinite(v)) {
         result.innerHTML =
-            "⚠️ أدخل سرعة الضوء في الوسط";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط³ط±ط¹ط© ط§ظ„ط¶ظˆط، ظپظٹ ط§ظ„ظˆط³ط·";
         return;
     }
 
     if (v <= 0) {
         result.innerHTML =
-            "❌ سرعة الضوء يجب أن تكون أكبر من صفر";
+            "â‌Œ ط³ط±ط¹ط© ط§ظ„ط¶ظˆط، ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -13088,11 +13088,11 @@ window.calculatePhysicsRefractiveIndex = function () {
     const n = c / v;
 
     result.innerHTML =
-        `✅ n = ${n.toFixed(6)}`;
+        `âœ… n = ${n.toFixed(6)}`;
 };
 // ==========================================
-// 📐 حاسبة قانون سنيل
-// n₁ sin(θ₁) = n₂ sin(θ₂)
+// ًں“گ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط³ظ†ظٹظ„
+// nâ‚پ sin(خ¸â‚پ) = nâ‚‚ sin(خ¸â‚‚)
 // ==========================================
 
 window.physicsSnellLaw = function () {
@@ -13107,7 +13107,7 @@ window.physicsSnellLaw = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📐 حاسبة قانون سنيل
+            ًں“گ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ط³ظ†ظٹظ„
         </div>
 
         <div style="
@@ -13115,11 +13115,11 @@ window.physicsSnellLaw = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            n₁ sin(θ₁) = n₂ sin(θ₂)
+            nâ‚پ sin(خ¸â‚پ) = nâ‚‚ sin(خ¸â‚‚)
         </div>
 
         <div style="margin:6px 0;">
-            معامل الانكسار n₁:
+            ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط± nâ‚پ:
         </div>
 
         <input id="physicsSnellN1"
@@ -13135,7 +13135,7 @@ window.physicsSnellLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            زاوية السقوط θ₁ (°):
+            ط²ط§ظˆظٹط© ط§ظ„ط³ظ‚ظˆط· خ¸â‚پ (آ°):
         </div>
 
         <input id="physicsSnellAngle1"
@@ -13151,7 +13151,7 @@ window.physicsSnellLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            معامل الانكسار n₂:
+            ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط± nâ‚‚:
         </div>
 
         <input id="physicsSnellN2"
@@ -13172,7 +13172,7 @@ window.physicsSnellLaw = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب زاوية الانكسار
+            ًں§® ط§ط­ط³ط¨ ط²ط§ظˆظٹط© ط§ظ„ط§ظ†ظƒط³ط§ط±
         </button>
 
         <div id="physicsSnellResult"
@@ -13190,7 +13190,7 @@ window.physicsSnellLaw = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -13215,7 +13215,7 @@ window.physicsSnellLaw = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون سنيل
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط³ظ†ظٹظ„
 // ==========================================
 
 window.calculatePhysicsSnellLaw = function () {
@@ -13251,7 +13251,7 @@ window.calculatePhysicsSnellLaw = function () {
         !Number.isFinite(n2)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
@@ -13260,7 +13260,7 @@ window.calculatePhysicsSnellLaw = function () {
         n2 <= 0
     ) {
         result.innerHTML =
-            "❌ معاملا الانكسار يجب أن يكونا أكبر من صفر";
+            "â‌Œ ظ…ط¹ط§ظ…ظ„ط§ ط§ظ„ط§ظ†ظƒط³ط§ط± ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -13269,21 +13269,21 @@ window.calculatePhysicsSnellLaw = function () {
         angle1 > 90
     ) {
         result.innerHTML =
-            "❌ زاوية السقوط يجب أن تكون بين 0° و 90°";
+            "â‌Œ ط²ط§ظˆظٹط© ط§ظ„ط³ظ‚ظˆط· ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 90آ°";
         return;
     }
 
-    // تحويل الدرجة إلى راديان
+    // طھط­ظˆظٹظ„ ط§ظ„ط¯ط±ط¬ط© ط¥ظ„ظ‰ ط±ط§ط¯ظٹط§ظ†
     const angle1Rad =
         angle1 * Math.PI / 180;
 
     const sinAngle2 =
         (n1 * Math.sin(angle1Rad)) / n2;
 
-    // لا يوجد انكسار: يحدث انعكاس كلي داخلي
+    // ظ„ط§ ظٹظˆط¬ط¯ ط§ظ†ظƒط³ط§ط±: ظٹط­ط¯ط« ط§ظ†ط¹ظƒط§ط³ ظƒظ„ظٹ ط¯ط§ط®ظ„ظٹ
     if (sinAngle2 > 1) {
         result.innerHTML =
-            "⚠️ لا توجد زاوية انكسار — يحدث انعكاس كلي داخلي";
+            "âڑ ï¸ڈ ظ„ط§ طھظˆط¬ط¯ ط²ط§ظˆظٹط© ط§ظ†ظƒط³ط§ط± â€” ظٹط­ط¯ط« ط§ظ†ط¹ظƒط§ط³ ظƒظ„ظٹ ط¯ط§ط®ظ„ظٹ";
         return;
     }
 
@@ -13294,11 +13294,11 @@ window.calculatePhysicsSnellLaw = function () {
         angle2Rad * 180 / Math.PI;
 
     result.innerHTML =
-        `✅ θ₂ = ${angle2.toFixed(6)}°`;
+        `âœ… خ¸â‚‚ = ${angle2.toFixed(6)}آ°`;
 };
 // ==========================================
-// 🌊 حاسبة الزاوية الحرجة
-// θc = sin⁻¹(n₂ / n₁)
+// ًںŒٹ ط­ط§ط³ط¨ط© ط§ظ„ط²ط§ظˆظٹط© ط§ظ„ط­ط±ط¬ط©
+// خ¸c = sinâپ»آ¹(nâ‚‚ / nâ‚پ)
 // ==========================================
 
 window.physicsCriticalAngle = function () {
@@ -13313,7 +13313,7 @@ window.physicsCriticalAngle = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌊 حاسبة الزاوية الحرجة
+            ًںŒٹ ط­ط§ط³ط¨ط© ط§ظ„ط²ط§ظˆظٹط© ط§ظ„ط­ط±ط¬ط©
         </div>
 
         <div style="
@@ -13321,7 +13321,7 @@ window.physicsCriticalAngle = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            θc = sin⁻¹(n₂ / n₁)
+            خ¸c = sinâپ»آ¹(nâ‚‚ / nâ‚پ)
         </div>
 
         <div style="
@@ -13329,11 +13329,11 @@ window.physicsCriticalAngle = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            يجب أن يكون n₁ أكبر من n₂
+            ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† nâ‚پ ط£ظƒط¨ط± ظ…ظ† nâ‚‚
         </div>
 
         <div style="margin:6px 0;">
-            معامل الانكسار n₁:
+            ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط± nâ‚پ:
         </div>
 
         <input id="physicsCriticalN1"
@@ -13350,7 +13350,7 @@ window.physicsCriticalAngle = function () {
                ">
 
         <div style="margin:6px 0;">
-            معامل الانكسار n₂:
+            ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط± nâ‚‚:
         </div>
 
         <input id="physicsCriticalN2"
@@ -13372,7 +13372,7 @@ window.physicsCriticalAngle = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الزاوية الحرجة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط²ط§ظˆظٹط© ط§ظ„ط­ط±ط¬ط©
         </button>
 
         <div id="physicsCriticalResult"
@@ -13390,7 +13390,7 @@ window.physicsCriticalAngle = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -13414,7 +13414,7 @@ window.physicsCriticalAngle = function () {
 
 
 // ==========================================
-// 🧮 حساب الزاوية الحرجة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط²ط§ظˆظٹط© ط§ظ„ط­ط±ط¬ط©
 // ==========================================
 
 window.calculatePhysicsCriticalAngle = function () {
@@ -13443,28 +13443,28 @@ window.calculatePhysicsCriticalAngle = function () {
         !Number.isFinite(n2)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (n1 <= 0 || n2 <= 0) {
         result.innerHTML =
-            "❌ معاملا الانكسار يجب أن يكونا أكبر من صفر";
+            "â‌Œ ظ…ط¹ط§ظ…ظ„ط§ ط§ظ„ط§ظ†ظƒط³ط§ط± ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (n1 <= n2) {
         result.innerHTML =
-            "❌ يجب أن يكون n₁ أكبر من n₂";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† nâ‚پ ط£ظƒط¨ط± ظ…ظ† nâ‚‚";
         return;
     }
 
     const ratio = n2 / n1;
 
-    // للتأكد من صلاحية القيمة قبل asin
+    // ظ„ظ„طھط£ظƒط¯ ظ…ظ† طµظ„ط§ط­ظٹط© ط§ظ„ظ‚ظٹظ…ط© ظ‚ط¨ظ„ asin
     if (ratio < 0 || ratio > 1) {
         result.innerHTML =
-            "❌ لا توجد زاوية حرجة لهذه القيم";
+            "â‌Œ ظ„ط§ طھظˆط¬ط¯ ط²ط§ظˆظٹط© ط­ط±ط¬ط© ظ„ظ‡ط°ظ‡ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
@@ -13475,10 +13475,10 @@ window.calculatePhysicsCriticalAngle = function () {
         criticalAngleRad * 180 / Math.PI;
 
     result.innerHTML =
-        `✅ θc = ${criticalAngle.toFixed(6)}°`;
+        `âœ… خ¸c = ${criticalAngle.toFixed(6)}آ°`;
 };
 // ==========================================
-// 🔭 حاسبة العدسة المحدبة
+// ًں”­ ط­ط§ط³ط¨ط© ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ط­ط¯ط¨ط©
 // 1/f = 1/do + 1/di
 // ==========================================
 
@@ -13494,7 +13494,7 @@ window.physicsConvexLens = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔭 حاسبة العدسة المحدبة
+            ًں”­ ط­ط§ط³ط¨ط© ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ط­ط¯ط¨ط©
         </div>
 
         <div style="
@@ -13506,7 +13506,7 @@ window.physicsConvexLens = function () {
         </div>
 
         <div style="margin:6px 0;">
-            البعد البؤري f (cm):
+            ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ f (cm):
         </div>
 
         <input id="physicsConvexLensF"
@@ -13523,7 +13523,7 @@ window.physicsConvexLens = function () {
                ">
 
         <div style="margin:6px 0;">
-            بعد الجسم do (cm):
+            ط¨ط¹ط¯ ط§ظ„ط¬ط³ظ… do (cm):
         </div>
 
         <input id="physicsConvexLensDo"
@@ -13545,7 +13545,7 @@ window.physicsConvexLens = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب بعد الصورة
+            ًں§® ط§ط­ط³ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط©
         </button>
 
         <div id="physicsConvexLensResult"
@@ -13563,7 +13563,7 @@ window.physicsConvexLens = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -13587,7 +13587,7 @@ window.physicsConvexLens = function () {
 
 
 // ==========================================
-// 🧮 حساب بعد الصورة في العدسة المحدبة
+// ًں§® ط­ط³ط§ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط© ظپظٹ ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ط­ط¯ط¨ط©
 // ==========================================
 
 window.calculatePhysicsConvexLens = function () {
@@ -13616,20 +13616,20 @@ window.calculatePhysicsConvexLens = function () {
         !Number.isFinite(doValue)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (f <= 0 || doValue <= 0) {
         result.innerHTML =
-            "❌ يجب أن تكون القيم أكبر من صفر";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط§ظ„ظ‚ظٹظ… ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
-    // عند do = f لا تتكون صورة حقيقية على مسافة محددة
+    // ط¹ظ†ط¯ do = f ظ„ط§ طھطھظƒظˆظ† طµظˆط±ط© ط­ظ‚ظٹظ‚ظٹط© ط¹ظ„ظ‰ ظ…ط³ط§ظپط© ظ…ط­ط¯ط¯ط©
     if (doValue === f) {
         result.innerHTML =
-            "⚠️ الجسم عند البؤرة — الصورة عند اللانهاية";
+            "âڑ ï¸ڈ ط§ظ„ط¬ط³ظ… ط¹ظ†ط¯ ط§ظ„ط¨ط¤ط±ط© â€” ط§ظ„طµظˆط±ط© ط¹ظ†ط¯ ط§ظ„ظ„ط§ظ†ظ‡ط§ظٹط©";
         return;
     }
 
@@ -13637,10 +13637,10 @@ window.calculatePhysicsConvexLens = function () {
         (f * doValue) / (doValue - f);
 
     result.innerHTML =
-        `✅ di = ${di.toFixed(6)} cm`;
+        `âœ… di = ${di.toFixed(6)} cm`;
 };
 // ==========================================
-// 🔎 حاسبة العدسة المقعرة
+// ًں”ژ ط­ط§ط³ط¨ط© ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
 // 1/f = 1/do + 1/di
 // ==========================================
 
@@ -13656,7 +13656,7 @@ window.physicsConcaveLens = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔎 حاسبة العدسة المقعرة
+            ًں”ژ ط­ط§ط³ط¨ط© ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
         </div>
 
         <div style="
@@ -13672,11 +13672,11 @@ window.physicsConcaveLens = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            للعدسة المقعرة: f تكون سالبة
+            ظ„ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ظ‚ط¹ط±ط©: f طھظƒظˆظ† ط³ط§ظ„ط¨ط©
         </div>
 
         <div style="margin:6px 0;">
-            البعد البؤري f (cm):
+            ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ f (cm):
         </div>
 
         <input id="physicsConcaveLensF"
@@ -13693,7 +13693,7 @@ window.physicsConcaveLens = function () {
                ">
 
         <div style="margin:6px 0;">
-            بعد الجسم do (cm):
+            ط¨ط¹ط¯ ط§ظ„ط¬ط³ظ… do (cm):
         </div>
 
         <input id="physicsConcaveLensDo"
@@ -13715,7 +13715,7 @@ window.physicsConcaveLens = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب بعد الصورة
+            ًں§® ط§ط­ط³ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط©
         </button>
 
         <div id="physicsConcaveLensResult"
@@ -13733,7 +13733,7 @@ window.physicsConcaveLens = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -13757,7 +13757,7 @@ window.physicsConcaveLens = function () {
 
 
 // ==========================================
-// 🧮 حساب بعد الصورة في العدسة المقعرة
+// ًں§® ط­ط³ط§ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط© ظپظٹ ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
 // ==========================================
 
 window.calculatePhysicsConcaveLens = function () {
@@ -13786,19 +13786,19 @@ window.calculatePhysicsConcaveLens = function () {
         !Number.isFinite(doValue)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (f >= 0) {
         result.innerHTML =
-            "❌ في العدسة المقعرة يجب أن يكون f سالبًا";
+            "â‌Œ ظپظٹ ط§ظ„ط¹ط¯ط³ط© ط§ظ„ظ…ظ‚ط¹ط±ط© ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† f ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (doValue <= 0) {
         result.innerHTML =
-            "❌ يجب أن يكون بعد الجسم أكبر من صفر";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط¨ط¹ط¯ ط§ظ„ط¬ط³ظ… ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -13807,7 +13807,7 @@ window.calculatePhysicsConcaveLens = function () {
 
     if (denominator === 0) {
         result.innerHTML =
-            "⚠️ لا يمكن حساب بعد الصورة لهذه القيم";
+            "âڑ ï¸ڈ ظ„ط§ ظٹظ…ظƒظ† ط­ط³ط§ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط© ظ„ظ‡ط°ظ‡ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
@@ -13815,10 +13815,10 @@ window.calculatePhysicsConcaveLens = function () {
         (f * doValue) / denominator;
 
     result.innerHTML =
-        `✅ di = ${di.toFixed(6)} cm`;
+        `âœ… di = ${di.toFixed(6)} cm`;
 };
 // ==========================================
-// 🪞 حاسبة المرآة المقعرة
+// ًںھ‍ ط­ط§ط³ط¨ط© ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
 // 1/f = 1/do + 1/di
 // ==========================================
 
@@ -13834,7 +13834,7 @@ window.physicsConcaveMirror = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🪞 حاسبة المرآة المقعرة
+            ًںھ‍ ط­ط§ط³ط¨ط© ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
         </div>
 
         <div style="
@@ -13850,11 +13850,11 @@ window.physicsConcaveMirror = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            المرآة المقعرة: f موجبة
+            ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ظ‚ط¹ط±ط©: f ظ…ظˆط¬ط¨ط©
         </div>
 
         <div style="margin:6px 0;">
-            البعد البؤري f (cm):
+            ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ f (cm):
         </div>
 
         <input id="physicsConcaveMirrorF"
@@ -13871,7 +13871,7 @@ window.physicsConcaveMirror = function () {
                ">
 
         <div style="margin:6px 0;">
-            بعد الجسم do (cm):
+            ط¨ط¹ط¯ ط§ظ„ط¬ط³ظ… do (cm):
         </div>
 
         <input id="physicsConcaveMirrorDo"
@@ -13893,7 +13893,7 @@ window.physicsConcaveMirror = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب بعد الصورة
+            ًں§® ط§ط­ط³ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط©
         </button>
 
         <div id="physicsConcaveMirrorResult"
@@ -13911,7 +13911,7 @@ window.physicsConcaveMirror = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -13936,7 +13936,7 @@ window.physicsConcaveMirror = function () {
 
 
 // ==========================================
-// 🧮 حساب بعد الصورة في المرآة المقعرة
+// ًں§® ط­ط³ط§ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط© ظپظٹ ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ظ‚ط¹ط±ط©
 // ==========================================
 
 window.calculatePhysicsConcaveMirror = function () {
@@ -13964,7 +13964,7 @@ window.calculatePhysicsConcaveMirror = function () {
         !Number.isFinite(doValue)) {
 
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
 
         return;
     }
@@ -13972,7 +13972,7 @@ window.calculatePhysicsConcaveMirror = function () {
     if (f <= 0 || doValue <= 0) {
 
         result.innerHTML =
-            "❌ يجب أن تكون القيم أكبر من صفر";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط§ظ„ظ‚ظٹظ… ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
         return;
     }
@@ -13980,7 +13980,7 @@ window.calculatePhysicsConcaveMirror = function () {
     if (doValue === f) {
 
         result.innerHTML =
-            "⚠️ الجسم عند البؤرة — الصورة عند اللانهاية";
+            "âڑ ï¸ڈ ط§ظ„ط¬ط³ظ… ط¹ظ†ط¯ ط§ظ„ط¨ط¤ط±ط© â€” ط§ظ„طµظˆط±ط© ط¹ظ†ط¯ ط§ظ„ظ„ط§ظ†ظ‡ط§ظٹط©";
 
         return;
     }
@@ -13990,10 +13990,10 @@ window.calculatePhysicsConcaveMirror = function () {
         (doValue - f);
 
     result.innerHTML =
-        `✅ di = ${di.toFixed(6)} cm`;
+        `âœ… di = ${di.toFixed(6)} cm`;
 };
 // ==========================================
-// 🪞 حاسبة المرآة المحدبة
+// ًںھ‍ ط­ط§ط³ط¨ط© ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ط­ط¯ط¨ط©
 // 1/f = 1/do + 1/di
 // ==========================================
 
@@ -14009,7 +14009,7 @@ window.physicsConvexMirror = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🪞 حاسبة المرآة المحدبة
+            ًںھ‍ ط­ط§ط³ط¨ط© ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ط­ط¯ط¨ط©
         </div>
 
         <div style="
@@ -14025,11 +14025,11 @@ window.physicsConvexMirror = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            المرآة المحدبة: f سالبة
+            ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ط­ط¯ط¨ط©: f ط³ط§ظ„ط¨ط©
         </div>
 
         <div style="margin:6px 0;">
-            البعد البؤري f (cm):
+            ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ f (cm):
         </div>
 
         <input id="physicsConvexMirrorF"
@@ -14046,7 +14046,7 @@ window.physicsConvexMirror = function () {
                ">
 
         <div style="margin:6px 0;">
-            بعد الجسم do (cm):
+            ط¨ط¹ط¯ ط§ظ„ط¬ط³ظ… do (cm):
         </div>
 
         <input id="physicsConvexMirrorDo"
@@ -14068,7 +14068,7 @@ window.physicsConvexMirror = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب بعد الصورة
+            ًں§® ط§ط­ط³ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط©
         </button>
 
         <div id="physicsConvexMirrorResult"
@@ -14086,7 +14086,7 @@ window.physicsConvexMirror = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -14111,7 +14111,7 @@ window.physicsConvexMirror = function () {
 
 
 // ==========================================
-// 🧮 حساب بعد الصورة في المرآة المحدبة
+// ًں§® ط­ط³ط§ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط© ظپظٹ ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ط­ط¯ط¨ط©
 // ==========================================
 
 window.calculatePhysicsConvexMirror = function () {
@@ -14140,19 +14140,19 @@ window.calculatePhysicsConvexMirror = function () {
         !Number.isFinite(doValue)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (f >= 0) {
         result.innerHTML =
-            "❌ في المرآة المحدبة يجب أن يكون f سالبًا";
+            "â‌Œ ظپظٹ ط§ظ„ظ…ط±ط¢ط© ط§ظ„ظ…ط­ط¯ط¨ط© ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† f ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (doValue <= 0) {
         result.innerHTML =
-            "❌ يجب أن يكون بعد الجسم أكبر من صفر";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط¨ط¹ط¯ ط§ظ„ط¬ط³ظ… ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -14161,7 +14161,7 @@ window.calculatePhysicsConvexMirror = function () {
 
     if (denominator === 0) {
         result.innerHTML =
-            "⚠️ لا يمكن حساب بعد الصورة لهذه القيم";
+            "âڑ ï¸ڈ ظ„ط§ ظٹظ…ظƒظ† ط­ط³ط§ط¨ ط¨ط¹ط¯ ط§ظ„طµظˆط±ط© ظ„ظ‡ط°ظ‡ ط§ظ„ظ‚ظٹظ…";
         return;
     }
 
@@ -14170,11 +14170,11 @@ window.calculatePhysicsConvexMirror = function () {
         denominator;
 
     result.innerHTML =
-        `✅ di = ${di.toFixed(6)} cm`;
+        `âœ… di = ${di.toFixed(6)} cm`;
 };
 // ==========================================
-// 📏 حاسبة التكبير
-// m = hᵢ / hₒ
+// ًں“ڈ ط­ط§ط³ط¨ط© ط§ظ„طھظƒط¨ظٹط±
+// m = hلµ¢ / hâ‚’
 // ==========================================
 
 window.physicsMagnification = function () {
@@ -14189,7 +14189,7 @@ window.physicsMagnification = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📏 حاسبة التكبير
+            ًں“ڈ ط­ط§ط³ط¨ط© ط§ظ„طھظƒط¨ظٹط±
         </div>
 
         <div style="
@@ -14197,11 +14197,11 @@ window.physicsMagnification = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            m = hᵢ / hₒ
+            m = hلµ¢ / hâ‚’
         </div>
 
         <div style="margin:6px 0;">
-            طول الصورة hᵢ (cm):
+            ط·ظˆظ„ ط§ظ„طµظˆط±ط© hلµ¢ (cm):
         </div>
 
         <input id="physicsMagnificationHi"
@@ -14218,7 +14218,7 @@ window.physicsMagnification = function () {
                ">
 
         <div style="margin:6px 0;">
-            طول الجسم hₒ (cm):
+            ط·ظˆظ„ ط§ظ„ط¬ط³ظ… hâ‚’ (cm):
         </div>
 
         <input id="physicsMagnificationHo"
@@ -14240,7 +14240,7 @@ window.physicsMagnification = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التكبير
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھظƒط¨ظٹط±
         </button>
 
         <div id="physicsMagnificationResult"
@@ -14258,7 +14258,7 @@ window.physicsMagnification = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -14283,7 +14283,7 @@ window.physicsMagnification = function () {
 
 
 // ==========================================
-// 🧮 حساب التكبير
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھظƒط¨ظٹط±
 // ==========================================
 
 window.calculatePhysicsMagnification = function () {
@@ -14312,25 +14312,25 @@ window.calculatePhysicsMagnification = function () {
         !Number.isFinite(ho)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (ho === 0) {
         result.innerHTML =
-            "❌ طول الجسم لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط·ظˆظ„ ط§ظ„ط¬ط³ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const m = hi / ho;
 
     result.innerHTML =
-        `✅ m = ${m.toFixed(6)}`;
+        `âœ… m = ${m.toFixed(6)}`;
 };
 // ==========================================
-// 🔬 حاسبة قوة العدسة
+// ًں”¬ ط­ط§ط³ط¨ط© ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط©
 // P = 1 / f
-// f بالمتر
+// f ط¨ط§ظ„ظ…طھط±
 // ==========================================
 
 window.physicsLensPower = function () {
@@ -14345,7 +14345,7 @@ window.physicsLensPower = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔬 حاسبة قوة العدسة
+            ًں”¬ ط­ط§ط³ط¨ط© ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط©
         </div>
 
         <div style="
@@ -14361,11 +14361,11 @@ window.physicsLensPower = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            f بالمتر (m) — P بالديوبتر (D)
+            f ط¨ط§ظ„ظ…طھط± (m) â€” P ط¨ط§ظ„ط¯ظٹظˆط¨طھط± (D)
         </div>
 
         <div style="margin:6px 0;">
-            البعد البؤري f (m):
+            ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ f (m):
         </div>
 
         <input id="physicsLensPowerF"
@@ -14387,7 +14387,7 @@ window.physicsLensPower = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب قوة العدسة
+            ًں§® ط§ط­ط³ط¨ ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط©
         </button>
 
         <div id="physicsLensPowerResult"
@@ -14405,7 +14405,7 @@ window.physicsLensPower = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -14426,7 +14426,7 @@ window.physicsLensPower = function () {
 
 
 // ==========================================
-// 🧮 حساب قوة العدسة
+// ًں§® ط­ط³ط§ط¨ ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط©
 // ==========================================
 
 window.calculatePhysicsLensPower = function () {
@@ -14446,26 +14446,26 @@ window.calculatePhysicsLensPower = function () {
 
     if (!Number.isFinite(f)) {
         result.innerHTML =
-            "⚠️ أدخل البعد البؤري";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ";
         return;
     }
 
     if (f === 0) {
         result.innerHTML =
-            "❌ البعد البؤري لا يمكن أن يساوي صفرًا";
+            "â‌Œ ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const P = 1 / f;
 
     result.innerHTML =
-        `✅ P = ${P.toFixed(6)} D`;
+        `âœ… P = ${P.toFixed(6)} D`;
 };
 // ==========================================
-// 👓 حاسبة البعد البؤري
+// ًں‘“ ط­ط§ط³ط¨ط© ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ
 // f = 1 / P
-// P بالديوبتر
-// f بالمتر
+// P ط¨ط§ظ„ط¯ظٹظˆط¨طھط±
+// f ط¨ط§ظ„ظ…طھط±
 // ==========================================
 
 window.physicsFocalLength = function () {
@@ -14480,7 +14480,7 @@ window.physicsFocalLength = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            👓 حاسبة البعد البؤري
+            ًں‘“ ط­ط§ط³ط¨ط© ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ
         </div>
 
         <div style="
@@ -14496,11 +14496,11 @@ window.physicsFocalLength = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            P بالديوبتر (D) — f بالمتر (m)
+            P ط¨ط§ظ„ط¯ظٹظˆط¨طھط± (D) â€” f ط¨ط§ظ„ظ…طھط± (m)
         </div>
 
         <div style="margin:6px 0;">
-            قوة العدسة P (D):
+            ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط© P (D):
         </div>
 
         <input id="physicsFocalPower"
@@ -14522,7 +14522,7 @@ window.physicsFocalLength = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب البعد البؤري
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ
         </button>
 
         <div id="physicsFocalResult"
@@ -14540,7 +14540,7 @@ window.physicsFocalLength = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -14561,7 +14561,7 @@ window.physicsFocalLength = function () {
 
 
 // ==========================================
-// 🧮 حساب البعد البؤري
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¨ط¹ط¯ ط§ظ„ط¨ط¤ط±ظٹ
 // ==========================================
 
 window.calculatePhysicsFocalLength = function () {
@@ -14581,26 +14581,26 @@ window.calculatePhysicsFocalLength = function () {
 
     if (!Number.isFinite(P)) {
         result.innerHTML =
-            "⚠️ أدخل قوة العدسة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط©";
         return;
     }
 
     if (P === 0) {
         result.innerHTML =
-            "❌ قوة العدسة لا يمكن أن تساوي صفرًا";
+            "â‌Œ ظ‚ظˆط© ط§ظ„ط¹ط¯ط³ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     const f = 1 / P;
 
     result.innerHTML =
-        `✅ f = ${f.toFixed(6)} m`;
+        `âœ… f = ${f.toFixed(6)} m`;
 };
 // ==========================================
-// 🌈 حاسبة تشتت الضوء في المنشور
-// زاوية الانحراف الأدنى
+// ًںŒˆ ط­ط§ط³ط¨ط© طھط´طھطھ ط§ظ„ط¶ظˆط، ظپظٹ ط§ظ„ظ…ظ†ط´ظˆط±
+// ط²ط§ظˆظٹط© ط§ظ„ط§ظ†ط­ط±ط§ظپ ط§ظ„ط£ط¯ظ†ظ‰
 //
-// δₘ = 2 sin⁻¹(n sin(A/2)) − A
+// خ´â‚ک = 2 sinâپ»آ¹(n sin(A/2)) âˆ’ A
 // ==========================================
 
 window.physicsLightDispersion = function () {
@@ -14615,7 +14615,7 @@ window.physicsLightDispersion = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌈 تشتت الضوء في المنشور
+            ًںŒˆ طھط´طھطھ ط§ظ„ط¶ظˆط، ظپظٹ ط§ظ„ظ…ظ†ط´ظˆط±
         </div>
 
         <div style="
@@ -14623,7 +14623,7 @@ window.physicsLightDispersion = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            δₘ = 2 sin⁻¹(n sin(A/2)) − A
+            خ´â‚ک = 2 sinâپ»آ¹(n sin(A/2)) âˆ’ A
         </div>
 
         <div style="
@@ -14631,11 +14631,11 @@ window.physicsLightDispersion = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            احسب زاوية الانحراف الأدنى
+            ط§ط­ط³ط¨ ط²ط§ظˆظٹط© ط§ظ„ط§ظ†ط­ط±ط§ظپ ط§ظ„ط£ط¯ظ†ظ‰
         </div>
 
         <div style="margin:6px 0;">
-            معامل الانكسار n:
+            ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط± n:
         </div>
 
         <input id="physicsDispersionN"
@@ -14652,7 +14652,7 @@ window.physicsLightDispersion = function () {
                ">
 
         <div style="margin:6px 0;">
-            زاوية رأس المنشور A (°):
+            ط²ط§ظˆظٹط© ط±ط£ط³ ط§ظ„ظ…ظ†ط´ظˆط± A (آ°):
         </div>
 
         <input id="physicsDispersionA"
@@ -14674,7 +14674,7 @@ window.physicsLightDispersion = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب زاوية الانحراف
+            ًں§® ط§ط­ط³ط¨ ط²ط§ظˆظٹط© ط§ظ„ط§ظ†ط­ط±ط§ظپ
         </button>
 
         <div id="physicsDispersionResult"
@@ -14692,7 +14692,7 @@ window.physicsLightDispersion = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للبصريات
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨طµط±ظٹط§طھ
         </button>
     `);
 
@@ -14717,7 +14717,7 @@ window.physicsLightDispersion = function () {
 
 
 // ==========================================
-// 🧮 حساب زاوية الانحراف الأدنى
+// ًں§® ط­ط³ط§ط¨ ط²ط§ظˆظٹط© ط§ظ„ط§ظ†ط­ط±ط§ظپ ط§ظ„ط£ط¯ظ†ظ‰
 // ==========================================
 
 window.calculatePhysicsLightDispersion = function () {
@@ -14746,33 +14746,33 @@ window.calculatePhysicsLightDispersion = function () {
         !Number.isFinite(A)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (n <= 0) {
         result.innerHTML =
-            "❌ معامل الانكسار يجب أن يكون أكبر من صفر";
+            "â‌Œ ظ…ط¹ط§ظ…ظ„ ط§ظ„ط§ظ†ظƒط³ط§ط± ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (A <= 0 || A >= 180) {
         result.innerHTML =
-            "❌ زاوية رأس المنشور يجب أن تكون بين 0° و 180°";
+            "â‌Œ ط²ط§ظˆظٹط© ط±ط£ط³ ط§ظ„ظ…ظ†ط´ظˆط± ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 180آ°";
         return;
     }
 
-    // تحويل A/2 من درجة إلى راديان
+    // طھط­ظˆظٹظ„ A/2 ظ…ظ† ط¯ط±ط¬ط© ط¥ظ„ظ‰ ط±ط§ط¯ظٹط§ظ†
     const halfAngleRad =
         (A / 2) * Math.PI / 180;
 
     const value =
         n * Math.sin(halfAngleRad);
 
-    // منع asin من استقبال قيمة غير صالحة
+    // ظ…ظ†ط¹ asin ظ…ظ† ط§ط³طھظ‚ط¨ط§ظ„ ظ‚ظٹظ…ط© ط؛ظٹط± طµط§ظ„ط­ط©
     if (value > 1 || value < -1) {
         result.innerHTML =
-            "❌ القيم لا تسمح بحدوث الانحراف الأدنى بهذه المعادلة";
+            "â‌Œ ط§ظ„ظ‚ظٹظ… ظ„ط§ طھط³ظ…ط­ ط¨ط­ط¯ظˆط« ط§ظ„ط§ظ†ط­ط±ط§ظپ ط§ظ„ط£ط¯ظ†ظ‰ ط¨ظ‡ط°ظ‡ ط§ظ„ظ…ط¹ط§ط¯ظ„ط©";
         return;
     }
 
@@ -14784,10 +14784,10 @@ window.calculatePhysicsLightDispersion = function () {
         deviationRad * 180 / Math.PI;
 
     result.innerHTML =
-        `✅ δₘ = ${deviation.toFixed(6)}°`;
+        `âœ… خ´â‚ک = ${deviation.toFixed(6)}آ°`;
 };
 // ==========================================
-// 🧲 الفيزياء - المغناطيسية
+// ًں§² ط§ظ„ظپظٹط²ظٹط§ط، - ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
 // ==========================================
 
 window.openPhysicsMagnetism = function () {
@@ -14801,7 +14801,7 @@ window.openPhysicsMagnetism = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🧲 المغناطيسية
+            ًں§² ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </div>
 
         <div style="
@@ -14810,7 +14810,7 @@ window.openPhysicsMagnetism = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsMagneticForce()"
@@ -14819,7 +14819,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🧲 القوة المغناطيسية
+            ًں§² ط§ظ„ظ‚ظˆط© ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
 
         <button onclick="physicsLorentzForce()"
@@ -14828,7 +14828,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚡ قوة لورنتز
+            âڑ، ظ‚ظˆط© ظ„ظˆط±ظ†طھط²
         </button>
 
         <button onclick="physicsWireMagneticField()"
@@ -14837,7 +14837,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔌 المجال المغناطيسي حول سلك
+            ًں”Œ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ط­ظˆظ„ ط³ظ„ظƒ
         </button>
 
         <button onclick="physicsCircularLoopField()"
@@ -14846,7 +14846,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔄 المجال داخل ملف دائري
+            ًں”„ ط§ظ„ظ…ط¬ط§ظ„ ط¯ط§ط®ظ„ ظ…ظ„ظپ ط¯ط§ط¦ط±ظٹ
         </button>
 
         <button onclick="physicsSolenoidField()"
@@ -14855,7 +14855,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌀 المجال داخل ملف لولبي
+            ًںŒ€ ط§ظ„ظ…ط¬ط§ظ„ ط¯ط§ط®ظ„ ظ…ظ„ظپ ظ„ظˆظ„ط¨ظٹ
         </button>
 
         <button onclick="physicsParallelWiresForce()"
@@ -14864,7 +14864,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📐 القوة بين سلكين متوازيين
+            ًں“گ ط§ظ„ظ‚ظˆط© ط¨ظٹظ† ط³ظ„ظƒظٹظ† ظ…طھظˆط§ط²ظٹظٹظ†
         </button>
 
         <button onclick="physicsInducedEMF()"
@@ -14873,7 +14873,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚡ القوة الدافعة المستحثة
+            âڑ، ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط© ط§ظ„ظ…ط³طھط­ط«ط©
         </button>
 
         <button onclick="physicsFaradayLaw()"
@@ -14882,7 +14882,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔁 قانون فاراداي
+            ًں”پ ظ‚ط§ظ†ظˆظ† ظپط§ط±ط§ط¯ط§ظٹ
         </button>
 
         <button onclick="physicsLenzLaw()"
@@ -14891,7 +14891,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🧭 قانون لنز
+            ًں§­ ظ‚ط§ظ†ظˆظ† ظ„ظ†ط²
         </button>
 
         <button onclick="physicsMagneticFlux()"
@@ -14900,7 +14900,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔋 الفيض المغناطيسي
+            ًں”‹ ط§ظ„ظپظٹط¶ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </button>
 
         <button onclick="physicsMagneticDipoleTorque()"
@@ -14909,7 +14909,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔄 عزم ثنائي القطب المغناطيسي
+            ًں”„ ط¹ط²ظ… ط«ظ†ط§ط¦ظٹ ط§ظ„ظ‚ط·ط¨ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </button>
 
         <button onclick="physicsChargedParticleRadius()"
@@ -14918,7 +14918,7 @@ window.openPhysicsMagnetism = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚙️ نصف قطر مسار جسيم مشحون
+            âڑ™ï¸ڈ ظ†طµظپ ظ‚ط·ط± ظ…ط³ط§ط± ط¬ط³ظٹظ… ظ…ط´ط­ظˆظ†
         </button>
 
         <button onclick="openPhysics()"
@@ -14927,13 +14927,13 @@ window.openPhysicsMagnetism = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للفيزياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
         </button>
     `);
 };
 // ==========================================
-// 🧲 حاسبة القوة المغناطيسية
-// F = B × I × L × sin(θ)
+// ًں§² ط­ط§ط³ط¨ط© ط§ظ„ظ‚ظˆط© ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
+// F = B أ— I أ— L أ— sin(خ¸)
 // ==========================================
 
 window.physicsMagneticForce = function () {
@@ -14948,7 +14948,7 @@ window.physicsMagneticForce = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🧲 حاسبة القوة المغناطيسية
+            ًں§² ط­ط§ط³ط¨ط© ط§ظ„ظ‚ظˆط© ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </div>
 
         <div style="
@@ -14956,11 +14956,11 @@ window.physicsMagneticForce = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            F = B × I × L × sin(θ)
+            F = B أ— I أ— L أ— sin(خ¸)
         </div>
 
         <div style="margin:6px 0;">
-            المجال المغناطيسي B (T):
+            ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ B (T):
         </div>
 
         <input id="physicsMagneticB"
@@ -14976,7 +14976,7 @@ window.physicsMagneticForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            شدة التيار I (A):
+            ط´ط¯ط© ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsMagneticI"
@@ -14992,7 +14992,7 @@ window.physicsMagneticForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            طول السلك L (m):
+            ط·ظˆظ„ ط§ظ„ط³ظ„ظƒ L (m):
         </div>
 
         <input id="physicsMagneticL"
@@ -15008,7 +15008,7 @@ window.physicsMagneticForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزاوية θ (°):
+            ط§ظ„ط²ط§ظˆظٹط© خ¸ (آ°):
         </div>
 
         <input id="physicsMagneticTheta"
@@ -15029,7 +15029,7 @@ window.physicsMagneticForce = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القوة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ظˆط©
         </button>
 
         <div id="physicsMagneticForceResult"
@@ -15047,7 +15047,7 @@ window.physicsMagneticForce = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -15073,7 +15073,7 @@ window.physicsMagneticForce = function () {
 
 
 // ==========================================
-// 🧮 حساب القوة المغناطيسية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ‚ظˆط© ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
 // ==========================================
 
 window.calculatePhysicsMagneticForce = function () {
@@ -15116,19 +15116,19 @@ window.calculatePhysicsMagneticForce = function () {
         !Number.isFinite(theta)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (B < 0 || I < 0 || L < 0) {
         result.innerHTML =
-            "❌ B و I و L لا يمكن أن تكون سالبة";
+            "â‌Œ B ظˆ I ظˆ L ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (theta < 0 || theta > 180) {
         result.innerHTML =
-            "❌ الزاوية يجب أن تكون بين 0° و 180°";
+            "â‌Œ ط§ظ„ط²ط§ظˆظٹط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 180آ°";
         return;
     }
 
@@ -15139,11 +15139,11 @@ window.calculatePhysicsMagneticForce = function () {
         B * I * L * Math.sin(thetaRad);
 
     result.innerHTML =
-        `✅ F = ${F.toFixed(6)} N`;
+        `âœ… F = ${F.toFixed(6)} N`;
 };
 // ==========================================
-// ⚡ حاسبة قوة لورنتز
-// F = q × v × B × sin(θ)
+// âڑ، ط­ط§ط³ط¨ط© ظ‚ظˆط© ظ„ظˆط±ظ†طھط²
+// F = q أ— v أ— B أ— sin(خ¸)
 // ==========================================
 
 window.physicsLorentzForce = function () {
@@ -15158,7 +15158,7 @@ window.physicsLorentzForce = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚡ حاسبة قوة لورنتز
+            âڑ، ط­ط§ط³ط¨ط© ظ‚ظˆط© ظ„ظˆط±ظ†طھط²
         </div>
 
         <div style="
@@ -15166,11 +15166,11 @@ window.physicsLorentzForce = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            F = q × v × B × sin(θ)
+            F = q أ— v أ— B أ— sin(خ¸)
         </div>
 
         <div style="margin:6px 0;">
-            الشحنة q (C):
+            ط§ظ„ط´ط­ظ†ط© q (C):
         </div>
 
         <input id="physicsLorentzQ"
@@ -15186,7 +15186,7 @@ window.physicsLorentzForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة v (m/s):
+            ط§ظ„ط³ط±ط¹ط© v (m/s):
         </div>
 
         <input id="physicsLorentzV"
@@ -15202,7 +15202,7 @@ window.physicsLorentzForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            المجال المغناطيسي B (T):
+            ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ B (T):
         </div>
 
         <input id="physicsLorentzB"
@@ -15218,7 +15218,7 @@ window.physicsLorentzForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزاوية θ (°):
+            ط§ظ„ط²ط§ظˆظٹط© خ¸ (آ°):
         </div>
 
         <input id="physicsLorentzTheta"
@@ -15239,7 +15239,7 @@ window.physicsLorentzForce = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القوة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ظˆط©
         </button>
 
         <div id="physicsLorentzResult"
@@ -15257,7 +15257,7 @@ window.physicsLorentzForce = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -15283,7 +15283,7 @@ window.physicsLorentzForce = function () {
 
 
 // ==========================================
-// 🧮 حساب قوة لورنتز
+// ًں§® ط­ط³ط§ط¨ ظ‚ظˆط© ظ„ظˆط±ظ†طھط²
 // ==========================================
 
 window.calculatePhysicsLorentzForce = function () {
@@ -15326,19 +15326,19 @@ window.calculatePhysicsLorentzForce = function () {
         !Number.isFinite(theta)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (v < 0 || B < 0) {
         result.innerHTML =
-            "❌ السرعة والمجال المغناطيسي لا يمكن أن يكونا سالبين";
+            "â‌Œ ط§ظ„ط³ط±ط¹ط© ظˆط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ†ط§ ط³ط§ظ„ط¨ظٹظ†";
         return;
     }
 
     if (theta < 0 || theta > 180) {
         result.innerHTML =
-            "❌ الزاوية يجب أن تكون بين 0° و 180°";
+            "â‌Œ ط§ظ„ط²ط§ظˆظٹط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 180آ°";
         return;
     }
 
@@ -15352,11 +15352,11 @@ window.calculatePhysicsLorentzForce = function () {
         Math.sin(thetaRad);
 
     result.innerHTML =
-        `✅ F = ${F.toFixed(6)} N`;
+        `âœ… F = ${F.toFixed(6)} N`;
 };
 // ==========================================
-// 🔌 المجال المغناطيسي حول سلك مستقيم
-// B = μ₀ I / (2πr)
+// ًں”Œ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ط­ظˆظ„ ط³ظ„ظƒ ظ…ط³طھظ‚ظٹظ…
+// B = خ¼â‚€ I / (2د€r)
 // ==========================================
 
 window.physicsWireMagneticField = function () {
@@ -15371,7 +15371,7 @@ window.physicsWireMagneticField = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔌 المجال المغناطيسي حول سلك
+            ًں”Œ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ط­ظˆظ„ ط³ظ„ظƒ
         </div>
 
         <div style="
@@ -15379,7 +15379,7 @@ window.physicsWireMagneticField = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            B = μ₀ I / (2πr)
+            B = خ¼â‚€ I / (2د€r)
         </div>
 
         <div style="
@@ -15387,11 +15387,11 @@ window.physicsWireMagneticField = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            μ₀ = 4π × 10⁻⁷ T·m/A
+            خ¼â‚€ = 4د€ أ— 10âپ»âپ· Tآ·m/A
         </div>
 
         <div style="margin:6px 0;">
-            شدة التيار I (A):
+            ط´ط¯ط© ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsWireBCurrent"
@@ -15407,7 +15407,7 @@ window.physicsWireMagneticField = function () {
                ">
 
         <div style="margin:6px 0;">
-            المسافة r (m):
+            ط§ظ„ظ…ط³ط§ظپط© r (m):
         </div>
 
         <input id="physicsWireBRadius"
@@ -15428,7 +15428,7 @@ window.physicsWireMagneticField = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب المجال المغناطيسي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </button>
 
         <div id="physicsWireBResult"
@@ -15446,7 +15446,7 @@ window.physicsWireMagneticField = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -15470,7 +15470,7 @@ window.physicsWireMagneticField = function () {
 
 
 // ==========================================
-// 🧮 حساب المجال المغناطيسي حول السلك
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ط­ظˆظ„ ط§ظ„ط³ظ„ظƒ
 // ==========================================
 
 window.calculatePhysicsWireMagneticField = function () {
@@ -15499,19 +15499,19 @@ window.calculatePhysicsWireMagneticField = function () {
         !Number.isFinite(r)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (I < 0) {
         result.innerHTML =
-            "❌ شدة التيار لا يمكن أن تكون سالبة";
+            "â‌Œ ط´ط¯ط© ط§ظ„طھظٹط§ط± ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (r <= 0) {
         result.innerHTML =
-            "❌ المسافة يجب أن تكون أكبر من صفر";
+            "â‌Œ ط§ظ„ظ…ط³ط§ظپط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -15523,11 +15523,11 @@ window.calculatePhysicsWireMagneticField = function () {
         (2 * Math.PI * r);
 
     result.innerHTML =
-        `✅ B = ${B.toFixed(6)} T`;
+        `âœ… B = ${B.toFixed(6)} T`;
 };
 // ==========================================
-// 🔄 المجال المغناطيسي عند مركز ملف دائري
-// B = μ₀ N I / (2R)
+// ًں”„ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ط¹ظ†ط¯ ظ…ط±ظƒط² ظ…ظ„ظپ ط¯ط§ط¦ط±ظٹ
+// B = خ¼â‚€ N I / (2R)
 // ==========================================
 
 window.physicsCircularLoopField = function () {
@@ -15542,7 +15542,7 @@ window.physicsCircularLoopField = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔄 المجال المغناطيسي لملف دائري
+            ًں”„ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ظ„ظ…ظ„ظپ ط¯ط§ط¦ط±ظٹ
         </div>
 
         <div style="
@@ -15550,7 +15550,7 @@ window.physicsCircularLoopField = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            B = μ₀ N I / (2R)
+            B = خ¼â‚€ N I / (2R)
         </div>
 
         <div style="
@@ -15558,11 +15558,11 @@ window.physicsCircularLoopField = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            μ₀ = 4π × 10⁻⁷ T·m/A
+            خ¼â‚€ = 4د€ أ— 10âپ»âپ· Tآ·m/A
         </div>
 
         <div style="margin:6px 0;">
-            عدد اللفات N:
+            ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ N:
         </div>
 
         <input id="physicsLoopN"
@@ -15578,7 +15578,7 @@ window.physicsCircularLoopField = function () {
                ">
 
         <div style="margin:6px 0;">
-            شدة التيار I (A):
+            ط´ط¯ط© ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsLoopI"
@@ -15594,7 +15594,7 @@ window.physicsCircularLoopField = function () {
                ">
 
         <div style="margin:6px 0;">
-            نصف القطر R (m):
+            ظ†طµظپ ط§ظ„ظ‚ط·ط± R (m):
         </div>
 
         <input id="physicsLoopR"
@@ -15615,7 +15615,7 @@ window.physicsCircularLoopField = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب المجال المغناطيسي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </button>
 
         <div id="physicsLoopResult"
@@ -15633,7 +15633,7 @@ window.physicsCircularLoopField = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -15658,7 +15658,7 @@ window.physicsCircularLoopField = function () {
 
 
 // ==========================================
-// 🧮 حساب المجال المغناطيسي للملف الدائري
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ظ„ظ„ظ…ظ„ظپ ط§ظ„ط¯ط§ط¦ط±ظٹ
 // ==========================================
 
 window.calculatePhysicsCircularLoopField = function () {
@@ -15694,25 +15694,25 @@ window.calculatePhysicsCircularLoopField = function () {
         !Number.isFinite(R)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N <= 0) {
         result.innerHTML =
-            "❌ عدد اللفات يجب أن يكون أكبر من صفر";
+            "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (I < 0) {
         result.innerHTML =
-            "❌ شدة التيار لا يمكن أن تكون سالبة";
+            "â‌Œ ط´ط¯ط© ط§ظ„طھظٹط§ط± ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (R <= 0) {
         result.innerHTML =
-            "❌ نصف القطر يجب أن يكون أكبر من صفر";
+            "â‌Œ ظ†طµظپ ط§ظ„ظ‚ط·ط± ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -15724,11 +15724,11 @@ window.calculatePhysicsCircularLoopField = function () {
         (2 * R);
 
     result.innerHTML =
-        `✅ B = ${B.toFixed(6)} T`;
+        `âœ… B = ${B.toFixed(6)} T`;
 };
 // ==========================================
-// 🌀 المجال المغناطيسي داخل ملف لولبي
-// B = μ₀ N I / L
+// ًںŒ€ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ط¯ط§ط®ظ„ ظ…ظ„ظپ ظ„ظˆظ„ط¨ظٹ
+// B = خ¼â‚€ N I / L
 // ==========================================
 
 window.physicsSolenoidField = function () {
@@ -15743,7 +15743,7 @@ window.physicsSolenoidField = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌀 المجال المغناطيسي داخل ملف لولبي
+            ًںŒ€ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ط¯ط§ط®ظ„ ظ…ظ„ظپ ظ„ظˆظ„ط¨ظٹ
         </div>
 
         <div style="
@@ -15751,7 +15751,7 @@ window.physicsSolenoidField = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            B = μ₀ N I / L
+            B = خ¼â‚€ N I / L
         </div>
 
         <div style="
@@ -15759,11 +15759,11 @@ window.physicsSolenoidField = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            μ₀ = 4π × 10⁻⁷ T·m/A
+            خ¼â‚€ = 4د€ أ— 10âپ»âپ· Tآ·m/A
         </div>
 
         <div style="margin:6px 0;">
-            عدد اللفات N:
+            ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ N:
         </div>
 
         <input id="physicsSolenoidN"
@@ -15779,7 +15779,7 @@ window.physicsSolenoidField = function () {
                ">
 
         <div style="margin:6px 0;">
-            شدة التيار I (A):
+            ط´ط¯ط© ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsSolenoidI"
@@ -15795,7 +15795,7 @@ window.physicsSolenoidField = function () {
                ">
 
         <div style="margin:6px 0;">
-            طول الملف L (m):
+            ط·ظˆظ„ ط§ظ„ظ…ظ„ظپ L (m):
         </div>
 
         <input id="physicsSolenoidL"
@@ -15816,7 +15816,7 @@ window.physicsSolenoidField = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب المجال المغناطيسي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </button>
 
         <div id="physicsSolenoidResult"
@@ -15834,7 +15834,7 @@ window.physicsSolenoidField = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -15859,7 +15859,7 @@ window.physicsSolenoidField = function () {
 
 
 // ==========================================
-// 🧮 حساب المجال المغناطيسي للملف اللولبي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ظ„ظ„ظ…ظ„ظپ ط§ظ„ظ„ظˆظ„ط¨ظٹ
 // ==========================================
 
 window.calculatePhysicsSolenoidField = function () {
@@ -15895,25 +15895,25 @@ window.calculatePhysicsSolenoidField = function () {
         !Number.isFinite(L)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N <= 0) {
         result.innerHTML =
-            "❌ عدد اللفات يجب أن يكون أكبر من صفر";
+            "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (I < 0) {
         result.innerHTML =
-            "❌ شدة التيار لا يمكن أن تكون سالبة";
+            "â‌Œ ط´ط¯ط© ط§ظ„طھظٹط§ط± ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (L <= 0) {
         result.innerHTML =
-            "❌ طول الملف يجب أن يكون أكبر من صفر";
+            "â‌Œ ط·ظˆظ„ ط§ظ„ظ…ظ„ظپ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -15925,11 +15925,11 @@ window.calculatePhysicsSolenoidField = function () {
         L;
 
     result.innerHTML =
-        `✅ B = ${B.toFixed(6)} T`;
+        `âœ… B = ${B.toFixed(6)} T`;
 };
 // ==========================================
-// 📐 القوة بين سلكين متوازيين
-// F = μ₀ I₁ I₂ L / (2πd)
+// ًں“گ ط§ظ„ظ‚ظˆط© ط¨ظٹظ† ط³ظ„ظƒظٹظ† ظ…طھظˆط§ط²ظٹظٹظ†
+// F = خ¼â‚€ Iâ‚پ Iâ‚‚ L / (2د€d)
 // ==========================================
 
 window.physicsParallelWiresForce = function () {
@@ -15944,7 +15944,7 @@ window.physicsParallelWiresForce = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📐 القوة بين سلكين متوازيين
+            ًں“گ ط§ظ„ظ‚ظˆط© ط¨ظٹظ† ط³ظ„ظƒظٹظ† ظ…طھظˆط§ط²ظٹظٹظ†
         </div>
 
         <div style="
@@ -15952,7 +15952,7 @@ window.physicsParallelWiresForce = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            F = μ₀ I₁ I₂ L / (2πd)
+            F = خ¼â‚€ Iâ‚پ Iâ‚‚ L / (2د€d)
         </div>
 
         <div style="
@@ -15960,11 +15960,11 @@ window.physicsParallelWiresForce = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            μ₀ = 4π × 10⁻⁷ T·m/A
+            خ¼â‚€ = 4د€ أ— 10âپ»âپ· Tآ·m/A
         </div>
 
         <div style="margin:6px 0;">
-            التيار الأول I₁ (A):
+            ط§ظ„طھظٹط§ط± ط§ظ„ط£ظˆظ„ Iâ‚پ (A):
         </div>
 
         <input id="physicsParallelI1"
@@ -15980,7 +15980,7 @@ window.physicsParallelWiresForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            التيار الثاني I₂ (A):
+            ط§ظ„طھظٹط§ط± ط§ظ„ط«ط§ظ†ظٹ Iâ‚‚ (A):
         </div>
 
         <input id="physicsParallelI2"
@@ -15996,7 +15996,7 @@ window.physicsParallelWiresForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            طول السلك L (m):
+            ط·ظˆظ„ ط§ظ„ط³ظ„ظƒ L (m):
         </div>
 
         <input id="physicsParallelL"
@@ -16012,7 +16012,7 @@ window.physicsParallelWiresForce = function () {
                ">
 
         <div style="margin:6px 0;">
-            المسافة بين السلكين d (m):
+            ط§ظ„ظ…ط³ط§ظپط© ط¨ظٹظ† ط§ظ„ط³ظ„ظƒظٹظ† d (m):
         </div>
 
         <input id="physicsParallelD"
@@ -16033,7 +16033,7 @@ window.physicsParallelWiresForce = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القوة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ظˆط©
         </button>
 
         <div id="physicsParallelResult"
@@ -16051,7 +16051,7 @@ window.physicsParallelWiresForce = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -16077,7 +16077,7 @@ window.physicsParallelWiresForce = function () {
 
 
 // ==========================================
-// 🧮 حساب القوة بين السلكين
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ‚ظˆط© ط¨ظٹظ† ط§ظ„ط³ظ„ظƒظٹظ†
 // ==========================================
 
 window.calculatePhysicsParallelWiresForce = function () {
@@ -16120,25 +16120,25 @@ window.calculatePhysicsParallelWiresForce = function () {
         !Number.isFinite(d)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (I1 < 0 || I2 < 0) {
         result.innerHTML =
-            "❌ شدة التيار لا يمكن أن تكون سالبة";
+            "â‌Œ ط´ط¯ط© ط§ظ„طھظٹط§ط± ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (L <= 0) {
         result.innerHTML =
-            "❌ طول السلك يجب أن يكون أكبر من صفر";
+            "â‌Œ ط·ظˆظ„ ط§ظ„ط³ظ„ظƒ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (d <= 0) {
         result.innerHTML =
-            "❌ المسافة بين السلكين يجب أن تكون أكبر من صفر";
+            "â‌Œ ط§ظ„ظ…ط³ط§ظپط© ط¨ظٹظ† ط§ظ„ط³ظ„ظƒظٹظ† ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -16150,11 +16150,11 @@ window.calculatePhysicsParallelWiresForce = function () {
         (2 * Math.PI * d);
 
     result.innerHTML =
-        `✅ F = ${F.toFixed(6)} N`;
+        `âœ… F = ${F.toFixed(6)} N`;
 };
 // ==========================================
-// ⚡ القوة الدافعة الكهربية المستحثة
-// ε = N × ΔΦ / Δt
+// âڑ، ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط© ط§ظ„ظƒظ‡ط±ط¨ظٹط© ط§ظ„ظ…ط³طھط­ط«ط©
+// خµ = N أ— خ”خ¦ / خ”t
 // ==========================================
 
 window.physicsInducedEMF = function () {
@@ -16169,7 +16169,7 @@ window.physicsInducedEMF = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚡ القوة الدافعة الكهربية المستحثة
+            âڑ، ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط© ط§ظ„ظƒظ‡ط±ط¨ظٹط© ط§ظ„ظ…ط³طھط­ط«ط©
         </div>
 
         <div style="
@@ -16177,7 +16177,7 @@ window.physicsInducedEMF = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            ε = N × ΔΦ / Δt
+            خµ = N أ— خ”خ¦ / خ”t
         </div>
 
         <div style="
@@ -16185,11 +16185,11 @@ window.physicsInducedEMF = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            ε بالفولت (V) — ΔΦ بالويبر (Wb)
+            خµ ط¨ط§ظ„ظپظˆظ„طھ (V) â€” خ”خ¦ ط¨ط§ظ„ظˆظٹط¨ط± (Wb)
         </div>
 
         <div style="margin:6px 0;">
-            عدد اللفات N:
+            ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ N:
         </div>
 
         <input id="physicsEMFN"
@@ -16205,7 +16205,7 @@ window.physicsInducedEMF = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في الفيض ΔΦ (Wb):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ظپظٹط¶ خ”خ¦ (Wb):
         </div>
 
         <input id="physicsEMFFlux"
@@ -16221,7 +16221,7 @@ window.physicsInducedEMF = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في الزمن Δt (s):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ط²ظ…ظ† خ”t (s):
         </div>
 
         <input id="physicsEMFTime"
@@ -16242,7 +16242,7 @@ window.physicsInducedEMF = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القوة الدافعة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط©
         </button>
 
         <div id="physicsEMFResult"
@@ -16260,7 +16260,7 @@ window.physicsInducedEMF = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -16285,7 +16285,7 @@ window.physicsInducedEMF = function () {
 
 
 // ==========================================
-// 🧮 حساب القوة الدافعة المستحثة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط© ط§ظ„ظ…ط³طھط­ط«ط©
 // ==========================================
 
 window.calculatePhysicsInducedEMF = function () {
@@ -16321,19 +16321,19 @@ window.calculatePhysicsInducedEMF = function () {
         !Number.isFinite(deltaTime)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N <= 0) {
         result.innerHTML =
-            "❌ عدد اللفات يجب أن يكون أكبر من صفر";
+            "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (deltaTime <= 0) {
         result.innerHTML =
-            "❌ التغير في الزمن يجب أن يكون أكبر من صفر";
+            "â‌Œ ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ط²ظ…ظ† ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -16341,11 +16341,11 @@ window.calculatePhysicsInducedEMF = function () {
         Math.abs(N * deltaFlux / deltaTime);
 
     result.innerHTML =
-        `✅ ε = ${emf.toFixed(6)} V`;
+        `âœ… خµ = ${emf.toFixed(6)} V`;
 };
 // ==========================================
-// 🔁 حاسبة قانون فاراداي
-// ΔΦ/Δt = ε / N
+// ًں”پ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ظپط§ط±ط§ط¯ط§ظٹ
+// خ”خ¦/خ”t = خµ / N
 // ==========================================
 
 window.physicsFaradayLaw = function () {
@@ -16360,7 +16360,7 @@ window.physicsFaradayLaw = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔁 حاسبة قانون فاراداي
+            ًں”پ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ظپط§ط±ط§ط¯ط§ظٹ
         </div>
 
         <div style="
@@ -16368,7 +16368,7 @@ window.physicsFaradayLaw = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            ε = N × ΔΦ / Δt
+            خµ = N أ— خ”خ¦ / خ”t
         </div>
 
         <div style="
@@ -16376,11 +16376,11 @@ window.physicsFaradayLaw = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            احسب معدل تغير الفيض المغناطيسي
+            ط§ط­ط³ط¨ ظ…ط¹ط¯ظ„ طھط؛ظٹط± ط§ظ„ظپظٹط¶ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </div>
 
         <div style="margin:6px 0;">
-            القوة الدافعة المستحثة ε (V):
+            ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط© ط§ظ„ظ…ط³طھط­ط«ط© خµ (V):
         </div>
 
         <input id="physicsFaradayEMF"
@@ -16396,7 +16396,7 @@ window.physicsFaradayLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            عدد اللفات N:
+            ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ N:
         </div>
 
         <input id="physicsFaradayN"
@@ -16417,7 +16417,7 @@ window.physicsFaradayLaw = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب معدل تغير الفيض
+            ًں§® ط§ط­ط³ط¨ ظ…ط¹ط¯ظ„ طھط؛ظٹط± ط§ظ„ظپظٹط¶
         </button>
 
         <div id="physicsFaradayResult"
@@ -16435,7 +16435,7 @@ window.physicsFaradayLaw = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -16460,7 +16460,7 @@ window.physicsFaradayLaw = function () {
 
 
 // ==========================================
-// 🧮 حساب معدل تغير الفيض
+// ًں§® ط­ط³ط§ط¨ ظ…ط¹ط¯ظ„ طھط؛ظٹط± ط§ظ„ظپظٹط¶
 // ==========================================
 
 window.calculatePhysicsFaradayLaw = function () {
@@ -16489,19 +16489,19 @@ window.calculatePhysicsFaradayLaw = function () {
         !Number.isFinite(N)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (emf < 0) {
         result.innerHTML =
-            "❌ القوة الدافعة لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (N <= 0) {
         result.innerHTML =
-            "❌ عدد اللفات يجب أن يكون أكبر من صفر";
+            "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -16509,11 +16509,11 @@ window.calculatePhysicsFaradayLaw = function () {
         emf / N;
 
     result.innerHTML =
-        `✅ ΔΦ/Δt = ${rate.toFixed(6)} Wb/s`;
+        `âœ… خ”خ¦/خ”t = ${rate.toFixed(6)} Wb/s`;
 };
 // ==========================================
-// 🧭 حاسبة قانون لنز
-// ε = -N × ΔΦ / Δt
+// ًں§­ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ظ„ظ†ط²
+// خµ = -N أ— خ”خ¦ / خ”t
 // ==========================================
 
 window.physicsLenzLaw = function () {
@@ -16528,7 +16528,7 @@ window.physicsLenzLaw = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🧭 حاسبة قانون لنز
+            ًں§­ ط­ط§ط³ط¨ط© ظ‚ط§ظ†ظˆظ† ظ„ظ†ط²
         </div>
 
         <div style="
@@ -16536,7 +16536,7 @@ window.physicsLenzLaw = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            ε = −N × ΔΦ / Δt
+            خµ = âˆ’N أ— خ”خ¦ / خ”t
         </div>
 
         <div style="
@@ -16544,11 +16544,11 @@ window.physicsLenzLaw = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            الإشارة السالبة تمثل اتجاه المقاومة للتغير
+            ط§ظ„ط¥ط´ط§ط±ط© ط§ظ„ط³ط§ظ„ط¨ط© طھظ…ط«ظ„ ط§طھط¬ط§ظ‡ ط§ظ„ظ…ظ‚ط§ظˆظ…ط© ظ„ظ„طھط؛ظٹط±
         </div>
 
         <div style="margin:6px 0;">
-            عدد اللفات N:
+            ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ N:
         </div>
 
         <input id="physicsLenzN"
@@ -16564,7 +16564,7 @@ window.physicsLenzLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في الفيض ΔΦ (Wb):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ظپظٹط¶ خ”خ¦ (Wb):
         </div>
 
         <input id="physicsLenzFlux"
@@ -16580,7 +16580,7 @@ window.physicsLenzLaw = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في الزمن Δt (s):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ط²ظ…ظ† خ”t (s):
         </div>
 
         <input id="physicsLenzTime"
@@ -16601,7 +16601,7 @@ window.physicsLenzLaw = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب القوة الدافعة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ‚ظˆط© ط§ظ„ط¯ط§ظپط¹ط©
         </button>
 
         <div id="physicsLenzResult"
@@ -16619,7 +16619,7 @@ window.physicsLenzLaw = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -16644,7 +16644,7 @@ window.physicsLenzLaw = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون لنز
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ظ„ظ†ط²
 // ==========================================
 
 window.calculatePhysicsLenzLaw = function () {
@@ -16680,19 +16680,19 @@ window.calculatePhysicsLenzLaw = function () {
         !Number.isFinite(deltaTime)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N <= 0) {
         result.innerHTML =
-            "❌ عدد اللفات يجب أن يكون أكبر من صفر";
+            "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (deltaTime <= 0) {
         result.innerHTML =
-            "❌ التغير في الزمن يجب أن يكون أكبر من صفر";
+            "â‌Œ ط§ظ„طھط؛ظٹط± ظپظٹ ط§ظ„ط²ظ…ظ† ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -16700,11 +16700,11 @@ window.calculatePhysicsLenzLaw = function () {
         -(N * deltaFlux / deltaTime);
 
     result.innerHTML =
-        `✅ ε = ${emf.toFixed(6)} V`;
+        `âœ… خµ = ${emf.toFixed(6)} V`;
 };
 // ==========================================
-// 🔋 حاسبة الفيض المغناطيسي
-// Φ = B × A × cos(θ)
+// ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„ظپظٹط¶ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
+// خ¦ = B أ— A أ— cos(خ¸)
 // ==========================================
 
 window.physicsMagneticFlux = function () {
@@ -16719,7 +16719,7 @@ window.physicsMagneticFlux = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔋 حاسبة الفيض المغناطيسي
+            ًں”‹ ط­ط§ط³ط¨ط© ط§ظ„ظپظٹط¶ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </div>
 
         <div style="
@@ -16727,7 +16727,7 @@ window.physicsMagneticFlux = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Φ = B × A × cos(θ)
+            خ¦ = B أ— A أ— cos(خ¸)
         </div>
 
         <div style="
@@ -16735,11 +16735,11 @@ window.physicsMagneticFlux = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            Φ بالويبر (Wb)
+            خ¦ ط¨ط§ظ„ظˆظٹط¨ط± (Wb)
         </div>
 
         <div style="margin:6px 0;">
-            المجال المغناطيسي B (T):
+            ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ B (T):
         </div>
 
         <input id="physicsFluxB"
@@ -16755,7 +16755,7 @@ window.physicsMagneticFlux = function () {
                ">
 
         <div style="margin:6px 0;">
-            المساحة A (m²):
+            ط§ظ„ظ…ط³ط§ط­ط© A (mآ²):
         </div>
 
         <input id="physicsFluxArea"
@@ -16771,7 +16771,7 @@ window.physicsMagneticFlux = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزاوية θ (°):
+            ط§ظ„ط²ط§ظˆظٹط© خ¸ (آ°):
         </div>
 
         <input id="physicsFluxTheta"
@@ -16792,7 +16792,7 @@ window.physicsMagneticFlux = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الفيض
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظپظٹط¶
         </button>
 
         <div id="physicsFluxResult"
@@ -16810,7 +16810,7 @@ window.physicsMagneticFlux = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -16835,7 +16835,7 @@ window.physicsMagneticFlux = function () {
 
 
 // ==========================================
-// 🧮 حساب الفيض المغناطيسي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظپظٹط¶ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
 // ==========================================
 
 window.calculatePhysicsMagneticFlux = function () {
@@ -16871,25 +16871,25 @@ window.calculatePhysicsMagneticFlux = function () {
         !Number.isFinite(theta)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (B < 0) {
         result.innerHTML =
-            "❌ المجال المغناطيسي لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (A < 0) {
         result.innerHTML =
-            "❌ المساحة لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظ…ط³ط§ط­ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (theta < 0 || theta > 180) {
         result.innerHTML =
-            "❌ الزاوية يجب أن تكون بين 0° و 180°";
+            "â‌Œ ط§ظ„ط²ط§ظˆظٹط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 180آ°";
         return;
     }
 
@@ -16900,11 +16900,11 @@ window.calculatePhysicsMagneticFlux = function () {
         B * A * Math.cos(thetaRad);
 
     result.innerHTML =
-        `✅ Φ = ${flux.toFixed(6)} Wb`;
+        `âœ… خ¦ = ${flux.toFixed(6)} Wb`;
 };
 // ==========================================
-// 🔄 عزم ثنائي القطب المغناطيسي
-// τ = N × I × A × B × sin(θ)
+// ًں”„ ط¹ط²ظ… ط«ظ†ط§ط¦ظٹ ط§ظ„ظ‚ط·ط¨ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
+// د„ = N أ— I أ— A أ— B أ— sin(خ¸)
 // ==========================================
 
 window.physicsMagneticDipoleTorque = function () {
@@ -16919,7 +16919,7 @@ window.physicsMagneticDipoleTorque = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔄 عزم ثنائي القطب المغناطيسي
+            ًں”„ ط¹ط²ظ… ط«ظ†ط§ط¦ظٹ ط§ظ„ظ‚ط·ط¨ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ
         </div>
 
         <div style="
@@ -16927,7 +16927,7 @@ window.physicsMagneticDipoleTorque = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            τ = N × I × A × B × sin(θ)
+            د„ = N أ— I أ— A أ— B أ— sin(خ¸)
         </div>
 
         <div style="
@@ -16935,11 +16935,11 @@ window.physicsMagneticDipoleTorque = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            τ بوحدة N·m
+            د„ ط¨ظˆط­ط¯ط© Nآ·m
         </div>
 
         <div style="margin:6px 0;">
-            عدد اللفات N:
+            ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ N:
         </div>
 
         <input id="physicsTorqueN"
@@ -16955,7 +16955,7 @@ window.physicsMagneticDipoleTorque = function () {
                ">
 
         <div style="margin:6px 0;">
-            شدة التيار I (A):
+            ط´ط¯ط© ط§ظ„طھظٹط§ط± I (A):
         </div>
 
         <input id="physicsTorqueI"
@@ -16971,7 +16971,7 @@ window.physicsMagneticDipoleTorque = function () {
                ">
 
         <div style="margin:6px 0;">
-            مساحة الملف A (m²):
+            ظ…ط³ط§ط­ط© ط§ظ„ظ…ظ„ظپ A (mآ²):
         </div>
 
         <input id="physicsTorqueArea"
@@ -16987,7 +16987,7 @@ window.physicsMagneticDipoleTorque = function () {
                ">
 
         <div style="margin:6px 0;">
-            المجال المغناطيسي B (T):
+            ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ B (T):
         </div>
 
         <input id="physicsTorqueB"
@@ -17003,7 +17003,7 @@ window.physicsMagneticDipoleTorque = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزاوية θ (°):
+            ط§ظ„ط²ط§ظˆظٹط© خ¸ (آ°):
         </div>
 
         <input id="physicsTorqueTheta"
@@ -17024,7 +17024,7 @@ window.physicsMagneticDipoleTorque = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب العزم
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¹ط²ظ…
         </button>
 
         <div id="physicsTorqueResult"
@@ -17042,7 +17042,7 @@ window.physicsMagneticDipoleTorque = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -17069,7 +17069,7 @@ window.physicsMagneticDipoleTorque = function () {
 
 
 // ==========================================
-// 🧮 حساب العزم
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¹ط²ظ…
 // ==========================================
 
 window.calculatePhysicsMagneticDipoleTorque = function () {
@@ -17119,25 +17119,25 @@ window.calculatePhysicsMagneticDipoleTorque = function () {
         !Number.isFinite(theta)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N <= 0) {
         result.innerHTML =
-            "❌ عدد اللفات يجب أن يكون أكبر من صفر";
+            "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ„ظپط§طھ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (I < 0 || A < 0 || B < 0) {
         result.innerHTML =
-            "❌ I و A و B لا يمكن أن تكون سالبة";
+            "â‌Œ I ظˆ A ظˆ B ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (theta < 0 || theta > 180) {
         result.innerHTML =
-            "❌ الزاوية يجب أن تكون بين 0° و 180°";
+            "â‌Œ ط§ظ„ط²ط§ظˆظٹط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 180آ°";
         return;
     }
 
@@ -17149,11 +17149,11 @@ window.calculatePhysicsMagneticDipoleTorque = function () {
         Math.sin(thetaRad);
 
     result.innerHTML =
-        `✅ τ = ${torque.toFixed(6)} N·m`;
+        `âœ… د„ = ${torque.toFixed(6)} Nآ·m`;
 };
 // ==========================================
-// ⚙️ نصف قطر مسار جسيم مشحون
-// r = m × v / (|q| × B)
+// âڑ™ï¸ڈ ظ†طµظپ ظ‚ط·ط± ظ…ط³ط§ط± ط¬ط³ظٹظ… ظ…ط´ط­ظˆظ†
+// r = m أ— v / (|q| أ— B)
 // ==========================================
 
 window.physicsChargedParticleRadius = function () {
@@ -17168,7 +17168,7 @@ window.physicsChargedParticleRadius = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚙️ نصف قطر مسار جسيم مشحون
+            âڑ™ï¸ڈ ظ†طµظپ ظ‚ط·ط± ظ…ط³ط§ط± ط¬ط³ظٹظ… ظ…ط´ط­ظˆظ†
         </div>
 
         <div style="
@@ -17176,7 +17176,7 @@ window.physicsChargedParticleRadius = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            r = m × v / (|q| × B)
+            r = m أ— v / (|q| أ— B)
         </div>
 
         <div style="
@@ -17184,11 +17184,11 @@ window.physicsChargedParticleRadius = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            r بالمتر (m)
+            r ط¨ط§ظ„ظ…طھط± (m)
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsParticleMass"
@@ -17204,7 +17204,7 @@ window.physicsChargedParticleRadius = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة v (m/s):
+            ط§ظ„ط³ط±ط¹ط© v (m/s):
         </div>
 
         <input id="physicsParticleVelocity"
@@ -17220,7 +17220,7 @@ window.physicsChargedParticleRadius = function () {
                ">
 
         <div style="margin:6px 0;">
-            الشحنة q (C):
+            ط§ظ„ط´ط­ظ†ط© q (C):
         </div>
 
         <input id="physicsParticleCharge"
@@ -17236,7 +17236,7 @@ window.physicsChargedParticleRadius = function () {
                ">
 
         <div style="margin:6px 0;">
-            المجال المغناطيسي B (T):
+            ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ B (T):
         </div>
 
         <input id="physicsParticleB"
@@ -17257,7 +17257,7 @@ window.physicsChargedParticleRadius = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب نصف القطر
+            ًں§® ط§ط­ط³ط¨ ظ†طµظپ ط§ظ„ظ‚ط·ط±
         </button>
 
         <div id="physicsParticleRadiusResult"
@@ -17275,7 +17275,7 @@ window.physicsChargedParticleRadius = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للمغناطيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹط©
         </button>
     `);
 
@@ -17301,7 +17301,7 @@ window.physicsChargedParticleRadius = function () {
 
 
 // ==========================================
-// 🧮 حساب نصف قطر المسار
+// ًں§® ط­ط³ط§ط¨ ظ†طµظپ ظ‚ط·ط± ط§ظ„ظ…ط³ط§ط±
 // ==========================================
 
 window.calculatePhysicsChargedParticleRadius = function () {
@@ -17344,31 +17344,31 @@ window.calculatePhysicsChargedParticleRadius = function () {
         !Number.isFinite(B)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (m <= 0) {
         result.innerHTML =
-            "❌ الكتلة يجب أن تكون أكبر من صفر";
+            "â‌Œ ط§ظ„ظƒطھظ„ط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (v < 0) {
         result.innerHTML =
-            "❌ السرعة لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ط³ط±ط¹ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
     if (q === 0) {
         result.innerHTML =
-            "❌ الشحنة لا يمكن أن تساوي صفرًا";
+            "â‌Œ ط§ظ„ط´ط­ظ†ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±ظ‹ط§";
         return;
     }
 
     if (B <= 0) {
         result.innerHTML =
-            "❌ المجال المغناطيسي يجب أن يكون أكبر من صفر";
+            "â‌Œ ط§ظ„ظ…ط¬ط§ظ„ ط§ظ„ظ…ط؛ظ†ط§ط·ظٹط³ظٹ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -17377,10 +17377,10 @@ window.calculatePhysicsChargedParticleRadius = function () {
         (Math.abs(q) * B);
 
     result.innerHTML =
-        `✅ r = ${radius.toFixed(6)} m`;
+        `âœ… r = ${radius.toFixed(6)} m`;
 };
 // ==========================================
-// ⚛️ الفيزياء الحديثة
+// âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
 // ==========================================
 
 window.openPhysicsModern = function () {
@@ -17395,7 +17395,7 @@ window.openPhysicsModern = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚛️ الفيزياء الحديثة
+            âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </div>
 
         <div style="
@@ -17404,7 +17404,7 @@ window.openPhysicsModern = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            اختر الحاسبة:
+            ط§ط®طھط± ط§ظ„ط­ط§ط³ط¨ط©:
         </div>
 
         <button onclick="physicsPhotonEnergy()"
@@ -17413,7 +17413,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚛️ طاقة الفوتون
+            âڑ›ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ†
         </button>
 
         <button onclick="physicsDeBroglieWavelength()"
@@ -17422,7 +17422,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🌊 طول موجة دي برولي
+            ًںŒٹ ط·ظˆظ„ ظ…ظˆط¬ط© ط¯ظٹ ط¨ط±ظˆظ„ظٹ
         </button>
 
         <button onclick="physicsPhotonFrequency()"
@@ -17431,7 +17431,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            💡 تردد الفوتون
+            ًں’، طھط±ط¯ط¯ ط§ظ„ظپظˆطھظˆظ†
         </button>
 
         <button onclick="physicsWorkFunction()"
@@ -17440,7 +17440,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🔋 دالة الشغل
+            ًں”‹ ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„
         </button>
 
         <button onclick="physicsMaxKineticEnergy()"
@@ -17449,7 +17449,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚡ طاقة الحركة القصوى للإلكترون
+            âڑ، ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ط§ظ„ظ‚طµظˆظ‰ ظ„ظ„ط¥ظ„ظƒطھط±ظˆظ†
         </button>
 
         <button onclick="physicsStoppingPotential()"
@@ -17458,7 +17458,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            🛑 جهد الإيقاف
+            ًں›‘ ط¬ظ‡ط¯ ط§ظ„ط¥ظٹظ‚ط§ظپ
         </button>
 
         <button onclick="physicsComptonEffect()"
@@ -17467,7 +17467,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            📡 تأثير كومبتون
+            ًں“، طھط£ط«ظٹط± ظƒظˆظ…ط¨طھظˆظ†
         </button>
 
         <button onclick="physicsRadioactiveDecay()"
@@ -17476,7 +17476,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ☢️ قانون الاضمحلال الإشعاعي
+            âک¢ï¸ڈ ظ‚ط§ظ†ظˆظ† ط§ظ„ط§ط¶ظ…ط­ظ„ط§ظ„ ط§ظ„ط¥ط´ط¹ط§ط¹ظٹ
         </button>
 
         <button onclick="physicsHalfLife()"
@@ -17485,7 +17485,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⏳ العمر النصفي
+            âڈ³ ط§ظ„ط¹ظ…ط± ط§ظ„ظ†طµظپظٹ
         </button>
 
         <button onclick="physicsNuclearBindingEnergy()"
@@ -17494,7 +17494,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ⚛️ طاقة الربط النووي
+            âڑ›ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ط±ط¨ط· ط§ظ„ظ†ظˆظˆظٹ
         </button>
 
         <button onclick="physicsMassDefect()"
@@ -17503,7 +17503,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            💥 نقص الكتلة
+            ًں’¥ ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط©
         </button>
 
         <button onclick="physicsMassEnergyEquivalence()"
@@ -17512,7 +17512,7 @@ window.openPhysicsModern = function () {
                     padding:10px;
                     margin:3px 0;
                 ">
-            ☀️ تكافؤ الكتلة والطاقة
+            âک€ï¸ڈ طھظƒط§ظپط¤ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط·ط§ظ‚ط©
         </button>
 
         <button onclick="openPhysics()"
@@ -17521,13 +17521,13 @@ window.openPhysicsModern = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للفيزياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط،
         </button>
     `);
 };
 // ==========================================
-// ⚛️ طاقة الفوتون
-// E = h × f
+// âڑ›ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ†
+// E = h أ— f
 // ==========================================
 
 window.physicsPhotonEnergy = function () {
@@ -17542,7 +17542,7 @@ window.physicsPhotonEnergy = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚛️ طاقة الفوتون
+            âڑ›ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ†
         </div>
 
         <div style="
@@ -17550,7 +17550,7 @@ window.physicsPhotonEnergy = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            E = h × f
+            E = h أ— f
         </div>
 
         <div style="
@@ -17558,11 +17558,11 @@ window.physicsPhotonEnergy = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            h = 6.62607015 × 10⁻³⁴ J·s
+            h = 6.62607015 أ— 10âپ»آ³âپ´ Jآ·s
         </div>
 
         <div style="margin:6px 0;">
-            التردد f (Hz):
+            ط§ظ„طھط±ط¯ط¯ f (Hz):
         </div>
 
         <input id="physicsPhotonFrequency"
@@ -17583,7 +17583,7 @@ window.physicsPhotonEnergy = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الطاقة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط·ط§ظ‚ط©
         </button>
 
         <div id="physicsPhotonEnergyResult"
@@ -17601,7 +17601,7 @@ window.physicsPhotonEnergy = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -17621,7 +17621,7 @@ window.physicsPhotonEnergy = function () {
 
 
 // ==========================================
-// 🧮 حساب طاقة الفوتون
+// ًں§® ط­ط³ط§ط¨ ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ†
 // ==========================================
 
 window.calculatePhysicsPhotonEnergy = function () {
@@ -17641,13 +17641,13 @@ window.calculatePhysicsPhotonEnergy = function () {
 
     if (!Number.isFinite(f)) {
         result.innerHTML =
-            "⚠️ أدخل التردد";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„طھط±ط¯ط¯";
         return;
     }
 
     if (f < 0) {
         result.innerHTML =
-            "❌ التردد لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„طھط±ط¯ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
@@ -17658,11 +17658,11 @@ window.calculatePhysicsPhotonEnergy = function () {
         h * f;
 
     result.innerHTML =
-        `✅ E = ${E.toExponential(6)} J`;
+        `âœ… E = ${E.toExponential(6)} J`;
 };
 // ==========================================
-// 🌊 طول موجة دي برولي
-// λ = h / (m × v)
+// ًںŒٹ ط·ظˆظ„ ظ…ظˆط¬ط© ط¯ظٹ ط¨ط±ظˆظ„ظٹ
+// خ» = h / (m أ— v)
 // ==========================================
 
 window.physicsDeBroglieWavelength = function () {
@@ -17677,7 +17677,7 @@ window.physicsDeBroglieWavelength = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌊 طول موجة دي برولي
+            ًںŒٹ ط·ظˆظ„ ظ…ظˆط¬ط© ط¯ظٹ ط¨ط±ظˆظ„ظٹ
         </div>
 
         <div style="
@@ -17685,7 +17685,7 @@ window.physicsDeBroglieWavelength = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            λ = h / (m × v)
+            خ» = h / (m أ— v)
         </div>
 
         <div style="
@@ -17693,11 +17693,11 @@ window.physicsDeBroglieWavelength = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            h = 6.62607015 × 10⁻³⁴ J·s
+            h = 6.62607015 أ— 10âپ»آ³âپ´ Jآ·s
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsDeBroglieMass"
@@ -17713,7 +17713,7 @@ window.physicsDeBroglieWavelength = function () {
                ">
 
         <div style="margin:6px 0;">
-            السرعة v (m/s):
+            ط§ظ„ط³ط±ط¹ط© v (m/s):
         </div>
 
         <input id="physicsDeBroglieVelocity"
@@ -17734,7 +17734,7 @@ window.physicsDeBroglieWavelength = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب طول الموجة
+            ًں§® ط§ط­ط³ط¨ ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ط©
         </button>
 
         <div id="physicsDeBroglieResult"
@@ -17752,7 +17752,7 @@ window.physicsDeBroglieWavelength = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -17777,7 +17777,7 @@ window.physicsDeBroglieWavelength = function () {
 
 
 // ==========================================
-// 🧮 حساب طول موجة دي برولي
+// ًں§® ط­ط³ط§ط¨ ط·ظˆظ„ ظ…ظˆط¬ط© ط¯ظٹ ط¨ط±ظˆظ„ظٹ
 // ==========================================
 
 window.calculatePhysicsDeBroglieWavelength = function () {
@@ -17806,19 +17806,19 @@ window.calculatePhysicsDeBroglieWavelength = function () {
         !Number.isFinite(v)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (m <= 0) {
         result.innerHTML =
-            "❌ الكتلة يجب أن تكون أكبر من صفر";
+            "â‌Œ ط§ظ„ظƒطھظ„ط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (v <= 0) {
         result.innerHTML =
-            "❌ السرعة يجب أن تكون أكبر من صفر";
+            "â‌Œ ط§ظ„ط³ط±ط¹ط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -17829,10 +17829,10 @@ window.calculatePhysicsDeBroglieWavelength = function () {
         h / (m * v);
 
     result.innerHTML =
-        `✅ λ = ${wavelength.toExponential(6)} m`;
+        `âœ… خ» = ${wavelength.toExponential(6)} m`;
 };
 // ==========================================
-// 💡 تردد الفوتون
+// ًں’، طھط±ط¯ط¯ ط§ظ„ظپظˆطھظˆظ†
 // f = E / h
 // ==========================================
 
@@ -17848,7 +17848,7 @@ window.physicsPhotonFrequency = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💡 تردد الفوتون
+            ًں’، طھط±ط¯ط¯ ط§ظ„ظپظˆطھظˆظ†
         </div>
 
         <div style="
@@ -17864,11 +17864,11 @@ window.physicsPhotonFrequency = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            h = 6.62607015 × 10⁻³⁴ J·s
+            h = 6.62607015 أ— 10âپ»آ³âپ´ Jآ·s
         </div>
 
         <div style="margin:6px 0;">
-            طاقة الفوتون E (J):
+            ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ† E (J):
         </div>
 
         <input id="physicsPhotonFreqEnergy"
@@ -17889,7 +17889,7 @@ window.physicsPhotonFrequency = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب التردد
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھط±ط¯ط¯
         </button>
 
         <div id="physicsPhotonFreqResult"
@@ -17907,7 +17907,7 @@ window.physicsPhotonFrequency = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -17928,7 +17928,7 @@ window.physicsPhotonFrequency = function () {
 
 
 // ==========================================
-// 🧮 حساب تردد الفوتون
+// ًں§® ط­ط³ط§ط¨ طھط±ط¯ط¯ ط§ظ„ظپظˆطھظˆظ†
 // ==========================================
 
 window.calculatePhysicsPhotonFrequency = function () {
@@ -17948,13 +17948,13 @@ window.calculatePhysicsPhotonFrequency = function () {
 
     if (!Number.isFinite(E)) {
         result.innerHTML =
-            "⚠️ أدخل طاقة الفوتون";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ†";
         return;
     }
 
     if (E < 0) {
         result.innerHTML =
-            "❌ طاقة الفوتون لا يمكن أن تكون سالبة";
+            "â‌Œ ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
@@ -17965,11 +17965,11 @@ window.calculatePhysicsPhotonFrequency = function () {
         E / h;
 
     result.innerHTML =
-        `✅ f = ${frequency.toExponential(6)} Hz`;
+        `âœ… f = ${frequency.toExponential(6)} Hz`;
 };
 // ==========================================
-// 🔋 دالة الشغل
-// φ = h × f₀
+// ًں”‹ ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„
+// د† = h أ— fâ‚€
 // ==========================================
 
 window.physicsWorkFunction = function () {
@@ -17984,7 +17984,7 @@ window.physicsWorkFunction = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🔋 دالة الشغل
+            ًں”‹ ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„
         </div>
 
         <div style="
@@ -17992,7 +17992,7 @@ window.physicsWorkFunction = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            φ = h × f₀
+            د† = h أ— fâ‚€
         </div>
 
         <div style="
@@ -18000,11 +18000,11 @@ window.physicsWorkFunction = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            h = 6.62607015 × 10⁻³⁴ J·s
+            h = 6.62607015 أ— 10âپ»آ³âپ´ Jآ·s
         </div>
 
         <div style="margin:6px 0;">
-            تردد العتبة f₀ (Hz):
+            طھط±ط¯ط¯ ط§ظ„ط¹طھط¨ط© fâ‚€ (Hz):
         </div>
 
         <input id="physicsWorkFunctionThreshold"
@@ -18025,7 +18025,7 @@ window.physicsWorkFunction = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب دالة الشغل
+            ًں§® ط§ط­ط³ط¨ ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„
         </button>
 
         <div id="physicsWorkFunctionResult"
@@ -18043,7 +18043,7 @@ window.physicsWorkFunction = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -18064,7 +18064,7 @@ window.physicsWorkFunction = function () {
 
 
 // ==========================================
-// 🧮 حساب دالة الشغل
+// ًں§® ط­ط³ط§ط¨ ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„
 // ==========================================
 
 window.calculatePhysicsWorkFunction = function () {
@@ -18084,13 +18084,13 @@ window.calculatePhysicsWorkFunction = function () {
 
     if (!Number.isFinite(f0)) {
         result.innerHTML =
-            "⚠️ أدخل تردد العتبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ طھط±ط¯ط¯ ط§ظ„ط¹طھط¨ط©";
         return;
     }
 
     if (f0 < 0) {
         result.innerHTML =
-            "❌ تردد العتبة لا يمكن أن يكون سالبًا";
+            "â‌Œ طھط±ط¯ط¯ ط§ظ„ط¹طھط¨ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
@@ -18101,11 +18101,11 @@ window.calculatePhysicsWorkFunction = function () {
         h * f0;
 
     result.innerHTML =
-        `✅ φ = ${workFunction.toExponential(6)} J`;
+        `âœ… د† = ${workFunction.toExponential(6)} J`;
 };
 // ==========================================
-// ⚡ طاقة الحركة القصوى للإلكترون
-// Kmax = h × f - φ
+// âڑ، ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ط§ظ„ظ‚طµظˆظ‰ ظ„ظ„ط¥ظ„ظƒطھط±ظˆظ†
+// Kmax = h أ— f - د†
 // ==========================================
 
 window.physicsMaxKineticEnergy = function () {
@@ -18120,7 +18120,7 @@ window.physicsMaxKineticEnergy = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚡ طاقة الحركة القصوى للإلكترون
+            âڑ، ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ط§ظ„ظ‚طµظˆظ‰ ظ„ظ„ط¥ظ„ظƒطھط±ظˆظ†
         </div>
 
         <div style="
@@ -18128,7 +18128,7 @@ window.physicsMaxKineticEnergy = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Kₘₐₓ = h × f − φ
+            Kâ‚کâ‚گâ‚“ = h أ— f âˆ’ د†
         </div>
 
         <div style="
@@ -18136,11 +18136,11 @@ window.physicsMaxKineticEnergy = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            h = 6.62607015 × 10⁻³⁴ J·s
+            h = 6.62607015 أ— 10âپ»آ³âپ´ Jآ·s
         </div>
 
         <div style="margin:6px 0;">
-            التردد f (Hz):
+            ط§ظ„طھط±ط¯ط¯ f (Hz):
         </div>
 
         <input id="physicsKmaxFrequency"
@@ -18156,7 +18156,7 @@ window.physicsMaxKineticEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            دالة الشغل φ (J):
+            ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„ د† (J):
         </div>
 
         <input id="physicsKmaxWorkFunction"
@@ -18177,7 +18177,7 @@ window.physicsMaxKineticEnergy = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب طاقة الحركة القصوى
+            ًں§® ط§ط­ط³ط¨ ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ط§ظ„ظ‚طµظˆظ‰
         </button>
 
         <div id="physicsKmaxResult"
@@ -18195,7 +18195,7 @@ window.physicsMaxKineticEnergy = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -18220,7 +18220,7 @@ window.physicsMaxKineticEnergy = function () {
 
 
 // ==========================================
-// 🧮 حساب طاقة الحركة القصوى
+// ًں§® ط­ط³ط§ط¨ ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ط§ظ„ظ‚طµظˆظ‰
 // ==========================================
 
 window.calculatePhysicsMaxKineticEnergy = function () {
@@ -18249,19 +18249,19 @@ window.calculatePhysicsMaxKineticEnergy = function () {
         !Number.isFinite(phi)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (f < 0) {
         result.innerHTML =
-            "❌ التردد لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„طھط±ط¯ط¯ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (phi < 0) {
         result.innerHTML =
-            "❌ دالة الشغل لا يمكن أن تكون سالبة";
+            "â‌Œ ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
@@ -18273,15 +18273,15 @@ window.calculatePhysicsMaxKineticEnergy = function () {
 
     if (energy < 0) {
         result.innerHTML =
-            "⚠️ لا توجد طاقة حركة قصوى: طاقة الفوتون أقل من دالة الشغل";
+            "âڑ ï¸ڈ ظ„ط§ طھظˆط¬ط¯ ط·ط§ظ‚ط© ط­ط±ظƒط© ظ‚طµظˆظ‰: ط·ط§ظ‚ط© ط§ظ„ظپظˆطھظˆظ† ط£ظ‚ظ„ ظ…ظ† ط¯ط§ظ„ط© ط§ظ„ط´ط؛ظ„";
         return;
     }
 
     result.innerHTML =
-        `✅ Kₘₐₓ = ${energy.toExponential(6)} J`;
+        `âœ… Kâ‚کâ‚گâ‚“ = ${energy.toExponential(6)} J`;
 };
 // ==========================================
-// 🛑 جهد الإيقاف
+// ًں›‘ ط¬ظ‡ط¯ ط§ظ„ط¥ظٹظ‚ط§ظپ
 // Vs = Kmax / e
 // ==========================================
 
@@ -18297,7 +18297,7 @@ window.physicsStoppingPotential = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🛑 جهد الإيقاف
+            ًں›‘ ط¬ظ‡ط¯ ط§ظ„ط¥ظٹظ‚ط§ظپ
         </div>
 
         <div style="
@@ -18305,7 +18305,7 @@ window.physicsStoppingPotential = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Vₛ = Kₘₐₓ / e
+            Vâ‚› = Kâ‚کâ‚گâ‚“ / e
         </div>
 
         <div style="
@@ -18313,11 +18313,11 @@ window.physicsStoppingPotential = function () {
             font-size:13px;
             margin-bottom:10px;
         ">
-            e = 1.602176634 × 10⁻¹⁹ C
+            e = 1.602176634 أ— 10âپ»آ¹âپ¹ C
         </div>
 
         <div style="margin:6px 0;">
-            طاقة الحركة القصوى Kₘₐₓ (J):
+            ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ط§ظ„ظ‚طµظˆظ‰ Kâ‚کâ‚گâ‚“ (J):
         </div>
 
         <input id="physicsStoppingKmax"
@@ -18338,7 +18338,7 @@ window.physicsStoppingPotential = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب جهد الإيقاف
+            ًں§® ط§ط­ط³ط¨ ط¬ظ‡ط¯ ط§ظ„ط¥ظٹظ‚ط§ظپ
         </button>
 
         <div id="physicsStoppingResult"
@@ -18356,7 +18356,7 @@ window.physicsStoppingPotential = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -18377,7 +18377,7 @@ window.physicsStoppingPotential = function () {
 
 
 // ==========================================
-// 🧮 حساب جهد الإيقاف
+// ًں§® ط­ط³ط§ط¨ ط¬ظ‡ط¯ ط§ظ„ط¥ظٹظ‚ط§ظپ
 // ==========================================
 
 window.calculatePhysicsStoppingPotential = function () {
@@ -18397,13 +18397,13 @@ window.calculatePhysicsStoppingPotential = function () {
 
     if (!Number.isFinite(Kmax)) {
         result.innerHTML =
-            "⚠️ أدخل طاقة الحركة القصوى";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ط§ظ„ظ‚طµظˆظ‰";
         return;
     }
 
     if (Kmax < 0) {
         result.innerHTML =
-            "❌ طاقة الحركة لا يمكن أن تكون سالبة";
+            "â‌Œ ط·ط§ظ‚ط© ط§ظ„ط­ط±ظƒط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
@@ -18414,11 +18414,11 @@ window.calculatePhysicsStoppingPotential = function () {
         Kmax / e;
 
     result.innerHTML =
-        `✅ Vₛ = ${stoppingPotential.toFixed(6)} V`;
+        `âœ… Vâ‚› = ${stoppingPotential.toFixed(6)} V`;
 };
 // ==========================================
-// 📡 تأثير كومبتون
-// λ′ = λ + (h / (mₑ × c)) × (1 − cos θ)
+// ًں“، طھط£ط«ظٹط± ظƒظˆظ…ط¨طھظˆظ†
+// خ»â€² = خ» + (h / (mâ‚‘ أ— c)) أ— (1 âˆ’ cos خ¸)
 // ==========================================
 
 window.physicsComptonEffect = function () {
@@ -18433,7 +18433,7 @@ window.physicsComptonEffect = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📡 تأثير كومبتون
+            ًں“، طھط£ط«ظٹط± ظƒظˆظ…ط¨طھظˆظ†
         </div>
 
         <div style="
@@ -18441,7 +18441,7 @@ window.physicsComptonEffect = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            λ′ = λ + (h / (mₑ × c)) × (1 − cos θ)
+            خ»â€² = خ» + (h / (mâ‚‘ أ— c)) أ— (1 âˆ’ cos خ¸)
         </div>
 
         <div style="
@@ -18449,15 +18449,15 @@ window.physicsComptonEffect = function () {
             font-size:12px;
             margin-bottom:10px;
         ">
-            h = 6.62607015 × 10⁻³⁴ J·s
+            h = 6.62607015 أ— 10âپ»آ³âپ´ Jآ·s
             <br>
-            mₑ = 9.1093837139 × 10⁻³¹ kg
+            mâ‚‘ = 9.1093837139 أ— 10âپ»آ³آ¹ kg
             <br>
             c = 299792458 m/s
         </div>
 
         <div style="margin:6px 0;">
-            الطول الموجي الابتدائي λ (m):
+            ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ خ» (m):
         </div>
 
         <input id="physicsComptonLambda"
@@ -18473,7 +18473,7 @@ window.physicsComptonEffect = function () {
                ">
 
         <div style="margin:6px 0;">
-            زاوية التشتت θ (°):
+            ط²ط§ظˆظٹط© ط§ظ„طھط´طھطھ خ¸ (آ°):
         </div>
 
         <input id="physicsComptonTheta"
@@ -18494,7 +18494,7 @@ window.physicsComptonEffect = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الطول الموجي بعد التصادم
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ ط¨ط¹ط¯ ط§ظ„طھطµط§ط¯ظ…
         </button>
 
         <div id="physicsComptonResult"
@@ -18512,7 +18512,7 @@ window.physicsComptonEffect = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -18537,7 +18537,7 @@ window.physicsComptonEffect = function () {
 
 
 // ==========================================
-// 🧮 حساب تأثير كومبتون
+// ًں§® ط­ط³ط§ط¨ طھط£ط«ظٹط± ظƒظˆظ…ط¨طھظˆظ†
 // ==========================================
 
 window.calculatePhysicsComptonEffect = function () {
@@ -18566,19 +18566,19 @@ window.calculatePhysicsComptonEffect = function () {
         !Number.isFinite(theta)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (lambda < 0) {
         result.innerHTML =
-            "❌ الطول الموجي لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ط·ظˆظ„ ط§ظ„ظ…ظˆط¬ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (theta < 0 || theta > 180) {
         result.innerHTML =
-            "❌ الزاوية يجب أن تكون بين 0° و 180°";
+            "â‌Œ ط§ظ„ط²ط§ظˆظٹط© ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¨ظٹظ† 0آ° ظˆ 180آ°";
         return;
     }
 
@@ -18605,11 +18605,11 @@ window.calculatePhysicsComptonEffect = function () {
         lambda + deltaLambda;
 
     result.innerHTML =
-        `✅ λ′ = ${lambdaPrime.toExponential(6)} m`;
+        `âœ… خ»â€² = ${lambdaPrime.toExponential(6)} m`;
 };
 // ==========================================
-// ☢️ قانون الاضمحلال الإشعاعي
-// N = N₀ × (1/2)^(t / T½)
+// âک¢ï¸ڈ ظ‚ط§ظ†ظˆظ† ط§ظ„ط§ط¶ظ…ط­ظ„ط§ظ„ ط§ظ„ط¥ط´ط¹ط§ط¹ظٹ
+// N = Nâ‚€ أ— (1/2)^(t / Tآ½)
 // ==========================================
 
 window.physicsRadioactiveDecay = function () {
@@ -18624,7 +18624,7 @@ window.physicsRadioactiveDecay = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ☢️ قانون الاضمحلال الإشعاعي
+            âک¢ï¸ڈ ظ‚ط§ظ†ظˆظ† ط§ظ„ط§ط¶ظ…ط­ظ„ط§ظ„ ط§ظ„ط¥ط´ط¹ط§ط¹ظٹ
         </div>
 
         <div style="
@@ -18632,11 +18632,11 @@ window.physicsRadioactiveDecay = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            N = N₀ × (1/2)^(t / T½)
+            N = Nâ‚€ أ— (1/2)^(t / Tآ½)
         </div>
 
         <div style="margin:6px 0;">
-            العدد الابتدائي N₀:
+            ط§ظ„ط¹ط¯ط¯ ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ Nâ‚€:
         </div>
 
         <input id="physicsDecayInitial"
@@ -18652,7 +18652,7 @@ window.physicsRadioactiveDecay = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t:
+            ط§ظ„ط²ظ…ظ† t:
         </div>
 
         <input id="physicsDecayTime"
@@ -18668,7 +18668,7 @@ window.physicsRadioactiveDecay = function () {
                ">
 
         <div style="margin:6px 0;">
-            العمر النصفي T½:
+            ط§ظ„ط¹ظ…ط± ط§ظ„ظ†طµظپظٹ Tآ½:
         </div>
 
         <input id="physicsDecayHalfLife"
@@ -18689,7 +18689,7 @@ window.physicsRadioactiveDecay = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب العدد المتبقي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¹ط¯ط¯ ط§ظ„ظ…طھط¨ظ‚ظٹ
         </button>
 
         <div id="physicsDecayResult"
@@ -18707,7 +18707,7 @@ window.physicsRadioactiveDecay = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -18733,7 +18733,7 @@ window.physicsRadioactiveDecay = function () {
 
 
 // ==========================================
-// 🧮 حساب الاضمحلال
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط§ط¶ظ…ط­ظ„ط§ظ„
 // ==========================================
 
 window.calculatePhysicsRadioactiveDecay = function () {
@@ -18769,25 +18769,25 @@ window.calculatePhysicsRadioactiveDecay = function () {
         !Number.isFinite(halfLife)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N0 < 0) {
         result.innerHTML =
-            "❌ العدد الابتدائي لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ط¹ط¯ط¯ ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (t < 0) {
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
     if (halfLife <= 0) {
         result.innerHTML =
-            "❌ العمر النصفي يجب أن يكون أكبر من صفر";
+            "â‌Œ ط§ظ„ط¹ظ…ط± ط§ظ„ظ†طµظپظٹ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
@@ -18798,11 +18798,11 @@ window.calculatePhysicsRadioactiveDecay = function () {
         );
 
     result.innerHTML =
-        `✅ N = ${remaining.toFixed(6)}`;
+        `âœ… N = ${remaining.toFixed(6)}`;
 };
 // ==========================================
-// ⏳ العمر النصفي
-// T½ = t × ln(2) / ln(N₀ / N)
+// âڈ³ ط§ظ„ط¹ظ…ط± ط§ظ„ظ†طµظپظٹ
+// Tآ½ = t أ— ln(2) / ln(Nâ‚€ / N)
 // ==========================================
 
 window.physicsHalfLife = function () {
@@ -18817,7 +18817,7 @@ window.physicsHalfLife = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⏳ العمر النصفي
+            âڈ³ ط§ظ„ط¹ظ…ط± ط§ظ„ظ†طµظپظٹ
         </div>
 
         <div style="
@@ -18825,11 +18825,11 @@ window.physicsHalfLife = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            T½ = t × ln(2) / ln(N₀ / N)
+            Tآ½ = t أ— ln(2) / ln(Nâ‚€ / N)
         </div>
 
         <div style="margin:6px 0;">
-            العدد الابتدائي N₀:
+            ط§ظ„ط¹ط¯ط¯ ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ Nâ‚€:
         </div>
 
         <input id="physicsHalfLifeInitial"
@@ -18845,7 +18845,7 @@ window.physicsHalfLife = function () {
                ">
 
         <div style="margin:6px 0;">
-            العدد المتبقي N:
+            ط§ظ„ط¹ط¯ط¯ ط§ظ„ظ…طھط¨ظ‚ظٹ N:
         </div>
 
         <input id="physicsHalfLifeRemaining"
@@ -18861,7 +18861,7 @@ window.physicsHalfLife = function () {
                ">
 
         <div style="margin:6px 0;">
-            الزمن t:
+            ط§ظ„ط²ظ…ظ† t:
         </div>
 
         <input id="physicsHalfLifeTime"
@@ -18882,7 +18882,7 @@ window.physicsHalfLife = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب العمر النصفي
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط¹ظ…ط± ط§ظ„ظ†طµظپظٹ
         </button>
 
         <div id="physicsHalfLifeResult"
@@ -18900,7 +18900,7 @@ window.physicsHalfLife = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -18926,7 +18926,7 @@ window.physicsHalfLife = function () {
 
 
 // ==========================================
-// 🧮 حساب العمر النصفي
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ط± ط§ظ„ظ†طµظپظٹ
 // ==========================================
 
 window.calculatePhysicsHalfLife = function () {
@@ -18962,25 +18962,25 @@ window.calculatePhysicsHalfLife = function () {
         !Number.isFinite(t)
     ) {
         result.innerHTML =
-            "⚠️ أدخل جميع القيم المطلوبة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ…ط·ظ„ظˆط¨ط©";
         return;
     }
 
     if (N0 <= 0) {
         result.innerHTML =
-            "❌ N₀ يجب أن يكون أكبر من صفر";
+            "â‌Œ Nâ‚€ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
         return;
     }
 
     if (N <= 0 || N >= N0) {
         result.innerHTML =
-            "❌ يجب أن يكون 0 < N < N₀";
+            "â‌Œ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† 0 < N < Nâ‚€";
         return;
     }
 
     if (t < 0) {
         result.innerHTML =
-            "❌ الزمن لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
@@ -18989,12 +18989,12 @@ window.calculatePhysicsHalfLife = function () {
         Math.log(N0 / N);
 
     result.innerHTML =
-        `✅ T½ = ${halfLife.toFixed(6)} s`;
+        `âœ… Tآ½ = ${halfLife.toFixed(6)} s`;
 };
 // ==========================================
-// ⚛️ طاقة الربط النووي
-// Eb = Δm × c²
-// Δm بوحدة u
+// âڑ›ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ط±ط¨ط· ط§ظ„ظ†ظˆظˆظٹ
+// Eb = خ”m أ— cآ²
+// خ”m ط¨ظˆط­ط¯ط© u
 // ==========================================
 
 window.physicsNuclearBindingEnergy = function () {
@@ -19009,7 +19009,7 @@ window.physicsNuclearBindingEnergy = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ⚛️ طاقة الربط النووي
+            âڑ›ï¸ڈ ط·ط§ظ‚ط© ط§ظ„ط±ط¨ط· ط§ظ„ظ†ظˆظˆظٹ
         </div>
 
         <div style="
@@ -19017,7 +19017,7 @@ window.physicsNuclearBindingEnergy = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Eᵦ = Δm × c²
+            Eلµ¦ = خ”m أ— cآ²
         </div>
 
         <div style="
@@ -19025,13 +19025,13 @@ window.physicsNuclearBindingEnergy = function () {
             font-size:12px;
             margin-bottom:10px;
         ">
-            1 u = 1.66053906660 × 10⁻²⁷ kg
+            1 u = 1.66053906660 أ— 10âپ»آ²âپ· kg
             <br>
             c = 299792458 m/s
         </div>
 
         <div style="margin:6px 0;">
-            نقص الكتلة Δm (u):
+            ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط© خ”m (u):
         </div>
 
         <input id="physicsBindingMassDefect"
@@ -19052,7 +19052,7 @@ window.physicsNuclearBindingEnergy = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب طاقة الربط
+            ًں§® ط§ط­ط³ط¨ ط·ط§ظ‚ط© ط§ظ„ط±ط¨ط·
         </button>
 
         <div id="physicsBindingEnergyResult"
@@ -19070,7 +19070,7 @@ window.physicsNuclearBindingEnergy = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -19091,7 +19091,7 @@ window.physicsNuclearBindingEnergy = function () {
 
 
 // ==========================================
-// 🧮 حساب طاقة الربط النووي
+// ًں§® ط­ط³ط§ط¨ ط·ط§ظ‚ط© ط§ظ„ط±ط¨ط· ط§ظ„ظ†ظˆظˆظٹ
 // ==========================================
 
 window.calculatePhysicsNuclearBindingEnergy = function () {
@@ -19111,13 +19111,13 @@ window.calculatePhysicsNuclearBindingEnergy = function () {
 
     if (!Number.isFinite(massDefectU)) {
         result.innerHTML =
-            "⚠️ أدخل نقص الكتلة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط©";
         return;
     }
 
     if (massDefectU < 0) {
         result.innerHTML =
-            "❌ نقص الكتلة لا يمكن أن يكون سالبًا";
+            "â‌Œ ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
         return;
     }
 
@@ -19134,12 +19134,12 @@ window.calculatePhysicsNuclearBindingEnergy = function () {
         massDefectKg * c * c;
 
     result.innerHTML =
-        `✅ Eᵦ = ${bindingEnergy.toExponential(6)} J`;
+        `âœ… Eلµ¦ = ${bindingEnergy.toExponential(6)} J`;
 };
 // ==========================================
-// 💥 نقص الكتلة
-// Δm = E / c²
-// الناتج بوحدة u
+// ًں’¥ ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط©
+// خ”m = E / cآ²
+// ط§ظ„ظ†ط§طھط¬ ط¨ظˆط­ط¯ط© u
 // ==========================================
 
 window.physicsMassDefect = function () {
@@ -19154,7 +19154,7 @@ window.physicsMassDefect = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            💥 نقص الكتلة
+            ًں’¥ ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط©
         </div>
 
         <div style="
@@ -19162,7 +19162,7 @@ window.physicsMassDefect = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            Δm = E / c²
+            خ”m = E / cآ²
         </div>
 
         <div style="
@@ -19172,11 +19172,11 @@ window.physicsMassDefect = function () {
         ">
             c = 299792458 m/s
             <br>
-            1 u = 1.66053906660 × 10⁻²⁷ kg
+            1 u = 1.66053906660 أ— 10âپ»آ²âپ· kg
         </div>
 
         <div style="margin:6px 0;">
-            الطاقة E (J):
+            ط§ظ„ط·ط§ظ‚ط© E (J):
         </div>
 
         <input id="physicsMassDefectEnergy"
@@ -19197,7 +19197,7 @@ window.physicsMassDefect = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب نقص الكتلة
+            ًں§® ط§ط­ط³ط¨ ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط©
         </button>
 
         <div id="physicsMassDefectResult"
@@ -19215,7 +19215,7 @@ window.physicsMassDefect = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -19236,7 +19236,7 @@ window.physicsMassDefect = function () {
 
 
 // ==========================================
-// 🧮 حساب نقص الكتلة
+// ًں§® ط­ط³ط§ط¨ ظ†ظ‚طµ ط§ظ„ظƒطھظ„ط©
 // ==========================================
 
 window.calculatePhysicsMassDefect = function () {
@@ -19256,13 +19256,13 @@ window.calculatePhysicsMassDefect = function () {
 
     if (!Number.isFinite(energy)) {
         result.innerHTML =
-            "⚠️ أدخل الطاقة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ط·ط§ظ‚ط©";
         return;
     }
 
     if (energy < 0) {
         result.innerHTML =
-            "❌ الطاقة لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ط·ط§ظ‚ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
@@ -19279,13 +19279,13 @@ window.calculatePhysicsMassDefect = function () {
         massKg / u;
 
     result.innerHTML =
-        `✅ Δm = ${massU.toFixed(6)} u`;
+        `âœ… خ”m = ${massU.toFixed(6)} u`;
 };
 // ==========================================
-// ☀️ تكافؤ الكتلة والطاقة
-// E = m × c²
-// m بالكيلوجرام
-// E بالجول
+// âک€ï¸ڈ طھظƒط§ظپط¤ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط·ط§ظ‚ط©
+// E = m أ— cآ²
+// m ط¨ط§ظ„ظƒظٹظ„ظˆط¬ط±ط§ظ…
+// E ط¨ط§ظ„ط¬ظˆظ„
 // ==========================================
 
 window.physicsMassEnergyEquivalence = function () {
@@ -19300,7 +19300,7 @@ window.physicsMassEnergyEquivalence = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            ☀️ تكافؤ الكتلة والطاقة
+            âک€ï¸ڈ طھظƒط§ظپط¤ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط·ط§ظ‚ط©
         </div>
 
         <div style="
@@ -19308,7 +19308,7 @@ window.physicsMassEnergyEquivalence = function () {
             margin-bottom:12px;
             font-weight:bold;
         ">
-            E = m × c²
+            E = m أ— cآ²
         </div>
 
         <div style="
@@ -19320,7 +19320,7 @@ window.physicsMassEnergyEquivalence = function () {
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (kg):
+            ط§ظ„ظƒطھظ„ط© m (kg):
         </div>
 
         <input id="physicsMassEnergyMass"
@@ -19341,7 +19341,7 @@ window.physicsMassEnergyEquivalence = function () {
                     padding:10px;
                     margin:4px 0;
                 ">
-            🧮 احسب الطاقة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ط·ط§ظ‚ط©
         </button>
 
         <div id="physicsMassEnergyResult"
@@ -19359,7 +19359,7 @@ window.physicsMassEnergyEquivalence = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            ← رجوع للفيزياء الحديثة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط­ط¯ظٹط«ط©
         </button>
     `);
 
@@ -19380,7 +19380,7 @@ window.physicsMassEnergyEquivalence = function () {
 
 
 // ==========================================
-// 🧮 حساب تكافؤ الكتلة والطاقة
+// ًں§® ط­ط³ط§ط¨ طھظƒط§ظپط¤ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط·ط§ظ‚ط©
 // ==========================================
 
 window.calculatePhysicsMassEnergyEquivalence = function () {
@@ -19400,13 +19400,13 @@ window.calculatePhysicsMassEnergyEquivalence = function () {
 
     if (!Number.isFinite(mass)) {
         result.innerHTML =
-            "⚠️ أدخل الكتلة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ظƒطھظ„ط©";
         return;
     }
 
     if (mass < 0) {
         result.innerHTML =
-            "❌ الكتلة لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظƒطھظ„ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
         return;
     }
 
@@ -19417,10 +19417,10 @@ window.calculatePhysicsMassEnergyEquivalence = function () {
         mass * c * c;
 
     result.innerHTML =
-        `✅ E = ${energy.toExponential(6)} J`;
+        `âœ… E = ${energy.toExponential(6)} J`;
 };
 // ==========================================
-// 🧮 تنفيذ تحويل درجة الحرارة
+// ًں§® طھظ†ظپظٹط° طھط­ظˆظٹظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.convertTemperature = function (type) {
@@ -19429,32 +19429,32 @@ window.convertTemperature = function (type) {
     let unit = "";
 
     if (type === "CtoF") {
-        title = "°C → °F";
-        unit = "°C";
+        title = "آ°C â†’ آ°F";
+        unit = "آ°C";
     }
 
     if (type === "FtoC") {
-        title = "°F → °C";
-        unit = "°F";
+        title = "آ°F â†’ آ°C";
+        unit = "آ°F";
     }
 
     if (type === "CtoK") {
-        title = "°C → K";
-        unit = "°C";
+        title = "آ°C â†’ K";
+        unit = "آ°C";
     }
 
     if (type === "KtoC") {
-        title = "K → °C";
+        title = "K â†’ آ°C";
         unit = "K";
     }
 
     if (type === "FtoK") {
-        title = "°F → K";
-        unit = "°F";
+        title = "آ°F â†’ K";
+        unit = "آ°F";
     }
 
     if (type === "KtoF") {
-        title = "K → °F";
+        title = "K â†’ آ°F";
         unit = "K";
     }
 
@@ -19465,13 +19465,13 @@ window.convertTemperature = function (type) {
             text-align:center;
             margin-bottom:15px;
         ">
-            🔄 ${title}
+            ًں”„ ${title}
         </div>
 
         <input
             id="temperatureConversionInput"
             type="number"
-            placeholder="أدخل درجة الحرارة"
+            placeholder="ط£ط¯ط®ظ„ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©"
             style="
                 width:100%;
                 box-sizing:border-box;
@@ -19487,7 +19487,7 @@ window.convertTemperature = function (type) {
             font-size:13px;
             margin-bottom:10px;
         ">
-            الوحدة: ${unit}
+            ط§ظ„ظˆط­ط¯ط©: ${unit}
         </div>
 
         <button onclick="calculateTemperatureConversion('${type}')"
@@ -19515,7 +19515,7 @@ window.convertTemperature = function (type) {
                 padding:9px;
                 margin-top:10px;
             ">
-            ← أنواع التحويل
+            â†گ ط£ظ†ظˆط§ط¹ ط§ظ„طھط­ظˆظٹظ„
         </button>
     `);
 
@@ -19526,7 +19526,7 @@ window.convertTemperature = function (type) {
 
 
 // ==========================================
-// 🧮 حساب التحويل
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھط­ظˆظٹظ„
 // ==========================================
 
 window.calculateTemperatureConversion = function (type) {
@@ -19539,7 +19539,7 @@ window.calculateTemperatureConversion = function (type) {
     const value = Number(input.value);
 
     if (input.value === "" || !Number.isFinite(value)) {
-        result.innerHTML = "⚠️ أدخل قيمة صحيحة";
+        result.innerHTML = "âڑ ï¸ڈ ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© طµط­ظٹط­ط©";
         return;
     }
 
@@ -19550,12 +19550,12 @@ window.calculateTemperatureConversion = function (type) {
 
         case "CtoF":
             answer = (value * 9 / 5) + 32;
-            unit = "°F";
+            unit = "آ°F";
             break;
 
         case "FtoC":
             answer = (value - 32) * 5 / 9;
-            unit = "°C";
+            unit = "آ°C";
             break;
 
         case "CtoK":
@@ -19565,7 +19565,7 @@ window.calculateTemperatureConversion = function (type) {
 
         case "KtoC":
             answer = value - 273.15;
-            unit = "°C";
+            unit = "آ°C";
             break;
 
         case "FtoK":
@@ -19575,19 +19575,19 @@ window.calculateTemperatureConversion = function (type) {
 
         case "KtoF":
             answer = (value - 273.15) * 9 / 5 + 32;
-            unit = "°F";
+            unit = "آ°F";
             break;
 
         default:
-            result.innerHTML = "⚠️ نوع تحويل غير معروف";
+            result.innerHTML = "âڑ ï¸ڈ ظ†ظˆط¹ طھط­ظˆظٹظ„ ط؛ظٹط± ظ…ط¹ط±ظˆظپ";
             return;
     }
 
-    result.innerHTML = `✅ ${answer.toFixed(6)} ${unit}`;
+    result.innerHTML = `âœ… ${answer.toFixed(6)} ${unit}`;
 };
 
 // ==========================================
-// 🧮 حساب كمية الحرارة
+// ًں§® ط­ط³ط§ط¨ ظƒظ…ظٹط© ط§ظ„ط­ط±ط§ط±ط©
 // ==========================================
 
 window.calculatePhysicsHeatQuantity = function () {
@@ -19623,7 +19623,7 @@ window.calculatePhysicsHeatQuantity = function () {
         !Number.isFinite(deltaT)) {
 
         result.innerHTML =
-            "⚠️ أدخل الكتلة والسعة الحرارية والتغير في درجة الحرارة";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ظƒطھظ„ط© ظˆط§ظ„ط³ط¹ط© ط§ظ„ط­ط±ط§ط±ظٹط© ظˆط§ظ„طھط؛ظٹط± ظپظٹ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©";
 
         return;
     }
@@ -19631,7 +19631,7 @@ window.calculatePhysicsHeatQuantity = function () {
     if (mass < 0) {
 
         result.innerHTML =
-            "❌ الكتلة لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظƒطھظ„ط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
 
         return;
     }
@@ -19639,7 +19639,7 @@ window.calculatePhysicsHeatQuantity = function () {
     if (specificHeat < 0) {
 
         result.innerHTML =
-            "❌ السعة الحرارية النوعية لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ط³ط¹ط© ط§ظ„ط­ط±ط§ط±ظٹط© ط§ظ„ظ†ظˆط¹ظٹط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
 
         return;
     }
@@ -19648,10 +19648,10 @@ window.calculatePhysicsHeatQuantity = function () {
         mass * specificHeat * deltaT;
 
     result.innerHTML =
-        `✅ Q = ${heat.toFixed(6)} J`;
+        `âœ… Q = ${heat.toFixed(6)} J`;
 };
 // ==========================================
-// 🧮 حساب السرعة
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط³ط±ط¹ط©
 // ==========================================
 
 window.calculatePhysicsSpeed = function () {
@@ -19675,7 +19675,7 @@ window.calculatePhysicsSpeed = function () {
         !Number.isFinite(time)) {
 
         result.innerHTML =
-            "⚠️ أدخل المسافة والزمن";
+            "âڑ ï¸ڈ ط£ط¯ط®ظ„ ط§ظ„ظ…ط³ط§ظپط© ظˆط§ظ„ط²ظ…ظ†";
 
         return;
     }
@@ -19683,7 +19683,7 @@ window.calculatePhysicsSpeed = function () {
     if (time === 0) {
 
         result.innerHTML =
-            "⚠️ الزمن لا يمكن أن يساوي صفرًا";
+            "âڑ ï¸ڈ ط§ظ„ط²ظ…ظ† ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±ظ‹ط§";
 
         return;
     }
@@ -19691,10 +19691,10 @@ window.calculatePhysicsSpeed = function () {
     const speed = distance / time;
 
     result.innerHTML =
-        `✅ v = ${speed} m/s`;
+        `âœ… v = ${speed} m/s`;
 };
 // ==========================================
-// 🧪 قائمة الكيمياء
+// ًں§ھ ظ‚ط§ط¦ظ…ط© ط§ظ„ظƒظٹظ…ظٹط§ط،
 // ==========================================
 
 
@@ -19713,7 +19713,7 @@ let outerFractionDenominator = "";
 
 
 // ==========================================
-// Nested Fraction — كسر داخل كسر
+// Nested Fraction â€” ظƒط³ط± ط¯ط§ط®ظ„ ظƒط³ط±
 // ==========================================
 
 let nestedFractionMode = false;
@@ -19726,7 +19726,7 @@ let nestedFractionDenominator = "";
 
 let nestedFractionParentStage = 0;
 // ==========================================
-// 3. كلاس الأعداد المركبة الشامل (CMPLX)
+// 3. ظƒظ„ط§ط³ ط§ظ„ط£ط¹ط¯ط§ط¯ ط§ظ„ظ…ط±ظƒط¨ط© ط§ظ„ط´ط§ظ…ظ„ (CMPLX)
 // ==========================================
 class Complex {
     constructor(re = 0, im = 0) {
@@ -19744,7 +19744,7 @@ class Complex {
         return new Complex(0, -1);
     }
 
-    // a+bi أو a-bi
+    // a+bi ط£ظˆ a-bi
     const match = str.match(
         /^([+-]?(?:\d+(?:\.\d+)?))([+-](?:\d+(?:\.\d+)?))i$/
     );
@@ -19756,7 +19756,7 @@ class Complex {
         );
     }
 
-    // a+i أو a-i
+    // a+i ط£ظˆ a-i
     const unitMatch = str.match(
         /^([+-]?(?:\d+(?:\.\d+)?))([+-])i$/
     );
@@ -19768,7 +19768,7 @@ class Complex {
         );
     }
 
-    // عدد حقيقي فقط
+    // ط¹ط¯ط¯ ط­ظ‚ظٹظ‚ظٹ ظپظ‚ط·
     if (/^[+-]?\d+(?:\.\d+)?$/.test(str)) {
         return new Complex(Number(str), 0);
     }
@@ -19796,7 +19796,7 @@ class Complex {
 }
 
 // ==========================================
-// 4. الدوال الرياضية المتقدمة (Fact, GCD, LCM, Prime)
+// 4. ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط±ظٹط§ط¶ظٹط© ط§ظ„ظ…طھظ‚ط¯ظ…ط© (Fact, GCD, LCM, Prime)
 // ==========================================
 function factorial(n) {
     n = Number(n);
@@ -19832,7 +19832,7 @@ function fromRadians(val) {
 }
 
 // ==========================================
-// 5. أدوات الشاشة المدمجة لنظام (fx-991)
+// 5. ط£ط¯ظˆط§طھ ط§ظ„ط´ط§ط´ط© ط§ظ„ظ…ط¯ظ…ط¬ط© ظ„ظ†ط¸ط§ظ… (fx-991)
 // ==========================================
 function closeCustomPanel() {
     let p = document.getElementById("customModePanel");
@@ -19840,7 +19840,7 @@ function closeCustomPanel() {
 }
 
 function createScreenPanel(htmlContent) {
-    console.log("🚨 CREATE SCREEN PANEL:", htmlContent);
+    console.log("ًںڑ¨ CREATE SCREEN PANEL:", htmlContent);
 
     removeCustomModePanel();
 
@@ -19857,7 +19857,7 @@ function createScreenPanel(htmlContent) {
         fractionEditor.remove();
     }
 
-    // حذف أي قسم قديم
+    // ط­ط°ظپ ط£ظٹ ظ‚ط³ظ… ظ‚ط¯ظٹظ…
     removeCustomModePanel();
 
     const panel = document.createElement("div");
@@ -19887,18 +19887,18 @@ function createScreenPanel(htmlContent) {
     }
 
     // ==========================================
-    // 📱 منع لوحة مفاتيح الهاتف والتابلت
-    // في خانات الفيزياء
+    // ًں“± ظ…ظ†ط¹ ظ„ظˆط­ط© ظ…ظپط§طھظٹط­ ط§ظ„ظ‡ط§طھظپ ظˆط§ظ„طھط§ط¨ظ„طھ
+    // ظپظٹ ط®ط§ظ†ط§طھ ط§ظ„ظپظٹط²ظٹط§ط،
     // ==========================================
 
     if (document.body.classList.contains("physics-mode")) {
 
         panel.querySelectorAll("input").forEach(input => {
 
-            // منع الكتابة من لوحة المفاتيح الافتراضية
+            // ظ…ظ†ط¹ ط§ظ„ظƒطھط§ط¨ط© ظ…ظ† ظ„ظˆط­ط© ط§ظ„ظ…ظپط§طھظٹط­ ط§ظ„ط§ظپطھط±ط§ط¶ظٹط©
             input.setAttribute("readonly", "readonly");
 
-            // منع ظهور لوحة المفاتيح عند التركيز
+            // ظ…ظ†ط¹ ط¸ظ‡ظˆط± ظ„ظˆط­ط© ط§ظ„ظ…ظپط§طھظٹط­ ط¹ظ†ط¯ ط§ظ„طھط±ظƒظٹط²
             input.addEventListener("focus", () => {
                 input.setAttribute("readonly", "readonly");
             });
@@ -19922,7 +19922,7 @@ if (currentMode === "TABLE" && activeTableField) {
         field.value += val;
 
         console.log(
-            "🟦 TABLE INPUT:",
+            "ًںں¦ TABLE INPUT:",
             activeTableField,
             field.value
         );
@@ -19965,7 +19965,7 @@ if (currentMode === "STAT") {
             field.value += val;
 
             console.log(
-                "🟢 STAT INPUT:",
+                "ًںں¢ STAT INPUT:",
                 activeStatField,
                 field.value
             );
@@ -19981,7 +19981,7 @@ if (currentMode === "STAT") {
         statInput.value += val;
 
         console.log(
-            "🟢 STAT DEFAULT INPUT:",
+            "ًںں¢ STAT DEFAULT INPUT:",
             statInput.value
         );
 
@@ -19990,7 +19990,7 @@ if (currentMode === "STAT") {
 }
     console.log("ABS MODE:", absMode);
     console.log(
-    "🔥 FRACTION:",
+    "ًں”¥ FRACTION:",
     fractionMode,
     "STAGE:",
     fractionStage,
@@ -20003,8 +20003,8 @@ if (currentMode === "STAT") {
     // ==========================================
     // ABS MODE
     // ==========================================
-// الكتابة داخل STAT
-// الكتابة داخل خانات STAT
+// ط§ظ„ظƒطھط§ط¨ط© ط¯ط§ط®ظ„ STAT
+// ط§ظ„ظƒطھط§ط¨ط© ط¯ط§ط®ظ„ ط®ط§ظ†ط§طھ STAT
 const statInput = document.getElementById("statInput");
 const statXInput = document.getElementById("statXInput");
 const statYInput = document.getElementById("statYInput");
@@ -20024,7 +20024,7 @@ if (statInput && statInput.offsetParent !== null) {
     return;
 }
 // ==========================================
-// منع ABS من التحكم في إدخال CMPLX
+// ظ…ظ†ط¹ ABS ظ…ظ† ط§ظ„طھط­ظƒظ… ظپظٹ ط¥ط¯ط®ط§ظ„ CMPLX
 // ==========================================
 
 
@@ -20043,7 +20043,7 @@ if (statInput && statInput.offsetParent !== null) {
         return;
     }
 // ==========================================
-// الكتابة بعد الكسر
+// ط§ظ„ظƒطھط§ط¨ط© ط¨ط¹ط¯ ط§ظ„ظƒط³ط±
 // ==========================================
 if (fractionMode && fractionStage === 2) {
 
@@ -20054,7 +20054,7 @@ if (fractionMode && fractionStage === 2) {
     return;
 }
 // ==========================================
-// الكتابة داخل الكسر
+// ط§ظ„ظƒطھط§ط¨ط© ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 
 if (fractionMode) {
@@ -20072,7 +20072,7 @@ if (fractionMode) {
     }
 }
 // ==========================================
-// العمليات على الكسر بعد الخروج منه
+// ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط¹ظ„ظ‰ ط§ظ„ظƒط³ط± ط¨ط¹ط¯ ط§ظ„ط®ط±ظˆط¬ ظ…ظ†ظ‡
 // ==========================================
 if (
     !fractionMode &&
@@ -20083,7 +20083,7 @@ if (
         display.value = `${fractionExpression}^2`;
         cursorPosition = display.value.length;
         updateCursor();
-        console.log("🟢 POWER ON FRACTION:", display.value);
+        console.log("ًںں¢ POWER ON FRACTION:", display.value);
         return;
     }
 
@@ -20091,7 +20091,7 @@ if (
         display.value = `${fractionExpression}^3`;
         cursorPosition = display.value.length;
         updateCursor();
-        console.log("🟢 CUBE ON FRACTION:", display.value);
+        console.log("ًںں¢ CUBE ON FRACTION:", display.value);
         return;
     }
 
@@ -20099,12 +20099,12 @@ if (
         display.value = `${fractionExpression}^`;
         cursorPosition = display.value.length;
         updateCursor();
-        console.log("🟢 POWER ON FRACTION:", display.value);
+        console.log("ًںں¢ POWER ON FRACTION:", display.value);
         return;
     }
 }
     // ==========================================
-// الوضع العادي
+// ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
 // ==========================================
 
 if (
@@ -20116,20 +20116,20 @@ if (
 }
 
 // ==========================================
-// الكتابة بعد كسر + عملية
+// ط§ظ„ظƒطھط§ط¨ط© ط¨ط¹ط¯ ظƒط³ط± + ط¹ظ…ظ„ظٹط©
 // ==========================================
 
 if (
     fractionExpression &&
     !fractionMode &&
-    ["+", "−", "×", "÷"].some(op =>
+    ["+", "âˆ’", "أ—", "أ·"].some(op =>
         display.value.endsWith(op)
     )
 ) {
     cursorPosition = display.value.length;
 }
 
-// الكتابة في مكان المؤشر
+// ط§ظ„ظƒطھط§ط¨ط© ظپظٹ ظ…ظƒط§ظ† ط§ظ„ظ…ط¤ط´ط±
 display.value =
     display.value.slice(0, cursorPosition) +
     val +
@@ -20140,32 +20140,32 @@ cursorPosition += val.length;
 updateCursor();
 }
 // ==========================================
-// مؤشر الآلة
+// ظ…ط¤ط´ط± ط§ظ„ط¢ظ„ط©
 // ==========================================
 
 
 // ==========================================
-// أسهم مؤشر الكتابة
+// ط£ط³ظ‡ظ… ظ…ط¤ط´ط± ط§ظ„ظƒطھط§ط¨ط©
 // ==========================================
 
 // ==========================================
-// أسهم مؤشر الكتابة
+// ط£ط³ظ‡ظ… ظ…ط¤ط´ط± ط§ظ„ظƒطھط§ط¨ط©
 // ==========================================
 
 // ==========================================
-// أسهم مؤشر الكتابة
+// ط£ط³ظ‡ظ… ظ…ط¤ط´ط± ط§ظ„ظƒطھط§ط¨ط©
 // ==========================================
 
 
 // ==========================================
-// تحديث مؤشر الكتابة
+// طھط­ط¯ظٹط« ظ…ط¤ط´ط± ط§ظ„ظƒطھط§ط¨ط©
 // ==========================================
 
 // ==========================================
-// 6. ربط أزرار الذاكرة والعمليات الأساسية
+// 6. ط±ط¨ط· ط£ط²ط±ط§ط± ط§ظ„ط°ط§ظƒط±ط© ظˆط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط£ط³ط§ط³ظٹط©
 // ==========================================
 // ==========================================
-// 🧹 AC — مسح شامل لكل أوضاع الرياضيات
+// ًں§¹ AC â€” ظ…ط³ط­ ط´ط§ظ…ظ„ ظ„ظƒظ„ ط£ظˆط¶ط§ط¹ ط§ظ„ط±ظٹط§ط¶ظٹط§طھ
 // ==========================================
 
 
@@ -20214,20 +20214,20 @@ if (delBtn) {
             return;
         }
 
-        // الوضع العادي
+        // ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
         display.value = display.value.slice(0, -1);
     };
 }
 // ==========================================
-// أزرار الأرقام والعمليات والأقواس
+// ط£ط²ط±ط§ط± ط§ظ„ط£ط±ظ‚ط§ظ… ظˆط§ظ„ط¹ظ…ظ„ظٹط§طھ ظˆط§ظ„ط£ظ‚ظˆط§ط³
 // ==========================================
 
 // ==========================================
-// أزرار الأرقام
+// ط£ط²ط±ط§ط± ط§ظ„ط£ط±ظ‚ط§ظ…
 // ==========================================
 
 // ==========================================
-// أزرار الأرقام فقط
+// ط£ط²ط±ط§ط± ط§ظ„ط£ط±ظ‚ط§ظ… ظپظ‚ط·
 // ==========================================
 let activeVectorField = null;
 let activeTableField = null;
@@ -20236,22 +20236,22 @@ let activeEqnField = null;
 document.querySelectorAll("button").forEach(btn => {
 
     if (
-        btn.textContent.trim() === "−" ||
+        btn.textContent.trim() === "âˆ’" ||
         btn.textContent.trim() === "-"
     ) {
 
         btn.onclick = function () {
 
             // ==========================================
-            // السالب داخل الكسر الداخلي
+            // ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
             // ==========================================
             if (fractionMode && nestedFractionMode) {
 
                 if (nestedFractionStage === 1) {
-                    nestedFractionNumerator += "−";
+                    nestedFractionNumerator += "âˆ’";
                 }
                 else if (nestedFractionStage === 2) {
-                    nestedFractionDenominator += "−";
+                    nestedFractionDenominator += "âˆ’";
                 }
 
                 updateFractionDisplay();
@@ -20259,15 +20259,15 @@ document.querySelectorAll("button").forEach(btn => {
             }
 
             // ==========================================
-            // السالب داخل الكسر الخارجي
+            // ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
             // ==========================================
             if (fractionMode) {
 
                 if (fractionStage === 1) {
-                    fractionNumerator += "−";
+                    fractionNumerator += "âˆ’";
                 }
                 else if (fractionStage === 2) {
-                    fractionDenominator += "−";
+                    fractionDenominator += "âˆ’";
                 }
 
                 updateFractionDisplay();
@@ -20283,9 +20283,9 @@ document.querySelectorAll("button").forEach(btn => {
             }
 
             // ==========================================
-            // الوضع العادي
+            // ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
             // ==========================================
-            writeToDisplay("−");
+            writeToDisplay("âˆ’");
         };
     }
 });
@@ -20295,18 +20295,18 @@ document.querySelectorAll(".number-grid button").forEach(btn => {
         const value = this.textContent.trim();
 
 // ==========================================
-// 🧮 COMP - الأرقام والنقطة
+// ًں§® COMP - ط§ظ„ط£ط±ظ‚ط§ظ… ظˆط§ظ„ظ†ظ‚ط·ط©
 // ==========================================
 
 if (currentMode === "COMP" && !fractionMode) {
 
-    // 🔢 الرقم
+    // ًں”¢ ط§ظ„ط±ظ‚ظ…
     if (/^[0-9]$/.test(value)) {
 
         display.value += value;
 
         console.log(
-            "🧮 COMP NUMBER:",
+            "ًں§® COMP NUMBER:",
             value,
             "=>",
             display.value
@@ -20315,31 +20315,31 @@ if (currentMode === "COMP" && !fractionMode) {
         return;
     }
 
-    // 🔵 النقطة
+    // ًں”µ ط§ظ„ظ†ظ‚ط·ط©
     if (value === ".") {
 
         const current = display.value;
 
-        // الشاشة فاضية
+        // ط§ظ„ط´ط§ط´ط© ظپط§ط¶ظٹط©
         if (current === "") {
             display.value = "0.";
             return;
         }
 
-        // آخر حاجة نقطة
+        // ط¢ط®ط± ط­ط§ط¬ط© ظ†ظ‚ط·ط©
         if (current.endsWith(".")) {
             return;
         }
 
-        // لو آخر جزء من العملية فيه نقطة بالفعل
-        const lastPart = current.split(/[+−×÷\-]/).pop();
+        // ظ„ظˆ ط¢ط®ط± ط¬ط²ط، ظ…ظ† ط§ظ„ط¹ظ…ظ„ظٹط© ظپظٹظ‡ ظ†ظ‚ط·ط© ط¨ط§ظ„ظپط¹ظ„
+        const lastPart = current.split(/[+âˆ’أ—أ·\-]/).pop();
 
         if (lastPart.includes(".")) {
             return;
         }
 
-        // لو بعد عملية حسابية
-        if (/[+−×÷\-]$/.test(current)) {
+        // ظ„ظˆ ط¨ط¹ط¯ ط¹ظ…ظ„ظٹط© ط­ط³ط§ط¨ظٹط©
+        if (/[+âˆ’أ—أ·\-]$/.test(current)) {
             display.value += "0.";
             return;
         }
@@ -20347,7 +20347,7 @@ if (currentMode === "COMP" && !fractionMode) {
         display.value += ".";
 
         console.log(
-            "🧮 COMP DOT:",
+            "ًں§® COMP DOT:",
             display.value
         );
 
@@ -20357,18 +20357,18 @@ if (currentMode === "COMP" && !fractionMode) {
 
 
 // ==========================================
-// 🧮 COMP - إدخال الأرقام والنقطة
+// ًں§® COMP - ط¥ط¯ط®ط§ظ„ ط§ظ„ط£ط±ظ‚ط§ظ… ظˆط§ظ„ظ†ظ‚ط·ط©
 // ==========================================
 
 if (currentMode === "COMP" && !fractionMode) {
 
-    // 🔢 الأرقام
+    // ًں”¢ ط§ظ„ط£ط±ظ‚ط§ظ…
     if (/^[0-9]$/.test(value)) {
 
         display.value += value;
 
         console.log(
-            "🧮 COMP NUMBER:",
+            "ًں§® COMP NUMBER:",
             value,
             "=>",
             display.value
@@ -20377,34 +20377,34 @@ if (currentMode === "COMP" && !fractionMode) {
         return;
     }
 
-    // 🔵 النقطة العشرية
+    // ًں”µ ط§ظ„ظ†ظ‚ط·ط© ط§ظ„ط¹ط´ط±ظٹط©
     if (value === ".") {
 
-        // الشاشة فاضية
+        // ط§ظ„ط´ط§ط´ط© ظپط§ط¶ظٹط©
         if (display.value === "") {
             display.value = "0.";
             return;
         }
 
-        // آخر حرف نقطة
+        // ط¢ط®ط± ط­ط±ظپ ظ†ظ‚ط·ط©
         if (display.value.endsWith(".")) {
             return;
         }
 
-        // نحدد آخر رقم في العملية
+        // ظ†ط­ط¯ط¯ ط¢ط®ط± ط±ظ‚ظ… ظپظٹ ط§ظ„ط¹ظ…ظ„ظٹط©
         const match = display.value.match(
-            /(?:^|[+\-×÷])(-?\d*\.?\d*)$/
+            /(?:^|[+\-أ—أ·])(-?\d*\.?\d*)$/
         );
 
         const lastNumber = match ? match[1] : "";
 
-        // الرقم الحالي فيه نقطة بالفعل
+        // ط§ظ„ط±ظ‚ظ… ط§ظ„ط­ط§ظ„ظٹ ظپظٹظ‡ ظ†ظ‚ط·ط© ط¨ط§ظ„ظپط¹ظ„
         if (lastNumber.includes(".")) {
             return;
         }
 
-        // لو آخر حاجة عملية حسابية
-        if (/[+\-×÷]$/.test(display.value)) {
+        // ظ„ظˆ ط¢ط®ط± ط­ط§ط¬ط© ط¹ظ…ظ„ظٹط© ط­ط³ط§ط¨ظٹط©
+        if (/[+\-أ—أ·]$/.test(display.value)) {
             display.value += "0.";
             return;
         }
@@ -20412,7 +20412,7 @@ if (currentMode === "COMP" && !fractionMode) {
         display.value += ".";
 
         console.log(
-            "🔵 COMP DOT:",
+            "ًں”µ COMP DOT:",
             display.value
         );
 
@@ -20421,17 +20421,17 @@ if (currentMode === "COMP" && !fractionMode) {
 }
         
         // ==========================================
-        // 🟣 إدخال الأرقام داخل الكسر
+        // ًںں£ ط¥ط¯ط®ط§ظ„ ط§ظ„ط£ط±ظ‚ط§ظ… ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
         // ==========================================
 
         if (fractionMode) {
 
-            // نسمح بالأرقام والنقطة فقط
+            // ظ†ط³ظ…ط­ ط¨ط§ظ„ط£ط±ظ‚ط§ظ… ظˆط§ظ„ظ†ظ‚ط·ط© ظپظ‚ط·
             if (!/^[0-9.]$/.test(value)) {
                 return;
             }
 
-            // البسط
+            // ط§ظ„ط¨ط³ط·
             if (fractionStage === 1) {
 
                 if (fractionNumerator === "| |") {
@@ -20442,7 +20442,7 @@ if (currentMode === "COMP" && !fractionMode) {
 
             }
 
-            // المقام
+            // ط§ظ„ظ…ظ‚ط§ظ…
             else if (fractionStage === 2) {
 
                 if (fractionDenominator === "| |") {
@@ -20455,7 +20455,7 @@ if (currentMode === "COMP" && !fractionMode) {
             updateFractionDisplay();
 
             console.log(
-                "🟣 FRACTION NUMBER:",
+                "ًںں£ FRACTION NUMBER:",
                 value,
                 "STAGE:",
                 fractionStage,
@@ -20470,18 +20470,18 @@ if (currentMode === "COMP" && !fractionMode) {
 
        
         // ==========================================
-// 🧮 إدخال أرقام CMPLX
+// ًں§® ط¥ط¯ط®ط§ظ„ ط£ط±ظ‚ط§ظ… CMPLX
 // ==========================================
 
 if (currentMode === "CMPLX") {
 
-    // الأرقام
+    // ط§ظ„ط£ط±ظ‚ط§ظ…
     if (/^[0-9]$/.test(value)) {
 
         display.value += value;
 
         console.log(
-            "🔵 CMPLX NUMBER:",
+            "ًں”µ CMPLX NUMBER:",
             value,
             "DISPLAY:",
             display.value
@@ -20490,7 +20490,7 @@ if (currentMode === "CMPLX") {
         return;
     }
 
-    // النقطة العشرية
+    // ط§ظ„ظ†ظ‚ط·ط© ط§ظ„ط¹ط´ط±ظٹط©
     if (value === ".") {
 
         if (display.value === "") {
@@ -20504,7 +20504,7 @@ if (currentMode === "CMPLX") {
         }
 
         console.log(
-            "🔵 CMPLX DOT:",
+            "ًں”µ CMPLX DOT:",
             display.value
         );
 
@@ -20513,7 +20513,7 @@ if (currentMode === "CMPLX") {
 }
 
        // =====================================
-// STAT - إدخال أرقام الآلة في الخانات
+// STAT - ط¥ط¯ط®ط§ظ„ ط£ط±ظ‚ط§ظ… ط§ظ„ط¢ظ„ط© ظپظٹ ط§ظ„ط®ط§ظ†ط§طھ
 // =====================================
 
 if (currentMode === "STAT" && activeStatField) {
@@ -20522,13 +20522,13 @@ if (currentMode === "STAT" && activeStatField) {
 
     if (field) {
 
-        // أرقام + نقطة + فاصلة
+        // ط£ط±ظ‚ط§ظ… + ظ†ظ‚ط·ط© + ظپط§طµظ„ط©
         if (/^[0-9.,]$/.test(value)) {
 
             field.value += value;
 
             console.log(
-                "🟢 STAT INPUT:",
+                "ًںں¢ STAT INPUT:",
                 activeStatField,
                 "VALUE:",
                 value,
@@ -20539,13 +20539,13 @@ if (currentMode === "STAT" && activeStatField) {
             return;
         }
 
-        // السالب
-        if (value === "-" || value === "−") {
+        // ط§ظ„ط³ط§ظ„ط¨
+        if (value === "-" || value === "âˆ’") {
 
             field.value += "-";
 
             console.log(
-                "🟢 STAT MINUS:",
+                "ًںں¢ STAT MINUS:",
                 activeStatField,
                 "RESULT:",
                 field.value
@@ -20556,7 +20556,7 @@ if (currentMode === "STAT" && activeStatField) {
     }
 }
 // ==========================================
-// إدخال الأرقام داخل الكسر الداخلي
+// ط¥ط¯ط®ط§ظ„ ط§ظ„ط£ط±ظ‚ط§ظ… ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
 // ==========================================
 
 if (nestedFractionMode) {
@@ -20585,7 +20585,7 @@ if (nestedFractionMode) {
     updateFractionDisplay();
 
     console.log(
-        "🟣 NESTED NUMBER:",
+        "ًںں£ NESTED NUMBER:",
         value,
         "NUM:",
         nestedFractionNumerator,
@@ -20596,13 +20596,13 @@ if (nestedFractionMode) {
     return;
 }
         // ==========================================
-// الخروج من الكسر ثم كتابة عملية
+// ط§ظ„ط®ط±ظˆط¬ ظ…ظ† ط§ظ„ظƒط³ط± ط«ظ… ظƒطھط§ط¨ط© ط¹ظ…ظ„ظٹط©
 // ==========================================
 
 if (
     !fractionMode &&
     fractionExpression &&
-    ["+", "−", "×", "÷"].includes(value)
+    ["+", "âˆ’", "أ—", "أ·"].includes(value)
 ) {
 
     display.value =
@@ -20665,7 +20665,7 @@ if (currentMode === "TABLE" && activeTableField) {
         console.log("fractionStage:", fractionStage);
 
         // =====================================
-        // الكسر
+        // ط§ظ„ظƒط³ط±
         // =====================================
 
        
@@ -20689,7 +20689,7 @@ if (
         return;
     }
 
-    // MatA × K
+    // MatA أ— K
     if (
         window.matrixScalarData &&
         document.getElementById("matrixScalarInput")
@@ -20701,7 +20701,7 @@ if (
         return;
     }
 
-    // إدخال عناصر المصفوفة
+    // ط¥ط¯ط®ط§ظ„ ط¹ظ†ط§طµط± ط§ظ„ظ…طµظپظˆظپط©
     if (
         window.matrixData &&
         /^[0-9.]$/.test(value)
@@ -20712,7 +20712,7 @@ if (
     return;
 }
         // =====================================
-        // باقي الأرقام
+        // ط¨ط§ظ‚ظٹ ط§ظ„ط£ط±ظ‚ط§ظ…
         // =====================================
 
        
@@ -20743,12 +20743,12 @@ if (currentMode === "VECTOR") {
 
         <button onclick="calcVectorDot()"
                 style="width:100%; font-size:10px; margin-bottom:3px;">
-            A · B
+            A آ· B
         </button>
 
         <button onclick="calcVectorCross()"
                 style="width:100%; font-size:10px;">
-            A × B
+            A أ— B
         </button>
 
         <button onclick="calcVectorAdd()"
@@ -20758,7 +20758,7 @@ if (currentMode === "VECTOR") {
 
 <button onclick="calcVectorSub()"
     style="width:100%; margin:2px 0; font-size:10px;">
-    A − B
+    A âˆ’ B
 </button>
 
 <button onclick="calcVectorAngle()"
@@ -20783,7 +20783,7 @@ window.calcVectorMagnitude = function() {
         .filter(Number.isFinite);
 
     if (!a.length) {
-        result.innerHTML = "أدخل المتجه A";
+        result.innerHTML = "ط£ط¯ط®ظ„ ط§ظ„ظ…طھط¬ظ‡ A";
         return;
     }
 
@@ -20812,7 +20812,7 @@ window.calcVectorDot = function() {
         .filter(Number.isFinite);
 
     if (a.length !== b.length || !a.length) {
-        result.innerHTML = "A و B يجب أن يكونا بنفس عدد العناصر";
+        result.innerHTML = "A ظˆ B ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط¨ظ†ظپط³ ط¹ط¯ط¯ ط§ظ„ط¹ظ†ط§طµط±";
         return;
     }
 
@@ -20821,7 +20821,7 @@ window.calcVectorDot = function() {
         0
     );
 
-    result.innerHTML = `A · B = ${dot.toFixed(6)}`;
+    result.innerHTML = `A آ· B = ${dot.toFixed(6)}`;
 
     console.log("VECTOR DOT:", dot);
 };
@@ -20837,7 +20837,7 @@ window.calcVectorCross = function() {
     const result = document.getElementById("vectorRes");
 
     if (a.length !== 3 || b.length !== 3) {
-        result.innerHTML = "Cross يحتاج متجهين 3D";
+        result.innerHTML = "Cross ظٹط­طھط§ط¬ ظ…طھط¬ظ‡ظٹظ† 3D";
         return;
     }
 
@@ -20848,7 +20848,7 @@ window.calcVectorCross = function() {
     ];
 
     result.innerHTML =
-        `A × B = (${cross.map(x => x.toFixed(6)).join(", ")})`;
+        `A أ— B = (${cross.map(x => x.toFixed(6)).join(", ")})`;
 };
         // =====================================
 // EQN
@@ -20856,13 +20856,13 @@ window.calcVectorCross = function() {
 
 if (currentMode === "EQN") {
 
-    // السالب
-    if (value === "-" || value === "−") {
+    // ط§ظ„ط³ط§ظ„ط¨
+    if (value === "-" || value === "âˆ’") {
         eqnEnterNumber("-");
         return;
     }
 
-    // الأرقام
+    // ط§ظ„ط£ط±ظ‚ط§ظ…
     if (!/^[0-9.]$/.test(value)) return;
 
     if (
@@ -20890,11 +20890,11 @@ if (currentMode === "EQN") {
     }
 }
 // ==========================================
-// ⚛️ إدخال أرقام حاسبة الفيزياء
+// âڑ›ï¸ڈ ط¥ط¯ط®ط§ظ„ ط£ط±ظ‚ط§ظ… ط­ط§ط³ط¨ط© ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 // ==========================================
-// ⚛️ إدخال أرقام الفيزياء
+// âڑ›ï¸ڈ ط¥ط¯ط®ط§ظ„ ط£ط±ظ‚ط§ظ… ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 if (window.activePhysicsField) {
@@ -20905,8 +20905,8 @@ if (window.activePhysicsField) {
 
     if (field) {
 
-        // تحويل الأرقام العربية إلى إنجليزية
-        const arabicNumbers = "٠١٢٣٤٥٦٧٨٩";
+        // طھط­ظˆظٹظ„ ط§ظ„ط£ط±ظ‚ط§ظ… ط§ظ„ط¹ط±ط¨ظٹط© ط¥ظ„ظ‰ ط¥ظ†ط¬ظ„ظٹط²ظٹط©
+        const arabicNumbers = "ظ ظ،ظ¢ظ£ظ¤ظ¥ظ¦ظ§ظ¨ظ©";
         const englishNumbers = "0123456789";
 
         let englishValue = "";
@@ -20923,13 +20923,13 @@ if (window.activePhysicsField) {
             }
         }
 
-        // الأرقام
+        // ط§ظ„ط£ط±ظ‚ط§ظ…
         if (/^[0-9]$/.test(englishValue)) {
 
             field.value += englishValue;
 
             console.log(
-                "⚛️ PHYSICS NUMBER:",
+                "âڑ›ï¸ڈ PHYSICS NUMBER:",
                 englishValue,
                 field.value
             );
@@ -20937,69 +20937,69 @@ if (window.activePhysicsField) {
             return;
         }
 
-       // النقطة
+       // ط§ظ„ظ†ظ‚ط·ط©
 if (englishValue === ".") {
 
-    // لو الخانة فاضية
+    // ظ„ظˆ ط§ظ„ط®ط§ظ†ط© ظپط§ط¶ظٹط©
     if (field.value === "") {
         field.value = "0.";
     }
 
-    // لو القيمة صفر فقط
+    // ظ„ظˆ ط§ظ„ظ‚ظٹظ…ط© طµظپط± ظپظ‚ط·
     else if (field.value === "0") {
         field.value = "0.";
     }
 
-    // لو القيمة سالبة صفر
+    // ظ„ظˆ ط§ظ„ظ‚ظٹظ…ط© ط³ط§ظ„ط¨ط© طµظپط±
     else if (field.value === "-0") {
         field.value = "-0.";
     }
 
-    // لو فيه نقطة بالفعل
+    // ظ„ظˆ ظپظٹظ‡ ظ†ظ‚ط·ط© ط¨ط§ظ„ظپط¹ظ„
     else if (field.value.includes(".")) {
         return;
     }
 
-    // أي رقم آخر
+    // ط£ظٹ ط±ظ‚ظ… ط¢ط®ط±
     else {
         field.value += ".";
     }
 
     console.log(
-        "⚛️ PHYSICS DOT:",
+        "âڑ›ï¸ڈ PHYSICS DOT:",
         field.value
     );
 
     return;
 }
 
-        // الفاصلة
+        // ط§ظ„ظپط§طµظ„ط©
         if (
             englishValue === "," ||
-            value === "،"
+            value === "طŒ"
         ) {
 
             field.value += ",";
 
             console.log(
-                "⚛️ PHYSICS COMMA:",
+                "âڑ›ï¸ڈ PHYSICS COMMA:",
                 field.value
             );
 
             return;
         }
 
-        // السالب
+        // ط§ظ„ط³ط§ظ„ط¨
         if (
             englishValue === "-" ||
-            value === "−" ||
+            value === "âˆ’" ||
             value === "-"
         ) {
 
             field.value += "-";
 
             console.log(
-                "⚛️ PHYSICS MINUS:",
+                "âڑ›ï¸ڈ PHYSICS MINUS:",
                 field.value
             );
 
@@ -21009,7 +21009,7 @@ if (englishValue === ".") {
 }
 
 // ==========================================
-// 🧪 إدخال أرقام حاسبات الكيمياء
+// ًں§ھ ط¥ط¯ط®ط§ظ„ ط£ط±ظ‚ط§ظ… ط­ط§ط³ط¨ط§طھ ط§ظ„ظƒظٹظ…ظٹط§ط،
 // ==========================================
 
 if (window.activeChemistryField) {
@@ -21020,13 +21020,13 @@ if (window.activeChemistryField) {
 
     if (field) {
 
-        // الأرقام
+        // ط§ظ„ط£ط±ظ‚ط§ظ…
         if (/^[0-9]$/.test(value)) {
 
             field.value += value;
 
             console.log(
-                "🧪 CHEM NUMBER:",
+                "ًں§ھ CHEM NUMBER:",
                 value,
                 field.value
             );
@@ -21034,7 +21034,7 @@ if (window.activeChemistryField) {
             return;
         }
 
-        // النقطة
+        // ط§ظ„ظ†ظ‚ط·ط©
         if (value === ".") {
 
             if (field.value === "") {
@@ -21050,8 +21050,8 @@ if (window.activeChemistryField) {
             return;
         }
 
-        // السالب
-        if (value === "-" || value === "−") {
+        // ط§ظ„ط³ط§ظ„ط¨
+        if (value === "-" || value === "âˆ’") {
 
             if (field.value === "") {
                 field.value = "-";
@@ -21065,7 +21065,7 @@ if (window.activeChemistryField) {
 }  
 });
 // =====================================
-// STAT - تحديد الخانة المختارة
+// STAT - طھط­ط¯ظٹط¯ ط§ظ„ط®ط§ظ†ط© ط§ظ„ظ…ط®طھط§ط±ط©
 // =====================================
 
 document.addEventListener("click", function (e) {
@@ -21083,12 +21083,12 @@ document.addEventListener("click", function (e) {
         activeStatField = id;
 
         console.log(
-            "🟢 STAT FIELD SELECTED:",
+            "ًںں¢ STAT FIELD SELECTED:",
             activeStatField
         );
     }
 });
-// الأقواس
+// ط§ظ„ط£ظ‚ظˆط§ط³
 const openBtn = document.getElementById("open");
 
 if (openBtn) {
@@ -21101,7 +21101,7 @@ if (openBtn) {
 
         if (shift) {
 
-            // TABLE → إدخال X في f(X)
+            // TABLE â†’ ط¥ط¯ط®ط§ظ„ X ظپظٹ f(X)
             if (
                 currentMode === "TABLE" &&
                 activeTableField === "tableFx"
@@ -21115,12 +21115,12 @@ if (openBtn) {
                     status.textContent = currentMode;
                 }
 
-                console.log("🟦 TABLE X INPUT");
+                console.log("ًںں¦ TABLE X INPUT");
 
                 return;
             }
 
-            // الوضع العادي
+            // ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
             writeToDisplay("X");
 
             shift = false;
@@ -21129,13 +21129,13 @@ if (openBtn) {
                 status.textContent = currentMode;
             }
 
-            console.log("🟦 SHIFT + ( = X");
+            console.log("ًںں¦ SHIFT + ( = X");
 
             return;
         }
 
         // ==========================================
-        // ( العادي
+        // ( ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         writeToDisplay("(");
@@ -21152,13 +21152,13 @@ if (closeBtn) {
     closeBtn.onclick = () => {
 
         // ==========================================
-        // القوس ) داخل الكسر
+        // ط§ظ„ظ‚ظˆط³ ) ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
         // ==========================================
 
         if (fractionMode) {
 
     // ==========================================
-    // القوس ) داخل الكسر الداخلي
+    // ط§ظ„ظ‚ظˆط³ ) ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
     // ==========================================
 
    if (nestedFractionStage === 1) {
@@ -21175,7 +21175,7 @@ if (closeBtn) {
     updateFractionDisplay();
 
     console.log(
-        "🟣 ) NESTED:",
+        "ًںں£ ) NESTED:",
         nestedFractionNumerator
     );
 
@@ -21196,14 +21196,14 @@ else if (nestedFractionStage === 2) {
     updateFractionDisplay();
 
     console.log(
-        "🟣 ) NESTED:",
+        "ًںں£ ) NESTED:",
         nestedFractionDenominator
     );
 
     return;
 }
     // ==========================================
-    // القوس ) داخل الكسر الخارجي
+    // ط§ظ„ظ‚ظˆط³ ) ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
     // ==========================================
 
     if (fractionStage === 1) {
@@ -21222,7 +21222,7 @@ else if (nestedFractionStage === 2) {
     return;
 }
         // ==========================================
-        // الوضع العادي
+        // ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         writeToDisplay(")");
@@ -21231,11 +21231,11 @@ else if (nestedFractionStage === 2) {
 
 }
 // =====================================
-// زر الموجب والسالب ±
+// ط²ط± ط§ظ„ظ…ظˆط¬ط¨ ظˆط§ظ„ط³ط§ظ„ط¨ آ±
 // =====================================
 
 
-// أزرار الذاكرة (M+, M-, MR, MC, Ans)
+// ط£ط²ط±ط§ط± ط§ظ„ط°ط§ظƒط±ط© (M+, M-, MR, MC, Ans)
 document.querySelectorAll(".memory-row button").forEach(btn => {
     btn.onclick = function () {
         const txt = this.textContent.trim();
@@ -21248,13 +21248,13 @@ document.querySelectorAll(".memory-row button").forEach(btn => {
     };
 });
 
-// تشغيل زرار AC للتنظيف الكامل
+// طھط´ط؛ظٹظ„ ط²ط±ط§ط± AC ظ„ظ„طھظ†ط¸ظٹظپ ط§ظ„ظƒط§ظ…ظ„
 document.querySelectorAll("#ac, .btn-ac").forEach(btn => {
 
     btn.onclick = () => {
 
         // ==========================================
-        // 🧹 AC - تنظيف الشاشة بالكامل
+        // ًں§¹ AC - طھظ†ط¸ظٹظپ ط§ظ„ط´ط§ط´ط© ط¨ط§ظ„ظƒط§ظ…ظ„
         // ==========================================
 
         if (display) {
@@ -21267,7 +21267,7 @@ document.querySelectorAll("#ac, .btn-ac").forEach(btn => {
         }
 
         // ==========================================
-        // 🧹 إزالة محرر الكسر
+        // ًں§¹ ط¥ط²ط§ظ„ط© ظ…ط­ط±ط± ط§ظ„ظƒط³ط±
         // ==========================================
 
         const fractionEditor =
@@ -21278,7 +21278,7 @@ document.querySelectorAll("#ac, .btn-ac").forEach(btn => {
         }
 
         // ==========================================
-        // 🧹 إخفاء عرض الكسر
+        // ًں§¹ ط¥ط®ظپط§ط، ط¹ط±ط¶ ط§ظ„ظƒط³ط±
         // ==========================================
 
         const fractionDisplay =
@@ -21289,7 +21289,7 @@ document.querySelectorAll("#ac, .btn-ac").forEach(btn => {
         }
 
         // ==========================================
-        // 🧹 تصفير كل حالات الكسر
+        // ًں§¹ طھطµظپظٹط± ظƒظ„ ط­ط§ظ„ط§طھ ط§ظ„ظƒط³ط±
         // ==========================================
 
         if (typeof resetFractionState === "function") {
@@ -21297,29 +21297,29 @@ document.querySelectorAll("#ac, .btn-ac").forEach(btn => {
         }
 
         // ==========================================
-        // 🧹 إغلاق أي Panel مفتوح
+        // ًں§¹ ط¥ط؛ظ„ط§ظ‚ ط£ظٹ Panel ظ…ظپطھظˆط­
         // ==========================================
 
         if (typeof closeCustomPanel === "function") {
             closeCustomPanel();
         }
 
-        console.log("🧹 AC: EVERYTHING CLEARED");
+        console.log("ًں§¹ AC: EVERYTHING CLEARED");
     };
 
 });
-// تشغيل زرار DEL لمسح آخر رقم
+// طھط´ط؛ظٹظ„ ط²ط±ط§ط± DEL ظ„ظ…ط³ط­ ط¢ط®ط± ط±ظ‚ظ…
 document.querySelectorAll("#delete, .btn-del").forEach(btn => {
 
     btn.onclick = () => {
 
         // ==========================================
-        // 1. كسر داخلي
+        // 1. ظƒط³ط± ط¯ط§ط®ظ„ظٹ
         // ==========================================
 
         if (fractionMode && nestedFractionMode) {
 
-            // بسط الكسر الداخلي
+            // ط¨ط³ط· ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
             if (nestedFractionStage === 1) {
 
                 nestedFractionNumerator =
@@ -21328,14 +21328,14 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
                 updateFractionDisplay();
 
                 console.log(
-                    "🗑️ DEL NESTED NUM:",
+                    "ًں—‘ï¸ڈ DEL NESTED NUM:",
                     nestedFractionNumerator
                 );
 
                 return;
             }
 
-            // مقام الكسر الداخلي
+            // ظ…ظ‚ط§ظ… ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
             if (nestedFractionStage === 2) {
 
                 nestedFractionDenominator =
@@ -21344,7 +21344,7 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
                 updateFractionDisplay();
 
                 console.log(
-                    "🗑️ DEL NESTED DEN:",
+                    "ًں—‘ï¸ڈ DEL NESTED DEN:",
                     nestedFractionDenominator
                 );
 
@@ -21353,12 +21353,12 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
         }
 
         // ==========================================
-        // 2. الكسر الخارجي
+        // 2. ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
         // ==========================================
 
         if (fractionMode) {
 
-            // بسط الكسر الخارجي
+            // ط¨ط³ط· ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
             if (fractionStage === 1) {
 
                 fractionNumerator =
@@ -21367,14 +21367,14 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
                 updateFractionDisplay();
 
                 console.log(
-                    "🗑️ DEL OUTER NUM:",
+                    "ًں—‘ï¸ڈ DEL OUTER NUM:",
                     fractionNumerator
                 );
 
                 return;
             }
 
-            // مقام الكسر الخارجي
+            // ظ…ظ‚ط§ظ… ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
             if (fractionStage === 2) {
 
                 fractionDenominator =
@@ -21383,7 +21383,7 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
                 updateFractionDisplay();
 
                 console.log(
-                    "🗑️ DEL OUTER DEN:",
+                    "ًں—‘ï¸ڈ DEL OUTER DEN:",
                     fractionDenominator
                 );
 
@@ -21392,7 +21392,7 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
         }
 
         // ==========================================
-        // 3. مسح الكسر بالكامل بعد الانتهاء
+        // 3. ظ…ط³ط­ ط§ظ„ظƒط³ط± ط¨ط§ظ„ظƒط§ظ…ظ„ ط¨ط¹ط¯ ط§ظ„ط§ظ†طھظ‡ط§ط،
         // ==========================================
 
         if (
@@ -21422,13 +21422,13 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
                 expression.textContent = "";
             }
 
-            console.log("🗑️ FRACTION COMPLETELY DELETED");
+            console.log("ًں—‘ï¸ڈ FRACTION COMPLETELY DELETED");
 
             return;
         }
 
         // ==========================================
-        // 4. المسح العادي
+        // 4. ط§ظ„ظ…ط³ط­ ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         display.value =
@@ -21438,13 +21438,13 @@ document.querySelectorAll("#delete, .btn-del").forEach(btn => {
 
 });
 // ==========================================
-// 7. الأزرار العلمية والمثلثية (Scientific Grid)
+// 7. ط§ظ„ط£ط²ط±ط§ط± ط§ظ„ط¹ظ„ظ…ظٹط© ظˆط§ظ„ظ…ط«ظ„ط«ظٹط© (Scientific Grid)
 // ==========================================
 document.querySelectorAll(".scientific-grid button").forEach(btn => {
     btn.onclick = function () {
         const txt = this.textContent.trim();
         // ==========================================
-// العمليات العلمية داخل الكسر الداخلي
+// ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط¹ظ„ظ…ظٹط© ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
 // ==========================================
 
 if (nestedFractionMode) {
@@ -21453,8 +21453,8 @@ if (nestedFractionMode) {
 
     // SHIFT
     if (shift) {
-if (txt === "√") {
-    nestedValue = "∛(";
+if (txt === "âˆڑ") {
+    nestedValue = "âˆ›(";
 }
         if (txt === "sin") {
             nestedValue = "asin(";
@@ -21487,7 +21487,7 @@ if (txt === "√") {
             updateFractionDisplay();
 
             console.log(
-                "🟣 NESTED SHIFT:",
+                "ًںں£ NESTED SHIFT:",
                 nestedValue
             );
 
@@ -21502,7 +21502,7 @@ if (txt === "√") {
     }
 
     // ==========================================
-    // الدوال العادية
+    // ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط¹ط§ط¯ظٹط©
     // ==========================================
 
     switch (txt) {
@@ -21541,23 +21541,23 @@ case "|x|":
             nestedValue = "ln(";
             break;
 
-        case "√":
-            nestedValue = "√(";
+        case "âˆڑ":
+            nestedValue = "âˆڑ(";
             break;
 
-        case "∛":
-            nestedValue = "∛(";
+        case "âˆ›":
+            nestedValue = "âˆ›(";
             break;
 
-        case "x²":
+        case "xآ²":
             nestedValue = "^2";
             break;
 
-        case "x³":
+        case "xآ³":
             nestedValue = "^3";
             break;
 
-        case "xʸ":
+        case "xت¸":
             nestedValue = "^";
             break;
 
@@ -21569,8 +21569,8 @@ case "|x|":
             nestedValue = "abs(";
             break;
 
-        case "π":
-            nestedValue = "π";
+        case "د€":
+            nestedValue = "د€";
             break;
 
         case "e":
@@ -21581,12 +21581,12 @@ case "|x|":
             nestedValue = "!";
             break;
 
-        case "10ˣ":
+        case "10ث£":
         case "10x":
             nestedValue = "10^";
             break;
 
-        case "eˣ":
+        case "eث£":
         case "ex":
             nestedValue = "e^";
             break;
@@ -21607,7 +21607,7 @@ case "|x|":
         updateFractionDisplay();
 
         console.log(
-            "🟣 NESTED SCIENTIFIC:",
+            "ًںں£ NESTED SCIENTIFIC:",
             nestedValue
         );
 
@@ -21615,19 +21615,19 @@ case "|x|":
     }
 }
         // ==========================================
-// SHIFT + الدوال العلمية داخل الكسر
+// SHIFT + ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط¹ظ„ظ…ظٹط© ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 if (shift && fractionMode) {
 
     let scientificValue = "";
 
-    if (txt === "sin" || txt === "sin⁻¹") {
+    if (txt === "sin" || txt === "sinâپ»آ¹") {
         scientificValue = "asin(";
     }
-    else if (txt === "cos" || txt === "cos⁻¹") {
+    else if (txt === "cos" || txt === "cosâپ»آ¹") {
         scientificValue = "acos(";
     }
-    else if (txt === "tan" || txt === "tan⁻¹") {
+    else if (txt === "tan" || txt === "tanâپ»آ¹") {
         scientificValue = "atan(";
     }
     else if (txt === "sinh") {
@@ -21652,7 +21652,7 @@ if (shift && fractionMode) {
         updateFractionDisplay();
 
         console.log(
-            "🟢 SHIFT SCIENTIFIC IN FRACTION:",
+            "ًںں¢ SHIFT SCIENTIFIC IN FRACTION:",
             scientificValue
         );
 
@@ -21673,7 +21673,7 @@ if (shift && fractionMode) {
     }
 }
         // ==========================================
-// العمليات العلمية داخل الكسر
+// ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط¹ظ„ظ…ظٹط© ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 if (fractionMode) {
 
@@ -21693,15 +21693,15 @@ if (fractionMode) {
             fractionValue = "tan(";
             break;
 
-        case "sin⁻¹":
+        case "sinâپ»آ¹":
             fractionValue = "asin(";
             break;
 
-        case "cos⁻¹":
+        case "cosâپ»آ¹":
             fractionValue = "acos(";
             break;
 
-        case "tan⁻¹":
+        case "tanâپ»آ¹":
             fractionValue = "atan(";
             break;
 
@@ -21725,33 +21725,33 @@ if (fractionMode) {
             fractionValue = "ln(";
             break;
 
-        case "√":
-            fractionValue = "√(";
+        case "âˆڑ":
+            fractionValue = "âˆڑ(";
             break;
 
-        case "∛":
-            fractionValue = "∛(";
+        case "âˆ›":
+            fractionValue = "âˆ›(";
             break;
 
-        case "10ˣ":
+        case "10ث£":
         case "10x":
             fractionValue = "10^";
             break;
 
-        case "eˣ":
+        case "eث£":
         case "ex":
             fractionValue = "e^";
             break;
 
-        case "x²":
+        case "xآ²":
             fractionValue = "^2";
             break;
 
-        case "x³":
+        case "xآ³":
             fractionValue = "^3";
             break;
 
-        case "xʸ":
+        case "xت¸":
             fractionValue = "^";
             break;
 
@@ -21763,8 +21763,8 @@ if (fractionMode) {
             fractionValue = "abs(";
             break;
 
-        case "π":
-            fractionValue = "π";
+        case "د€":
+            fractionValue = "د€";
             break;
 
         case "e":
@@ -21794,7 +21794,7 @@ if (fractionMode) {
     }
 }
 
-          if (txt === "±") {
+          if (txt === "آ±") {
 
     if (currentMode === "EQN") {
         eqnEnterNumber("-");
@@ -21822,31 +21822,31 @@ if (fractionMode) {
             else if (txt === "tan") writeToDisplay("C");
             else if (txt === "log") writeToDisplay("D");
             else if (txt === "ln") writeToDisplay("E");
-            else if (txt === "π") writeToDisplay("X");
+            else if (txt === "د€") writeToDisplay("X");
             else if (txt === "e") writeToDisplay("Y");
             alpha = false;
             if (status) status.textContent = currentMode;
             return;
         }
-console.log("🔥 SCI BUTTON:", txt, "SHIFT =", shift);
+console.log("ًں”¥ SCI BUTTON:", txt, "SHIFT =", shift);
         // SHIFT Mode
         if (shift) {
             // ==========================================
-// SHIFT + X²
+// SHIFT + Xآ²
 // ==========================================
-if (txt === "x²" && currentMode === "CMPLX") {
-    console.log("🟣 SHIFT + X² → z²");
-    writeToDisplay("z²");
+if (txt === "xآ²" && currentMode === "CMPLX") {
+    console.log("ًںں£ SHIFT + Xآ² â†’ zآ²");
+    writeToDisplay("zآ²");
     shift = false;
 
     if (status) status.textContent = currentMode;
 
     return;
 }
-if (txt === "√") {
-    console.log("🔥 SHIFT + √ DETECTED");
+if (txt === "âˆڑ") {
+    console.log("ًں”¥ SHIFT + âˆڑ DETECTED");
 
-    writeToDisplay("∛(");
+    writeToDisplay("âˆ›(");
 
     shift = false;
 
@@ -21857,23 +21857,23 @@ if (txt === "√") {
     return;
 }
             // ==========================================
-// SHIFT + الدوال العلمية داخل الكسر
+// SHIFT + ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط¹ظ„ظ…ظٹط© ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 if (fractionMode) {
 
-    console.log("🟢 SHIFT SCIENTIFIC INSIDE FRACTION");
+    console.log("ًںں¢ SHIFT SCIENTIFIC INSIDE FRACTION");
     console.log("fractionStage =", fractionStage);
     console.log("fractionNumerator =", fractionNumerator);
     console.log("fractionDenominator =", fractionDenominator);
 
     let scientificValue = "";
-    if (txt === "sin" || txt === "sin⁻¹") {
+    if (txt === "sin" || txt === "sinâپ»آ¹") {
         scientificValue = "asin(";
     }
-    else if (txt === "cos" || txt === "cos⁻¹") {
+    else if (txt === "cos" || txt === "cosâپ»آ¹") {
         scientificValue = "acos(";
     }
-    else if (txt === "tan" || txt === "tan⁻¹") {
+    else if (txt === "tan" || txt === "tanâپ»آ¹") {
         scientificValue = "atan(";
     }
     else if (txt === "sinh") {
@@ -21885,7 +21885,7 @@ if (fractionMode) {
     else if (txt === "tanh") {
         scientificValue = "atanh(";
     }
-console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
+console.log("ًںں، SCIENTIFIC VALUE =", scientificValue);
     if (scientificValue) {
 
         if (fractionStage === 1) {
@@ -21895,7 +21895,7 @@ console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
             fractionDenominator += scientificValue;
         }
  console.log(
-        "🟣 AFTER SCIENTIFIC:",
+        "ًںں£ AFTER SCIENTIFIC:",
         fractionNumerator,
         "/",
         fractionDenominator
@@ -21911,9 +21911,9 @@ console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
         return;
     }
 }
-            if (txt === "sin" || txt === "sin⁻¹") writeToDisplay("asin(");
-            else if (txt === "cos" || txt === "cos⁻¹") writeToDisplay("acos(");
-            else if (txt === "tan" || txt === "tan⁻¹") writeToDisplay("atan(");
+            if (txt === "sin" || txt === "sinâپ»آ¹") writeToDisplay("asin(");
+            else if (txt === "cos" || txt === "cosâپ»آ¹") writeToDisplay("acos(");
+            else if (txt === "tan" || txt === "tanâپ»آ¹") writeToDisplay("atan(");
             else if (txt === "sinh") writeToDisplay("asinh(");
             else if (txt === "cosh") writeToDisplay("acosh(");
            else if (txt === "tanh") {
@@ -21932,14 +21932,14 @@ console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
 
     return;
 }
-           else if (txt === "x²") {
+           else if (txt === "xآ²") {
     if (currentMode === "CMPLX") {
         const value = display.value.trim();
 
         if (!value) return;
 
         try {
-            console.log("🟣 SQRT CMPLX INPUT:", value);
+            console.log("ًںں£ SQRT CMPLX INPUT:", value);
             const z = Complex.parse(value);
 
             const result = new Complex(
@@ -21951,12 +21951,12 @@ console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
             answer = result;
 
         } catch (err) {
-            console.error("z² ERROR:", err);
+            console.error("zآ² ERROR:", err);
             display.value = "Math Error";
         }
     }
 } 
-                else if (txt === "x³") {
+                else if (txt === "xآ³") {
             if (currentMode === "CMPLX") {
                 const value = display.value.trim();
 
@@ -21977,23 +21977,23 @@ console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
                     answer = result;
 
                 } catch (err) {
-                    console.error("z³ ERROR:", err);
+                    console.error("zآ³ ERROR:", err);
                     display.value = "Math Error";
                 }
             }
            
         }
-        else if (txt === "√") {
+        else if (txt === "âˆڑ") {
 
     // ==========================================
-    // SHIFT + √ = ∛
+    // SHIFT + âˆڑ = âˆ›
     // ==========================================
 
     const value = display.value.trim();
 
     // ==========================================
-    // لو الشاشة فيها كسر كامل
-    // مثال: (1/8)
+    // ظ„ظˆ ط§ظ„ط´ط§ط´ط© ظپظٹظ‡ط§ ظƒط³ط± ظƒط§ظ…ظ„
+    // ظ…ط«ط§ظ„: (1/8)
     // ==========================================
 
     if (
@@ -22001,14 +22001,14 @@ console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
         /^\(-?\d+(?:\.\d+)?\/-?\d+(?:\.\d+)?\)$/.test(value)
     ) {
 
-        display.value = `∛(${value})`;
+        display.value = `âˆ›(${value})`;
 
         cursorPosition = display.value.length;
 
         updateCursor();
 
         console.log(
-            "🟣 SHIFT + √ → ∛ FRACTION:",
+            "ًںں£ SHIFT + âˆڑ â†’ âˆ› FRACTION:",
             display.value
         );
 
@@ -22022,7 +22022,7 @@ console.log("🟡 SCIENTIFIC VALUE =", scientificValue);
     }
 
     // ==========================================
-    // الوضع العادي
+    // ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
     // ==========================================
 if (currentMode === "CMPLX") {
 
@@ -22068,14 +22068,14 @@ if (currentMode === "CMPLX") {
         updateCursor();
 
         console.log(
-            "🟣 CMPLX √ RESULT:",
+            "ًںں£ CMPLX âˆڑ RESULT:",
             result
         );
 
     } catch (err) {
 
         console.error(
-            "CMPLX √ ERROR:",
+            "CMPLX âˆڑ ERROR:",
             err
         );
 
@@ -22092,7 +22092,7 @@ if (currentMode === "CMPLX") {
 
     return;
 }
-    writeToDisplay("∛(");
+    writeToDisplay("âˆ›(");
 
     shift = false;
 
@@ -22102,7 +22102,7 @@ if (currentMode === "CMPLX") {
 
     return;
 }
-        else if (txt === "xʸ") {
+        else if (txt === "xت¸") {
     if (currentMode === "CMPLX") {
         writeToDisplay("^");
     } else {
@@ -22140,7 +22140,7 @@ if (currentMode === "CMPLX") {
         writeToDisplay("ln(");
     }
 }       
-else if (txt === "10ˣ" || txt === "10x") {
+else if (txt === "10ث£" || txt === "10x") {
     if (fractionMode) {
         if (fractionStage === 1) {
             fractionNumerator += "10^";
@@ -22158,7 +22158,7 @@ else if (txt === "10ˣ" || txt === "10x") {
 
     writeToDisplay("10^");
 }
-        else if (txt === "eˣ" || txt === "ex") {
+        else if (txt === "eث£" || txt === "ex") {
     if (currentMode === "CMPLX") {
         const value = display.value.trim();
 
@@ -22232,33 +22232,33 @@ else if (txt === "10ˣ" || txt === "10x") {
             return;
         }
 
-        // الضغط العادي
+        // ط§ظ„ط¶ط؛ط· ط§ظ„ط¹ط§ط¯ظٹ
         switch (txt) {
-            case "−":
+            case "âˆ’":
 case "-":
 
-    // السالب داخل الكسر الداخلي
+    // ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
     if (fractionMode && nestedFractionMode) {
 
         if (nestedFractionStage === 1) {
-            nestedFractionNumerator += "−";
+            nestedFractionNumerator += "âˆ’";
         }
         else if (nestedFractionStage === 2) {
-            nestedFractionDenominator += "−";
+            nestedFractionDenominator += "âˆ’";
         }
 
         updateFractionDisplay();
         return;
     }
 
-    // السالب داخل الكسر الخارجي
+    // ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
     if (fractionMode) {
 
         if (fractionStage === 1) {
-            fractionNumerator += "−";
+            fractionNumerator += "âˆ’";
         }
         else if (fractionStage === 2) {
-            fractionDenominator += "−";
+            fractionDenominator += "âˆ’";
         }
 
         updateFractionDisplay();
@@ -22269,41 +22269,41 @@ case "-":
     if (currentMode === "EQN") {
         eqnEnterNumber("-");
     } else {
-        writeToDisplay("−");
+        writeToDisplay("âˆ’");
     }
 
     break;
             case "sin": writeToDisplay("sin("); break;
             case "cos": writeToDisplay("cos("); break;
             case "tan": writeToDisplay("tan("); break;
-            case "sin⁻¹": writeToDisplay("asin("); break;
-            case "cos⁻¹": writeToDisplay("acos("); break;
-            case "tan⁻¹": writeToDisplay("atan("); break;
+            case "sinâپ»آ¹": writeToDisplay("asin("); break;
+            case "cosâپ»آ¹": writeToDisplay("acos("); break;
+            case "tanâپ»آ¹": writeToDisplay("atan("); break;
             case "sinh": writeToDisplay("sinh("); break;
             case "cosh": writeToDisplay("cosh("); break;
            case "tanh": writeToDisplay("tanh("); break;
             case "log": writeToDisplay("log("); break;
             case "ln": writeToDisplay("ln("); break;
-            case "10ˣ": case "10x": writeToDisplay("10^"); break;
-            case "eˣ": case "ex": writeToDisplay("e^"); break;
-            case "∛":
-    console.log("🔥 ∛ CASE");
+            case "10ث£": case "10x": writeToDisplay("10^"); break;
+            case "eث£": case "ex": writeToDisplay("e^"); break;
+            case "âˆ›":
+    console.log("ًں”¥ âˆ› CASE");
 
-    writeToDisplay("∛(");
+    writeToDisplay("âˆ›(");
 
     break;
-            case "√":
+            case "âˆڑ":
 
     if (fractionMode) {
 
-        // الجذر داخل البسط
+        // ط§ظ„ط¬ط°ط± ط¯ط§ط®ظ„ ط§ظ„ط¨ط³ط·
         if (nestedFractionMode) {
 
             if (nestedFractionStage === 1) {
-                nestedFractionNumerator += "√(";
+                nestedFractionNumerator += "âˆڑ(";
             }
             else if (nestedFractionStage === 2) {
-                nestedFractionDenominator += "√(";
+                nestedFractionDenominator += "âˆڑ(";
             }
 
             updateFractionDisplay();
@@ -22311,10 +22311,10 @@ case "-":
         }
 
         if (fractionStage === 1) {
-            fractionNumerator += "√(";
+            fractionNumerator += "âˆڑ(";
         }
         else if (fractionStage === 2) {
-            fractionDenominator += "√(";
+            fractionDenominator += "âˆڑ(";
         }
 
         updateFractionDisplay();
@@ -22322,7 +22322,7 @@ case "-":
     }
 
     // ==========================================
-// √ بعد كسر كامل مثل x²
+// âˆڑ ط¨ط¹ط¯ ظƒط³ط± ظƒط§ظ…ظ„ ظ…ط«ظ„ xآ²
 // ==========================================
 
 const value = display.value;
@@ -22331,7 +22331,7 @@ const pos = cursorPosition;
 const before = value.slice(0, pos);
 const after = value.slice(pos);
 
-// لو آخر عنصر قبل المؤشر هو كسر كامل
+// ظ„ظˆ ط¢ط®ط± ط¹ظ†طµط± ظ‚ط¨ظ„ ط§ظ„ظ…ط¤ط´ط± ظ‡ظˆ ظƒط³ط± ظƒط§ظ…ظ„
 if (
     before.endsWith(")") &&
     before.startsWith("(") &&
@@ -22339,25 +22339,25 @@ if (
 ) {
 
     const newValue =
-        `√(${before})${after}`;
+        `âˆڑ(${before})${after}`;
 
     display.value = newValue;
 
     cursorPosition =
-        `√(${before})`.length;
+        `âˆڑ(${before})`.length;
 
     updateCursor();
 
     console.log(
-        "🟢 √ FRACTION:",
+        "ًںں¢ âˆڑ FRACTION:",
         display.value
     );
 
     return;
 }
 
-// الحالة العادية
-writeToDisplay("√(");
+// ط§ظ„ط­ط§ظ„ط© ط§ظ„ط¹ط§ط¯ظٹط©
+writeToDisplay("âˆڑ(");
     break;
          
 const cbrtBtn = document.getElementById("sqrtBtn");
@@ -22366,7 +22366,7 @@ if (cbrtBtn) {
     cbrtBtn.onclick = () => {
 
         // ==========================================
-        // SHIFT + √ = ∛
+        // SHIFT + âˆڑ = âˆ›
         // ==========================================
 
         if (shift) {
@@ -22376,16 +22376,16 @@ if (cbrtBtn) {
                 if (nestedFractionMode) {
 
                     if (nestedFractionStage === 1) {
-                        nestedFractionNumerator += "∛(";
+                        nestedFractionNumerator += "âˆ›(";
                     }
                     else if (nestedFractionStage === 2) {
-                        nestedFractionDenominator += "∛(";
+                        nestedFractionDenominator += "âˆ›(";
                     }
 
                     updateFractionDisplay();
 
                     console.log(
-                        "🟣 NESTED ∛:",
+                        "ًںں£ NESTED âˆ›:",
                         nestedFractionStage === 1
                             ? nestedFractionNumerator
                             : nestedFractionDenominator
@@ -22395,15 +22395,15 @@ if (cbrtBtn) {
                 else {
 
                     if (fractionStage === 1) {
-                        fractionNumerator += "∛(";
+                        fractionNumerator += "âˆ›(";
                     }
                     else if (fractionStage === 2) {
-                        fractionDenominator += "∛(";
+                        fractionDenominator += "âˆ›(";
                     }
 
                     updateFractionDisplay();
 
-                    console.log("🔵 OUTER ∛");
+                    console.log("ًں”µ OUTER âˆ›");
                 }
 
                 shift = false;
@@ -22416,25 +22416,25 @@ if (cbrtBtn) {
             }
 
           // ==========================================
-// ∛ بعد كسر كامل — نفس فكرة √
+// âˆ› ط¨ط¹ط¯ ظƒط³ط± ظƒط§ظ…ظ„ â€” ظ†ظپط³ ظپظƒط±ط© âˆڑ
 // ==========================================
 
 const value = display.value.trim();
 
-// لو الشاشة كلها كسر كامل
+// ظ„ظˆ ط§ظ„ط´ط§ط´ط© ظƒظ„ظ‡ط§ ظƒط³ط± ظƒط§ظ…ظ„
 if (
     !fractionMode &&
     /^\(-?\d+(?:\.\d+)?\/-?\d+(?:\.\d+)?\)$/.test(value)
 ) {
 
-    display.value = `∛(${value})`;
+    display.value = `âˆ›(${value})`;
 
     cursorPosition = display.value.length;
 
     updateCursor();
 
     console.log(
-        "🟢 ∛ WRAPPED FRACTION:",
+        "ًںں¢ âˆ› WRAPPED FRACTION:",
         display.value
     );
 
@@ -22448,10 +22448,10 @@ if (
 }
 
 // ==========================================
-// ∛ عادي
+// âˆ› ط¹ط§ط¯ظٹ
 // ==========================================
 
-writeToDisplay("∛(");
+writeToDisplay("âˆ›(");
 
 shift = false;
 
@@ -22460,8 +22460,8 @@ if (status) {
 }
 
 return;
-// ∛ عادي
-writeToDisplay("∛(");
+// âˆ› ط¹ط§ط¯ظٹ
+writeToDisplay("âˆ›(");
 
 shift = false;
 
@@ -22473,7 +22473,7 @@ return;
         }
 
         // ==========================================
-        // √ العادي
+        // âˆڑ ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         if (fractionMode) {
@@ -22481,10 +22481,10 @@ return;
             if (nestedFractionMode) {
 
                 if (nestedFractionStage === 1) {
-                    nestedFractionNumerator += "√(";
+                    nestedFractionNumerator += "âˆڑ(";
                 }
                 else if (nestedFractionStage === 2) {
-                    nestedFractionDenominator += "√(";
+                    nestedFractionDenominator += "âˆڑ(";
                 }
 
                 updateFractionDisplay();
@@ -22493,10 +22493,10 @@ return;
             }
 
             if (fractionStage === 1) {
-                fractionNumerator += "√(";
+                fractionNumerator += "âˆڑ(";
             }
             else if (fractionStage === 2) {
-                fractionDenominator += "√(";
+                fractionDenominator += "âˆڑ(";
             }
 
             updateFractionDisplay();
@@ -22505,8 +22505,8 @@ return;
         }
 
       // ==========================================
-// ∛ خارج محرر الكسر
-// لو الشاشة فيها كسر كامل، دخّله داخل الجذر التكعيبي
+// âˆ› ط®ط§ط±ط¬ ظ…ط­ط±ط± ط§ظ„ظƒط³ط±
+// ظ„ظˆ ط§ظ„ط´ط§ط´ط© ظپظٹظ‡ط§ ظƒط³ط± ظƒط§ظ…ظ„طŒ ط¯ط®ظ‘ظ„ظ‡ ط¯ط§ط®ظ„ ط§ظ„ط¬ط°ط± ط§ظ„طھظƒط¹ظٹط¨ظٹ
 // ==========================================
 
 const currentValue = display.value.trim();
@@ -22517,14 +22517,14 @@ if (
     currentValue.endsWith(")") &&
     currentValue.includes("/")
 ) {
-    display.value = `∛(${currentValue})`;
+    display.value = `âˆ›(${currentValue})`;
 
     cursorPosition = display.value.length;
 
     updateCursor();
 
     console.log(
-        "🟣 ∛ WRAPPED FRACTION:",
+        "ًںں£ âˆ› WRAPPED FRACTION:",
         display.value
     );
 
@@ -22538,16 +22538,16 @@ if (
 }
     }
 }
-           case "x²":
+           case "xآ²":
 
     // ==========================================
-    // x² على كسر كامل
+    // xآ² ط¹ظ„ظ‰ ظƒط³ط± ظƒط§ظ…ظ„
     // ==========================================
     if (fractionMode &&
         fractionNumerator !== "" &&
         fractionDenominator !== "") {
 
-        console.log("🟣 X² ON FRACTION");
+        console.log("ًںں£ Xآ² ON FRACTION");
 
         const numerator = fractionNumerator;
         const denominator = fractionDenominator;
@@ -22562,7 +22562,7 @@ if (
 
         display.value = fractionExpression;
 
-        console.log("🟣 FRACTION X² RESULT:", display.value);
+        console.log("ًںں£ FRACTION Xآ² RESULT:", display.value);
 
         break;
     }
@@ -22581,12 +22581,12 @@ if (
         return;
     }
 
-    console.log("🔥🔥 X² CASE");
+    console.log("ًں”¥ًں”¥ Xآ² CASE");
     console.log("SHIFT:", shift, "MODE:", currentMode);
 
     if (shift && currentMode === "CMPLX") {
 
-        writeToDisplay("z²");
+        writeToDisplay("zآ²");
 
         shift = false;
         updateShift();
@@ -22598,8 +22598,8 @@ if (
     }
 
     break;
-    case "x³":
-    console.log("🔥 X³ CASE");
+    case "xآ³":
+    console.log("ًں”¥ Xآ³ CASE");
 
     if (currentMode === "CMPLX") {
         writeToDisplay("^3");
@@ -22608,7 +22608,7 @@ if (
     }
 
     break;
-            case "xʸ": writeToDisplay("^"); break;
+            case "xت¸": writeToDisplay("^"); break;
             case "1/x": {
     const value = display.value.trim();
 
@@ -22620,12 +22620,12 @@ if (
 
     updateCursor();
 
-    console.log("🟢 1/x:", display.value);
+    console.log("ًںں¢ 1/x:", display.value);
 
     break;
 }
             case "|x|": writeToDisplay("abs("); break;
-            case "π": writeToDisplay("π"); break;
+            case "د€": writeToDisplay("د€"); break;
             case "e": writeToDisplay("e"); break;
             case "n!": writeToDisplay("!"); break;
             case "nPr": writeToDisplay(" P "); break;
@@ -22637,7 +22637,7 @@ if (
 });
 
 // ==========================================
-// 8. تحويل الكسر وإضافات الأزرار المتقدمة
+// 8. طھط­ظˆظٹظ„ ط§ظ„ظƒط³ط± ظˆط¥ط¶ط§ظپط§طھ ط§ظ„ط£ط²ط±ط§ط± ط§ظ„ظ…طھظ‚ط¯ظ…ط©
 // ==========================================
 
 const fractionBtn = document.getElementById("fractionBtn");
@@ -22646,15 +22646,15 @@ if (fractionBtn) {
 
     fractionBtn.onclick = function () {
 
-        // لو إحنا في وضع إدخال الكسر
+        // ظ„ظˆ ط¥ط­ظ†ط§ ظپظٹ ظˆط¶ط¹ ط¥ط¯ط®ط§ظ„ ط§ظ„ظƒط³ط±
         if (fractionMode) {
 
-            // لو لسه بنكتب البسط أو المقام
+            // ظ„ظˆ ظ„ط³ظ‡ ط¨ظ†ظƒطھط¨ ط§ظ„ط¨ط³ط· ط£ظˆ ط§ظ„ظ…ظ‚ط§ظ…
             if (fractionStage === 1 || fractionStage === 2) {
                 return;
             }
 
-            // لو الكسر مكتمل
+            // ظ„ظˆ ط§ظ„ظƒط³ط± ظ…ظƒطھظ…ظ„
             if (
                 fractionNumerator !== "" &&
                 fractionDenominator !== ""
@@ -22663,10 +22663,10 @@ if (fractionBtn) {
 
 const denominator = calculateFractionPart(fractionDenominator);
 
-console.log("🔥 NUMERATOR =", numerator);
-console.log("🔥 DENOMINATOR =", denominator);
+console.log("ًں”¥ NUMERATOR =", numerator);
+console.log("ًں”¥ DENOMINATOR =", denominator);
 console.log("NUMERATOR CALCULATED:", numerator);
-console.log("🔥 FRACTION BEFORE SIMPLIFY:", {
+console.log("ًں”¥ FRACTION BEFORE SIMPLIFY:", {
     numerator,
     denominator,
     ratio: numerator / denominator
@@ -22686,9 +22686,9 @@ console.log("DENOMINATOR CALCULATED:", denominator);
 
 if (fractionInsideRoot) {
 
-    const root = rootTypeForFraction === "∛"
-        ? "∛("
-        : "√(";
+    const root = rootTypeForFraction === "âˆ›"
+        ? "âˆ›("
+        : "âˆڑ(";
 
     display.value =
         fractionExpression +
@@ -22700,7 +22700,7 @@ if (fractionInsideRoot) {
         ")";
 
     console.log(
-        "🌳 FRACTION INSIDE ROOT:",
+        "ًںŒ³ FRACTION INSIDE ROOT:",
         display.value
     );
 
@@ -22718,7 +22718,7 @@ if (fractionInsideRoot) {
         }
 
         // ==============================
-        // S ⇔ D العادي
+        // S â‡” D ط§ظ„ط¹ط§ط¯ظٹ
         // ==============================
 
         let val = display.value.trim();
@@ -22753,7 +22753,7 @@ if (fractionInsideRoot) {
         }
 
         // ==============================
-        // عدد عشري → كسر
+        // ط¹ط¯ط¯ ط¹ط´ط±ظٹ â†’ ظƒط³ط±
         // ==============================
 
         let num = Number(val);
@@ -22825,56 +22825,56 @@ let fractionInsideRoot = false;
 let rootTypeForFraction = "";
 function startFraction() {
 // ==========================================
-// معرفة العنصر الموجود قبل الكسر
+// ظ…ط¹ط±ظپط© ط§ظ„ط¹ظ†طµط± ط§ظ„ظ…ظˆط¬ظˆط¯ ظ‚ط¨ظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 
 const currentDisplay = display.value.trim();
 
-if (currentDisplay.endsWith("√(")) {
-    fractionParent = "√";
+if (currentDisplay.endsWith("âˆڑ(")) {
+    fractionParent = "âˆڑ";
 }
-else if (currentDisplay.endsWith("∛(")) {
-    fractionParent = "∛";
+else if (currentDisplay.endsWith("âˆ›(")) {
+    fractionParent = "âˆ›";
 }
 else {
     fractionParent = "";
 }
 
-console.log("🌳 FRACTION PARENT:", fractionParent);
+console.log("ًںŒ³ FRACTION PARENT:", fractionParent);
     // ==========================================
-    // هل الكسر داخل √ أو ∛ ؟
+    // ظ‡ظ„ ط§ظ„ظƒط³ط± ط¯ط§ط®ظ„ âˆڑ ط£ظˆ âˆ› طں
     // ==========================================
 
-    if (display.value.endsWith("√(")) {
+    if (display.value.endsWith("âˆڑ(")) {
         fractionInsideRoot = true;
-        rootTypeForFraction = "√";
+        rootTypeForFraction = "âˆڑ";
     }
-    else if (display.value.endsWith("∛(")) {
+    else if (display.value.endsWith("âˆ›(")) {
         fractionInsideRoot = true;
-        rootTypeForFraction = "∛";
+        rootTypeForFraction = "âˆ›";
     }
     else {
         fractionInsideRoot = false;
         rootTypeForFraction = "";
     }
 
-    // حفظ التعبير الموجود قبل إدخال الكسر
+    // ط­ظپط¸ ط§ظ„طھط¹ط¨ظٹط± ط§ظ„ظ…ظˆط¬ظˆط¯ ظ‚ط¨ظ„ ط¥ط¯ط®ط§ظ„ ط§ظ„ظƒط³ط±
     if (!fractionMode) {
 
     const current = display.value.trim();
 
-    if (current.endsWith("√(")) {
+    if (current.endsWith("âˆڑ(")) {
         fractionInsideRoot = true;
-        rootTypeForFraction = "√";
+        rootTypeForFraction = "âˆڑ";
 
-        // نحفظ كل شيء قبل √(
+        // ظ†ط­ظپط¸ ظƒظ„ ط´ظٹط، ظ‚ط¨ظ„ âˆڑ(
         fractionExpression = current.slice(0, -2);
     }
-    else if (current.endsWith("∛(")) {
+    else if (current.endsWith("âˆ›(")) {
         fractionInsideRoot = true;
-        rootTypeForFraction = "∛";
+        rootTypeForFraction = "âˆ›";
 
-        // نحفظ كل شيء قبل ∛(
+        // ظ†ط­ظپط¸ ظƒظ„ ط´ظٹط، ظ‚ط¨ظ„ âˆ›(
         fractionExpression = current.slice(0, -3);
     }
     else {
@@ -22885,7 +22885,7 @@ console.log("🌳 FRACTION PARENT:", fractionParent);
 }
 
     console.log(
-        "🔵 FRACTION START:",
+        "ًں”µ FRACTION START:",
         fractionExpression,
         "INSIDE ROOT:",
         fractionInsideRoot,
@@ -22901,7 +22901,7 @@ console.log("🌳 FRACTION PARENT:", fractionParent);
     nestedFractionStage = 0;
     nestedFractionDenominator = "";
 
-    // باقي الكود كما هو...
+    // ط¨ط§ظ‚ظٹ ط§ظ„ظƒظˆط¯ ظƒظ…ط§ ظ‡ظˆ...
 
     display.style.visibility = "hidden";
 
@@ -23008,7 +23008,7 @@ console.log("🌳 FRACTION PARENT:", fractionParent);
 }
 
 // ==========================================
-// تحديث شكل الكسر
+// طھط­ط¯ظٹط« ط´ظƒظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 
 function formatFractionVisual(value) {
@@ -23024,8 +23024,8 @@ function formatFractionVisual(value) {
     let text = String(value);
 
     // ==========================================
-    // ABS مفتوح
-    // abs(3  →  |3
+    // ABS ظ…ظپطھظˆط­
+    // abs(3  â†’  |3
     // ==========================================
 
     text = text.replace(
@@ -23034,8 +23034,8 @@ function formatFractionVisual(value) {
     );
 
     // ==========================================
-    // ABS مغلق
-    // abs(3) → |3|
+    // ABS ظ…ط؛ظ„ظ‚
+    // abs(3) â†’ |3|
     // ==========================================
 
     text = text.replace(
@@ -23055,7 +23055,7 @@ function updateFractionDisplay() {
     const bottom = editor.querySelector("#fractionBottom");
 
     // ==========================================
-    // كسر داخلي
+    // ظƒط³ط± ط¯ط§ط®ظ„ظٹ
     // ==========================================
 
    if (nestedFractionMode) {
@@ -23074,7 +23074,7 @@ function updateFractionDisplay() {
         </div>
     `;
 
-    // الكسر الداخلي موجود داخل بسط الكسر الخارجي
+    // ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ ظ…ظˆط¬ظˆط¯ ط¯ط§ط®ظ„ ط¨ط³ط· ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
     if (nestedFractionParentStage === 1) {
 
         if (top) {
@@ -23087,7 +23087,7 @@ function updateFractionDisplay() {
         }
     }
 
-    // الكسر الداخلي موجود داخل مقام الكسر الخارجي
+    // ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ ظ…ظˆط¬ظˆط¯ ط¯ط§ط®ظ„ ظ…ظ‚ط§ظ… ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
     else if (nestedFractionParentStage === 2) {
 
         if (top) {
@@ -23104,11 +23104,11 @@ function updateFractionDisplay() {
 }
 
 // ==========================================
-// كسر خارجي
+// ظƒط³ط± ط®ط§ط±ط¬ظٹ
 // ==========================================
 
 // ==========================================
-// الكسر الداخلي محفوظ داخل البسط
+// ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ ظ…ط­ظپظˆط¸ ط¯ط§ط®ظ„ ط§ظ„ط¨ط³ط·
 // ==========================================
 
 if (
@@ -23156,7 +23156,7 @@ if (
 
 
 // ==========================================
-// الكسر الداخلي محفوظ داخل المقام
+// ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ ظ…ط­ظپظˆط¸ ط¯ط§ط®ظ„ ط§ظ„ظ…ظ‚ط§ظ…
 // ==========================================
 
 if (
@@ -23203,7 +23203,7 @@ if (
 }
 }
 // ==========================================
-// زر a/b
+// ط²ط± a/b
 // ==========================================
 
 
@@ -23211,7 +23211,7 @@ if (
     fractionInputBtn.onclick = function () {
 
     // ==========================================
-    // 1. مفيش كسر خارجي → ابدأ كسر جديد
+    // 1. ظ…ظپظٹط´ ظƒط³ط± ط®ط§ط±ط¬ظٹ â†’ ط§ط¨ط¯ط£ ظƒط³ط± ط¬ط¯ظٹط¯
     // ==========================================
     if (!fractionMode) {
         startFraction();
@@ -23219,29 +23219,29 @@ if (
     }
 
     // ==========================================
-    // 2. إحنا بالفعل داخل كسر داخلي
+    // 2. ط¥ط­ظ†ط§ ط¨ط§ظ„ظپط¹ظ„ ط¯ط§ط®ظ„ ظƒط³ط± ط¯ط§ط®ظ„ظٹ
     // ==========================================
     if (nestedFractionMode) {
 
-        // من بسط الداخلي → مقام الداخلي
+        // ظ…ظ† ط¨ط³ط· ط§ظ„ط¯ط§ط®ظ„ظٹ â†’ ظ…ظ‚ط§ظ… ط§ظ„ط¯ط§ط®ظ„ظٹ
         if (nestedFractionStage === 1) {
 
             nestedFractionStage = 2;
 
             console.log(
-                "🟣 NESTED FRACTION → DENOMINATOR"
+                "ًںں£ NESTED FRACTION â†’ DENOMINATOR"
             );
 
             updateFractionDisplay();
             return;
         }
 
-        // لو خلصنا المقام الداخلي
-        // لا نمسح البيانات
+        // ظ„ظˆ ط®ظ„طµظ†ط§ ط§ظ„ظ…ظ‚ط§ظ… ط§ظ„ط¯ط§ط®ظ„ظٹ
+        // ظ„ط§ ظ†ظ…ط³ط­ ط§ظ„ط¨ظٹط§ظ†ط§طھ
         if (nestedFractionStage === 2) {
 
             console.log(
-                "🟣 NESTED FRACTION COMPLETE"
+                "ًںں£ NESTED FRACTION COMPLETE"
             );
 
             return;
@@ -23249,7 +23249,7 @@ if (
     }
 
     // ==========================================
-    // 3. إنشاء كسر داخلي جديد
+    // 3. ط¥ظ†ط´ط§ط، ظƒط³ط± ط¯ط§ط®ظ„ظٹ ط¬ط¯ظٹط¯
     // ==========================================
     if (fractionStage === 1 || fractionStage === 2) {
 
@@ -23258,11 +23258,11 @@ if (
         nestedFractionMode = true;
         nestedFractionStage = 1;
 
-        // نصفرهم فقط عند إنشاء كسر داخلي جديد
+        // ظ†طµظپط±ظ‡ظ… ظپظ‚ط· ط¹ظ†ط¯ ط¥ظ†ط´ط§ط، ظƒط³ط± ط¯ط§ط®ظ„ظٹ ط¬ط¯ظٹط¯
         nestedFractionNumerator = "";
         nestedFractionDenominator = "";
 
-        console.log("🟣 NESTED FRACTION START");
+        console.log("ًںں£ NESTED FRACTION START");
         console.log(
             "OUTER STAGE:",
             nestedFractionParentStage
@@ -23273,7 +23273,7 @@ if (
     }
 
     // ==========================================
-    // 4. حالة غير متوقعة
+    // 4. ط­ط§ظ„ط© ط؛ظٹط± ظ…طھظˆظ‚ط¹ط©
     // ==========================================
     fractionMode = false;
     fractionStage = 0;
@@ -23302,13 +23302,13 @@ if (shift) {
         status.textContent = currentMode;
     }
 
-    console.log("🟣 SHIFT + EXP → Pol(");
+    console.log("ًںں£ SHIFT + EXP â†’ Pol(");
 
     return;
 }
 
         // ==========================================
-        // EXP العادي
+        // EXP ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
         writeToDisplay("e");
     };
@@ -23337,14 +23337,14 @@ if (ansBtn) {
                     status.textContent = currentMode;
                 }
 
-                console.log("🟣 SHIFT + ANS → Rec(");
+                console.log("ًںں£ SHIFT + ANS â†’ Rec(");
 
                 return;
             }
         }
 
         // ==========================================
-        // ANS العادي
+        // ANS ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         writeToDisplay("Ans");
@@ -23357,7 +23357,7 @@ if (sciExpBtn) {
     sciExpBtn.onclick = () => {
 
         // ==========================================
-        // ⚛️ ×10ˣ داخل حقول الفيزياء
+        // âڑ›ï¸ڈ أ—10ث£ ط¯ط§ط®ظ„ ط­ظ‚ظˆظ„ ط§ظ„ظپظٹط²ظٹط§ط،
         // ==========================================
 
         if (window.activePhysicsField) {
@@ -23368,27 +23368,27 @@ if (sciExpBtn) {
 
             if (field) {
 
-                // لازم يكون فيه رقم قبل ×10ˣ
+                // ظ„ط§ط²ظ… ظٹظƒظˆظ† ظپظٹظ‡ ط±ظ‚ظ… ظ‚ط¨ظ„ أ—10ث£
                 if (field.value === "") {
                     field.value = "1e";
                 }
 
-                // لو الرقم بالفعل مكتوب بصيغة علمية
+                // ظ„ظˆ ط§ظ„ط±ظ‚ظ… ط¨ط§ظ„ظپط¹ظ„ ظ…ظƒطھظˆط¨ ط¨طµظٹط؛ط© ط¹ظ„ظ…ظٹط©
                 else if (
                     /[eE]/.test(field.value)
                 ) {
                     return;
                 }
 
-                // تحويل ×10ˣ إلى e
+                // طھط­ظˆظٹظ„ أ—10ث£ ط¥ظ„ظ‰ e
                 else {
                     field.value += "e";
                 }
 
                 console.log(
-                    "⚛️ PHYSICS ×10ˣ:",
+                    "âڑ›ï¸ڈ PHYSICS أ—10ث£:",
                     window.activePhysicsField,
-                    "→",
+                    "â†’",
                     field.value
                 );
 
@@ -23398,7 +23398,7 @@ if (sciExpBtn) {
 
 
         // ==========================================
-        // 10^x داخل الكسر
+        // 10^x ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
         // ==========================================
 
         if (fractionMode) {
@@ -23415,7 +23415,7 @@ if (sciExpBtn) {
                 updateFractionDisplay();
 
                 console.log(
-                    "🟣 NESTED 10^:",
+                    "ًںں£ NESTED 10^:",
                     nestedFractionStage === 1
                         ? nestedFractionNumerator
                         : nestedFractionDenominator
@@ -23433,21 +23433,21 @@ if (sciExpBtn) {
 
             updateFractionDisplay();
 
-            console.log("🔵 OUTER 10^");
+            console.log("ًں”µ OUTER 10^");
 
             return;
         }
 
 
         // ==========================================
-        // الاستخدام العادي
+        // ط§ظ„ط§ط³طھط®ط¯ط§ظ… ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         writeToDisplay("10^");
     };
 }
 // ==========================================
-// 9. الأزرار العلوية و القوائم (SHIFT, ALPHA, MODE, SETUP)
+// 9. ط§ظ„ط£ط²ط±ط§ط± ط§ظ„ط¹ظ„ظˆظٹط© ظˆ ط§ظ„ظ‚ظˆط§ط¦ظ… (SHIFT, ALPHA, MODE, SETUP)
 // ==========================================
 const modeMenu = document.getElementById("modeMenu");
 const setupMenu = document.getElementById("setupMenu");
@@ -23459,7 +23459,7 @@ if (shiftBtn) {
         shift = !shift;
         alpha = false;
 
-        console.log("🔥 SHIFT =", shift);
+        console.log("ًں”¥ SHIFT =", shift);
 
         if (status) {
             status.textContent = shift ? "SHIFT" : currentMode;
@@ -23471,7 +23471,7 @@ const dotBtn = document.getElementById("dotBtn");
 if (dotBtn) {
     dotBtn.onclick = function () {
 // ==========================================
-// ⚛️ PHYSICS + SHIFT + . = فاصلة
+// âڑ›ï¸ڈ PHYSICS + SHIFT + . = ظپط§طµظ„ط©
 // ==========================================
 
 if (
@@ -23488,9 +23488,9 @@ if (
         field.value += ",";
 
         console.log(
-            "⚛️ PHYSICS COMMA:",
+            "âڑ›ï¸ڈ PHYSICS COMMA:",
             window.activePhysicsField,
-            "→",
+            "â†’",
             field.value
         );
 
@@ -23506,13 +23506,13 @@ if (
 
 
         // ==========================================
-        // SHIFT + . = فاصلة
+        // SHIFT + . = ظپط§طµظ„ط©
         // VECTOR / CMPLX
         // ==========================================
 
         if (shift) {
 // ==========================================
-// SHIFT + . = فاصلة داخل STAT
+// SHIFT + . = ظپط§طµظ„ط© ط¯ط§ط®ظ„ STAT
 // ==========================================
 
 if (
@@ -23528,7 +23528,7 @@ if (
         field.value += ",";
 
         console.log(
-            "🟢 STAT COMMA:",
+            "ًںں¢ STAT COMMA:",
             activeStatField,
             field.value
         );
@@ -23580,13 +23580,13 @@ if (
                     status.textContent = currentMode;
                 }
 
-                console.log("🟣 CMPLX COMMA");
+                console.log("ًںں£ CMPLX COMMA");
 
                 return;
             }
         }
 // ==========================================
-// ⚛️ النقطة العادية في الفيزياء
+// âڑ›ï¸ڈ ط§ظ„ظ†ظ‚ط·ط© ط§ظ„ط¹ط§ط¯ظٹط© ظپظٹ ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 if (window.activePhysicsField) {
@@ -23597,14 +23597,14 @@ if (window.activePhysicsField) {
 
     if (field) {
 
-        // لو الخانة لسه جديدة
+        // ظ„ظˆ ط§ظ„ط®ط§ظ†ط© ظ„ط³ظ‡ ط¬ط¯ظٹط¯ط©
         if (window.physicsWeightNewInput) {
 
-            // لو الخانة فاضية فقط نبدأ بـ 0.
+            // ظ„ظˆ ط§ظ„ط®ط§ظ†ط© ظپط§ط¶ظٹط© ظپظ‚ط· ظ†ط¨ط¯ط£ ط¨ظ€ 0.
             if (field.value === "") {
                 field.value = "0.";
             } else {
-                // لو فيها رقم بالفعل، نضيف النقطة
+                // ظ„ظˆ ظپظٹظ‡ط§ ط±ظ‚ظ… ط¨ط§ظ„ظپط¹ظ„طŒ ظ†ط¶ظٹظپ ط§ظ„ظ†ظ‚ط·ط©
                 if (!field.value.includes(".")) {
                     field.value += ".";
                 }
@@ -23615,25 +23615,25 @@ if (window.activePhysicsField) {
             return;
         }
 
-        // الخانة فاضية
+        // ط§ظ„ط®ط§ظ†ط© ظپط§ط¶ظٹط©
         if (field.value === "") {
             field.value = "0.";
             return;
         }
 
-        // ممنوع أكثر من نقطة
+        // ظ…ظ…ظ†ظˆط¹ ط£ظƒط«ط± ظ…ظ† ظ†ظ‚ط·ط©
         if (field.value.includes(".")) {
             return;
         }
 
-        // إضافة النقطة بعد الرقم
+        // ط¥ط¶ط§ظپط© ط§ظ„ظ†ظ‚ط·ط© ط¨ط¹ط¯ ط§ظ„ط±ظ‚ظ…
         field.value += ".";
 
         return;
     }
 }
         // ==========================================
-        // النقطة داخل الكسر
+        // ط§ظ„ظ†ظ‚ط·ط© ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
         // ==========================================
 
         if (fractionMode) {
@@ -23664,46 +23664,46 @@ if (window.activePhysicsField) {
         
 
         // ==========================================
-        // النقطة العادية
+        // ط§ظ„ظ†ظ‚ط·ط© ط§ظ„ط¹ط§ط¯ظٹط©
         // ==========================================
 
         // ==========================================
-// 🧮 COMP - النقطة العشرية
+// ًں§® COMP - ط§ظ„ظ†ظ‚ط·ط© ط§ظ„ط¹ط´ط±ظٹط©
 // ==========================================
 
 if (currentMode === "COMP" && !fractionMode) {
 
-    // الشاشة فاضية
+    // ط§ظ„ط´ط§ط´ط© ظپط§ط¶ظٹط©
     if (display.value === "") {
         display.value = "0.";
         return;
     }
 
-    // لو آخر حاجة نقطة
+    // ظ„ظˆ ط¢ط®ط± ط­ط§ط¬ط© ظ†ظ‚ط·ط©
     if (display.value.endsWith(".")) {
         return;
     }
 
-    // نأخذ آخر جزء من العملية
-    const parts = display.value.split(/[+\-×÷]/);
+    // ظ†ط£ط®ط° ط¢ط®ط± ط¬ط²ط، ظ…ظ† ط§ظ„ط¹ظ…ظ„ظٹط©
+    const parts = display.value.split(/[+\-أ—أ·]/);
     const lastNumber = parts[parts.length - 1];
 
-    // الرقم الحالي فيه نقطة بالفعل
+    // ط§ظ„ط±ظ‚ظ… ط§ظ„ط­ط§ظ„ظٹ ظپظٹظ‡ ظ†ظ‚ط·ط© ط¨ط§ظ„ظپط¹ظ„
     if (lastNumber.includes(".")) {
         return;
     }
 
-    // لو آخر حاجة عملية
-    if (/[+\-×÷]$/.test(display.value)) {
+    // ظ„ظˆ ط¢ط®ط± ط­ط§ط¬ط© ط¹ظ…ظ„ظٹط©
+    if (/[+\-أ—أ·]$/.test(display.value)) {
         display.value += "0.";
         return;
     }
 
-    // إضافة النقطة في نهاية الرقم
+    // ط¥ط¶ط§ظپط© ط§ظ„ظ†ظ‚ط·ط© ظپظٹ ظ†ظ‡ط§ظٹط© ط§ظ„ط±ظ‚ظ…
     display.value += ".";
 
     console.log(
-        "🟢 COMP DOT:",
+        "ًںں¢ COMP DOT:",
         display.value
     );
 
@@ -23747,7 +23747,7 @@ document.querySelectorAll("#setupMenu button").forEach(btn => {
 });
 
 // ==========================================
-// 10 & 11. الأوضاع المتقدمة والتفاعلية (داخل الشاشة بالكامل)
+// 10 & 11. ط§ظ„ط£ظˆط¶ط§ط¹ ط§ظ„ظ…طھظ‚ط¯ظ…ط© ظˆط§ظ„طھظپط§ط¹ظ„ظٹط© (ط¯ط§ط®ظ„ ط§ظ„ط´ط§ط´ط© ط¨ط§ظ„ظƒط§ظ…ظ„)
 // ==========================================
 document.querySelectorAll("#modeMenu button").forEach(btn => {
     btn.onclick = function () {
@@ -23760,14 +23760,14 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
         if (currentMode === "STAT") {
             createScreenPanel(`
                 <div style="font-weight:bold; border-bottom:1px solid #000; margin-bottom:4px;">STAT Mode:</div>
-                أدخل القيم (بفاصلة):<br>
+                ط£ط¯ط®ظ„ ط§ظ„ظ‚ظٹظ… (ط¨ظپط§طµظ„ط©):<br>
                 <input id="statInput" type="text" inputmode="none" style="width:90%; font-size:10px; margin:4px 0;" placeholder="10,20,30,40"  onpointerdown="event.preventDefault(); activeStatField='statInput'; console.log('SELECT STAT:', activeStatField)"><br>
                 <button onclick="addStatData()" style="width:100%; font-size:10px; background:#ccc; border:1px solid #555; cursor:pointer;">
-    [ DATA ] أضف القيمة
+    [ DATA ] ط£ط¶ظپ ط§ظ„ظ‚ظٹظ…ط©
 </button>
-                <button onclick="calcStat()" style="width:100%; font-size:10px; background:#ccc; border:1px solid #555; cursor:pointer;">[ = ] احسب</button>
+                <button onclick="calcStat()" style="width:100%; font-size:10px; background:#ccc; border:1px solid #555; cursor:pointer;">[ = ] ط§ط­ط³ط¨</button>
                 <button onclick="clearStat()" style="width:100%; font-siz
-                e:10px; background:#ccc; border:1px solid #555; cursor:pointer;">[ CLR ] مسح STAT</button>
+                e:10px; background:#ccc; border:1px solid #555; cursor:pointer;">[ CLR ] ظ…ط³ط­ STAT</button>
                 <div style="font-weight:bold; margin-top:6px;">
     Linear Regression
 </div>
@@ -23790,7 +23790,7 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 
 <button onclick="calcRegression()"
         style="width:100%; font-size:10px; background:#ccc; border:1px solid #555; cursor:pointer;">
-    [ REG ] انحدار خطي
+    [ REG ] ط§ظ†ط­ط¯ط§ط± ط®ط·ظٹ
 </button>
 
 <div id="regRes" style="margin-top:4px; font-weight:bold;"></div>
@@ -23799,14 +23799,14 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
        type="text"
        inputmode="none"
        style="width:90%; font-size:10px; margin:3px 0;"
-       placeholder="X للتنبؤ"
+       placeholder="X ظ„ظ„طھظ†ط¨ط¤"
         onpointerdown="event.preventDefault(); activeStatField='predictX'; console.log('SELECT PREDICT:', activeStatField)">
 
 
 
 <button onclick="predictRegression()"
         style="width:100%; font-size:10px; background:#ccc; border:1px solid #555;">
-    [ PREDICT ] توقع Y
+    [ PREDICT ] طھظˆظ‚ط¹ Y
 </button>
                 <div id="statRes" style="margin-top:4px; font-weight:bold;"></div>
             `);
@@ -23818,12 +23818,12 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 
         <button style="width:100%; margin:2px 0; font-size:10px;"
             onclick="setupEqn(1)">
-            1: ax² + bx + c = 0
+            1: axآ² + bx + c = 0
         </button>
 
         <button style="width:100%; margin:2px 0; font-size:10px;"
             onclick="setupEqn(2)">
-            2: a₁x + b₁y = c₁
+            2: aâ‚پx + bâ‚پy = câ‚پ
         </button>
 
         <button style="width:100%; margin:2px 0; font-size:10px;"
@@ -23833,7 +23833,7 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 
         <button style="width:100%; margin:2px 0; font-size:10px;"
             onclick="setupEqn(4)">
-            4: ax³ + bx² + cx + d = 0
+            4: axآ³ + bxآ² + cx + d = 0
         </button>
 
         <button style="width:100%; margin:2px 0; font-size:10px;"
@@ -23848,7 +23848,7 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
                 <div style="font-weight:bold; border-bottom:1px solid #000; margin-bottom:2px;">TABLE Mode:</div>
                 f(X) = <br><input id="tableFx" value="" style="width:55%; font-size:10px;">
 <button onclick="activeTableField='tableFx'">
-    اختيار f(X)
+    ط§ط®طھظٹط§ط± f(X)
 </button>
                  Start:
 <input id="tStart"
@@ -23874,7 +23874,7 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 <button onclick="activeTableField='tStep'">
     Step
 </button>
-                <button onclick="generateTable()" style="width:100%; margin-top:3px; font-size:10px;">[ = ] عرض الجدول</button>
+                <button onclick="generateTable()" style="width:100%; margin-top:3px; font-size:10px;">[ = ] ط¹ط±ط¶ ط§ظ„ط¬ط¯ظˆظ„</button>
                 <div id="tableRes" style="margin-top:2px;"></div>
             `);
             
@@ -23911,7 +23911,7 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 
         <div>A:</div>
 <button onclick="activeVectorField='A'">
-    اختيار A
+    ط§ط®طھظٹط§ط± A
 </button>
 
         <input id="vectorA"
@@ -23921,7 +23921,7 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 
        <div>B:</div>
 <button onclick="activeVectorField='B'">
-    اختيار B
+    ط§ط®طھظٹط§ط± B
 </button>
         <input id="vectorB"
             type="text"
@@ -23930,17 +23930,17 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 
         <button onclick="calcVectorMagnitude()"
             style="width:100%; margin:2px 0; font-size:10px;">
-            |A| مقدار A
+            |A| ظ…ظ‚ط¯ط§ط± A
         </button>
 
        <button id="vectorDotBtn"
     style="width:100%; margin:2px 0; font-size:10px;">
-    A · B
+    A آ· B
 </button>
 
         <button onclick="calcVectorCross()"
             style="width:100%; margin:2px 0; font-size:10px;">
-            A × B
+            A أ— B
         </button>
 
         <button onclick="calcVectorAdd()"
@@ -23950,7 +23950,7 @@ document.querySelectorAll("#modeMenu button").forEach(btn => {
 
 <button onclick="calcVectorSub()"
     style="width:100%; margin:2px 0; font-size:10px;">
-    A − B
+    A âˆ’ B
 </button>
 
 <button onclick="calcVectorAngle()"
@@ -23992,7 +23992,7 @@ if (vectorDotBtn) {
   };
 });
 // ==========================================
-// MATRIX - اختيار المصفوفة والأبعاد
+// MATRIX - ط§ط®طھظٹط§ط± ط§ظ„ظ…طµظپظˆظپط© ظˆط§ظ„ط£ط¨ط¹ط§ط¯
 // ==========================================
 
 window.matrixSetup = function(name) {
@@ -24005,7 +24005,7 @@ form.style.textAlign = "right";
 
     form.innerHTML = `
         <div style="font-size:10px; font-weight:bold;">
-            Mat${name} - اختر الحجم:
+            Mat${name} - ط§ط®طھط± ط§ظ„ط­ط¬ظ…:
         </div>
 
         <div style="
@@ -24018,52 +24018,52 @@ form.style.textAlign = "right";
 
             <button onclick="matrixCreate('${name}',1,1)"
     style="font-size:9px;">
-    1 × 1
+    1 أ— 1
 </button>
             <button onclick="matrixCreate('${name}',1,2)"
-                style="font-size:9px;">1 × 2</button>
+                style="font-size:9px;">1 أ— 2</button>
 
             <button onclick="matrixCreate('${name}',1,3)"
-                style="font-size:9px;">1 × 3</button>
+                style="font-size:9px;">1 أ— 3</button>
 
             <button onclick="matrixCreate('${name}',1,4)"
-                style="font-size:9px;">1 × 4</button>
+                style="font-size:9px;">1 أ— 4</button>
 
             <button onclick="matrixCreate('${name}',2,1)"
-                style="font-size:9px;">2 × 1</button>
+                style="font-size:9px;">2 أ— 1</button>
 
             <button onclick="matrixCreate('${name}',2,2)"
-                style="font-size:9px;">2 × 2</button>
+                style="font-size:9px;">2 أ— 2</button>
 
             <button onclick="matrixCreate('${name}',2,3)"
-                style="font-size:9px;">2 × 3</button>
+                style="font-size:9px;">2 أ— 3</button>
 
             <button onclick="matrixCreate('${name}',2,4)"
-                style="font-size:9px;">2 × 4</button>
+                style="font-size:9px;">2 أ— 4</button>
 
             <button onclick="matrixCreate('${name}',3,1)"
-                style="font-size:9px;">3 × 1</button>
+                style="font-size:9px;">3 أ— 1</button>
 
             <button onclick="matrixCreate('${name}',3,2)"
-                style="font-size:9px;">3 × 2</button>
+                style="font-size:9px;">3 أ— 2</button>
 
             <button onclick="matrixCreate('${name}',3,3)"
-                style="font-size:9px;">3 × 3</button>
+                style="font-size:9px;">3 أ— 3</button>
 
             <button onclick="matrixCreate('${name}',3,4)"
-                style="font-size:9px;">3 × 4</button>
+                style="font-size:9px;">3 أ— 4</button>
 
             <button onclick="matrixCreate('${name}',4,1)"
-                style="font-size:9px;">4 × 1</button>
+                style="font-size:9px;">4 أ— 1</button>
 
             <button onclick="matrixCreate('${name}',4,2)"
-                style="font-size:9px;">4 × 2</button>
+                style="font-size:9px;">4 أ— 2</button>
 
             <button onclick="matrixCreate('${name}',4,3)"
-                style="font-size:9px;">4 × 3</button>
+                style="font-size:9px;">4 أ— 3</button>
 
             <button onclick="matrixCreate('${name}',4,4)"
-                style="font-size:9px;">4 × 4</button>
+                style="font-size:9px;">4 أ— 4</button>
 
         </div>
 
@@ -24084,7 +24084,7 @@ form.style.textAlign = "right";
 
         <button onclick="matrixMultiply()"
             style="width:100%; margin:2px 0; font-size:10px;">
-            MatA × MatB
+            MatA أ— MatB
         </button>
 
         <button onclick="matrixDetA()"
@@ -24094,7 +24094,7 @@ form.style.textAlign = "right";
 
         <button onclick="matrixInverseA()"
             style="width:100%; margin:2px 0; font-size:10px;">
-            MatA⁻¹
+            MatAâپ»آ¹
         </button>
 
         <button onclick="matrixTransposeA()"
@@ -24104,7 +24104,7 @@ form.style.textAlign = "right";
 
         <button onclick="matrixSquareA()"
             style="width:100%; margin:2px 0; font-size:10px;">
-            MatA²
+            MatAآ²
         </button>
 
         <button onclick="matrixPowerA()"
@@ -24114,7 +24114,7 @@ form.style.textAlign = "right";
 
         <button onclick="matrixScalarA()"
             style="width:100%; margin:2px 0; font-size:10px;">
-            MatA × K
+            MatA أ— K
         </button>
 
         <button onclick="matrixRankA()"
@@ -24179,7 +24179,7 @@ form.style.textAlign = "right";
 
         <button onclick="matrixMultiplyAB()"
             style="width:100%; margin:2px 0; font-size:10px;">
-            MatA × MatB
+            MatA أ— MatB
         </button>
     `;
 };
@@ -24190,7 +24190,7 @@ window.matrixTypeMenu = function(name) {
    
     form.innerHTML = `
         <div style="font-size:10px; font-weight:bold;">
-            Mat${name} - نوع المصفوفة
+            Mat${name} - ظ†ظˆط¹ ط§ظ„ظ…طµظپظˆظپط©
         </div>
 
         <button onclick="matrixCreateType('${name}','ZERO')"
@@ -24235,17 +24235,17 @@ window.matrixCreateType = function(name, type) {
             </div>
 
             <div style="font-size:9px; margin:4px 0;">
-                أدخل القيم القطرية:
+                ط£ط¯ط®ظ„ ط§ظ„ظ‚ظٹظ… ط§ظ„ظ‚ط·ط±ظٹط©:
             </div>
 
             <button onclick="matrixGenerate('${name}','${type}',2)"
                 style="width:48%; font-size:10px;">
-                2 × 2
+                2 أ— 2
             </button>
 
             <button onclick="matrixGenerate('${name}','${type}',3)"
                 style="width:48%; font-size:10px;">
-                3 × 3
+                3 أ— 3
             </button>
         `;
 
@@ -24259,12 +24259,12 @@ window.matrixCreateType = function(name, type) {
 
         <button onclick="matrixGenerate('${name}','${type}',2)"
             style="width:48%; font-size:10px;">
-            2 × 2
+            2 أ— 2
         </button>
 
         <button onclick="matrixGenerate('${name}','${type}',3)"
             style="width:48%; font-size:10px;">
-            3 × 3
+            3 أ— 3
         </button>
     `;
 };
@@ -24322,7 +24322,7 @@ window.matrixGenerate = function(name, type, size) {
 
         form.innerHTML = `
             <div style="font-size:12px;font-weight:bold;">
-                Mat${name} Diagonal ${size}×${size}
+                Mat${name} Diagonal ${size}أ—${size}
             </div>
 
             <div id="matrixInput"
@@ -24331,7 +24331,7 @@ window.matrixGenerate = function(name, type, size) {
             </div>
 
             <div style="font-size:9px;margin-top:4px;">
-                أدخل قيم القطر واضغط = بعد كل قيمة
+                ط£ط¯ط®ظ„ ظ‚ظٹظ… ط§ظ„ظ‚ط·ط± ظˆط§ط¶ط؛ط· = ط¨ط¹ط¯ ظƒظ„ ظ‚ظٹظ…ط©
             </div>
 
             <div id="matrixResult"
@@ -24352,7 +24352,7 @@ window.matrixGenerate = function(name, type, size) {
 
     form.innerHTML = `
         <div style="font-size:12px;font-weight:bold;">
-            Mat${name} Symmetric ${size}×${size}
+            Mat${name} Symmetric ${size}أ—${size}
         </div>
 
         <div id="matrixInput"
@@ -24361,7 +24361,7 @@ window.matrixGenerate = function(name, type, size) {
         </div>
 
         <div style="font-size:9px;margin-top:4px;">
-            أدخل عناصر النصف العلوي
+            ط£ط¯ط®ظ„ ط¹ظ†ط§طµط± ط§ظ„ظ†طµظپ ط§ظ„ط¹ظ„ظˆظٹ
         </div>
 
         <div id="matrixResult"
@@ -24387,16 +24387,16 @@ window.matrixGenerate = function(name, type, size) {
 
         form.innerHTML = `
             <div style="font-size:12px;font-weight:bold;">
-                Mat${name} Scalar ${size}×${size}
+                Mat${name} Scalar ${size}أ—${size}
             </div>
 
             <div id="matrixInput"
                  style="font-size:11px;font-weight:bold;margin-top:5px;">
-                القيمة = _
+                ط§ظ„ظ‚ظٹظ…ط© = _
             </div>
 
             <div style="font-size:9px;margin-top:4px;">
-                أدخل قيمة واحدة واضغط =
+                ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© ظˆط§ط­ط¯ط© ظˆط§ط¶ط؛ط· =
             </div>
 
             <div id="matrixResult"
@@ -24417,7 +24417,7 @@ window.matrixGenerate = function(name, type, size) {
 
     form.innerHTML = `
         <div style="font-size:12px;font-weight:bold;">
-            Mat${name} Skew-Symmetric ${size}×${size}
+            Mat${name} Skew-Symmetric ${size}أ—${size}
         </div>
 
         <div id="matrixInput"
@@ -24426,7 +24426,7 @@ window.matrixGenerate = function(name, type, size) {
         </div>
 
         <div style="font-size:9px;margin-top:4px;">
-            أدخل عناصر أعلى القطر الرئيسي
+            ط£ط¯ط®ظ„ ط¹ظ†ط§طµط± ط£ط¹ظ„ظ‰ ط§ظ„ظ‚ط·ط± ط§ظ„ط±ط¦ظٹط³ظٹ
         </div>
 
         <div id="matrixResult"
@@ -24475,7 +24475,7 @@ window.matrixAdd = function () {
         !window.matrices.A ||
         !window.matrices.B
     ) {
-        alert("يجب إدخال MatA و MatB أولاً");
+        alert("ظٹط¬ط¨ ط¥ط¯ط®ط§ظ„ MatA ظˆ MatB ط£ظˆظ„ط§ظ‹");
         return;
     }
 
@@ -24486,7 +24486,7 @@ window.matrixAdd = function () {
         A.length !== B.length ||
         A[0].length !== B[0].length
     ) {
-        alert("حجم MatA و MatB يجب أن يكون متساويًا");
+        alert("ط­ط¬ظ… MatA ظˆ MatB ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ظ…طھط³ط§ظˆظٹظ‹ط§");
         return;
     }
 
@@ -24506,7 +24506,7 @@ window.matrixSubtract = function() {
     const B = window.matrices["B"];
 
     if (!A || !B) {
-        alert("MatA و MatB لازم يكونوا موجودين");
+        alert("MatA ظˆ MatB ظ„ط§ط²ظ… ظٹظƒظˆظ†ظˆط§ ظ…ظˆط¬ظˆط¯ظٹظ†");
         return;
     }
 
@@ -24514,7 +24514,7 @@ window.matrixSubtract = function() {
         A.length !== B.length ||
         A[0].length !== B[0].length
     ) {
-        alert("لا يمكن طرح مصفوفتين بأبعاد مختلفة");
+        alert("ظ„ط§ ظٹظ…ظƒظ† ط·ط±ط­ ظ…طµظپظˆظپطھظٹظ† ط¨ط£ط¨ط¹ط§ط¯ ظ…ط®طھظ„ظپط©");
         return;
     }
 
@@ -24534,7 +24534,7 @@ window.matrixMultiply = function () {
     const B = window.matrices.B;
 
     if (!A || !B) {
-        alert("يجب إدخال MatA و MatB أولاً");
+        alert("ظٹط¬ط¨ ط¥ط¯ط®ط§ظ„ MatA ظˆ MatB ط£ظˆظ„ط§ظ‹");
         return;
     }
 
@@ -24543,9 +24543,9 @@ window.matrixMultiply = function () {
     const rowsB = B.length;
     const colsB = B[0].length;
 
-    // عدد أعمدة A لازم يساوي عدد صفوف B
+    // ط¹ط¯ط¯ ط£ط¹ظ…ط¯ط© A ظ„ط§ط²ظ… ظٹط³ط§ظˆظٹ ط¹ط¯ط¯ طµظپظˆظپ B
     if (colsA !== rowsB) {
-        alert("لا يمكن ضرب المصفوفتين");
+        alert("ظ„ط§ ظٹظ…ظƒظ† ط¶ط±ط¨ ط§ظ„ظ…طµظپظˆظپطھظٹظ†");
         return;
     }
 
@@ -24567,19 +24567,19 @@ window.matrixMultiply = function () {
         }
     }
 
-    matrixShow("A×B", result);
+    matrixShow("Aأ—B", result);
 };
 window.matrixDetA = function () {
 
     if (!window.matrices || !window.matrices.A) {
-        alert("MatA غير موجودة");
+        alert("MatA ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©");
         return;
     }
 
     const A = window.matrices.A;
 
     if (A.length !== A[0].length) {
-        alert("المحدد يحتاج مصفوفة مربعة");
+        alert("ط§ظ„ظ…ط­ط¯ط¯ ظٹط­طھط§ط¬ ظ…طµظپظˆظپط© ظ…ط±ط¨ط¹ط©");
         return;
     }
 
@@ -24615,7 +24615,7 @@ window.matrixDetA = function () {
 
     } else {
 
-        alert("المحدد متاح حاليًا حتى 3×3");
+        alert("ط§ظ„ظ…ط­ط¯ط¯ ظ…طھط§ط­ ط­ط§ظ„ظٹظ‹ط§ ط­طھظ‰ 3أ—3");
         return;
     }
 
@@ -24629,7 +24629,7 @@ window.matrixDetA = function () {
 window.matrixInverseA = function () {
 
     if (!window.matrices || !window.matrices.A) {
-        alert("MatA غير موجودة");
+        alert("MatA ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©");
         return;
     }
 
@@ -24639,7 +24639,7 @@ window.matrixInverseA = function () {
         A.length !== A[0].length ||
         (A.length !== 2 && A.length !== 3)
     ) {
-        alert("المعكوس متاح حاليًا لـ 2×2 و 3×3");
+        alert("ط§ظ„ظ…ط¹ظƒظˆط³ ظ…طھط§ط­ ط­ط§ظ„ظٹظ‹ط§ ظ„ظ€ 2أ—2 ظˆ 3أ—3");
         return;
     }
 
@@ -24652,7 +24652,7 @@ window.matrixInverseA = function () {
             A[0][1] * A[1][0];
 
         if (Math.abs(det) < 1e-12) {
-            alert("MatA ليس لها معكوس");
+            alert("MatA ظ„ظٹط³ ظ„ظ‡ط§ ظ…ط¹ظƒظˆط³");
             return;
         }
 
@@ -24661,11 +24661,11 @@ window.matrixInverseA = function () {
             [ -A[1][0] / det, A[0][0] / det ]
         ];
 
-        matrixShow("A⁻¹", inv);
+        matrixShow("Aâپ»آ¹", inv);
         return;
     }
 
-    // 3×3
+    // 3أ—3
 
     det =
         A[0][0] * (
@@ -24684,7 +24684,7 @@ window.matrixInverseA = function () {
         );
 
     if (Math.abs(det) < 1e-12) {
-        alert("MatA ليس لها معكوس");
+        alert("MatA ظ„ظٹط³ ظ„ظ‡ط§ ظ…ط¹ظƒظˆط³");
         return;
     }
 
@@ -24722,12 +24722,12 @@ window.matrixInverseA = function () {
         }
     }
 
-    matrixShow("A⁻¹", inv);
+    matrixShow("Aâپ»آ¹", inv);
 };
 window.matrixTransposeA = function () {
 
     if (!window.matrices || !window.matrices.A) {
-        alert("MatA غير موجودة");
+        alert("MatA ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©");
         return;
     }
 
@@ -24737,20 +24737,20 @@ window.matrixTransposeA = function () {
         A.map(row => row[c])
     );
 
-    matrixShow("Aᵀ", result);
+    matrixShow("Aلµ€", result);
 };
 window.matrixSquareA = function () {
 
     if (!window.matrices || !window.matrices.A) {
-        alert("MatA غير موجودة");
+        alert("MatA ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©");
         return;
     }
 
     const A = window.matrices.A;
 
-    // لازم تكون مربعة
+    // ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©
     if (A.length !== A[0].length) {
-        alert("MatA لازم تكون مربعة");
+        alert("MatA ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©");
         return;
     }
 
@@ -24775,20 +24775,20 @@ window.matrixSquareA = function () {
         }
     }
 
-    matrixShow("A²", result);
+    matrixShow("Aآ²", result);
 };
 window.matrixPowerA = function () {
 
     if (!window.matrices || !window.matrices.A) {
-        alert("MatA غير موجودة");
+        alert("MatA ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©");
         return;
     }
 
     const A = window.matrices.A;
 
-    // لازم تكون مربعة
+    // ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©
     if (A.length === 0 || A.length !== A[0].length) {
-        alert("MatA لازم تكون مربعة");
+        alert("MatA ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©");
         return;
     }
 
@@ -24824,7 +24824,7 @@ window.matrixPowerA = function () {
             margin-top:5px;
             text-align:center;
         ">
-            أدخل قيمة n ثم اضغط =
+            ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© n ط«ظ… ط§ط¶ط؛ط· =
         </div>
     `;
 };
@@ -24857,7 +24857,7 @@ window.matrixPowerCalculate = function () {
     const n = Number(window.matrixPowerData?.current);
 
     if (!Number.isInteger(n) || n < 0) {
-        alert("قيمة n يجب أن تكون عددًا صحيحًا موجبًا أو صفرًا");
+        alert("ظ‚ظٹظ…ط© n ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط¹ط¯ط¯ظ‹ط§ طµط­ظٹط­ظ‹ط§ ظ…ظˆط¬ط¨ظ‹ط§ ط£ظˆ طµظپط±ظ‹ط§");
         return;
     }
 
@@ -24886,7 +24886,7 @@ window.matrixPowerCalculate = function () {
         return result;
     }
 
-    // مصفوفة الوحدة
+    // ظ…طµظپظˆظپط© ط§ظ„ظˆط­ط¯ط©
     let result =
         Array.from(
             { length: size },
@@ -24934,7 +24934,7 @@ window.matrixScalarA = function () {
 
     form.innerHTML = `
         <div style="font-size:11px; font-weight:bold;">
-            MatA × K
+            MatA أ— K
         </div>
 
         <div id="matrixScalarInput"
@@ -24950,7 +24950,7 @@ window.matrixScalarA = function () {
             font-size:9px;
             margin-top:4px;
         ">
-            أدخل قيمة K ثم اضغط =
+            ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© K ط«ظ… ط§ط¶ط؛ط· =
         </div>
     `;
 };
@@ -25028,7 +25028,7 @@ window.matrixTraceA = function () {
 
     const A = window.matrices.A;
 
-    // لازم تكون مربعة
+    // ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©
     if (A.length !== A[0].length) {
         return;
     }
@@ -25068,21 +25068,21 @@ window.matrixAdjA = function () {
 
     const n = A.length;
 
-    // مصفوفة المحصلات Cofactors
+    // ظ…طµظپظˆظپط© ط§ظ„ظ…ط­طµظ„ط§طھ Cofactors
     const cofactors =
         Array.from(
             { length: n },
             () => Array(n).fill(0)
         );
 
-    // مصفوفة 1×1
+    // ظ…طµظپظˆظپط© 1أ—1
     if (n === 1) {
         cofactors[0][0] = 1;
         matrixShow("Adj(A)", cofactors);
         return;
     }
 
-    // حساب الـ Cofactors
+    // ط­ط³ط§ط¨ ط§ظ„ظ€ Cofactors
     for (let i = 0; i < n; i++) {
 
         for (let j = 0; j < n; j++) {
@@ -25208,7 +25208,7 @@ window.matrixIsSymmetric = function () {
 
     const A = window.matrices.A;
 
-    // لازم تكون مربعة
+    // ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©
     if (A.length !== A[0].length) {
 
         const form =
@@ -25279,7 +25279,7 @@ window.matrixIsSkew = function () {
 
     if (!form) return;
 
-    // لازم تكون مربعة
+    // ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©
     if (A.length !== A[0].length) {
 
         form.innerHTML = `
@@ -25299,7 +25299,7 @@ window.matrixIsSkew = function () {
 
     let skew = true;
 
-    // عناصر القطر الرئيسي لازم تكون صفر
+    // ط¹ظ†ط§طµط± ط§ظ„ظ‚ط·ط± ط§ظ„ط±ط¦ظٹط³ظٹ ظ„ط§ط²ظ… طھظƒظˆظ† طµظپط±
     for (let i = 0; i < n; i++) {
 
         if (Math.abs(A[i][i]) > 1e-10) {
@@ -25308,7 +25308,7 @@ window.matrixIsSkew = function () {
         }
     }
 
-    // aᵢⱼ = -aⱼᵢ
+    // aلµ¢â±¼ = -aâ±¼لµ¢
     if (skew) {
 
         for (let i = 0; i < n; i++) {
@@ -25392,7 +25392,7 @@ window.matrixIsIdentity = function () {
 
     let identity = true;
 
-    // لازم تكون مربعة
+    // ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©
     if (A.length === 0 || A.length !== A[0].length) {
         identity = false;
     } else {
@@ -25472,7 +25472,7 @@ window.matrixTraceA = function () {
 
     if (!form) return;
 
-    // لازم تكون مربعة
+    // ظ„ط§ط²ظ… طھظƒظˆظ† ظ…ط±ط¨ط¹ط©
     if (A.length === 0 || A.length !== A[0].length) {
 
         form.innerHTML = `
@@ -25890,7 +25890,7 @@ window.matrixCondA = function () {
     }
 
     // ==========================================
-    // نسخ A
+    // ظ†ط³ط® A
     // ==========================================
 
     const M = A.map(row => row.map(Number));
@@ -25900,7 +25900,7 @@ window.matrixCondA = function () {
     );
 
     // ==========================================
-    // Gauss-Jordan لحساب A⁻¹
+    // Gauss-Jordan ظ„ط­ط³ط§ط¨ Aâپ»آ¹
     // ==========================================
 
     for (let col = 0; col < n; col++) {
@@ -25921,7 +25921,7 @@ window.matrixCondA = function () {
 
             form.innerHTML = `
                 <div style="font-size:13px;font-weight:bold;text-align:center;">
-                    Cond(MatA) = ∞
+                    Cond(MatA) = âˆ‍
                 </div>
             `;
 
@@ -26015,7 +26015,7 @@ window.matrixDetA = function () {
     }
 
     // ==========================================
-    // نسخ المصفوفة
+    // ظ†ط³ط® ط§ظ„ظ…طµظپظˆظپط©
     // ==========================================
 
     const M = A.map(row => row.map(Number));
@@ -26040,14 +26040,14 @@ window.matrixDetA = function () {
             }
         }
 
-        // المصفوفة مفردة
+        // ط§ظ„ظ…طµظپظˆظپط© ظ…ظپط±ط¯ط©
         if (Math.abs(M[pivot][col]) < 1e-12) {
 
             det = 0;
             break;
         }
 
-        // تبديل الصفوف
+        // طھط¨ط¯ظٹظ„ ط§ظ„طµظپظˆظپ
         if (pivot !== col) {
             [M[col], M[pivot]] =
     [M[pivot], M[col]];
@@ -26059,7 +26059,7 @@ window.matrixDetA = function () {
 
         det *= p;
 
-        // تصفير العناصر تحت الـ pivot
+        // طھطµظپظٹط± ط§ظ„ط¹ظ†ط§طµط± طھط­طھ ط§ظ„ظ€ pivot
         for (let r = col + 1; r < n; r++) {
 
             const factor = M[r][col] / p;
@@ -26073,7 +26073,7 @@ window.matrixDetA = function () {
     }
 
     // ==========================================
-    // عرض النتيجة
+    // ط¹ط±ط¶ ط§ظ„ظ†طھظٹط¬ط©
     // ==========================================
 
     form.innerHTML = `
@@ -26103,12 +26103,12 @@ window.matrixCreate = function(name, rows, cols) {
 
     form.innerHTML = `
       <div style="font-size:13px; font-weight:bold; margin-bottom:5px;">
-    Mat${name} ${rows}×${cols}
+    Mat${name} ${rows}أ—${cols}
 </div>
 
         <div id="matrixInput"
              style="font-size:11px; font-weight:bold; margin-top:4px;">
-            a₁₁ = _
+            aâ‚پâ‚پ = _
         </div>
 
         <div id="matrixResult"
@@ -26127,7 +26127,7 @@ function matrixEnterNumber(value) {
     if (currentMode !== "MATRIX") return;
 
     // ==========================================
-    // إدخال K في MatA × K
+    // ط¥ط¯ط®ط§ظ„ K ظپظٹ MatA أ— K
     // ==========================================
 
     if (
@@ -26135,7 +26135,7 @@ function matrixEnterNumber(value) {
         document.getElementById("matrixScalarInput")
     ) {
 
-        if (value === "-" || value === "−") {
+        if (value === "-" || value === "âˆ’") {
 
             if (window.matrixScalarData.current === "") {
 
@@ -26165,7 +26165,7 @@ function matrixEnterNumber(value) {
     }
 
     // ==========================================
-    // التأكد من وجود بيانات المصفوفة
+    // ط§ظ„طھط£ظƒط¯ ظ…ظ† ظˆط¬ظˆط¯ ط¨ظٹط§ظ†ط§طھ ط§ظ„ظ…طµظپظˆظپط©
     // ==========================================
 
     if (!window.matrixData) return;
@@ -26178,10 +26178,10 @@ function matrixEnterNumber(value) {
     if (!input) return;
 
     // ==========================================
-    // السالب
+    // ط§ظ„ط³ط§ظ„ط¨
     // ==========================================
 
-    if (value === "-" || value === "−") {
+    if (value === "-" || value === "âˆ’") {
 
         if (data.current === "") {
 
@@ -26204,7 +26204,7 @@ function matrixEnterNumber(value) {
     if (data.type === "SCALAR") {
 
         input.textContent =
-            "القيمة = " + data.current;
+            "ط§ظ„ظ‚ظٹظ…ط© = " + data.current;
 
         return;
     }
@@ -26282,7 +26282,7 @@ const c = index % data.cols;
 input.textContent =
     `a${r + 1}${c + 1} = ${data.current}`;
 }
-// --- وضع المعادلات EQN ---
+// --- ظˆط¶ط¹ ط§ظ„ظ…ط¹ط§ط¯ظ„ط§طھ EQN ---
 window.setupEqn = function(type) {
 
     let form = document.getElementById("eqnForm");
@@ -26292,7 +26292,7 @@ window.setupEqn = function(type) {
 
         form.innerHTML = `
             <div style="font-size:10px; margin-bottom:3px;">
-                ax² + bx + c = 0
+                axآ² + bx + c = 0
             </div>
 
             <div id="eqnInput"
@@ -26319,17 +26319,17 @@ window.setupEqn = function(type) {
 
         form.innerHTML = `
             <div style="font-size:10px; margin-bottom:3px;">
-                a₁x + b₁y = c₁
+                aâ‚پx + bâ‚پy = câ‚پ
             </div>
 
             <div style="font-size:9px;">
-                a₁x + b₁y = c₁<br>
-                a₂x + b₂y = c₂
+                aâ‚پx + bâ‚پy = câ‚پ<br>
+                aâ‚‚x + bâ‚‚y = câ‚‚
             </div>
 
             <div id="eqnInput"
                  style="font-size:11px; font-weight:bold; margin-top:4px;">
-                a₁ = _
+                aâ‚پ = _
             </div>
 
             <div id="eqnResult"
@@ -26355,14 +26355,14 @@ window.setupEqn = function(type) {
             </div>
 
             <div style="font-size:9px;">
-                a₁x+b₁y+c₁z=d₁<br>
-                a₂x+b₂y+c₂z=d₂<br>
-                a₃x+b₃y+c₃z=d₃
+                aâ‚پx+bâ‚پy+câ‚پz=dâ‚پ<br>
+                aâ‚‚x+bâ‚‚y+câ‚‚z=dâ‚‚<br>
+                aâ‚ƒx+bâ‚ƒy+câ‚ƒz=dâ‚ƒ
             </div>
 
             <div id="eqnInput"
                  style="font-size:11px; font-weight:bold; margin-top:4px;">
-                a₁ = _
+                aâ‚پ = _
             </div>
 
             <div id="eqnResult"
@@ -26384,7 +26384,7 @@ window.setupEqn = function(type) {
 
     form.innerHTML = `
         <div style="font-size:10px; margin-bottom:3px;">
-            ax³ + bx² + cx + d = 0
+            axآ³ + bxآ² + cx + d = 0
         </div>
 
         <div id="cubicInput"
@@ -26409,7 +26409,7 @@ else if (type === 5) {
 
     form.innerHTML = `
         <div style="font-size:10px; margin-bottom:3px;">
-            ax⁴ + bx³ + cx² + dx + e = 0
+            axâپ´ + bxآ³ + cxآ² + dx + e = 0
         </div>
 
         <div id="quarticInput"
@@ -26473,29 +26473,29 @@ function eqnUpdateScreen() {
     if (eqnData.type === 2) {
 
         names = [
-            "a₁",
-            "b₁",
-            "c₁",
-            "a₂",
-            "b₂",
-            "c₂"
+            "aâ‚پ",
+            "bâ‚پ",
+            "câ‚پ",
+            "aâ‚‚",
+            "bâ‚‚",
+            "câ‚‚"
         ];
 
     } else if (eqnData.type === 3) {
 
         names = [
-            "a₁",
-            "b₁",
-            "c₁",
-            "d₁",
-            "a₂",
-            "b₂",
-            "c₂",
-            "d₂",
-            "a₃",
-            "b₃",
-            "c₃",
-            "d₃"
+            "aâ‚پ",
+            "bâ‚پ",
+            "câ‚پ",
+            "dâ‚پ",
+            "aâ‚‚",
+            "bâ‚‚",
+            "câ‚‚",
+            "dâ‚‚",
+            "aâ‚ƒ",
+            "bâ‚ƒ",
+            "câ‚ƒ",
+            "dâ‚ƒ"
         ];
 
     } else {
@@ -26534,16 +26534,16 @@ function eqnNext() {
     if (!document.getElementById("eqnInput")) return;
 
     if (eqnData.current === "") return;
- // حفظ الرقم الحالي
+ // ط­ظپط¸ ط§ظ„ط±ظ‚ظ… ط§ظ„ط­ط§ظ„ظٹ
     eqnData.values.push(Number(eqnData.current));
 
-    // تصفير الرقم الحالي
+    // طھطµظپظٹط± ط§ظ„ط±ظ‚ظ… ط§ظ„ط­ط§ظ„ظٹ
     eqnData.current = "";
 
-    // الانتقال للمعامل التالي
+    // ط§ظ„ط§ظ†طھظ‚ط§ظ„ ظ„ظ„ظ…ط¹ط§ظ…ظ„ ط§ظ„طھط§ظ„ظٹ
     eqnData.index++;
 
-    // 2×2
+    // 2أ—2
     if (eqnData.type === 2) {
 
         if (eqnData.index < 6) {
@@ -26602,7 +26602,7 @@ function solveLinearFromValues() {
 
     if (D === 0) {
 
-        resDiv.innerHTML = "لا يوجد حل فريد";
+        resDiv.innerHTML = "ظ„ط§ ظٹظˆط¬ط¯ ط­ظ„ ظپط±ظٹط¯";
 
         return;
     }
@@ -26629,7 +26629,7 @@ function solveQuadFromValues() {
     if (!resDiv) return;
 
     if (a === 0) {
-        resDiv.innerHTML = "خطأ: a لا تساوي 0";
+        resDiv.innerHTML = "ط®ط·ط£: a ظ„ط§ طھط³ط§ظˆظٹ 0";
         return;
     }
 
@@ -26662,8 +26662,8 @@ function solveQuadFromValues() {
     }
 }
 // ==========================================
-// المعادلة التكعيبية
-// ax³ + bx² + cx + d = 0
+// ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط§ظ„طھظƒط¹ظٹط¨ظٹط©
+// axآ³ + bxآ² + cx + d = 0
 // ==========================================
 
 window.cubicData = {
@@ -26673,7 +26673,7 @@ window.cubicData = {
 };
 
 cubicUpdateScreen();
-// عرض المعامل الحالي
+// ط¹ط±ط¶ ط§ظ„ظ…ط¹ط§ظ…ظ„ ط§ظ„ط­ط§ظ„ظٹ
 function cubicUpdateScreen() {
 
     const box = document.getElementById("cubicInput");
@@ -26689,7 +26689,7 @@ function cubicUpdateScreen() {
 }
 
 
-// إدخال رقم من الآلة
+// ط¥ط¯ط®ط§ظ„ ط±ظ‚ظ… ظ…ظ† ط§ظ„ط¢ظ„ط©
 function cubicEnterNumber(value) {
 
     if (currentMode !== "EQN") return;
@@ -26700,7 +26700,7 @@ function cubicEnterNumber(value) {
 
     if (cubicData.index >= 4) return;
 
-    // السماح بالسالب في بداية المعامل فقط
+    // ط§ظ„ط³ظ…ط§ط­ ط¨ط§ظ„ط³ط§ظ„ط¨ ظپظٹ ط¨ط¯ط§ظٹط© ط§ظ„ظ…ط¹ط§ظ…ظ„ ظپظ‚ط·
     if (value === "-") {
 
         if (cubicData.current === "") {
@@ -26711,7 +26711,7 @@ function cubicEnterNumber(value) {
         return;
     }
 
-    // الأرقام
+    // ط§ظ„ط£ط±ظ‚ط§ظ…
     if (/^[0-9.]$/.test(value)) {
 
         cubicData.current += value;
@@ -26720,42 +26720,42 @@ function cubicEnterNumber(value) {
 }
 
 
-// الضغط على =
+// ط§ظ„ط¶ط؛ط· ط¹ظ„ظ‰ =
 function cubicNext() {
 
     const box = document.getElementById("cubicInput");
 
     if (!box) return;
 
-    // لازم يكون فيه رقم
+    // ظ„ط§ط²ظ… ظٹظƒظˆظ† ظپظٹظ‡ ط±ظ‚ظ…
     if (cubicData.current === "") return;
 
-    // حفظ المعامل
+    // ط­ظپط¸ ط§ظ„ظ…ط¹ط§ظ…ظ„
     cubicData.values.push(
         Number(cubicData.current)
     );
 
-    // تصفير الإدخال
+    // طھطµظپظٹط± ط§ظ„ط¥ط¯ط®ط§ظ„
     cubicData.current = "";
 
-    // الانتقال للمعامل التالي
+    // ط§ظ„ط§ظ†طھظ‚ط§ظ„ ظ„ظ„ظ…ط¹ط§ظ…ظ„ ط§ظ„طھط§ظ„ظٹ
     cubicData.index++;
 
-    // لسه فيه معاملات
+    // ظ„ط³ظ‡ ظپظٹظ‡ ظ…ط¹ط§ظ…ظ„ط§طھ
     if (cubicData.index < 4) {
 
         cubicUpdateScreen();
 
     } else {
 
-        // تم إدخال a,b,c,d
+        // طھظ… ط¥ط¯ط®ط§ظ„ a,b,c,d
         solveCubicFromValues();
     }
 }
 
 
 // ==========================================
-// حل المعادلة التكعيبية
+// ط­ظ„ ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط§ظ„طھظƒط¹ظٹط¨ظٹط©
 // ==========================================
 
 window.solveCubicFromValues = function () {
@@ -26773,24 +26773,24 @@ window.solveCubicFromValues = function () {
 
     if (!resDiv) return;
 
-    // a لا يمكن أن تساوي صفر
+    // a ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±
     if (a === 0) {
 
         resDiv.innerHTML =
-            "خطأ: a لا تساوي 0";
+            "ط®ط·ط£: a ظ„ط§ طھط³ط§ظˆظٹ 0";
 
         return;
     }
 
-    // تحويل المعادلة إلى:
-    // x³ + Ax² + Bx + C = 0
+    // طھط­ظˆظٹظ„ ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط¥ظ„ظ‰:
+    // xآ³ + Axآ² + Bx + C = 0
 
     const A = b / a;
     const B = c / a;
     const C = d / a;
 
-    // تحويلها إلى المعادلة المختزلة:
-    // y³ + py + q = 0
+    // طھط­ظˆظٹظ„ظ‡ط§ ط¥ظ„ظ‰ ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط§ظ„ظ…ط®طھط²ظ„ط©:
+    // yآ³ + py + q = 0
 
     const p =
         B - (A * A) / 3;
@@ -26800,7 +26800,7 @@ window.solveCubicFromValues = function () {
         - (A * B) / 3
         + C;
 
-    // المميز
+    // ط§ظ„ظ…ظ…ظٹط²
     const delta =
         (q * q) / 4 +
         (p * p * p) / 27;
@@ -26808,7 +26808,7 @@ window.solveCubicFromValues = function () {
     let roots = [];
 
     // ==========================================
-    // حالة جذر حقيقي واحد
+    // ط­ط§ظ„ط© ط¬ط°ط± ط­ظ‚ظٹظ‚ظٹ ظˆط§ط­ط¯
     // ==========================================
 
     if (delta > 1e-12) {
@@ -26820,26 +26820,26 @@ window.solveCubicFromValues = function () {
 
     const x1 = u + v - A / 3;
 
-    // الجذر الحقيقي
+    // ط§ظ„ط¬ط°ط± ط§ظ„ط­ظ‚ظٹظ‚ظٹ
     roots.push(
-        `X₁ = ${x1.toFixed(6)}`
+        `Xâ‚پ = ${x1.toFixed(6)}`
     );
 
-    // الجذور المركبة
+    // ط§ظ„ط¬ط°ظˆط± ط§ظ„ظ…ط±ظƒط¨ط©
     const realPart = -(u + v) / 2 - A / 3;
     const imagPart = (Math.sqrt(3) / 2) * (u - v);
 
     roots.push(
-        `X₂ = ${realPart.toFixed(6)} + ${imagPart.toFixed(6)}i`
+        `Xâ‚‚ = ${realPart.toFixed(6)} + ${imagPart.toFixed(6)}i`
     );
 
     roots.push(
-        `X₃ = ${realPart.toFixed(6)} - ${imagPart.toFixed(6)}i`
+        `Xâ‚ƒ = ${realPart.toFixed(6)} - ${imagPart.toFixed(6)}i`
     );
 }
 
     // ==========================================
-    // حالة الجذور المتكررة
+    // ط­ط§ظ„ط© ط§ظ„ط¬ط°ظˆط± ط§ظ„ظ…طھظƒط±ط±ط©
     // ==========================================
 
     else if (Math.abs(delta) <= 1e-12) {
@@ -26854,20 +26854,20 @@ window.solveCubicFromValues = function () {
             -u - A / 3;
 
         roots.push(
-            `X₁ = ${x1.toFixed(6)}`
+            `Xâ‚پ = ${x1.toFixed(6)}`
         );
 
         roots.push(
-            `X₂ = ${x2.toFixed(6)}`
+            `Xâ‚‚ = ${x2.toFixed(6)}`
         );
 
         roots.push(
-            `X₃ = ${x2.toFixed(6)}`
+            `Xâ‚ƒ = ${x2.toFixed(6)}`
         );
     }
 
     // ==========================================
-    // ثلاثة جذور حقيقية مختلفة
+    // ط«ظ„ط§ط«ط© ط¬ط°ظˆط± ط­ظ‚ظٹظ‚ظٹط© ظ…ط®طھظ„ظپط©
     // ==========================================
 
     else {
@@ -26879,7 +26879,7 @@ window.solveCubicFromValues = function () {
             (3 * q / (2 * p)) *
             Math.sqrt(-3 / p);
 
-        // منع خطأ التقريب
+        // ظ…ظ†ط¹ ط®ط·ط£ ط§ظ„طھظ‚ط±ظٹط¨
         cosValue =
             Math.max(
                 -1,
@@ -26906,19 +26906,19 @@ window.solveCubicFromValues = function () {
             - A / 3;
 
         roots.push(
-            `X₁ = ${x1.toFixed(6)}`
+            `Xâ‚پ = ${x1.toFixed(6)}`
         );
 
         roots.push(
-            `X₂ = ${x2.toFixed(6)}`
+            `Xâ‚‚ = ${x2.toFixed(6)}`
         );
 
         roots.push(
-            `X₃ = ${x3.toFixed(6)}`
+            `Xâ‚ƒ = ${x3.toFixed(6)}`
         );
     }
 
-    // عرض النتيجة
+    // ط¹ط±ط¶ ط§ظ„ظ†طھظٹط¬ط©
     resDiv.innerHTML =
         roots.join("<br>");
 };
@@ -26948,31 +26948,31 @@ function solve3Unknowns() {
 
     if (!resDiv) return;
 
-    // المحدد الرئيسي
+    // ط§ظ„ظ…ط­ط¯ط¯ ط§ظ„ط±ط¦ظٹط³ظٹ
     const D =
         a1 * (b2 * c3 - b3 * c2)
         - b1 * (a2 * c3 - a3 * c2)
         + c1 * (a2 * b3 - a3 * b2);
 
-    // لا يوجد حل فريد
+    // ظ„ط§ ظٹظˆط¬ط¯ ط­ظ„ ظپط±ظٹط¯
     if (D === 0) {
-        resDiv.innerHTML = "لا يوجد حل فريد";
+        resDiv.innerHTML = "ظ„ط§ ظٹظˆط¬ط¯ ط­ظ„ ظپط±ظٹط¯";
         return;
     }
 
-    // محدد X
+    // ظ…ط­ط¯ط¯ X
     const Dx =
         d1 * (b2 * c3 - b3 * c2)
         - b1 * (d2 * c3 - d3 * c2)
         + c1 * (d2 * b3 - d3 * b2);
 
-    // محدد Y
+    // ظ…ط­ط¯ط¯ Y
     const Dy =
         a1 * (d2 * c3 - d3 * c2)
         - d1 * (a2 * c3 - a3 * c2)
         + c1 * (a2 * d3 - a3 * d2);
 
-    // محدد Z
+    // ظ…ط­ط¯ط¯ Z
     const Dz =
         a1 * (b2 * d3 - b3 * d2)
         - b1 * (a2 * d3 - a3 * d2)
@@ -27014,7 +27014,7 @@ function quarticNext() {
 
 
 // ==========================================
-// المعادلة التربيعية
+// ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط§ظ„طھط±ط¨ظٹط¹ظٹط©
 // ==========================================
 
 window.solveQuad = function() {
@@ -27026,7 +27026,7 @@ window.solveQuad = function() {
     let resDiv = document.getElementById("eqnResult");
 
     if (a === 0) {
-        resDiv.innerHTML = "خطأ: a لا تساوي 0";
+        resDiv.innerHTML = "ط®ط·ط£: a ظ„ط§ طھط³ط§ظˆظٹ 0";
         return;
     }
 
@@ -27054,7 +27054,7 @@ window.solveQuad = function() {
 
 
 // ==========================================
-// المعادلات الخطية
+// ط§ظ„ظ…ط¹ط§ط¯ظ„ط§طھ ط§ظ„ط®ط·ظٹط©
 // ==========================================
 
 window.solveLin = function() {
@@ -27073,7 +27073,7 @@ window.solveLin = function() {
 
     if (D === 0) {
 
-        resDiv.innerHTML = "لا يوجد حل فريد";
+        resDiv.innerHTML = "ظ„ط§ ظٹظˆط¬ط¯ ط­ظ„ ظپط±ظٹط¯";
 
     } else {
 
@@ -27088,8 +27088,8 @@ window.solveLin = function() {
 
 
 // ==========================================
-// حل الدرجة الرابعة
-// ax⁴ + bx³ + cx² + dx + e = 0
+// ط­ظ„ ط§ظ„ط¯ط±ط¬ط© ط§ظ„ط±ط§ط¨ط¹ط©
+// axâپ´ + bxآ³ + cxآ² + dx + e = 0
 // ==========================================
 
 window.solveQuarticFromValues = function() {
@@ -27109,13 +27109,13 @@ window.solveQuarticFromValues = function() {
     if (!resDiv) return;
 
     if (a === 0) {
-        resDiv.innerHTML = "خطأ: a لا تساوي 0";
+        resDiv.innerHTML = "ط®ط·ط£: a ظ„ط§ طھط³ط§ظˆظٹ 0";
         return;
     }
 
     // ==========================================
-    // تحويل المعادلة إلى الصورة:
-    // x⁴ + A x³ + B x² + C x + D = 0
+    // طھط­ظˆظٹظ„ ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط¥ظ„ظ‰ ط§ظ„طµظˆط±ط©:
+    // xâپ´ + A xآ³ + B xآ² + C x + D = 0
     // ==========================================
 
     const A = b / a;
@@ -27124,8 +27124,8 @@ window.solveQuarticFromValues = function() {
     const D = e / a;
 
     // ==========================================
-    // نحولها إلى:
-    // y⁴ + p y² + q y + r = 0
+    // ظ†ط­ظˆظ„ظ‡ط§ ط¥ظ„ظ‰:
+    // yâپ´ + p yآ² + q y + r = 0
     // ==========================================
 
     const p = B - (3 * A * A) / 8;
@@ -27144,9 +27144,9 @@ window.solveQuarticFromValues = function() {
     const EPS = 1e-10;
 
     // ==========================================
-    // حالة q = 0
-    // المعادلة تصبح:
-    // y⁴ + p y² + r = 0
+    // ط­ط§ظ„ط© q = 0
+    // ط§ظ„ظ…ط¹ط§ط¯ظ„ط© طھطµط¨ط­:
+    // yâپ´ + p yآ² + r = 0
     // ==========================================
 
     if (Math.abs(q) < EPS) {
@@ -27216,7 +27216,7 @@ window.solveQuarticFromValues = function() {
     }
 
     // ==========================================
-    // حل المعادلة المكعبة المساعدة
+    // ط­ظ„ ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط§ظ„ظ…ظƒط¹ط¨ط© ط§ظ„ظ…ط³ط§ط¹ط¯ط©
     // ==========================================
 
     const cubicA = -p / 2;
@@ -27230,7 +27230,7 @@ window.solveQuarticFromValues = function() {
         cubicB
     );
 
-    // نحتاج جذرًا حقيقيًا مناسبًا
+    // ظ†ط­طھط§ط¬ ط¬ط°ط±ظ‹ط§ ط­ظ‚ظٹظ‚ظٹظ‹ط§ ظ…ظ†ط§ط³ط¨ظ‹ط§
     let z = null;
 
     for (const root of cubicRoots) {
@@ -27246,14 +27246,14 @@ window.solveQuarticFromValues = function() {
     }
 
     if (z === null) {
-        resDiv.innerHTML = "تعذر حل المعادلة";
+        resDiv.innerHTML = "طھط¹ط°ط± ط­ظ„ ط§ظ„ظ…ط¹ط§ط¯ظ„ط©";
         return;
     }
 
     const alpha = Math.sqrt(Math.max(0, 2 * z - p));
 
     if (Math.abs(alpha) < EPS) {
-        resDiv.innerHTML = "تعذر حل المعادلة";
+        resDiv.innerHTML = "طھط¹ط°ط± ط­ظ„ ط§ظ„ظ…ط¹ط§ط¯ظ„ط©";
         return;
     }
 
@@ -27268,7 +27268,7 @@ window.solveQuarticFromValues = function() {
     const roots = [];
 
     // ==========================================
-    // الجذر الأول والثاني
+    // ط§ظ„ط¬ط°ط± ط§ظ„ط£ظˆظ„ ظˆط§ظ„ط«ط§ظ†ظٹ
     // ==========================================
 
     if (disc1 >= -EPS) {
@@ -27297,7 +27297,7 @@ window.solveQuarticFromValues = function() {
     }
 
     // ==========================================
-    // الجذر الثالث والرابع
+    // ط§ظ„ط¬ط°ط± ط§ظ„ط«ط§ظ„ط« ظˆط§ظ„ط±ط§ط¨ط¹
     // ==========================================
 
     if (disc2 >= -EPS) {
@@ -27326,7 +27326,7 @@ window.solveQuarticFromValues = function() {
     }
 
     // ==========================================
-    // تنسيق النتائج
+    // طھظ†ط³ظٹظ‚ ط§ظ„ظ†طھط§ط¦ط¬
     // ==========================================
 
     resDiv.innerHTML = roots
@@ -27361,7 +27361,7 @@ window.solveQuarticFromValues = function() {
 
 
 // ==========================================
-// مساعد حل المعادلة التكعيبية
+// ظ…ط³ط§ط¹ط¯ ط­ظ„ ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط§ظ„طھظƒط¹ظٹط¨ظٹط©
 // ==========================================
 
 function solveCubicNumerically(a, b, c, d) {
@@ -27444,11 +27444,11 @@ window.addStatData = function () {
 
     statData.push(value);
 
-    console.log("🟢 STAT DATA:", statData);
+    console.log("ًںں¢ STAT DATA:", statData);
 
     input.value = "";
 };
-// --- وضع الإحصاء STAT ---
+// --- ظˆط¶ط¹ ط§ظ„ط¥ط­طµط§ط، STAT ---
 window.calcStat = function() {
    let val = document.getElementById("statInput").value.trim();
 
@@ -27458,7 +27458,7 @@ let arr = statData.length
     let resDiv = document.getElementById("statRes");
     
     if (!arr.length) {
-        resDiv.innerHTML = "أدخل أرقاماً صالحة";
+        resDiv.innerHTML = "ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ…ط§ظ‹ طµط§ظ„ط­ط©";
         return;
     }
     
@@ -27519,17 +27519,17 @@ let modes = Object.keys(frequency)
 
 let modeText = maxFreq > 1
     ? modes.map(v => v.toFixed(3)).join(" , ")
-    : "لا يوجد";
+    : "ظ„ط§ ظٹظˆط¬ط¯";
     let frequencyText = Object.entries(frequency)
-    .map(([value, count]) => `${Number(value).toFixed(3)} → ${count}`)
+    .map(([value, count]) => `${Number(value).toFixed(3)} â†’ ${count}`)
     .join("<br>");
     
   resDiv.innerHTML = `
         n = ${n}<br>
-        Σx (المجموع) = ${sum.toFixed(3)}<br>
-        Σx² = ${sumSq.toFixed(3)}<br>
-        Σ(x−x̄)² = ${sumDevSq.toFixed(3)}<br>
-        x̄ (المتوسط) = ${mean.toFixed(3)}<br>
+        خ£x (ط§ظ„ظ…ط¬ظ…ظˆط¹) = ${sum.toFixed(3)}<br>
+        خ£xآ² = ${sumSq.toFixed(3)}<br>
+        خ£(xâˆ’xج„)آ² = ${sumDevSq.toFixed(3)}<br>
+        xج„ (ط§ظ„ظ…طھظˆط³ط·) = ${mean.toFixed(3)}<br>
         Median = ${median.toFixed(3)}<br>
 Min = ${min.toFixed(3)}<br>
 Max = ${max.toFixed(3)}<br>
@@ -27537,11 +27537,11 @@ Range = ${range.toFixed(3)}<br>
 Q1 = ${q1.toFixed(3)}<br>
 Q3 = ${q3.toFixed(3)}<br>
 Mode = ${modeText}<br>
-التكرارات:<br>${frequencyText}<br>
-        σ (الانحراف) = ${sd.toFixed(3)}<br>
-        s² (التباين) = ${variance.toFixed(3)}<br>
-        s (انحراف العينة) = ${sampleSd.toFixed(3)}<br>
-s² (تباين العينة) = ${sampleVariance.toFixed(3)}
+ط§ظ„طھظƒط±ط§ط±ط§طھ:<br>${frequencyText}<br>
+        دƒ (ط§ظ„ط§ظ†ط­ط±ط§ظپ) = ${sd.toFixed(3)}<br>
+        sآ² (ط§ظ„طھط¨ط§ظٹظ†) = ${variance.toFixed(3)}<br>
+        s (ط§ظ†ط­ط±ط§ظپ ط§ظ„ط¹ظٹظ†ط©) = ${sampleSd.toFixed(3)}<br>
+sآ² (طھط¨ط§ظٹظ† ط§ظ„ط¹ظٹظ†ط©) = ${sampleVariance.toFixed(3)}
 `;
 };
 window.clearStat = function() {
@@ -27580,13 +27580,13 @@ window.calcRegression = function() {
         .filter(v => Number.isFinite(v));
 
     if (x.length < 2 || y.length < 2) {
-        result.innerHTML = "أدخل X و Y";
+        result.innerHTML = "ط£ط¯ط®ظ„ X ظˆ Y";
         return;
     }
 
     if (x.length !== y.length) {
         result.innerHTML =
-            `عدد X = ${x.length}<br>عدد Y = ${y.length}`;
+            `ط¹ط¯ط¯ X = ${x.length}<br>ط¹ط¯ط¯ Y = ${y.length}`;
         return;
     }
 
@@ -27601,7 +27601,7 @@ window.calcRegression = function() {
     const denominator = n * sumX2 - sumX * sumX;
 
     if (denominator === 0) {
-        result.innerHTML = "لا يمكن حساب الانحدار";
+        result.innerHTML = "ظ„ط§ ظٹظ…ظƒظ† ط­ط³ط§ط¨ ط§ظ„ط§ظ†ط­ط¯ط§ط±";
         return;
     }
 
@@ -27611,7 +27611,7 @@ window.calcRegression = function() {
     const a =
         (sumY - b * sumX) / n;
 
-    // حفظ معادلة الانحدار
+    // ط­ظپط¸ ظ…ط¹ط§ط¯ظ„ط© ط§ظ„ط§ظ†ط­ط¯ط§ط±
     regressionA = a;
     regressionB = b;
 
@@ -27638,7 +27638,7 @@ window.calcRegression = function() {
         b = ${b.toFixed(6)}<br>
         y = ${a.toFixed(6)} + ${b.toFixed(6)}x<br>
         R = ${r.toFixed(6)}<br>
-        R² = ${r2.toFixed(6)}
+        Rآ² = ${r2.toFixed(6)}
     `;
 };
 window.predictRegression = function() {
@@ -27648,23 +27648,23 @@ window.predictRegression = function() {
     const x = Number(input.value);
 
     if (!Number.isFinite(x)) {
-        result.innerHTML = "أدخل قيمة X صحيحة";
+        result.innerHTML = "ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© X طµط­ظٹط­ط©";
         return;
     }
 
     if (regressionA === null || regressionB === null) {
-        result.innerHTML = "احسب REG أولًا";
+        result.innerHTML = "ط§ط­ط³ط¨ REG ط£ظˆظ„ظ‹ط§";
         return;
     }
 
     const y = regressionA + regressionB * x;
 
     result.innerHTML += `
-        <br>عند X = ${x.toFixed(3)}
-        → Y = ${y.toFixed(6)}
+        <br>ط¹ظ†ط¯ X = ${x.toFixed(3)}
+        â†’ Y = ${y.toFixed(6)}
     `;
 };
-// --- وضع جدول الدوال TABLE ---
+// --- ظˆط¶ط¹ ط¬ط¯ظˆظ„ ط§ظ„ط¯ظˆط§ظ„ TABLE ---
 window.generateTable = function() {
     let expr = document.getElementById("tableFx").value;
     let start = Number(document.getElementById("tStart").value);
@@ -27691,18 +27691,18 @@ window.generateTable = function() {
     resDiv.innerHTML = html;
 };
 // ==========================================
-// محرك حساب الكسور
+// ظ…ط­ط±ظƒ ط­ط³ط§ط¨ ط§ظ„ظƒط³ظˆط±
 // ==========================================
 
 function fractionResult(value) {
 
     value = value
-        .replaceAll("×", "*")
-        .replaceAll("÷", "/")
+        .replaceAll("أ—", "*")
+        .replaceAll("أ·", "/")
         .replace(/\s+/g, "");
 
     // ==========================================
-    // تحويل الكسور إلى قيم كسرية دقيقة
+    // طھط­ظˆظٹظ„ ط§ظ„ظƒط³ظˆط± ط¥ظ„ظ‰ ظ‚ظٹظ… ظƒط³ط±ظٹط© ط¯ظ‚ظٹظ‚ط©
     // ==========================================
 
     const fractionPattern =
@@ -27723,20 +27723,20 @@ function fractionResult(value) {
                 throw new Error("Math Error");
             }
 
-            // تحويل الكسر إلى رقم عشري مؤقت
-            // للحساب العام
+            // طھط­ظˆظٹظ„ ط§ظ„ظƒط³ط± ط¥ظ„ظ‰ ط±ظ‚ظ… ط¹ط´ط±ظٹ ظ…ط¤ظ‚طھ
+            // ظ„ظ„ط­ط³ط§ط¨ ط§ظ„ط¹ط§ظ…
             return `(${numerator / denominator})`;
         }
     );
 // ==========================================
-// تحويل الجذر والجذر التكعيبي
+// طھط­ظˆظٹظ„ ط§ظ„ط¬ط°ط± ظˆط§ظ„ط¬ط°ط± ط§ظ„طھظƒط¹ظٹط¨ظٹ
 // ==========================================
 
 value = value
-    .replace(/√\(/g, "Math.sqrt(")
-    .replace(/∛\(/g, "Math.cbrt(");
+    .replace(/âˆڑ\(/g, "Math.sqrt(")
+    .replace(/âˆ›\(/g, "Math.cbrt(");
     // ==========================================
-    // لو مفيش كسر
+    // ظ„ظˆ ظ…ظپظٹط´ ظƒط³ط±
     // ==========================================
 
     if (!foundFraction) {
@@ -27744,7 +27744,7 @@ value = value
     }
 
     // ==========================================
-    // الحساب
+    // ط§ظ„ط­ط³ط§ط¨
     // ==========================================
 
     let result = Function(
@@ -27756,7 +27756,7 @@ value = value
     }
 
     // ==========================================
-    // تحويل الناتج إلى كسر مبسط
+    // طھط­ظˆظٹظ„ ط§ظ„ظ†ط§طھط¬ ط¥ظ„ظ‰ ظƒط³ط± ظ…ط¨ط³ط·
     // ==========================================
 
     result = Number(result.toFixed(10));
@@ -27769,7 +27769,7 @@ value = value
         };
     }
 
-    // التعامل مع السالب
+    // ط§ظ„طھط¹ط§ظ…ظ„ ظ…ط¹ ط§ظ„ط³ط§ظ„ط¨
     let sign = result < 0 ? -1 : 1;
 
     result = Math.abs(result);
@@ -27793,7 +27793,7 @@ value = value
     numerator *= sign;
 
     // ==========================================
-    // تبسيط الكسر
+    // طھط¨ط³ظٹط· ط§ظ„ظƒط³ط±
     // ==========================================
 
     const divisor =
@@ -27811,18 +27811,18 @@ value = value
     };
 }
 // ==========================================
-// 12. محرك تنفيذ المعادلة عند الضغط على (=)
+// 12. ظ…ط­ط±ظƒ طھظ†ظپظٹط° ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط¹ظ†ط¯ ط§ظ„ط¶ط؛ط· ط¹ظ„ظ‰ (=)
 // ==========================================
  function calculateFractionPart(expr) {
-    // تحويل شكل ABS الظاهري |x| إلى abs(x)
+    // طھط­ظˆظٹظ„ ط´ظƒظ„ ABS ط§ظ„ط¸ط§ظ‡ط±ظٹ |x| ط¥ظ„ظ‰ abs(x)
 expr = expr.replace(/\|([^|]*)\|/g, "abs($1)");
 // ==========================================
-// √ أو ∛ يحتويان على كسر
-// مثال: √(1/4)  →  0.5
-//       ∛(1/8)  →  0.5
+// âˆڑ ط£ظˆ âˆ› ظٹط­طھظˆظٹط§ظ† ط¹ظ„ظ‰ ظƒط³ط±
+// ظ…ط«ط§ظ„: âˆڑ(1/4)  â†’  0.5
+//       âˆ›(1/8)  â†’  0.5
 // ==========================================
 
-expr = expr.replace(/√\(([^()]*)\)/g, (match, inside) => {
+expr = expr.replace(/âˆڑ\(([^()]*)\)/g, (match, inside) => {
 
     if (inside.includes("/")) {
 
@@ -27853,7 +27853,7 @@ expr = expr.replace(/√\(([^()]*)\)/g, (match, inside) => {
     return match;
 });
 
-expr = expr.replace(/∛\(([^()]*)\)/g, (match, inside) => {
+expr = expr.replace(/âˆ›\(([^()]*)\)/g, (match, inside) => {
 
     if (inside.includes("/")) {
 
@@ -27884,26 +27884,26 @@ expr = expr.replace(/∛\(([^()]*)\)/g, (match, inside) => {
     return match;
 });
         // ==========================================
-    // CMPLX داخل الكسر
+    // CMPLX ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
     // ==========================================
 
     if (currentMode === "CMPLX" && /i/.test(expr)) {
-        console.log("🟣 FRACTION CMPLX PART:", expr);
+        console.log("ًںں£ FRACTION CMPLX PART:", expr);
 
         return parseCMPLX(expr);
     }
     // ==========================================
-    // CMPLX داخل الكسر
+    // CMPLX ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
     // ==========================================
     
             let parsed = expr
-                .replaceAll("×", "*")
-                .replaceAll("÷", "/")
-                .replaceAll("−", "-")
-                .replaceAll("π", "Math.PI")
+                .replaceAll("أ—", "*")
+                .replaceAll("أ·", "/")
+                .replaceAll("âˆ’", "-")
+                .replaceAll("د€", "Math.PI")
                 .replace(/\be\b/g, "Math.E")
                 .replaceAll("^", "**");
-console.log("🔥 POWER FRACTION TEST:", parsed);
+console.log("ًں”¥ POWER FRACTION TEST:", parsed);
 
             parsed = parsed.replace(
                 /asin\(([^()]*)\)/g,
@@ -27924,19 +27924,19 @@ console.log("🔥 POWER FRACTION TEST:", parsed);
 // Hyperbolic + Inverse Hyperbolic
 // ==========================================
 
-// نحمي الدوال العكسية أولًا
+// ظ†ط­ظ…ظٹ ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط¹ظƒط³ظٹط© ط£ظˆظ„ظ‹ط§
 parsed = parsed
     .replace(/asinh\(([^()]*)\)/g, "___ASINH___($1)")
     .replace(/acosh\(([^()]*)\)/g, "___ACOSH___($1)")
     .replace(/atanh\(([^()]*)\)/g, "___ATANH___($1)");
 
-// الدوال الزائدية العادية
+// ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط²ط§ط¦ط¯ظٹط© ط§ظ„ط¹ط§ط¯ظٹط©
 parsed = parsed
     .replace(/sinh\(([^()]*)\)/g, "Math.sinh($1)")
     .replace(/cosh\(([^()]*)\)/g, "Math.cosh($1)")
     .replace(/tanh\(([^()]*)\)/g, "Math.tanh($1)");
 
-// نعيد الدوال العكسية بعد انتهاء التحويلات
+// ظ†ط¹ظٹط¯ ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط¹ظƒط³ظٹط© ط¨ط¹ط¯ ط§ظ†طھظ‡ط§ط، ط§ظ„طھط­ظˆظٹظ„ط§طھ
 parsed = parsed
     .replace(/___ASINH___\(([^()]*)\)/g, "Math.asinh($1)")
     .replace(/___ACOSH___\(([^()]*)\)/g, "Math.acosh($1)")
@@ -27970,15 +27970,15 @@ parsed = parsed
 // ==========================================
 
           // ==========================================
-// √ و ∛ مع الكسور
-// مثال:
-// √((1/4)) → Math.sqrt((1/4))
-// ∛((1/8)) → Math.cbrt((1/8))
+// âˆڑ ظˆ âˆ› ظ…ط¹ ط§ظ„ظƒط³ظˆط±
+// ظ…ط«ط§ظ„:
+// âˆڑ((1/4)) â†’ Math.sqrt((1/4))
+// âˆ›((1/8)) â†’ Math.cbrt((1/8))
 // ==========================================
 
 parsed = parsed
-    .replace(/√\(/g, "Math.sqrt(")
-    .replace(/∛\(/g, "Math.cbrt(")
+    .replace(/âˆڑ\(/g, "Math.sqrt(")
+    .replace(/âˆ›\(/g, "Math.cbrt(")
     .replace(/abs\(/g, "Math.abs(")
     .replace(/log\(/g, "Math.log10(")
     .replace(/ln\(/g, "Math.log(");
@@ -28001,10 +28001,10 @@ parsed = parsed
                 /(\d+(?:\.\d+)?)%/g,
                 "($1/100)"
             );
-console.log("🔥 FRACTION PART INPUT:", expr);
-console.log("🔥 FRACTION PART PARSED:", parsed);
-console.log("🚨 FINAL PARSED BEFORE FUNCTION:", parsed);
-console.log("🚨 ORIGINAL FRACTION EXPR:", expr);
+console.log("ًں”¥ FRACTION PART INPUT:", expr);
+console.log("ًں”¥ FRACTION PART PARSED:", parsed);
+console.log("ًںڑ¨ FINAL PARSED BEFORE FUNCTION:", parsed);
+console.log("ًںڑ¨ ORIGINAL FRACTION EXPR:", expr);
             const result = Function(
                 "toRadians",
                 "fromRadians",
@@ -28030,11 +28030,11 @@ const equalsBtn = document.getElementById("equals");
 
 if (equalsBtn) {
 function parseCMPLX(str) {
-console.log("🟢 parseCMPLX INPUT:", str);
+console.log("ًںں¢ parseCMPLX INPUT:", str);
             str = str.trim();
 // ==========================================
-// إزالة الأقواس الخارجية
-// مثال: (1+i) → 1+i
+// ط¥ط²ط§ظ„ط© ط§ظ„ط£ظ‚ظˆط§ط³ ط§ظ„ط®ط§ط±ط¬ظٹط©
+// ظ…ط«ط§ظ„: (1+i) â†’ 1+i
 // ==========================================
 
 while (
@@ -28049,7 +28049,7 @@ while (
         if (str[i] === "(") depth++;
         if (str[i] === ")") depth--;
 
-        // القوس الأول اتقفل قبل نهاية التعبير
+        // ط§ظ„ظ‚ظˆط³ ط§ظ„ط£ظˆظ„ ط§طھظ‚ظپظ„ ظ‚ط¨ظ„ ظ†ظ‡ط§ظٹط© ط§ظ„طھط¹ط¨ظٹط±
         if (depth === 0) {
             isOuterPair = false;
             break;
@@ -28072,8 +28072,8 @@ while (
                 return new Complex(0, -1);
             }
 // ==========================================
-// 🟣 كسر في الجزء الحقيقي للمركب
-// مثال: 1/2+2i
+// ًںں£ ظƒط³ط± ظپظٹ ط§ظ„ط¬ط²ط، ط§ظ„ط­ظ‚ظٹظ‚ظٹ ظ„ظ„ظ…ط±ظƒط¨
+// ظ…ط«ط§ظ„: 1/2+2i
 // ==========================================
 
 const complexFractionMatch = str.match(
@@ -28093,7 +28093,7 @@ if (complexFractionMatch) {
     const real = numerator / denominator;
 
     console.log(
-        "🟣 COMPLEX FRACTION:",
+        "ًںں£ COMPLEX FRACTION:",
         numerator,
         "/",
         denominator,
@@ -28107,13 +28107,13 @@ if (complexFractionMatch) {
         imaginary
     );
 }
-            // رقم حقيقي
+            // ط±ظ‚ظ… ط­ظ‚ظٹظ‚ظٹ
             if (/^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(str)) {
                 return new Complex(Number(str), 0);
             }
 
             // =====================================
-// عدد تخيلي فقط: bi
+// ط¹ط¯ط¯ طھط®ظٹظ„ظٹ ظپظ‚ط·: bi
 // =====================================
 
 const imaginaryOnly = str.match(
@@ -28138,7 +28138,7 @@ if (imaginaryOnly) {
     );
 }
           // =====================================
-// a+bi أو a-bi
+// a+bi ط£ظˆ a-bi
 // =====================================
 const match = str.match(
     /^([+-]?(?:\d+(?:\.\d+)?|\.\d+))([+-](?:\d+(?:\.\d+)?|\.\d+))i$/
@@ -28152,7 +28152,7 @@ if (match) {
 }
 
 // =====================================
-// a+i أو a-i
+// a+i ط£ظˆ a-i
 // =====================================
 const matchUnit = str.match(
     /^([+-]?(?:\d+(?:\.\d+)?|\.\d+))([+-])i$/
@@ -28171,11 +28171,11 @@ if (matchUnit) {
 
 
         // =====================================
-        // Tokenizer جديد
+        // Tokenizer ط¬ط¯ظٹط¯
         // =====================================
 
         // =====================================
-// Tokenizer جديد للـ CMPLX
+// Tokenizer ط¬ط¯ظٹط¯ ظ„ظ„ظ€ CMPLX
 // =====================================
 function tokenizeComplexExpression(str) {
 
@@ -28196,7 +28196,7 @@ function tokenizeComplexExpression(str) {
             ch === "/"
         ) {
 
-            // + أو - في بداية العدد
+            // + ط£ظˆ - ظپظٹ ط¨ط¯ط§ظٹط© ط§ظ„ط¹ط¯ط¯
             if (
                 current === "" &&
                 (ch === "+" || ch === "-")
@@ -28205,7 +28205,7 @@ function tokenizeComplexExpression(str) {
                 continue;
             }
 
-            // + أو - بعد Operator
+            // + ط£ظˆ - ط¨ط¹ط¯ Operator
             if (
                 current === "" &&
                 tokens.length > 0 &&
@@ -28236,17 +28236,17 @@ function tokenizeComplexExpression(str) {
         tokens.push(current);
     }
 
-    console.log("🟡 TOKENIZER RESULT:", tokens);
+    console.log("ًںں، TOKENIZER RESULT:", tokens);
 
     return tokens;
 }
 
         // =====================================
-        // تنفيذ العملية
+        // طھظ†ظپظٹط° ط§ظ„ط¹ظ…ظ„ظٹط©
         // =====================================
 
         // =====================================
-// تنفيذ العملية
+// طھظ†ظپظٹط° ط§ظ„ط¹ظ…ظ„ظٹط©
 // =====================================
 function applyComplexOperation(a, op, b) {
 
@@ -28267,7 +28267,7 @@ function convertFractionsInComplexExpression(str) {
 
     let result = str;
 
-    // (a/b) → decimal
+    // (a/b) â†’ decimal
     result = result.replace(
         /\(\s*([+-]?\d+(?:\.\d+)?)\s*\/\s*([+-]?\d+(?:\.\d+)?)\s*\)/g,
         (match, numerator, denominator) => {
@@ -28283,7 +28283,7 @@ function convertFractionsInComplexExpression(str) {
         }
     );
 
-    // a/b → decimal
+    // a/b â†’ decimal
     result = result.replace(
         /([+-]?\d+(?:\.\d+)?)\/([+-]?\d+(?:\.\d+)?)/g,
         (match, numerator, denominator) => {
@@ -28302,7 +28302,7 @@ function convertFractionsInComplexExpression(str) {
     return result;
 }
         // =====================================
-        // حساب التعبير
+        // ط­ط³ط§ط¨ ط§ظ„طھط¹ط¨ظٹط±
         // =====================================
 
       function calculateComplexExpression(s) {
@@ -28311,61 +28311,61 @@ function convertFractionsInComplexExpression(str) {
 
     str = str
         .replace(/\s+/g, "")
-        .replace(/×/g, "*")
-        .replace(/÷/g, "/");
+        .replace(/أ—/g, "*")
+        .replace(/أ·/g, "/");
 
-    console.log("🟣 CMPLX BEFORE FRACTION:", str);
+    console.log("ًںں£ CMPLX BEFORE FRACTION:", str);
 
     str = convertFractionsInComplexExpression(str);
 
-    console.log("🟣 CMPLX AFTER FRACTION:", str);
+    console.log("ًںں£ CMPLX AFTER FRACTION:", str);
 
     // ==========================================
-    // 🟢 ROOT HANDLER — MUST BE FIRST
+    // ًںں¢ ROOT HANDLER â€” MUST BE FIRST
     // ==========================================
 
-if (s.startsWith("√(") && s.endsWith(")")) {
+if (s.startsWith("âˆڑ(") && s.endsWith(")")) {
 
     const inside = s.slice(2, -1).trim();
 
-    console.log("🌳 ROOT INPUT:", inside);
+    console.log("ًںŒ³ ROOT INPUT:", inside);
 
-    // بدون i → حساب عادي
-   // بدون i
+    // ط¨ط¯ظˆظ† i â†’ ط­ط³ط§ط¨ ط¹ط§ط¯ظٹ
+   // ط¨ط¯ظˆظ† i
 if (!inside.includes("i")) {
 
     const value = calculateFractionPart(inside);
 
-    console.log("🌳 ROOT VALUE:", value);
+    console.log("ًںŒ³ ROOT VALUE:", value);
 
     if (!Number.isFinite(value)) {
         throw new Error("Math Error");
     }
 
-    // موجب → جذر عادي
+    // ظ…ظˆط¬ط¨ â†’ ط¬ط°ط± ط¹ط§ط¯ظٹ
     if (value >= 0) {
         const result = Math.sqrt(value);
 
-        console.log("🌳 ROOT RESULT:", result);
+        console.log("ًںŒ³ ROOT RESULT:", result);
 
         return new Complex(result, 0);
     }
 
-    // سالب في CMPLX → نتيجة تخيلية
+    // ط³ط§ظ„ط¨ ظپظٹ CMPLX â†’ ظ†طھظٹط¬ط© طھط®ظٹظ„ظٹط©
     const result = new Complex(
         0,
         Math.sqrt(Math.abs(value))
     );
 
     console.log(
-        "🟣 COMPLEX NEGATIVE ROOT RESULT:",
+        "ًںں£ COMPLEX NEGATIVE ROOT RESULT:",
         result.toString()
     );
 
     return result;
 }
 
-    // فيه i → Complex
+    // ظپظٹظ‡ i â†’ Complex
     const z = calculateComplexExpression(inside);
 
     const r = Math.hypot(z.re, z.im);
@@ -28377,7 +28377,7 @@ if (!inside.includes("i")) {
     );
 
     console.log(
-        "🟣 COMPLEX ROOT RESULT:",
+        "ًںں£ COMPLEX ROOT RESULT:",
         result.toString()
     );
 
@@ -28386,21 +28386,21 @@ if (!inside.includes("i")) {
 
 
 // ==========================================
-// 🟢 CUBE ROOT HANDLER — MUST BE FIRST
+// ًںں¢ CUBE ROOT HANDLER â€” MUST BE FIRST
 // ==========================================
 
-if (s.startsWith("∛(") && s.endsWith(")")) {
+if (s.startsWith("âˆ›(") && s.endsWith(")")) {
 
     const inside = s.slice(2, -1).trim();
 
-    console.log("🌳 CUBE ROOT INPUT:", inside);
+    console.log("ًںŒ³ CUBE ROOT INPUT:", inside);
 
-    // بدون i → حساب عادي
+    // ط¨ط¯ظˆظ† i â†’ ط­ط³ط§ط¨ ط¹ط§ط¯ظٹ
     if (!inside.includes("i")) {
 
         const value = calculateFractionPart(inside);
 
-        console.log("🌳 CUBE ROOT VALUE:", value);
+        console.log("ًںŒ³ CUBE ROOT VALUE:", value);
 
         if (!Number.isFinite(value)) {
             throw new Error("Math Error");
@@ -28408,12 +28408,12 @@ if (s.startsWith("∛(") && s.endsWith(")")) {
 
         const result = Math.cbrt(value);
 
-        console.log("🌳 CUBE ROOT RESULT:", result);
+        console.log("ًںŒ³ CUBE ROOT RESULT:", result);
 
         return new Complex(result, 0);
     }
 
-    // فيه i → Complex
+    // ظپظٹظ‡ i â†’ Complex
     const z = calculateComplexExpression(inside);
 
     const r = Math.hypot(z.re, z.im);
@@ -28425,7 +28425,7 @@ if (s.startsWith("∛(") && s.endsWith(")")) {
     );
 
     console.log(
-        "🟣 COMPLEX CUBE ROOT RESULT:",
+        "ًںں£ COMPLEX CUBE ROOT RESULT:",
         result.toString()
     );
 
@@ -28491,7 +28491,7 @@ if (reMatch) {
         reMatch[1].trim();
 
     console.log(
-        "🟣 RE INSIDE:",
+        "ًںں£ RE INSIDE:",
         inside
     );
 
@@ -28502,7 +28502,7 @@ if (reMatch) {
         Number(z.re.toFixed(8));
 
     console.log(
-        "🟢 RE RESULT:",
+        "ًںں¢ RE RESULT:",
         result
     );
 
@@ -28518,7 +28518,7 @@ if (imMatch) {
 
     const inside = imMatch[1].trim();
 
-    console.log("🟣 IM INSIDE:", inside);
+    console.log("ًںں£ IM INSIDE:", inside);
 
     const z =
         calculateComplexExpression(inside);
@@ -28527,7 +28527,7 @@ if (imMatch) {
         Number(z.im.toFixed(8));
 
     console.log(
-        "🟢 IM RESULT:",
+        "ًںں¢ IM RESULT:",
         result
     );
 
@@ -28542,7 +28542,7 @@ if (argMatch) {
 
     const inside = argMatch[1].trim();
 
-    console.log("🟣 ARG INSIDE:", inside);
+    console.log("ًںں£ ARG INSIDE:", inside);
 
     const z = calculateComplexExpression(inside);
 
@@ -28557,7 +28557,7 @@ if (argMatch) {
 
     result = Number(result.toFixed(8));
 
-    console.log("🟢 ARG RESULT:", result);
+    console.log("ًںں¢ ARG RESULT:", result);
 
     return new Complex(result, 0);
 }
@@ -28571,7 +28571,7 @@ if (conjgMatch) {
 
     const inside = conjgMatch[1].trim();
 
-    console.log("🟣 CONJG INSIDE:", inside);
+    console.log("ًںں£ CONJG INSIDE:", inside);
 
     const z = calculateComplexExpression(inside);
 
@@ -28581,15 +28581,15 @@ if (conjgMatch) {
     );
 
     console.log(
-        "🟢 CONJG RESULT:",
+        "ًںں¢ CONJG RESULT:",
         result.toString()
     );
 
     return result;
 }
-    console.log("🟣 CMPLX CALCULATE:", s);
+    console.log("ًںں£ CMPLX CALCULATE:", s);
     // ==========================================
-// CMPLX: إزالة الأقواس الخارجية
+// CMPLX: ط¥ط²ط§ظ„ط© ط§ظ„ط£ظ‚ظˆط§ط³ ط§ظ„ط®ط§ط±ط¬ظٹط©
 // ==========================================
 
 if (
@@ -28608,7 +28608,7 @@ if (
             depth--;
         }
 
-        // القوس الأول اتقفل قبل نهاية التعبير
+        // ط§ظ„ظ‚ظˆط³ ط§ظ„ط£ظˆظ„ ط§طھظ‚ظپظ„ ظ‚ط¨ظ„ ظ†ظ‡ط§ظٹط© ط§ظ„طھط¹ط¨ظٹط±
         if (depth === 0 && i < s.length - 1) {
             wrapsWholeExpression = false;
             break;
@@ -28620,7 +28620,7 @@ if (
         const inside = s.slice(1, -1);
 
         console.log(
-            "🟢 CMPLX OUTER PARENTHESES:",
+            "ًںں¢ CMPLX OUTER PARENTHESES:",
             inside
         );
 
@@ -28656,7 +28656,7 @@ if (logMatch) {
     );
 
     console.log(
-        "🟢 COMPLEX LOG RESULT:",
+        "ًںں¢ COMPLEX LOG RESULT:",
         result
     );
 
@@ -28680,7 +28680,7 @@ if (sinMatch) {
     );
 
     console.log(
-        "🟢 COMPLEX SIN RESULT:",
+        "ًںں¢ COMPLEX SIN RESULT:",
         result
     );
 
@@ -28704,7 +28704,7 @@ if (cosMatch) {
     );
 
     console.log(
-        "🟢 COMPLEX COS RESULT:",
+        "ًںں¢ COMPLEX COS RESULT:",
         result
     );
 
@@ -28736,7 +28736,7 @@ if (tanMatch) {
     );
 
     console.log(
-        "🟢 COMPLEX TAN RESULT:",
+        "ًںں¢ COMPLEX TAN RESULT:",
         result
     );
 
@@ -28760,7 +28760,7 @@ if (sinhMatch) {
     );
 
     console.log(
-        "🟢 COMPLEX SINH RESULT:",
+        "ًںں¢ COMPLEX SINH RESULT:",
         result
     );
 
@@ -28784,7 +28784,7 @@ if (coshMatch) {
     );
 
     console.log(
-        "🟢 COMPLEX COSH RESULT:",
+        "ًںں¢ COMPLEX COSH RESULT:",
         result
     );
 
@@ -28894,7 +28894,7 @@ if (tanhMatch) {
         Math.sin(2 * b) / denominator
     );
 
-    console.log("🟢 COMPLEX TANH RESULT:", result);
+    console.log("ًںں¢ COMPLEX TANH RESULT:", result);
 
     return result;
 }
@@ -28904,7 +28904,7 @@ if (tanhMatch) {
 // COMPLEX ASIN
 // ==========================================
 const asinMatch = s.match(
-    /^(?:asin|sin⁻¹)\(([^()]+)\)$/
+    /^(?:asin|sinâپ»آ¹)\(([^()]+)\)$/
 );
 
 if (asinMatch) {
@@ -28934,7 +28934,7 @@ if (asinMatch) {
         -ln.re
     );
 
-    console.log("🟢 COMPLEX ASIN RESULT:", result);
+    console.log("ًںں¢ COMPLEX ASIN RESULT:", result);
 
     return result;
 }
@@ -28944,7 +28944,7 @@ if (asinMatch) {
 // COMPLEX ACOS
 // ==========================================
 const acosMatch = s.match(
-    /^(?:acos|cos⁻¹)\(([^()]+)\)$/
+    /^(?:acos|cosâپ»آ¹)\(([^()]+)\)$/
 );
 
 if (acosMatch) {
@@ -28979,7 +28979,7 @@ if (acosMatch) {
         -asin.im
     );
 
-    console.log("🟢 COMPLEX ACOS RESULT:", result);
+    console.log("ًںں¢ COMPLEX ACOS RESULT:", result);
 
     return result;
 }
@@ -28989,7 +28989,7 @@ if (acosMatch) {
 // COMPLEX ATAN
 // ==========================================
 const atanMatch = s.match(
-    /^(?:atan|tan⁻¹)\(([^()]+)\)$/
+    /^(?:atan|tanâپ»آ¹)\(([^()]+)\)$/
 );
 
 if (atanMatch) {
@@ -29021,7 +29021,7 @@ if (atanMatch) {
         diff.re / 2
     );
 
-    console.log("🟢 COMPLEX ATAN RESULT:", result);
+    console.log("ًںں¢ COMPLEX ATAN RESULT:", result);
 
     return result;
 }
@@ -29031,7 +29031,7 @@ if (atanMatch) {
 // COMPLEX ASINH
 // ==========================================
 const asinhMatch = s.match(
-    /^(?:asinh|sinh⁻¹)\(([^()]+)\)$/
+    /^(?:asinh|sinhâپ»آ¹)\(([^()]+)\)$/
 );
 
 if (asinhMatch) {
@@ -29051,7 +29051,7 @@ if (asinhMatch) {
 
     const result = complexLn(inside);
 
-    console.log("🟢 COMPLEX ASINH RESULT:", result);
+    console.log("ًںں¢ COMPLEX ASINH RESULT:", result);
 
     return result;
 }
@@ -29061,7 +29061,7 @@ if (asinhMatch) {
 // COMPLEX ACOSH
 // ==========================================
 const acoshMatch = s.match(
-    /^(?:acosh|cosh⁻¹)\(([^()]+)\)$/
+    /^(?:acosh|coshâپ»آ¹)\(([^()]+)\)$/
 );
 
 if (acoshMatch) {
@@ -29093,7 +29093,7 @@ if (acoshMatch) {
 
     const result = complexLn(inside);
 
-    console.log("🟢 COMPLEX ACOSH RESULT:", result);
+    console.log("ًںں¢ COMPLEX ACOSH RESULT:", result);
 
     return result;
 }
@@ -29103,7 +29103,7 @@ if (acoshMatch) {
 // COMPLEX ATANH
 // ==========================================
 const atanhMatch = s.match(
-    /^(?:atanh|tanh⁻¹)\(([^()]+)\)$/
+    /^(?:atanh|tanhâپ»آ¹)\(([^()]+)\)$/
 );
 
 if (atanhMatch) {
@@ -29132,13 +29132,13 @@ if (atanhMatch) {
         ln.im / 2
     );
 
-    console.log("🟢 COMPLEX ATANH RESULT:", result);
+    console.log("ًںں¢ COMPLEX ATANH RESULT:", result);
 
     return result;
 }
     // ==========================================
 // COMPLEX POWER: z^w
-// يدعم الأقواس
+// ظٹط¯ط¹ظ… ط§ظ„ط£ظ‚ظˆط§ط³
 // ==========================================
 
 const powerIndex = s.lastIndexOf("^");
@@ -29164,12 +29164,12 @@ if (powerIndex !== -1) {
             calculateComplexExpression(exponentText);
 
         console.log(
-            "🟣 POWER BASE:",
+            "ًںں£ POWER BASE:",
             base.toString()
         );
 
         console.log(
-            "🟣 POWER EXP:",
+            "ًںں£ POWER EXP:",
             exponent.toString()
         );
 
@@ -29190,7 +29190,7 @@ if (powerIndex !== -1) {
                 angle
             );
 
-        // w × ln(z)
+        // w أ— ln(z)
         const realPart =
             exponent.re * lnZ.re -
             exponent.im * lnZ.im;
@@ -29210,7 +29210,7 @@ if (powerIndex !== -1) {
             );
 
         console.log(
-            "🟢 COMPLEX POWER RESULT:",
+            "ًںں¢ COMPLEX POWER RESULT:",
             result.toString()
         );
 
@@ -29219,7 +29219,7 @@ if (powerIndex !== -1) {
     } catch (err) {
 
         console.error(
-            "🟣 COMPLEX POWER ERROR:",
+            "ًںں£ COMPLEX POWER ERROR:",
             err
         );
 
@@ -29237,7 +29237,7 @@ if (
     const inside = s.slice(3, -1);
 
     console.log(
-        "🟢 CMPLX 1/z INSIDE:",
+        "ًںں¢ CMPLX 1/z INSIDE:",
         inside
     );
 
@@ -29257,7 +29257,7 @@ if (
     );
 
     console.log(
-        "🟢 CMPLX 1/z RESULT:",
+        "ًںں¢ CMPLX 1/z RESULT:",
         result
     );
 
@@ -29265,16 +29265,16 @@ if (
 }
     // ==========================================
 // CMPLX ROOTS
-// لو مفيش i → جذر عادي
-// لو فيه i → جذر Complex
+// ظ„ظˆ ظ…ظپظٹط´ i â†’ ط¬ط°ط± ط¹ط§ط¯ظٹ
+// ظ„ظˆ ظپظٹظ‡ i â†’ ط¬ط°ط± Complex
 // ==========================================
 
-if (s.startsWith("√(") && s.endsWith(")")) {
+if (s.startsWith("âˆڑ(") && s.endsWith(")")) {
 
     const inside = s.slice(2, -1).trim();
 
     // ======================================
-    // ROOT عادي بدون i
+    // ROOT ط¹ط§ط¯ظٹ ط¨ط¯ظˆظ† i
     // ======================================
     if (!inside.includes("i")) {
 
@@ -29291,7 +29291,7 @@ if (s.startsWith("√(") && s.endsWith(")")) {
         const result = Math.sqrt(value);
 
         console.log(
-            "🟢 NORMAL √ RESULT:",
+            "ًںں¢ NORMAL âˆڑ RESULT:",
             result
         );
 
@@ -29322,7 +29322,7 @@ if (s.startsWith("√(") && s.endsWith(")")) {
     );
 
     console.log(
-        "🟣 COMPLEX √ RESULT:",
+        "ًںں£ COMPLEX âˆڑ RESULT:",
         result.toString()
     );
 
@@ -29330,12 +29330,12 @@ if (s.startsWith("√(") && s.endsWith(")")) {
 }
 
 
-if (s.startsWith("∛(") && s.endsWith(")")) {
+if (s.startsWith("âˆ›(") && s.endsWith(")")) {
 
     const inside = s.slice(2, -1).trim();
 
     // ======================================
-    // ROOT عادي بدون i
+    // ROOT ط¹ط§ط¯ظٹ ط¨ط¯ظˆظ† i
     // ======================================
     if (!inside.includes("i")) {
 
@@ -29348,7 +29348,7 @@ if (s.startsWith("∛(") && s.endsWith(")")) {
         const result = Math.cbrt(value);
 
         console.log(
-            "🟢 NORMAL ∛ RESULT:",
+            "ًںں¢ NORMAL âˆ› RESULT:",
             result
         );
 
@@ -29379,7 +29379,7 @@ if (s.startsWith("∛(") && s.endsWith(")")) {
     );
 
     console.log(
-        "🟣 COMPLEX ∛ RESULT:",
+        "ًںں£ COMPLEX âˆ› RESULT:",
         result.toString()
     );
 
@@ -29387,14 +29387,14 @@ if (s.startsWith("∛(") && s.endsWith(")")) {
 }
     // ==========================================
 // CMPLX TOP-LEVEL OPERATIONS WITH PARENTHESES
-// يحافظ على الأقواس ولا يفقد أولوية العمليات
-// مثال: (2+i)*(1+i)
+// ظٹط­ط§ظپط¸ ط¹ظ„ظ‰ ط§ظ„ط£ظ‚ظˆط§ط³ ظˆظ„ط§ ظٹظپظ‚ط¯ ط£ظˆظ„ظˆظٹط© ط§ظ„ط¹ظ…ظ„ظٹط§طھ
+// ظ…ط«ط§ظ„: (2+i)*(1+i)
 // ==========================================
 
 let depth = 0;
 
 // ------------------------------------------
-// + و - على المستوى الخارجي
+// + ظˆ - ط¹ظ„ظ‰ ط§ظ„ظ…ط³طھظˆظ‰ ط§ظ„ط®ط§ط±ط¬ظٹ
 // ------------------------------------------
 
 for (let i = s.length - 1; i >= 0; i--) {
@@ -29427,7 +29427,7 @@ for (let i = s.length - 1; i >= 0; i--) {
 }
 
 // ------------------------------------------
-// * و / على المستوى الخارجي
+// * ظˆ / ط¹ظ„ظ‰ ط§ظ„ظ…ط³طھظˆظ‰ ط§ظ„ط®ط§ط±ط¬ظٹ
 // ------------------------------------------
 
 depth = 0;
@@ -29469,12 +29469,12 @@ for (let i = s.length - 1; i >= 0; i--) {
 // COMPLEX CONJG
 // ==========================================
 // ==========================================
-// الجذر العادي بدون i
+// ط§ظ„ط¬ط°ط± ط§ظ„ط¹ط§ط¯ظٹ ط¨ط¯ظˆظ† i
 // ==========================================
 
 if (!s.includes("i")) {
 
-    if (s.startsWith("√(") && s.endsWith(")")) {
+    if (s.startsWith("âˆڑ(") && s.endsWith(")")) {
         const inside = s.slice(2, -1);
 
         const value = Number(
@@ -29491,7 +29491,7 @@ if (!s.includes("i")) {
         );
     }
 
-    if (s.startsWith("∛(") && s.endsWith(")")) {
+    if (s.startsWith("âˆ›(") && s.endsWith(")")) {
         const inside = s.slice(2, -1);
 
         const value = Number(
@@ -29510,7 +29510,7 @@ if (!s.includes("i")) {
 }
 
     // ==========================================
-    // باقي التعبيرات العادية
+    // ط¨ط§ظ‚ظٹ ط§ظ„طھط¹ط¨ظٹط±ط§طھ ط§ظ„ط¹ط§ط¯ظٹط©
     // ==========================================
 
     const tokens =
@@ -29537,7 +29537,7 @@ if (!s.includes("i")) {
     });
 
     // ==========================================
-    // × و ÷ أولاً
+    // أ— ظˆ أ· ط£ظˆظ„ط§ظ‹
     // ==========================================
 
     const firstPass = [];
@@ -29590,7 +29590,7 @@ if (!s.includes("i")) {
     }
 
     // ==========================================
-    // + و -
+    // + ظˆ -
     // ==========================================
 
     let result = firstPass[0];
@@ -29657,7 +29657,7 @@ if (
 
     const A = window.matrices.A;
 
-    // n = 0 → Identity Matrix
+    // n = 0 â†’ Identity Matrix
     if (n === 0) {
 
         const size = A.length;
@@ -29679,11 +29679,11 @@ if (
         return;
     }
 
-    // نسخ MatA
+    // ظ†ط³ط® MatA
     let result =
         A.map(row => [...row]);
 
-    // ضرب المصفوفات n مرات
+    // ط¶ط±ط¨ ط§ظ„ظ…طµظپظˆظپط§طھ n ظ…ط±ط§طھ
     for (let power = 1; power < n; power++) {
 
         const size = A.length;
@@ -29741,7 +29741,7 @@ if (
 
     window.matrixScalarData = null;
 
-    matrixShow("A × " + K, result);
+    matrixShow("A أ— " + K, result);
 
     return;
 }
@@ -30016,20 +30016,20 @@ if (data.type === "NORMAL") {
 }
 
         console.log("=== EQUALS VERSION TEST ===");
-        console.log("🔥 FRACTION STATE:", {
+        console.log("ًں”¥ FRACTION STATE:", {
     fractionMode,
     fractionStage,
     fractionNumerator,
     fractionDenominator,
     fractionExpression
 });
-console.log("🔥 EQUALS DISPLAY:", display.value);
-console.log("🔥 EQUALS FRACTION EXPRESSION:", fractionExpression);
-console.log("🔥 FULL DISPLAY FOR CALC:", display.value);
+console.log("ًں”¥ EQUALS DISPLAY:", display.value);
+console.log("ًں”¥ EQUALS FRACTION EXPRESSION:", fractionExpression);
+console.log("ًں”¥ FULL DISPLAY FOR CALC:", display.value);
       if (fractionMode) {
 
     // ==============================
-    // من البسط إلى المقام
+    // ظ…ظ† ط§ظ„ط¨ط³ط· ط¥ظ„ظ‰ ط§ظ„ظ…ظ‚ط§ظ…
     // ==============================
     if (fractionStage === 1) {
 
@@ -30037,7 +30037,7 @@ console.log("🔥 FULL DISPLAY FOR CALC:", display.value);
         return;
     }
 
-    // لو لسه مفيش مقام، ننقل للمقام
+    // ظ„ظˆ ظ„ط³ظ‡ ظ…ظپظٹط´ ظ…ظ‚ط§ظ…طŒ ظ†ظ†ظ‚ظ„ ظ„ظ„ظ…ظ‚ط§ظ…
     fractionStage = 2;
 
     const bottom =
@@ -30050,7 +30050,7 @@ console.log("🔥 FULL DISPLAY FOR CALC:", display.value);
     return;
 }
     // ==============================
-    // حساب الكسر
+    // ط­ط³ط§ط¨ ط§ظ„ظƒط³ط±
     // ==============================
     if (fractionStage === 2) {
 
@@ -30071,13 +30071,13 @@ console.log("🔥 FULL DISPLAY FOR CALC:", display.value);
     }
 
     // ==========================================
-// حساب البسط والمقام
+// ط­ط³ط§ط¨ ط§ظ„ط¨ط³ط· ظˆط§ظ„ظ…ظ‚ط§ظ…
 // ==========================================
 
 let numerator;
 let denominator;
 
-// لو فيه كسر داخلي داخل بسط الكسر الخارجي
+// ظ„ظˆ ظپظٹظ‡ ظƒط³ط± ط¯ط§ط®ظ„ظٹ ط¯ط§ط®ظ„ ط¨ط³ط· ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
 if (
     nestedFractionParentStage === 1 &&
     nestedFractionNumerator !== "" &&
@@ -30098,7 +30098,7 @@ if (
     numerator = innerNum / innerDen;
 
     console.log(
-        "🟣 NESTED NUMERATOR:",
+        "ًںں£ NESTED NUMERATOR:",
         innerNum,
         "/",
         innerDen,
@@ -30112,29 +30112,29 @@ if (
         calculateFractionPart(fractionNumerator);
 }
 
-// المقام الخارجي
+// ط§ظ„ظ…ظ‚ط§ظ… ط§ظ„ط®ط§ط±ط¬ظٹ
 denominator =
     calculateFractionPart(fractionDenominator);
 
-console.log("🔥 NUMERATOR =", numerator);
-console.log("🔥 DENOMINATOR =", denominator);
-console.log("🔥 NUMERATOR =", numerator);
-console.log("🔥 DENOMINATOR =", denominator);
+console.log("ًں”¥ NUMERATOR =", numerator);
+console.log("ًں”¥ DENOMINATOR =", denominator);
+console.log("ًں”¥ NUMERATOR =", numerator);
+console.log("ًں”¥ DENOMINATOR =", denominator);
 
 console.log("NUMERATOR CALCULATED:", numerator);
 // ==========================================
-// تجهيز الكسر المتداخل قبل الحساب
+// طھط¬ظ‡ظٹط² ط§ظ„ظƒط³ط± ط§ظ„ظ…طھط¯ط§ط®ظ„ ظ‚ط¨ظ„ ط§ظ„ط­ط³ط§ط¨
 // ==========================================
 
 
     // ==========================================
-    // كسر بعد كسر + عملية حسابية
+    // ظƒط³ط± ط¨ط¹ط¯ ظƒط³ط± + ط¹ظ…ظ„ظٹط© ط­ط³ط§ط¨ظٹط©
     // ==========================================
 
     if (fractionExpression) {
 
         const match = fractionExpression.match(
-            /^\(\s*(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)\s*\)([+\-×÷])$/
+            /^\(\s*(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)\s*\)([+\-أ—أ·])$/
         );
 
         if (match) {
@@ -30164,7 +30164,7 @@ console.log("NUMERATOR CALCULATED:", numerator);
                 resultDenominator =
                     d1 * denominator;
 
-            } else if (operator === "×") {
+            } else if (operator === "أ—") {
 
                 resultNumerator =
                     n1 * numerator;
@@ -30172,7 +30172,7 @@ console.log("NUMERATOR CALCULATED:", numerator);
                 resultDenominator =
                     d1 * denominator;
 
-            } else if (operator === "÷") {
+            } else if (operator === "أ·") {
 
                 if (numerator === 0) {
                     display.style.visibility = "visible";
@@ -30192,7 +30192,7 @@ console.log("NUMERATOR CALCULATED:", numerator);
             }
 
             // ==========================================
-            // تبسيط النتيجة
+            // طھط¨ط³ظٹط· ط§ظ„ظ†طھظٹط¬ط©
             // ==========================================
 
             if (resultDenominator < 0) {
@@ -30252,7 +30252,7 @@ display.style.textAlign = "center";
     }
 
     // ==========================================
-    // كسر واحد عادي
+    // ظƒط³ط± ظˆط§ط­ط¯ ط¹ط§ط¯ظٹ
     // ==========================================
 // ==========================================
 // CMPLX FRACTION RESULT
@@ -30260,8 +30260,8 @@ display.style.textAlign = "center";
 
 if (numerator instanceof Complex) {
 
-    console.log("🟣 CMPLX FRACTION RESULT:", numerator);
-    console.log("🟣 CMPLX FRACTION DENOMINATOR:", denominator);
+    console.log("ًںں£ CMPLX FRACTION RESULT:", numerator);
+    console.log("ًںں£ CMPLX FRACTION DENOMINATOR:", denominator);
 
     const realPart =
         numerator.re / denominator;
@@ -30269,8 +30269,8 @@ if (numerator instanceof Complex) {
     const imagPart =
         numerator.im / denominator;
 
-    console.log("🟣 CMPLX FRACTION REAL:", realPart);
-    console.log("🟣 CMPLX FRACTION IMAG:", imagPart);
+    console.log("ًںں£ CMPLX FRACTION REAL:", realPart);
+    console.log("ًںں£ CMPLX FRACTION IMAG:", imagPart);
 
    let resultText = "";
 
@@ -30302,9 +30302,9 @@ if (numerator instanceof Complex) {
 
    
 
-console.log("🟢 CMPLX FRACTION FINAL:", resultText);
+console.log("ًںں¢ CMPLX FRACTION FINAL:", resultText);
 
-// إجبار النتيجة على شاشة الآلة الرئيسية
+// ط¥ط¬ط¨ط§ط± ط§ظ„ظ†طھظٹط¬ط© ط¹ظ„ظ‰ ط´ط§ط´ط© ط§ظ„ط¢ظ„ط© ط§ظ„ط±ط¦ظٹط³ظٹط©
 display.value = "";
 display.value = resultText;
 
@@ -30336,8 +30336,8 @@ answer = complexResult;
 const roundedDenominator =
     Number(denominator.toFixed(10));
 
-console.log("🔥 ROUNDED NUMERATOR:", roundedNumerator);
-console.log("🔥 ROUNDED DENOMINATOR:", roundedDenominator);
+console.log("ًں”¥ ROUNDED NUMERATOR:", roundedNumerator);
+console.log("ًں”¥ ROUNDED DENOMINATOR:", roundedDenominator);
 const scale = 1000000000;
 
 const scaledNumerator =
@@ -30347,12 +30347,12 @@ const scaledDenominator =
     Math.round(roundedDenominator * scale);
 
 console.log(
-    "🔥 SCALED NUMERATOR:",
+    "ًں”¥ SCALED NUMERATOR:",
     scaledNumerator
 );
 
 console.log(
-    "🔥 SCALED DENOMINATOR:",
+    "ًں”¥ SCALED DENOMINATOR:",
     scaledDenominator
 );
 
@@ -30436,7 +30436,7 @@ if (
 
 if (absMode) {
 
-    // إزالة علامات | | من الشاشة قبل الحساب
+    // ط¥ط²ط§ظ„ط© ط¹ظ„ط§ظ…ط§طھ | | ظ…ظ† ط§ظ„ط´ط§ط´ط© ظ‚ط¨ظ„ ط§ظ„ط­ط³ط§ط¨
     expr = expr
         .replace(/^\|\s*/, "")
         .replace(/\s*\|$/, "")
@@ -30451,15 +30451,15 @@ if (absMode) {
 
            const clean = expr
     .replace(/\s+/g, "")
-    .replace(/×/g, "*")
-    .replace(/÷/g, "/");
+    .replace(/أ—/g, "*")
+    .replace(/أ·/g, "/");
 let complexClean = clean;
 
 // =====================================
-// تحويل الكسور داخل CMPLX
+// طھط­ظˆظٹظ„ ط§ظ„ظƒط³ظˆط± ط¯ط§ط®ظ„ CMPLX
 // =====================================
 
-// (a/b)i → decimal i
+// (a/b)i â†’ decimal i
 complexClean = complexClean.replace(
     /\((-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)\)i/g,
     (_, numerator, denominator) => {
@@ -30475,7 +30475,7 @@ complexClean = complexClean.replace(
     }
 );
 
-// (a/b) → decimal
+// (a/b) â†’ decimal
 complexClean = complexClean.replace(
     /\((-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)\)/g,
     (_, numerator, denominator) => {
@@ -30491,7 +30491,7 @@ complexClean = complexClean.replace(
     }
 );
 
-// a/bi → decimal i
+// a/bi â†’ decimal i
 complexClean = complexClean.replace(
     /(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)i/g,
     (_, numerator, denominator) => {
@@ -30507,7 +30507,7 @@ complexClean = complexClean.replace(
     }
 );
 
-// 1/2 → 0.5
+// 1/2 â†’ 0.5
 complexClean = complexClean.replace(
     /(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)/g,
     (_, numerator, denominator) => {
@@ -30526,12 +30526,12 @@ complexClean = complexClean.replace(
 console.log("CMPLX ORIGINAL:", clean);
 console.log("CMPLX FINAL BEFORE CALC:", complexClean);
 // =====================================
-// تحويل الكسور داخل CMPLX
+// طھط­ظˆظٹظ„ ط§ظ„ظƒط³ظˆط± ط¯ط§ط®ظ„ CMPLX
 // =====================================
 
 
 
-// (a/b)i  →  decimal i
+// (a/b)i  â†’  decimal i
 complexClean = complexClean.replace(
     /\((-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)\)i/g,
     (_, numerator, denominator) => {
@@ -30547,7 +30547,7 @@ complexClean = complexClean.replace(
     }
 );
 
-// a/bi → decimal i
+// a/bi â†’ decimal i
 complexClean = complexClean.replace(
     /(-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)i/g,
     (_, numerator, denominator) => {
@@ -30563,7 +30563,7 @@ complexClean = complexClean.replace(
     }
 );
 
-// (a/b) → decimal
+// (a/b) â†’ decimal
 complexClean = complexClean.replace(
     /\((-?\d+(?:\.\d+)?)\/(-?\d+(?:\.\d+)?)\)/g,
     (_, numerator, denominator) => {
@@ -30617,7 +30617,7 @@ const imaginaryOnly = clean.match(
 
         } else {
 
-            // رقم عادي
+            // ط±ظ‚ظ… ط¹ط§ط¯ظٹ
             const result = Math.abs(Number(expr));
 
             if (!Number.isFinite(result)) {
@@ -30648,13 +30648,13 @@ const imaginaryOnly = clean.match(
     }
 }
 // ==========================================
-// إنهاء إدخال الكسر عند الضغط على =
+// ط¥ظ†ظ‡ط§ط، ط¥ط¯ط®ط§ظ„ ط§ظ„ظƒط³ط± ط¹ظ†ط¯ ط§ظ„ط¶ط؛ط· ط¹ظ„ظ‰ =
 // ==========================================
 
 // ==========================================
-// حساب كسر بتعبيرات كاملة
+// ط­ط³ط§ط¨ ظƒط³ط± ط¨طھط¹ط¨ظٹط±ط§طھ ظƒط§ظ…ظ„ط©
 // ==========================================
-console.log("🔥 BEFORE FRACTION CONDITION");
+console.log("ًں”¥ BEFORE FRACTION CONDITION");
 console.log(
     fractionMode,
     fractionStage,
@@ -30667,30 +30667,30 @@ if (
     fractionNumerator !== "" &&
     fractionDenominator !== ""
 ) {
-    console.log("🔥 FRACTION FINAL TEST");
+    console.log("ًں”¥ FRACTION FINAL TEST");
 console.log("NUM:", fractionNumerator);
 console.log("DEN:", fractionDenominator);
-console.log("🔥 FRACTION EQUAL TEST");
+console.log("ًں”¥ FRACTION EQUAL TEST");
 console.log("NUMERATOR:", fractionNumerator);
 console.log("DENOMINATOR:", fractionDenominator);
 console.log("STAGE:", fractionStage);
     try {
 
         // ==========================================
-        // حساب البسط
+        // ط­ط³ط§ط¨ ط§ظ„ط¨ط³ط·
         // ==========================================
 
         const numeratorExpression =
             fractionNumerator.trim();
 
         // ==========================================
-        // حساب المقام
+        // ط­ط³ط§ط¨ ط§ظ„ظ…ظ‚ط§ظ…
         // ==========================================
 
         const denominatorExpression =
             fractionDenominator.trim();
 
-            console.log("🔥 FRACTION DEBUG");
+            console.log("ًں”¥ FRACTION DEBUG");
 console.log("NUMERATOR TEXT:", numeratorExpression);
 console.log("DENOMINATOR TEXT:", denominatorExpression);
 console.log("NUMERATOR NUMBER:", Number(numeratorExpression));
@@ -30711,14 +30711,14 @@ console.log("DENOMINATOR NUMBER:", Number(denominatorExpression));
         );
 
         // ==========================================
-        // حساب التعبيرين باستخدام محرك الآلة
+        // ط­ط³ط§ط¨ ط§ظ„طھط¹ط¨ظٹط±ظٹظ† ط¨ط§ط³طھط®ط¯ط§ظ… ظ…ط­ط±ظƒ ط§ظ„ط¢ظ„ط©
         // ==========================================
 
        let numeratorValue;
 let denominatorValue;
 
 // ==========================================
-// CMPLX داخل الكسر
+// CMPLX ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 if (
     currentMode === "CMPLX" &&
@@ -30729,24 +30729,24 @@ if (
 ) {
     try {
 
-        // البسط
+        // ط§ظ„ط¨ط³ط·
         const numeratorComplex =
             calculateComplexExpression(numeratorExpression);
 
-        // المقام
+        // ط§ظ„ظ…ظ‚ط§ظ…
         const denominatorComplex =
             calculateComplexExpression(denominatorExpression);
 
-        // القسمة
+        // ط§ظ„ظ‚ط³ظ…ط©
         const complexResult =
             numeratorComplex.div(denominatorComplex);
 const resultText = complexResult.toString();
 
-console.log("🟣 CMPLX FRACTION FINAL:", resultText);
-console.log("🟣 DISPLAY BEFORE:", display);
-console.log("🟣 DISPLAY ID:", display.id);
+console.log("ًںں£ CMPLX FRACTION FINAL:", resultText);
+console.log("ًںں£ DISPLAY BEFORE:", display);
+console.log("ًںں£ DISPLAY ID:", display.id);
         console.log(
-            "🟣 COMPLEX FRACTION RESULT:",
+            "ًںں£ COMPLEX FRACTION RESULT:",
             complexResult.toString()
         );
 
@@ -30796,7 +30796,7 @@ display.value = complexResult.toString();
     } catch (err) {
 
         console.error(
-            "🟣 COMPLEX FRACTION ERROR:",
+            "ًںں£ COMPLEX FRACTION ERROR:",
             err
         );
 
@@ -30811,7 +30811,7 @@ display.value = complexResult.toString();
 }
 
 // ==========================================
-// الكسور العادية
+// ط§ظ„ظƒط³ظˆط± ط§ظ„ط¹ط§ط¯ظٹط©
 // ==========================================
 numeratorValue =
     calculateFractionPart(
@@ -30823,20 +30823,20 @@ denominatorValue =
         denominatorExpression
     );
 console.log(
-    "🔥 NUMERATOR VALUE:",
+    "ًں”¥ NUMERATOR VALUE:",
     numeratorValue
 );
 
 console.log(
-    "🔥 DENOMINATOR VALUE:",
+    "ًں”¥ DENOMINATOR VALUE:",
     denominatorValue
 );
 
-console.log("🔥 NUMERATOR VALUE:", numeratorValue);
-console.log("🔥 DENOMINATOR VALUE:", denominatorValue);
+console.log("ًں”¥ NUMERATOR VALUE:", numeratorValue);
+console.log("ًں”¥ DENOMINATOR VALUE:", denominatorValue);
 
         // ==========================================
-        // منع القسمة على صفر
+        // ظ…ظ†ط¹ ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±
         // ==========================================
 
         if (denominatorValue === 0) {
@@ -30850,7 +30850,7 @@ console.log("🔥 DENOMINATOR VALUE:", denominatorValue);
         }
 
         // ==========================================
-        // تحويل النتيجة إلى كسر
+        // طھط­ظˆظٹظ„ ط§ظ„ظ†طھظٹط¬ط© ط¥ظ„ظ‰ ظƒط³ط±
         // ==========================================
 
         let resultNumerator =
@@ -30859,7 +30859,7 @@ console.log("🔥 DENOMINATOR VALUE:", denominatorValue);
         let resultDenominator =
             denominatorValue;
 
-        // تقريب الأعداد العشرية
+        // طھظ‚ط±ظٹط¨ ط§ظ„ط£ط¹ط¯ط§ط¯ ط§ظ„ط¹ط´ط±ظٹط©
         resultNumerator =
             Number(resultNumerator.toFixed(10));
 
@@ -30867,7 +30867,7 @@ console.log("🔥 DENOMINATOR VALUE:", denominatorValue);
             Number(resultDenominator.toFixed(10));
 
         // ==========================================
-        // لو الناتج أعداد صحيحة
+        // ظ„ظˆ ط§ظ„ظ†ط§طھط¬ ط£ط¹ط¯ط§ط¯ طµط­ظٹط­ط©
         // ==========================================
 
         if (
@@ -30885,7 +30885,7 @@ console.log("🔥 DENOMINATOR VALUE:", denominatorValue);
 
         } else {
 
-            // تحويل عشري إلى كسر تقريبي
+            // طھط­ظˆظٹظ„ ط¹ط´ط±ظٹ ط¥ظ„ظ‰ ظƒط³ط± طھظ‚ط±ظٹط¨ظٹ
             const scale = 1000000;
 
             let n =
@@ -30894,7 +30894,7 @@ console.log("🔥 DENOMINATOR VALUE:", denominatorValue);
             let d =
                 Math.round(resultDenominator * scale);
 
-                console.log("🔴 BEFORE GCD:", {
+                console.log("ًں”´ BEFORE GCD:", {
     resultNumerator,
     resultDenominator,
     n,
@@ -30914,11 +30914,11 @@ console.log("🔥 DENOMINATOR VALUE:", denominatorValue);
         }
 
         // ==========================================
-        // جعل الإشارة في البسط
+        // ط¬ط¹ظ„ ط§ظ„ط¥ط´ط§ط±ط© ظپظٹ ط§ظ„ط¨ط³ط·
         // ==========================================
 
         // ==========================================
-// جعل الإشارة في البسط
+// ط¬ط¹ظ„ ط§ظ„ط¥ط´ط§ط±ط© ظپظٹ ط§ظ„ط¨ط³ط·
 // ==========================================
 
 if (resultDenominator < 0) {
@@ -30927,25 +30927,25 @@ if (resultDenominator < 0) {
 }
 
 // ==========================================
-// إذا كان المقام = 1 لا تعرض /1
+// ط¥ط°ط§ ظƒط§ظ† ط§ظ„ظ…ظ‚ط§ظ… = 1 ظ„ط§ طھط¹ط±ط¶ /1
 // ==========================================
 
 if (resultDenominator === 1) {
     resultNumerator = Number(resultNumerator);
 }
-console.log("🟢 FINAL FRACTION:", {
+console.log("ًںں¢ FINAL FRACTION:", {
     numerator: resultNumerator,
     denominator: resultDenominator,
     denominatorType: typeof resultDenominator
 });
         // ==========================================
-        // عرض النتيجة
+        // ط¹ط±ط¶ ط§ظ„ظ†طھظٹط¬ط©
         // ==========================================
 
         display.style.visibility = "visible";
 
         // ==========================================
-// عرض النتيجة
+// ط¹ط±ط¶ ط§ظ„ظ†طھظٹط¬ط©
 // ==========================================
 
 display.style.visibility = "visible";
@@ -30966,7 +30966,7 @@ answer =
             `${numeratorExpression}/${denominatorExpression} =`;
 
         // ==========================================
-        // حذف محرر الكسر
+        // ط­ط°ظپ ظ…ط­ط±ط± ط§ظ„ظƒط³ط±
         // ==========================================
 
         const editor =
@@ -31022,14 +31022,14 @@ if (
 
         const clean = expr
             .replace(/\s+/g, "")
-            .replace(/×/g, "*")
-            .replace(/÷/g, "/");
+            .replace(/أ—/g, "*")
+            .replace(/أ·/g, "/");
 
         console.log("========== CMPLX ==========");
         console.log("INPUT:", clean);
         // ==========================================
 // CMPLX RECTANGULAR
-// Rec(r,θ) → a+bi
+// Rec(r,خ¸) â†’ a+bi
 // ==========================================
 
 const recMatch = clean.match(
@@ -31059,7 +31059,7 @@ if (recMatch) {
         );
 
         console.log(
-            "🟣 REC RESULT:",
+            "ًںں£ REC RESULT:",
             result
         );
 
@@ -31092,7 +31092,7 @@ if (recMatch) {
 }
         // ==========================================
 // CMPLX POLAR
-// Pol(x,y) → r∠θ
+// Pol(x,y) â†’ râˆ خ¸
 // ==========================================
 
 const polMatch = clean.match(
@@ -31121,13 +31121,13 @@ if (polMatch) {
             new Complex(r, theta);
 
         console.log(
-            "🟣 POL RESULT:",
+            "ًںں£ POL RESULT:",
             r,
             theta
         );
 
         display.value =
-            `${r.toFixed(6)}∠${theta.toFixed(6)}`;
+            `${r.toFixed(6)}âˆ ${theta.toFixed(6)}`;
 
         expression.textContent =
             clean + " =";
@@ -31154,14 +31154,14 @@ if (polMatch) {
         return;
     }
 }
-        console.log("🟣 LN TEST:", clean.startsWith("ln("));
-console.log("🟣 LN END:", clean.endsWith(")"));
+        console.log("ًںں£ LN TEST:", clean.startsWith("ln("));
+console.log("ًںں£ LN END:", clean.endsWith(")"));
      // ==========================================
-// CMPLX √
+// CMPLX âˆڑ
 // ==========================================
 
 if (
-    clean.startsWith("√(") &&
+    clean.startsWith("âˆڑ(") &&
     clean.endsWith(")")
 ) {
 
@@ -31171,7 +31171,7 @@ if (
             clean.slice(2, -1);
 
         console.log(
-            "🟣 CMPLX √ INSIDE:",
+            "ًںں£ CMPLX âˆڑ INSIDE:",
             inside
         );
 
@@ -31179,7 +31179,7 @@ if (
             parseCMPLX(inside);
 
         console.log(
-            "🟣 CMPLX √ PARSED:",
+            "ًںں£ CMPLX âˆڑ PARSED:",
             z
         );
 
@@ -31202,7 +31202,7 @@ if (
             );
 
         console.log(
-            "🟣 CMPLX √ RESULT:",
+            "ًںں£ CMPLX âˆڑ RESULT:",
             result
         );
 
@@ -31221,7 +31221,7 @@ if (
     } catch (err) {
 
         console.error(
-            "🟣 CMPLX √ ERROR:",
+            "ًںں£ CMPLX âˆڑ ERROR:",
             err
         );
 
@@ -31246,7 +31246,7 @@ if (
             clean.slice(3, -1);
 
         console.log(
-            "🟣 CMPLX ln INSIDE:",
+            "ًںں£ CMPLX ln INSIDE:",
             inside
         );
 
@@ -31254,7 +31254,7 @@ if (
             parseCMPLX(inside);
 
         console.log(
-            "🟣 CMPLX ln PARSED:",
+            "ًںں£ CMPLX ln PARSED:",
             z
         );
 
@@ -31274,7 +31274,7 @@ if (
             );
 
         console.log(
-            "🟣 CMPLX ln RESULT:",
+            "ًںں£ CMPLX ln RESULT:",
             result
         );
 
@@ -31293,7 +31293,7 @@ if (
     } catch (err) {
 
         console.error(
-            "🟣 CMPLX ln ERROR:",
+            "ًںں£ CMPLX ln ERROR:",
             err
         );
 
@@ -31318,7 +31318,7 @@ if (
             clean.slice(3, -1);
 
         console.log(
-            "🟣 CMPLX EXP INSIDE:",
+            "ًںں£ CMPLX EXP INSIDE:",
             inside
         );
 
@@ -31326,7 +31326,7 @@ if (
             parseCMPLX(inside);
 
         console.log(
-            "🟣 CMPLX EXP PARSED:",
+            "ًںں£ CMPLX EXP PARSED:",
             z
         );
 
@@ -31340,7 +31340,7 @@ if (
             );
 
         console.log(
-            "🟣 CMPLX EXP RESULT:",
+            "ًںں£ CMPLX EXP RESULT:",
             result
         );
 
@@ -31359,7 +31359,7 @@ if (
     } catch (err) {
 
         console.error(
-            "🟣 CMPLX EXP ERROR:",
+            "ًںں£ CMPLX EXP ERROR:",
             err
         );
 
@@ -31378,7 +31378,7 @@ if (
 
         
         // =====================================
-        // الحساب النهائي
+        // ط§ظ„ط­ط³ط§ط¨ ط§ظ„ظ†ظ‡ط§ط¦ظٹ
         // =====================================
 
       // ==========================================
@@ -31468,7 +31468,7 @@ const result =
     }
 }
 // =====================================
-// قوة كسر: (a/b)^n
+// ظ‚ظˆط© ظƒط³ط±: (a/b)^n
 // =====================================
 
 const fractionPowerMatch = expr.match(
@@ -31481,7 +31481,7 @@ if (fractionPowerMatch) {
     const denominator = Number(fractionPowerMatch[2]);
     const exponent = Number(fractionPowerMatch[3]);
 
-    console.log("🔥 FRACTION POWER DETECTED");
+    console.log("ًں”¥ FRACTION POWER DETECTED");
     console.log("NUMERATOR:", numerator);
     console.log("DENOMINATOR:", denominator);
     console.log("EXPONENT:", exponent);
@@ -31516,13 +31516,13 @@ if (fractionPowerMatch) {
             Math.pow(numerator, Math.abs(exponent));
     }
 
-    // جعل الإشارة في البسط
+    // ط¬ط¹ظ„ ط§ظ„ط¥ط´ط§ط±ط© ظپظٹ ط§ظ„ط¨ط³ط·
     if (resultDenominator < 0) {
         resultNumerator *= -1;
         resultDenominator *= -1;
     }
 
-    // تبسيط
+    // طھط¨ط³ظٹط·
     const divisor = gcd(
         Math.abs(resultNumerator),
         Math.abs(resultDenominator)
@@ -31560,14 +31560,14 @@ if (fractionPowerMatch) {
     });
 
     console.log(
-        "🟢 FRACTION POWER RESULT:",
+        "ًںں¢ FRACTION POWER RESULT:",
         display.value
     );
 
     return;
 }
     // =====================================
-    // حساب العمليات التي تحتوي على كسور
+    // ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„طھظٹ طھط­طھظˆظٹ ط¹ظ„ظ‰ ظƒط³ظˆط±
     // =====================================
 
     if (expr.includes("/")) {
@@ -31605,7 +31605,7 @@ if (fractionPowerMatch) {
         return;
     }
 
-            // منع إعادة حساب رسالة الخطأ
+            // ظ…ظ†ط¹ ط¥ط¹ط§ط¯ط© ط­ط³ط§ط¨ ط±ط³ط§ظ„ط© ط§ظ„ط®ط·ط£
             if (
 
                 expr === "Math Error" ||
@@ -31619,7 +31619,7 @@ if (fractionPowerMatch) {
             expression.textContent = expr + " =";
 
             // =====================================
-            // إغلاق الأقواس الناقصة
+            // ط¥ط؛ظ„ط§ظ‚ ط§ظ„ط£ظ‚ظˆط§ط³ ط§ظ„ظ†ط§ظ‚طµط©
             // =====================================
 
             let openCount = (expr.match(/\(/g) || []).length;
@@ -31631,20 +31631,20 @@ if (fractionPowerMatch) {
             // ==========================================
 
             // =====================================
-            // تحويل الرموز
+            // طھط­ظˆظٹظ„ ط§ظ„ط±ظ…ظˆط²
             // =====================================
 
             let parsed = expr
-    .replaceAll("×", "*")
-    .replaceAll("÷", "/")
-    .replaceAll("−", "-")
-    .replaceAll("π", "Math.PI")
+    .replaceAll("أ—", "*")
+    .replaceAll("أ·", "/")
+    .replaceAll("âˆ’", "-")
+    .replaceAll("د€", "Math.PI")
     .replaceAll("Ans", String(answer))
     .replace(/\be\b/g, "Math.E")
     .replaceAll("^", "**");
 
             // =====================================
-            // الدوال المثلثية
+            // ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ظ…ط«ظ„ط«ظٹط©
             // =====================================
 
             parsed = parsed.replace(
@@ -31678,11 +31678,11 @@ parsed = parsed.replace(
 );
 
             // =====================================
-            // الدوال المثلثية العادية
+            // ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ظ…ط«ظ„ط«ظٹط© ط§ظ„ط¹ط§ط¯ظٹط©
             // =====================================
 
             // =====================================
-// الدوال المثلثية العادية
+// ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ظ…ط«ظ„ط«ظٹط© ط§ظ„ط¹ط§ط¯ظٹط©
 // =====================================
 
 parsed = parsed.replace(
@@ -31701,12 +31701,12 @@ parsed = parsed.replace(
 );
 
             // =====================================
-            // الدوال الأخرى
+            // ط§ظ„ط¯ظˆط§ظ„ ط§ظ„ط£ط®ط±ظ‰
             // =====================================
 
          parsed = parsed
-    .replace(/√\(/g, "sqrt(")
-    .replace(/∛\(/g, "cbrt(")
+    .replace(/âˆڑ\(/g, "sqrt(")
+    .replace(/âˆ›\(/g, "cbrt(")
     .replace(/abs\(/g, "abs(")
     .replace(/log\(/g, "log(")
     .replace(/ln\(/g, "ln(");
@@ -31720,7 +31720,7 @@ parsed = parsed.replace(
             );
 
             // =====================================
-            // المضروب
+            // ط§ظ„ظ…ط¶ط±ظˆط¨
             // =====================================
 
             parsed = parsed.replace(
@@ -31729,7 +31729,7 @@ parsed = parsed.replace(
             );
 
             // =====================================
-            // التباديل والتوافيق
+            // ط§ظ„طھط¨ط§ط¯ظٹظ„ ظˆط§ظ„طھظˆط§ظپظٹظ‚
             // =====================================
 
             parsed = parsed
@@ -31743,7 +31743,7 @@ parsed = parsed.replace(
                 );
 
             // =====================================
-            // النسبة المئوية
+            // ط§ظ„ظ†ط³ط¨ط© ط§ظ„ظ…ط¦ظˆظٹط©
             // =====================================
 
             parsed = parsed.replace(
@@ -31760,10 +31760,10 @@ parsed = parsed.replace(
 
        
             // =====================================
-            // التنفيذ
+            // ط§ظ„طھظ†ظپظٹط°
             // =====================================
  // ==========================================
-// 🟣 CMPLX CALCULATION
+// ًںں£ CMPLX CALCULATION
 // ==========================================
 
 if (currentMode === "CMPLX") {
@@ -31774,7 +31774,7 @@ if (currentMode === "CMPLX") {
             display.value.trim();
 
         console.log(
-            "🟣 CMPLX EXPRESSION:",
+            "ًںں£ CMPLX EXPRESSION:",
             complexExpression
         );
 
@@ -31782,7 +31782,7 @@ if (currentMode === "CMPLX") {
     calculateComplexExpression(complexExpression);
 
         console.log(
-            "🟣 CMPLX RESULT:",
+            "ًںں£ CMPLX RESULT:",
             complexResult
         );
 
@@ -31801,7 +31801,7 @@ if (currentMode === "CMPLX") {
     } catch (err) {
 
         console.error(
-            "🟣 CMPLX ERROR:",
+            "ًںں£ CMPLX ERROR:",
             err
         );
 
@@ -31839,7 +31839,7 @@ if (currentMode === "CMPLX") {
 );
 
             // =====================================
-            // عرض النتيجة
+            // ط¹ط±ط¶ ط§ظ„ظ†طھظٹط¬ط©
             // =====================================
 
             if (typeof result === "number") {
@@ -31881,14 +31881,14 @@ if (currentMode === "CMPLX") {
         }
 
     };
-    // أزرار العمليات الحسابية الأربعة
+    // ط£ط²ط±ط§ط± ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط­ط³ط§ط¨ظٹط© ط§ظ„ط£ط±ط¨ط¹ط©
 // ==========================================
 
 document.querySelectorAll(".operator").forEach(btn => {
 
     btn.onclick = function () {
 // ==========================================
-    // ⚡ السالب داخل حاسبة الفيزياء
+    // âڑ، ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط­ط§ط³ط¨ط© ط§ظ„ظپظٹط²ظٹط§ط،
     // ==========================================
 
     if (window.activePhysicsField) {
@@ -31902,7 +31902,7 @@ document.querySelectorAll(".operator").forEach(btn => {
             field.value += "-";
 
             console.log(
-                "⚛️ PHYSICS MINUS:",
+                "âڑ›ï¸ڈ PHYSICS MINUS:",
                 window.activePhysicsField,
                 field.value
             );
@@ -31912,16 +31912,16 @@ document.querySelectorAll(".operator").forEach(btn => {
     }
 
     // ==========================================
-    // السالب داخل الكسر الداخلي
+    // ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
     // ==========================================
 
     if (fractionMode && nestedFractionMode) {
 
         if (nestedFractionStage === 1) {
-            nestedFractionNumerator += "−";
+            nestedFractionNumerator += "âˆ’";
         }
         else if (nestedFractionStage === 2) {
-            nestedFractionDenominator += "−";
+            nestedFractionDenominator += "âˆ’";
         }
 
         updateFractionDisplay();
@@ -31931,13 +31931,13 @@ document.querySelectorAll(".operator").forEach(btn => {
         const value = this.textContent.trim();
 
         // ==========================================
-// الخروج من الكسر وكتابة العملية
+// ط§ظ„ط®ط±ظˆط¬ ظ…ظ† ط§ظ„ظƒط³ط± ظˆظƒطھط§ط¨ط© ط§ظ„ط¹ظ…ظ„ظٹط©
 // ==========================================
 
 if (
     !fractionMode &&
     fractionExpression &&
-    ["+", "−", "×", "÷"].includes(value)
+    ["+", "âˆ’", "أ—", "أ·"].includes(value)
 ) {
 
     display.style.visibility = "visible";
@@ -31947,9 +31947,9 @@ if (
 
     fractionExpression += value;
 
-    console.log("🔥 OPERATION AFTER FRACTION:", fractionExpression);
+    console.log("ًں”¥ OPERATION AFTER FRACTION:", fractionExpression);
 console.log(
-    "🧪 DISPLAY AFTER OPERATOR:",
+    "ًں§ھ DISPLAY AFTER OPERATOR:",
     display.value
 );
     return;
@@ -31957,7 +31957,7 @@ console.log(
 
       if (currentMode === "EQN") {
 
-    if (value === "-" || value === "−") {
+    if (value === "-" || value === "âˆ’") {
 
         if (document.getElementById("quarticInput")) {
             quarticEnterNumber("-");
@@ -31972,7 +31972,7 @@ console.log(
 }
 
         // =====================================
-        // EQN - المعادلة التكعيبية
+        // EQN - ط§ظ„ظ…ط¹ط§ط¯ظ„ط© ط§ظ„طھظƒط¹ظٹط¨ظٹط©
         // =====================================
 
         if (
@@ -31984,28 +31984,28 @@ console.log(
         }
 
         // =====================================
-        // العمليات على الكسور
+        // ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط¹ظ„ظ‰ ط§ظ„ظƒط³ظˆط±
         // =====================================
 
        // ==========================================
-// العمليات داخل الكسر
+// ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
 // ==========================================
 // ==========================================
-// السالب داخل الكسر الداخلي
+// ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
 // ==========================================
 
 // ==========================================
-// السالب داخل الكسر الداخلي
+// ط§ظ„ط³ط§ظ„ط¨ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
 // ==========================================
 
 if (nestedFractionMode) {
 
     // ==========================================
-    // السالب في بسط الكسر الداخلي
+    // ط§ظ„ط³ط§ظ„ط¨ ظپظٹ ط¨ط³ط· ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
     // ==========================================
 
     if (
-        (value === "-" || value === "−") &&
+        (value === "-" || value === "âˆ’") &&
         nestedFractionStage === 1
     ) {
 
@@ -32025,7 +32025,7 @@ if (nestedFractionMode) {
         updateFractionDisplay();
 
         console.log(
-            "🟣 NESTED NEGATIVE NUMERATOR:",
+            "ًںں£ NESTED NEGATIVE NUMERATOR:",
             nestedFractionNumerator
         );
 
@@ -32033,11 +32033,11 @@ if (nestedFractionMode) {
     }
 
     // ==========================================
-    // السالب في مقام الكسر الداخلي
+    // ط§ظ„ط³ط§ظ„ط¨ ظپظٹ ظ…ظ‚ط§ظ… ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
     // ==========================================
 
     if (
-        (value === "-" || value === "−") &&
+        (value === "-" || value === "âˆ’") &&
         nestedFractionStage === 2
     ) {
 
@@ -32057,7 +32057,7 @@ if (nestedFractionMode) {
         updateFractionDisplay();
 
         console.log(
-            "🟣 NESTED NEGATIVE DENOMINATOR:",
+            "ًںں£ NESTED NEGATIVE DENOMINATOR:",
             nestedFractionDenominator
         );
 
@@ -32070,9 +32070,9 @@ if (fractionMode) {
 
     if (fractionStage === 1) {
 
-    // السماح بالسالب في بداية البسط
+    // ط§ظ„ط³ظ…ط§ط­ ط¨ط§ظ„ط³ط§ظ„ط¨ ظپظٹ ط¨ط¯ط§ظٹط© ط§ظ„ط¨ط³ط·
     if (
-        (value === "-" || value === "−") &&
+        (value === "-" || value === "âˆ’") &&
         fractionNumerator === ""
     ) {
         fractionNumerator = "-";
@@ -32090,9 +32090,9 @@ if (fractionMode) {
 
 if (fractionStage === 2) {
 
-    // السماح بالسالب في بداية المقام
+    // ط§ظ„ط³ظ…ط§ط­ ط¨ط§ظ„ط³ط§ظ„ط¨ ظپظٹ ط¨ط¯ط§ظٹط© ط§ظ„ظ…ظ‚ط§ظ…
     if (
-        (value === "-" || value === "−") &&
+        (value === "-" || value === "âˆ’") &&
         fractionDenominator === ""
     ) {
         fractionDenominator = "-";
@@ -32114,12 +32114,12 @@ writeToDisplay(value);
 });
 
 }
-// أزرار History و Prime
+// ط£ط²ط±ط§ط± History ظˆ Prime
 const historyBtn = document.getElementById("historyBtn");
 if (historyBtn) {
     historyBtn.onclick = () => {
         if (!historyStack.length) {
-            createScreenPanel(`<b>History Log:</b><br><br>لا يوجد سجل سابق`);
+            createScreenPanel(`<b>History Log:</b><br><br>ظ„ط§ ظٹظˆط¬ط¯ ط³ط¬ظ„ ط³ط§ط¨ظ‚`);
         } else {
             createScreenPanel(`
                 <b>History Log:</b><br>
@@ -32141,7 +32141,7 @@ if (primeBtn) {
     };
 }
 // =====================================
-// زر ABS
+// ط²ط± ABS
 // =====================================
 
 // ==========================================
@@ -32181,26 +32181,26 @@ if (shift && currentMode === "CMPLX") {
         status.textContent = currentMode;
     }
 
-    console.log("🟣 RE INPUT");
+    console.log("ًںں£ RE INPUT");
 
     return;
 }
 
         // ==========================================
-        // ABS العادي
+        // ABS ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 // ==========================================
-// ABS داخل الكسر الداخلي
+// ABS ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
 // ==========================================
 // ==========================================
-// ABS داخل الكسر الداخلي
+// ABS ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
 // ==========================================
 
 // ==========================================
-// ABS داخل الكسر الداخلي
+// ABS ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
 // ==========================================
 console.log(
-    "🧪 ABS STATE:",
+    "ًں§ھ ABS STATE:",
     "fractionMode =", fractionMode,
     "nestedFractionMode =", nestedFractionMode,
     "fractionStage =", fractionStage,
@@ -32209,14 +32209,14 @@ console.log(
 if (nestedFractionMode) {
 
     // ==========================================
-    // ABS داخل الكسر الداخلي
+    // ABS ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
     // ==========================================
 
     if (nestedFractionStage === 1) {
 
-        // لو ABS مفتوح بالفعل، لا تفتحه مرة ثانية
+        // ظ„ظˆ ABS ظ…ظپطھظˆط­ ط¨ط§ظ„ظپط¹ظ„طŒ ظ„ط§ طھظپطھط­ظ‡ ظ…ط±ط© ط«ط§ظ†ظٹط©
         if (nestedFractionNumerator.startsWith("abs(")) {
-            console.log("🟣 NESTED ABS ALREADY OPEN");
+            console.log("ًںں£ NESTED ABS ALREADY OPEN");
             return;
         }
 
@@ -32224,9 +32224,9 @@ if (nestedFractionMode) {
 
     } else if (nestedFractionStage === 2) {
 
-        // لو ABS مفتوح بالفعل، لا تفتحه مرة ثانية
+        // ظ„ظˆ ABS ظ…ظپطھظˆط­ ط¨ط§ظ„ظپط¹ظ„طŒ ظ„ط§ طھظپطھط­ظ‡ ظ…ط±ط© ط«ط§ظ†ظٹط©
         if (nestedFractionDenominator.startsWith("abs(")) {
-            console.log("🟣 NESTED ABS ALREADY OPEN");
+            console.log("ًںں£ NESTED ABS ALREADY OPEN");
             return;
         }
 
@@ -32236,7 +32236,7 @@ if (nestedFractionMode) {
     
 }
 // ==========================================
-// ABS داخل الكسر الداخلي - أولوية أعلى
+// ABS ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ - ط£ظˆظ„ظˆظٹط© ط£ط¹ظ„ظ‰
 // ==========================================
 
 if (nestedFractionMode) {
@@ -32257,7 +32257,7 @@ if (nestedFractionMode) {
     updateFractionDisplay();
 
     console.log(
-        "🟣 NESTED ABS:",
+        "ًںں£ NESTED ABS:",
         nestedFractionStage === 1
             ? nestedFractionNumerator
             : nestedFractionDenominator
@@ -32266,7 +32266,7 @@ if (nestedFractionMode) {
     return;
 }
 // ==========================================
-// ABS داخل الكسر الخارجي
+// ABS ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
 // ==========================================
 if (fractionMode) {
 
@@ -32277,7 +32277,7 @@ if (fractionMode) {
         updateFractionDisplay();
 
         console.log(
-            "🔵 OUTER ABS OPEN:",
+            "ًں”µ OUTER ABS OPEN:",
             fractionNumerator
         );
 
@@ -32288,7 +32288,7 @@ if (fractionMode) {
         updateFractionDisplay();
 
         console.log(
-            "🔵 OUTER ABS OPEN:",
+            "ًں”µ OUTER ABS OPEN:",
             fractionDenominator
         );
     }
@@ -32337,13 +32337,13 @@ if (shift && currentMode === "CMPLX") {
         status.textContent = currentMode;
     }
 
-    console.log("🟣 IM INPUT");
+    console.log("ًںں£ IM INPUT");
 
     return;
 }
 
         // ==========================================
-        // % العادي
+        // % ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         writeToDisplay("%");
@@ -32352,12 +32352,12 @@ if (shift && currentMode === "CMPLX") {
 }
 // ==========================================
 // SHIFT + i = Polar
-// i العادي = i
+// i ط§ظ„ط¹ط§ط¯ظٹ = i
 // ==========================================
 
 
 // ==========================================
-// Arg - زاوية العدد المركب
+// Arg - ط²ط§ظˆظٹط© ط§ظ„ط¹ط¯ط¯ ط§ظ„ظ…ط±ظƒط¨
 // ==========================================
 const argBtn = document.getElementById("argBtn");
 
@@ -32376,7 +32376,7 @@ if (shift && currentMode === "CMPLX") {
         status.textContent = currentMode;
     }
 
-    console.log("🟣 CONJG INPUT");
+    console.log("ًںں£ CONJG INPUT");
 
     return;
 }
@@ -32396,7 +32396,7 @@ if (currentMode === "CMPLX") {
         status.textContent = currentMode;
     }
 
-    console.log("🟣 ARG INPUT");
+    console.log("ًںں£ ARG INPUT");
 
     return;
 }
@@ -32416,7 +32416,7 @@ if (
         updateFractionDisplay();
 
         console.log(
-            "🟣 CMPLX i → FRACTION NUMERATOR:",
+            "ًںں£ CMPLX i â†’ FRACTION NUMERATOR:",
             fractionNumerator
         );
 
@@ -32428,7 +32428,7 @@ if (
         updateFractionDisplay();
 
         console.log(
-            "🟣 CMPLX i → FRACTION DENOMINATOR:",
+            "ًںں£ CMPLX i â†’ FRACTION DENOMINATOR:",
             fractionDenominator
         );
 
@@ -32436,7 +32436,7 @@ if (
     }
 }
         // ==========================================
-        // i بعد كسر في CMPLX
+        // i ط¨ط¹ط¯ ظƒط³ط± ظپظٹ CMPLX
         // ==========================================
 
         if (
@@ -32447,7 +32447,7 @@ if (
 
             const value = display.value.trim();
 
-            // لو الشاشة فيها كسر فقط
+            // ظ„ظˆ ط§ظ„ط´ط§ط´ط© ظپظٹظ‡ط§ ظƒط³ط± ظپظ‚ط·
             if (/^-?\d+(?:\.\d+)?\/-?\d+(?:\.\d+)?$/.test(value)) {
 
                 display.value = "(" + value + ")i";
@@ -32460,7 +32460,7 @@ if (
                 return;
             }
 
-            // لو فيه عملية تنتهي بكسر
+            // ظ„ظˆ ظپظٹظ‡ ط¹ظ…ظ„ظٹط© طھظ†طھظ‡ظٹ ط¨ظƒط³ط±
             const match = value.match(
                 /(\(-?\d+(?:\.\d+)?\/-?\d+(?:\.\d+)?\))$/
             );
@@ -32478,7 +32478,7 @@ if (
             }
         }
 
-        // السلوك العادي
+        // ط§ظ„ط³ظ„ظˆظƒ ط§ظ„ط¹ط§ط¯ظٹ
         writeToDisplay("i");
     };
 }
@@ -32492,7 +32492,7 @@ if (dmsBtn) {
 
         if (!Number.isFinite(value)) return;
 
-        // تحويل القيمة إلى درجات حسب وضع الزاوية
+        // طھط­ظˆظٹظ„ ط§ظ„ظ‚ظٹظ…ط© ط¥ظ„ظ‰ ط¯ط±ط¬ط§طھ ط­ط³ط¨ ظˆط¶ط¹ ط§ظ„ط²ط§ظˆظٹط©
         if (angleMode === "RAD") {
             value = value * 180 / Math.PI;
         } 
@@ -32510,7 +32510,7 @@ if (dmsBtn) {
 
         let seconds = (minutesFull - minutes) * 60;
 
-        // معالجة التقريب
+        // ظ…ط¹ط§ظ„ط¬ط© ط§ظ„طھظ‚ط±ظٹط¨
         if (seconds >= 59.995) {
             seconds = 0;
             minutes++;
@@ -32522,12 +32522,12 @@ if (dmsBtn) {
         }
 
         display.value =
-            `${sign}${degrees}° ${minutes}′ ${seconds.toFixed(2)}″`;
+            `${sign}${degrees}آ° ${minutes}â€² ${seconds.toFixed(2)}â€³`;
     };
 }
 const navLeft = document.getElementById("navLeft");
 // ==========================================
-// ◀ زر الرجوع للقائمة الرئيسية
+// â—€ ط²ط± ط§ظ„ط±ط¬ظˆط¹ ظ„ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©
 // ==========================================
 
 const navLeftButton = document.getElementById("navLeft");
@@ -32536,42 +32536,42 @@ if (navLeftButton) {
 
     navLeftButton.onclick = function () {
 
-        console.log("◀ NAV LEFT CLICK");
+        console.log("â—€ NAV LEFT CLICK");
         console.log("currentMode =", currentMode);
         console.log("currentCalculationType =", currentCalculationType);
 
-        // 🧮 الرياضيات
+        // ًں§® ط§ظ„ط±ظٹط§ط¶ظٹط§طھ
         if (
             currentMode === "COMP" ||
             currentCalculationType === "math"
         ) {
 
-            console.log("🏠 الرجوع لقائمة طريقة الحساب");
+            console.log("ًںڈ  ط§ظ„ط±ط¬ظˆط¹ ظ„ظ‚ط§ط¦ظ…ط© ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨");
 
-            // إلغاء أي وضع خاص
+            // ط¥ظ„ط؛ط§ط، ط£ظٹ ظˆط¶ط¹ ط®ط§طµ
             fractionMode = false;
             nestedFractionMode = false;
 
-            // إظهار الشاشة الرئيسية
+            // ط¥ط¸ظ‡ط§ط± ط§ظ„ط´ط§ط´ط© ط§ظ„ط±ط¦ظٹط³ظٹط©
             openCalculatorHome();
 
             return;
         }
 
-        // 🧪 الكيمياء
+        // ًں§ھ ط§ظ„ظƒظٹظ…ظٹط§ط،
         if (chemistryMode) {
             exitChemistryMode();
             return;
         }
 
-        // ⚛️ الفيزياء
+        // âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط،
         if (currentMode === "PHYSICS") {
-            console.log("⚛️ الرجوع من الفيزياء");
+            console.log("âڑ›ï¸ڈ ط§ظ„ط±ط¬ظˆط¹ ظ…ظ† ط§ظ„ظپظٹط²ظٹط§ط،");
             openCalculatorHome();
             return;
         }
 
-        // الوضع العادي
+        // ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
         moveSelection("left");
     };
 }
@@ -32585,11 +32585,11 @@ if (navDown) {
     navDown.onclick = function () {
 
         // ==========================================
-        // الكسر الداخلي
+        // ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
         // ==========================================
         if (fractionMode && nestedFractionMode) {
 
-            // بسط الداخلي → مقام الداخلي
+            // ط¨ط³ط· ط§ظ„ط¯ط§ط®ظ„ظٹ â†’ ظ…ظ‚ط§ظ… ط§ظ„ط¯ط§ط®ظ„ظٹ
             if (nestedFractionStage === 1) {
 
                 nestedFractionStage = 2;
@@ -32597,30 +32597,30 @@ if (navDown) {
                 updateFractionDisplay();
 
                 console.log(
-                    "🟣 NESTED DOWN → DENOMINATOR"
+                    "ًںں£ NESTED DOWN â†’ DENOMINATOR"
                 );
 
                 return;
             }
 
-            // مقام الداخلي → مقام الخارجي
+            // ظ…ظ‚ط§ظ… ط§ظ„ط¯ط§ط®ظ„ظٹ â†’ ظ…ظ‚ط§ظ… ط§ظ„ط®ط§ط±ط¬ظٹ
             if (
     nestedFractionStage === 2 &&
     nestedFractionParentStage === 1
 ) {
 
-    // نخرج من إدخال الكسر الداخلي
-    // لكن لا نمسح بياناته
+    // ظ†ط®ط±ط¬ ظ…ظ† ط¥ط¯ط®ط§ظ„ ط§ظ„ظƒط³ط± ط§ظ„ط¯ط§ط®ظ„ظٹ
+    // ظ„ظƒظ† ظ„ط§ ظ†ظ…ط³ط­ ط¨ظٹط§ظ†ط§طھظ‡
     nestedFractionMode = false;
     nestedFractionStage = 0;
 
-    // ننتقل لمقام الكسر الخارجي
+    // ظ†ظ†طھظ‚ظ„ ظ„ظ…ظ‚ط§ظ… ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
     fractionStage = 2;
 
     updateFractionDisplay();
 
     console.log(
-        "🟣 NESTED DOWN → OUTER DENOMINATOR"
+        "ًںں£ NESTED DOWN â†’ OUTER DENOMINATOR"
     );
 
     return;
@@ -32628,7 +32628,7 @@ if (navDown) {
         }
 
         // ==========================================
-        // الكسر الخارجي
+        // ط§ظ„ظƒط³ط± ط§ظ„ط®ط§ط±ط¬ظٹ
         // ==========================================
         if (fractionMode) {
 
@@ -32643,14 +32643,14 @@ if (navDown) {
                 updateFractionDisplay();
 
                 console.log(
-                    "🔵 OUTER DOWN → DENOMINATOR"
+                    "ًں”µ OUTER DOWN â†’ DENOMINATOR"
                 );
 
                 return;
             }
         }
 
-        // خارج الكسر
+        // ط®ط§ط±ط¬ ط§ظ„ظƒط³ط±
         moveSelection("down");
     };
 }
@@ -32659,7 +32659,7 @@ const navRight = document.getElementById("navRight");
 if (navRight) {
     navRight.onclick = function () {
 
-        // لو داخل الكسر ووصلنا للمقام
+        // ظ„ظˆ ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط± ظˆظˆطµظ„ظ†ط§ ظ„ظ„ظ…ظ‚ط§ظ…
         if (fractionMode && fractionStage === 2) {
 
             if (
@@ -32669,21 +32669,21 @@ if (navRight) {
                 return;
             }
 
-            // حفظ الكسر الحالي
+            // ط­ظپط¸ ط§ظ„ظƒط³ط± ط§ظ„ط­ط§ظ„ظٹ
             fractionExpression =
                 `(${fractionNumerator}/${fractionDenominator})`;
 
-            // إنهاء وضع إدخال الكسر
+            // ط¥ظ†ظ‡ط§ط، ظˆط¶ط¹ ط¥ط¯ط®ط§ظ„ ط§ظ„ظƒط³ط±
             fractionMode = false;
             fractionStage = 0;
 
-            // إظهار الشاشة
+            // ط¥ط¸ظ‡ط§ط± ط§ظ„ط´ط§ط´ط©
             display.style.visibility = "visible";
 
-            // وضع الكسر في الشاشة
+            // ظˆط¶ط¹ ط§ظ„ظƒط³ط± ظپظٹ ط§ظ„ط´ط§ط´ط©
             display.value = fractionExpression;
 
-            // حذف محرر الكسر
+            // ط­ط°ظپ ظ…ط­ط±ط± ط§ظ„ظƒط³ط±
             const editor =
                 document.getElementById("fractionEditor");
 
@@ -32692,7 +32692,7 @@ if (navRight) {
             }
 
             console.log(
-                "🔥 FRACTION EXIT:",
+                "ًں”¥ FRACTION EXIT:",
                 fractionExpression
             );
 
@@ -32738,7 +32738,7 @@ function moveSelection(direction) {
         row++;
     }
 
-    // منع الخروج من حدود الجدول
+    // ظ…ظ†ط¹ ط§ظ„ط®ط±ظˆط¬ ظ…ظ† ط­ط¯ظˆط¯ ط§ظ„ط¬ط¯ظˆظ„
     row = Math.max(0, Math.min(3, row));
     col = Math.max(0, Math.min(4, col));
 
@@ -32751,22 +32751,22 @@ function moveSelection(direction) {
 if (navRight) {
     navRight.onclick = () => {
         if (fractionMode) {
-            console.log("▶");
+            console.log("â–¶");
             console.log("DISPLAY BEFORE PLUS:", display.value);
 console.log("FRACTION EXPRESSION:", fractionExpression);
             const fraction =
     `(${fractionNumerator}/${fractionDenominator})`;
 
-if (fractionParent === "√") {
+if (fractionParent === "âˆڑ") {
 
     fractionExpression =
-        `√(${fraction})`;
+        `âˆڑ(${fraction})`;
 
 }
-else if (fractionParent === "∛") {
+else if (fractionParent === "âˆ›") {
 
     fractionExpression =
-        `∛(${fraction})`;
+        `âˆ›(${fraction})`;
 
 }
 else {
@@ -32776,7 +32776,7 @@ else {
 }
 
 console.log(
-    "🔥 FINAL FRACTION EXPRESSION:",
+    "ًں”¥ FINAL FRACTION EXPRESSION:",
     fractionExpression
 );
 fractionMode = false;
@@ -32794,25 +32794,25 @@ if (editor) {
 }
 
 console.log(
-    "🔥 FRACTION EXIT:",
+    "ًں”¥ FRACTION EXIT:",
     fractionExpression
 );
 
 console.log(
-    "🔥 AFTER EXIT DISPLAY:",
+    "ًں”¥ AFTER EXIT DISPLAY:",
     display.value
 );
 
 // ==========================================
-// 🧹 مسح بيانات محرر الكسر بعد الخروج
+// ًں§¹ ظ…ط³ط­ ط¨ظٹط§ظ†ط§طھ ظ…ط­ط±ط± ط§ظ„ظƒط³ط± ط¨ط¹ط¯ ط§ظ„ط®ط±ظˆط¬
 // ==========================================
 fractionNumerator = "";
 fractionDenominator = "";
 fractionParent = "";
-console.log("🧹 FRACTION EDITOR DATA CLEARED");
+console.log("ًں§¹ FRACTION EDITOR DATA CLEARED");
 
 console.log(
-    "🔥 FINAL FRACTION STATE:",
+    "ًں”¥ FINAL FRACTION STATE:",
     {
         fractionMode,
         fractionStage,
@@ -32838,7 +32838,7 @@ if (navUp) {
         if (fractionMode) {
             fractionStage = 1;
             updateFractionDisplay();
-            console.log("البسط");
+            console.log("ط§ظ„ط¨ط³ط·");
         } else {
             moveSelection("up");
         }
@@ -32850,7 +32850,7 @@ if (navUp) {
 updateSelectedButton();
 
 // =====================================
-// زر الموجب / السالب ±
+// ط²ط± ط§ظ„ظ…ظˆط¬ط¨ / ط§ظ„ط³ط§ظ„ط¨ آ±
 // =====================================
 document.getElementById("plusMinus").addEventListener("click", () => {
 
@@ -32892,7 +32892,7 @@ window.addEventListener("load", () => {
     console.log("BUTTON:", btn);
 
     if (btn) {
-        btn.textContent = "±";
+        btn.textContent = "آ±";
         btn.style.display = "block";
         btn.style.visibility = "visible";
         btn.style.opacity = "1";
@@ -32906,7 +32906,7 @@ if (plusMinusBtn) {
     plusMinusBtn.onclick = function () {
 
         // ==========================================
-        // MATRIX ±
+        // MATRIX آ±
         // ==========================================
 
         if (
@@ -33010,7 +33010,7 @@ input.textContent =
             if (data.type === "SCALAR") {
 
                 input.textContent =
-                    "القيمة = " + data.current;
+                    "ط§ظ„ظ‚ظٹظ…ط© = " + data.current;
 
                 return;
             }
@@ -33018,7 +33018,7 @@ input.textContent =
         }
 
         // ==========================================
-        // الوضع العادي
+        // ط§ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
         // ==========================================
 
         let value =
@@ -33073,7 +33073,7 @@ window.calcVectorMagnitude = function () {
         .map(Number);
 
     if (!a.length || a.some(Number.isNaN)) {
-        R.innerHTML = "أدخل A بشكل صحيح";
+        R.innerHTML = "ط£ط¯ط®ظ„ A ط¨ط´ظƒظ„ طµط­ظٹط­";
         return;
     }
 
@@ -33103,7 +33103,7 @@ window.calcVectorDot = function () {
         b.some(Number.isNaN) ||
         a.length !== b.length
     ) {
-        R.innerHTML = "A و B يجب أن يكونا بنفس عدد العناصر";
+        R.innerHTML = "A ظˆ B ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط¨ظ†ظپط³ ط¹ط¯ط¯ ط§ظ„ط¹ظ†ط§طµط±";
         return;
     }
 
@@ -33112,7 +33112,7 @@ window.calcVectorDot = function () {
         0
     );
 
-    R.innerHTML = `A · B = ${dot.toFixed(6)}`;
+    R.innerHTML = `A آ· B = ${dot.toFixed(6)}`;
 };
 window.calcVectorProjection = function () {
 
@@ -33132,7 +33132,7 @@ window.calcVectorProjection = function () {
         b.some(Number.isNaN) ||
         a.length !== b.length
     ) {
-        R.innerHTML = "A و B يجب أن يكونا بنفس عدد العناصر";
+        R.innerHTML = "A ظˆ B ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط¨ظ†ظپط³ ط¹ط¯ط¯ ط§ظ„ط¹ظ†ط§طµط±";
         return;
     }
 
@@ -33180,7 +33180,7 @@ window.calcVectorCross = function () {
         a.some(Number.isNaN) ||
         b.some(Number.isNaN)
     ) {
-        R.innerHTML = "A × B يحتاج متجهين 3D";
+        R.innerHTML = "A أ— B ظٹط­طھط§ط¬ ظ…طھط¬ظ‡ظٹظ† 3D";
         return;
     }
 
@@ -33189,7 +33189,7 @@ window.calcVectorCross = function () {
     const z = a[0] * b[1] - a[1] * b[0];
 
     R.innerHTML =
-        `A × B = (${x.toFixed(6)}, ${y.toFixed(6)}, ${z.toFixed(6)})`;
+        `A أ— B = (${x.toFixed(6)}, ${y.toFixed(6)}, ${z.toFixed(6)})`;
 };
 window.calcVectorAdd = function () {
 
@@ -33207,7 +33207,7 @@ window.calcVectorAdd = function () {
         a.some(Number.isNaN) ||
         b.some(Number.isNaN)
     ) {
-        R.innerHTML = "A و B يجب أن يكونا بنفس عدد العناصر";
+        R.innerHTML = "A ظˆ B ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط¨ظ†ظپط³ ط¹ط¯ط¯ ط§ظ„ط¹ظ†ط§طµط±";
         return;
     }
 
@@ -33234,14 +33234,14 @@ window.calcVectorSub = function () {
         a.some(Number.isNaN) ||
         b.some(Number.isNaN)
     ) {
-        R.innerHTML = "A و B يجب أن يكونا بنفس عدد العناصر";
+        R.innerHTML = "A ظˆ B ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط¨ظ†ظپط³ ط¹ط¯ط¯ ط§ظ„ط¹ظ†ط§طµط±";
         return;
     }
 
     const result = a.map((x, i) => x - b[i]);
 
     R.innerHTML =
-        `A − B = (${result.map(x => x.toFixed(6)).join(", ")})`;
+        `A âˆ’ B = (${result.map(x => x.toFixed(6)).join(", ")})`;
 };
 window.calcVectorAngle = function () {
 
@@ -33260,7 +33260,7 @@ window.calcVectorAngle = function () {
         a.some(Number.isNaN) ||
         b.some(Number.isNaN)
     ) {
-        R.innerHTML = "A و B يجب أن يكونا بنفس عدد العناصر";
+        R.innerHTML = "A ظˆ B ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ†ط§ ط¨ظ†ظپط³ ط¹ط¯ط¯ ط§ظ„ط¹ظ†ط§طµط±";
         return;
     }
 
@@ -33270,7 +33270,7 @@ window.calcVectorAngle = function () {
     const magB = Math.sqrt(b.reduce((s, x) => s + x * x, 0));
 
     if (!magA || !magB) {
-        R.innerHTML = "لا يمكن حساب الزاوية";
+        R.innerHTML = "ظ„ط§ ظٹظ…ظƒظ† ط­ط³ط§ط¨ ط§ظ„ط²ط§ظˆظٹط©";
         return;
     }
 
@@ -33282,7 +33282,7 @@ window.calcVectorAngle = function () {
     const angle =
         Math.acos(cosTheta) * 180 / Math.PI;
 
-    R.innerHTML = `θ = ${angle.toFixed(6)}°`;
+    R.innerHTML = `خ¸ = ${angle.toFixed(6)}آ°`;
 };
 window.calcVectorUnit = function () {
 
@@ -33294,7 +33294,7 @@ window.calcVectorUnit = function () {
     const a = A.value.split(",").map(Number);
 
     if (!a.length || a.some(Number.isNaN)) {
-        R.innerHTML = "أدخل A بشكل صحيح";
+        R.innerHTML = "ط£ط¯ط®ظ„ A ط¨ط´ظƒظ„ طµط­ظٹط­";
         return;
     }
 
@@ -33303,7 +33303,7 @@ window.calcVectorUnit = function () {
     );
 
     if (mag === 0) {
-        R.innerHTML = "لا يمكن عمل Unit Vector للصفر";
+        R.innerHTML = "ظ„ط§ ظٹظ…ظƒظ† ط¹ظ…ظ„ Unit Vector ظ„ظ„طµظپط±";
         return;
     }
 
@@ -33322,19 +33322,19 @@ document.querySelectorAll(".scientific-grid button").forEach(btn => {
         txt === "sin" ||
         txt === "cos" ||
         txt === "tan" ||
-        txt === "sin⁻¹" ||
-        txt === "cos⁻¹" ||
-        txt === "tan⁻¹" ||
+        txt === "sinâپ»آ¹" ||
+        txt === "cosâپ»آ¹" ||
+        txt === "tanâپ»آ¹" ||
         txt === "sinh" ||
         txt === "cosh" ||
         txt === "tanh" ||
-        txt === "x²" ||
-        txt === "x³" ||
-        txt === "√" ||
-        txt === "xʸ" ||
+        txt === "xآ²" ||
+        txt === "xآ³" ||
+        txt === "âˆڑ" ||
+        txt === "xت¸" ||
         txt === "ln" ||
         txt === "log" ||
-        txt === "eˣ"
+        txt === "eث£"
     ) {
         console.log("SHIFT:", txt);
     }
@@ -33408,7 +33408,7 @@ if (equalsBtn) {
 
 document.addEventListener("focusin", function (e) {
     console.log(
-        "🎯 FOCUS:",
+        "ًںژ¯ FOCUS:",
         "id =", e.target.id,
         "tag =", e.target.tagName,
         "readonly =", e.target.readOnly,
@@ -33418,12 +33418,12 @@ document.addEventListener("focusin", function (e) {
 
 document.addEventListener("focusout", function (e) {
     console.log(
-        "❌ BLUR:",
+        "â‌Œ BLUR:",
         "id =", e.target.id
     );
 });
 // ==========================================
-// شاشة اختيار طريقة الحساب
+// ط´ط§ط´ط© ط§ط®طھظٹط§ط± ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨
 // ==========================================
 
 (() => {
@@ -33432,7 +33432,7 @@ document.addEventListener("focusout", function (e) {
     const calcScreen = document.querySelector(".calculator");
 
     if (!homeScreen || !calcScreen) {
-        console.error("❌ لم يتم العثور على شاشة البداية أو الآلة");
+        console.error("â‌Œ ظ„ظ… ظٹطھظ… ط§ظ„ط¹ط«ظˆط± ط¹ظ„ظ‰ ط´ط§ط´ط© ط§ظ„ط¨ط¯ط§ظٹط© ط£ظˆ ط§ظ„ط¢ظ„ط©");
         return;
     }
 
@@ -33442,11 +33442,11 @@ document.addEventListener("focusout", function (e) {
 
         const choice = button.dataset.calculation;
 
-        console.log("طريقة الحساب:", choice);
+        console.log("ط·ط±ظٹظ‚ط© ط§ظ„ط­ط³ط§ط¨:", choice);
 
 
         // ==========================================
-        // 🧮 الرياضيات
+        // ًں§® ط§ظ„ط±ظٹط§ط¶ظٹط§طھ
         // ==========================================
 
         if (choice === "math") {
@@ -33472,7 +33472,7 @@ document.addEventListener("focusout", function (e) {
 
 
         // ==========================================
-        // ⚛️ الفيزياء
+        // âڑ›ï¸ڈ ط§ظ„ظپظٹط²ظٹط§ط،
         // ==========================================
 
         if (choice === "physics") {
@@ -33489,7 +33489,7 @@ document.addEventListener("focusout", function (e) {
 
 
         // ==========================================
-        // 🧪 الكيمياء
+        // ًں§ھ ط§ظ„ظƒظٹظ…ظٹط§ط،
         // ==========================================
 
         if (choice === "chemistry") {
@@ -33506,7 +33506,7 @@ document.addEventListener("focusout", function (e) {
 
 
         // ==========================================
-        // 💻 البرمجة
+        // ًں’» ط§ظ„ط¨ط±ظ…ط¬ط©
         // ==========================================
 
         if (choice === "programming") {
@@ -33516,9 +33516,9 @@ document.addEventListener("focusout", function (e) {
             homeScreen.classList.add("hidden");
             calcScreen.classList.remove("hidden");
 
-            // لو عندنا وضع برمجة موجود بالفعل
-            if (typeof openProgrammingMode === "function") {
-                openProgrammingMode();
+            // ظ„ظˆ ط¹ظ†ط¯ظ†ط§ ظˆط¶ط¹ ط¨ط±ظ…ط¬ط© ظ…ظˆط¬ظˆط¯ ط¨ط§ظ„ظپط¹ظ„
+            if (typeof openProgrammingMenu === "function") {
+                openProgrammingMenu();
             }
 
             return;
@@ -33531,8 +33531,8 @@ document.addEventListener("focusout", function (e) {
 })();
 
 // ==========================================
-// 🧪 CHEMISTRY MODE
-// تبديل أزرار الآلة إلى أزرار الكيمياء
+// ًں§ھ CHEMISTRY MODE
+// طھط¨ط¯ظٹظ„ ط£ط²ط±ط§ط± ط§ظ„ط¢ظ„ط© ط¥ظ„ظ‰ ط£ط²ط±ط§ط± ط§ظ„ظƒظٹظ…ظٹط§ط،
 // ==========================================
 
 let chemistryMode = false;
@@ -33541,14 +33541,14 @@ let normalCalculatorButtons = null;
 
 
 // ==========================================
-// 🧪 فتح وضع الكيمياء
+// ًں§ھ ظپطھط­ ظˆط¶ط¹ ط§ظ„ظƒظٹظ…ظٹط§ط،
 // ==========================================
 
 window.openChemistryMode = function () {
 
     chemistryMode = true;
 
-    // حفظ الأزرار الأصلية مرة واحدة فقط
+    // ط­ظپط¸ ط§ظ„ط£ط²ط±ط§ط± ط§ظ„ط£طµظ„ظٹط© ظ…ط±ط© ظˆط§ط­ط¯ط© ظپظ‚ط·
     if (!normalCalculatorButtons) {
 
         normalCalculatorButtons = {
@@ -33563,13 +33563,13 @@ window.openChemistryMode = function () {
 
 
     // ==========================================
-    // 🧪 الأزرار العلوية
+    // ًں§ھ ط§ظ„ط£ط²ط±ط§ط± ط§ظ„ط¹ظ„ظˆظٹط©
     // ==========================================
 
     document.querySelector(".top-row").innerHTML = `
 
         <button onclick="exitChemistryMode()">
-            🔙 رجوع
+            ًں”™ ط±ط¬ظˆط¹
         </button>
 
         <button onclick="chemistryClear()">
@@ -33592,7 +33592,7 @@ window.openChemistryMode = function () {
 
 
     // ==========================================
-    // 🧪 العناصر المهمة
+    // ًں§ھ ط§ظ„ط¹ظ†ط§طµط± ط§ظ„ظ…ظ‡ظ…ط©
     // ==========================================
 
     document.querySelector(".memory-row").innerHTML = `
@@ -33621,7 +33621,7 @@ window.openChemistryMode = function () {
 
 
     // ==========================================
-    // 🧪 عناصر إضافية
+    // ًں§ھ ط¹ظ†ط§طµط± ط¥ط¶ط§ظپظٹط©
     // ==========================================
 
     document.querySelector(".navigation").innerHTML = `
@@ -33646,7 +33646,7 @@ window.openChemistryMode = function () {
 
 
     // ==========================================
-    // 🧪 لوحة العناصر
+    // ًں§ھ ظ„ظˆط­ط© ط§ظ„ط¹ظ†ط§طµط±
     // ==========================================
 
     document.querySelector(".scientific-grid").innerHTML = `
@@ -33685,7 +33685,7 @@ window.openChemistryMode = function () {
 
 
     // ==========================================
-    // 🔢 أرقام الصيغ
+    // ًں”¢ ط£ط±ظ‚ط§ظ… ط§ظ„طµظٹط؛
     // ==========================================
 
     document.querySelector(".fraction-row").innerHTML = `
@@ -33700,7 +33700,7 @@ window.openChemistryMode = function () {
 
 
     // ==========================================
-    // 🔢 باقي الأرقام
+    // ًں”¢ ط¨ط§ظ‚ظٹ ط§ظ„ط£ط±ظ‚ط§ظ…
     // ==========================================
 
     document.querySelector(".number-grid").innerHTML = `
@@ -33732,7 +33732,7 @@ window.openChemistryMode = function () {
 
 
 // ==========================================
-// ✏️ كتابة الصيغة
+// âœڈï¸ڈ ظƒطھط§ط¨ط© ط§ظ„طµظٹط؛ط©
 // ==========================================
 
 window.chemistryWrite = function (value) {
@@ -33747,7 +33747,7 @@ window.chemistryWrite = function (value) {
 
 
 // ==========================================
-// 🧹 AC
+// ًں§¹ AC
 // ==========================================
 
 window.chemistryClear = function () {
@@ -33762,7 +33762,7 @@ window.chemistryClear = function () {
 
 
 // ==========================================
-// ⌫ DEL
+// âŒ« DEL
 // ==========================================
 
 window.chemistryBackspace = function () {
@@ -33778,7 +33778,7 @@ window.chemistryBackspace = function () {
 
 
 // ==========================================
-// 🔙 الرجوع للوضع العادي
+// ًں”™ ط§ظ„ط±ط¬ظˆط¹ ظ„ظ„ظˆط¶ط¹ ط§ظ„ط¹ط§ط¯ظٹ
 // ==========================================
 
 window.exitChemistryMode = function () {
@@ -33805,13 +33805,13 @@ window.exitChemistryMode = function () {
 
     chemistryMode = false;
 
-    // إعادة ربط أحداث أزرار الآلة الأصلية
+    // ط¥ط¹ط§ط¯ط© ط±ط¨ط· ط£ط­ط¯ط§ط« ط£ط²ط±ط§ط± ط§ظ„ط¢ظ„ط© ط§ظ„ط£طµظ„ظٹط©
     location.reload();
 };
 
 
 // ==========================================
-// 🧪 =
+// ًں§ھ =
 // ==========================================
 
 window.chemistryEquals = function () {
@@ -33822,7 +33822,7 @@ window.chemistryEquals = function () {
     if (!formula) return;
 
     console.log(
-        "🧪 CHEMISTRY FORMULA:",
+        "ًں§ھ CHEMISTRY FORMULA:",
         formula
     );
 };
@@ -33830,17 +33830,17 @@ window.chemistryEquals = function () {
 
 
 // ==========================================
-// 🧪 فتح وضع الكيمياء
-// الشاشة + الأزرار
+// ًں§ھ ظپطھط­ ظˆط¶ط¹ ط§ظ„ظƒظٹظ…ظٹط§ط،
+// ط§ظ„ط´ط§ط´ط© + ط§ظ„ط£ط²ط±ط§ط±
 // ==========================================
 
 window.openChemistryMenu = function () {
 
-    // أولًا: تبديل أزرار الآلة
+    // ط£ظˆظ„ظ‹ط§: طھط¨ط¯ظٹظ„ ط£ط²ط±ط§ط± ط§ظ„ط¢ظ„ط©
     setupChemistryKeys();
 
 
-    // ثانيًا: عرض قائمة الكيمياء على الشاشة
+    // ط«ط§ظ†ظٹظ‹ط§: ط¹ط±ط¶ ظ‚ط§ط¦ظ…ط© ط§ظ„ظƒظٹظ…ظٹط§ط، ط¹ظ„ظ‰ ط§ظ„ط´ط§ط´ط©
     createScreenPanel(`
 
         <div style="
@@ -33849,79 +33849,79 @@ window.openChemistryMenu = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🧪 الكيمياء
+            ًں§ھ ط§ظ„ظƒظٹظ…ظٹط§ط،
         </div>
 
         <button onclick="chemistryMolarMass()">
-            1️⃣ ⚖️ الكتلة المولية
+            1ï¸ڈâƒ£ âڑ–ï¸ڈ ط§ظ„ظƒطھظ„ط© ط§ظ„ظ…ظˆظ„ظٹط©
         </button>
 
         <button onclick="chemistryMoles()">
-            2️⃣ 🧮 عدد المولات
+            2ï¸ڈâƒ£ ًں§® ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ
         </button>
 
         <button onclick="chemistryParticles()">
-            3️⃣ 🔬 عدد الجسيمات
+            3ï¸ڈâƒ£ ًں”¬ ط¹ط¯ط¯ ط§ظ„ط¬ط³ظٹظ…ط§طھ
         </button>
 
         <button onclick="chemistryMolarity()">
-            4️⃣ 💧 التركيز المولاري
+            4ï¸ڈâƒ£ ًں’§ ط§ظ„طھط±ظƒظٹط² ط§ظ„ظ…ظˆظ„ط§ط±ظٹ
         </button>
 
         <button onclick="chemistryDilution()">
-            5️⃣ 🧪 التخفيف
+            5ï¸ڈâƒ£ ًں§ھ ط§ظ„طھط®ظپظٹظپ
         </button>
 
         <button onclick="chemistryMassPercent()">
-            6️⃣ ⚗️ النسبة المئوية الكتلية
+            6ï¸ڈâƒ£ âڑ—ï¸ڈ ط§ظ„ظ†ط³ط¨ط© ط§ظ„ظ…ط¦ظˆظٹط© ط§ظ„ظƒطھظ„ظٹط©
         </button>
 
        <button onclick="chemistryHeatEnergy()">
-    7️⃣ 🔥 الحرارة والطاقة الكيميائية
+    7ï¸ڈâƒ£ ًں”¥ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط·ط§ظ‚ط© ط§ظ„ظƒظٹظ…ظٹط§ط¦ظٹط©
 </button>
 
         <button onclick="chemistryIdealGas()">
-            8️⃣ 🎈 قانون الغاز المثالي
+            8ï¸ڈâƒ£ ًںژˆ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
         </button>
 
         <button onclick="chemistryBoyle()">
-            9️⃣ 📉 قانون بويل
+            9ï¸ڈâƒ£ ًں“‰ ظ‚ط§ظ†ظˆظ† ط¨ظˆظٹظ„
         </button>
 
         <button onclick="chemistryCharles()">
-            🔟 🌡️ قانون شارل
+            ًں”ں ًںŒ،ï¸ڈ ظ‚ط§ظ†ظˆظ† ط´ط§ط±ظ„
         </button>
 
         <button onclick="chemistryGayLussac()">
-            1️⃣1️⃣ 📈 قانون جاي-لوساك
+            1ï¸ڈâƒ£1ï¸ڈâƒ£ ًں“ˆ ظ‚ط§ظ†ظˆظ† ط¬ط§ظٹ-ظ„ظˆط³ط§ظƒ
         </button>
 
        <button onclick="chemistryCombinedGas()">
-    1️⃣2️⃣ 🧊 قانون الغاز العام
+    1ï¸ڈâƒ£2ï¸ڈâƒ£ ًں§ٹ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ط¹ط§ظ…
 </button>
 
         <button onclick="chemistryKc()">
-            1️⃣3️⃣ ⚖️ ثابت الاتزان Kc
+            1ï¸ڈâƒ£3ï¸ڈâƒ£ âڑ–ï¸ڈ ط«ط§ط¨طھ ط§ظ„ط§طھط²ط§ظ† Kc
         </button>
 
         <button onclick="chemistryPH()">
-            1️⃣4️⃣ 🧪 pH
+            1ï¸ڈâƒ£4ï¸ڈâƒ£ ًں§ھ pH
         </button>
 
         <button onclick="chemistryPOH()">
-            1️⃣5️⃣ 💧 pOH
+            1ï¸ڈâƒ£5ï¸ڈâƒ£ ًں’§ pOH
         </button>
 
         <button onclick="chemistryKa()">
-            1️⃣6️⃣ 🔴 Ka
+            1ï¸ڈâƒ£6ï¸ڈâƒ£ ًں”´ Ka
         </button>
 
         <button onclick="chemistryKb()">
-            1️⃣7️⃣ 🔵 Kb
+            1ï¸ڈâƒ£7ï¸ڈâƒ£ ًں”µ Kb
         </button>
 
         <button onclick="chemistryHalfLife()">
-            1️⃣8️⃣ ⏳ نصف عمر التفاعل
+            1ï¸ڈâƒ£8ï¸ڈâƒ£ âڈ³ ظ†طµظپ ط¹ظ…ط± ط§ظ„طھظپط§ط¹ظ„
         </button>
 
         <button onclick="openCalculatorHome()"
@@ -33930,7 +33930,7 @@ window.openChemistryMenu = function () {
                 padding:9px;
                 margin-top:10px;
             ">
-            ← رجوع للقائمة الرئيسية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©
         </button>
 
     `);
@@ -33939,7 +33939,7 @@ window.openChemistryMenu = function () {
 
 
 // ==========================================
-// 🧪 لوحة أزرار الكيمياء
+// ًں§ھ ظ„ظˆط­ط© ط£ط²ط±ط§ط± ط§ظ„ظƒظٹظ…ظٹط§ط،
 // ==========================================
 window.lastChemistryResult = 0;
 window.chemistryShift = false;
@@ -33973,11 +33973,11 @@ document.body.classList.add("chemistry-mode");
 
                 this.textContent =
                     window.chemistryShift
-                        ? "SHIFT ✓"
+                        ? "SHIFT âœ“"
                         : "SHIFT";
 
                 console.log(
-                    "🧪 SHIFT:",
+                    "ًں§ھ SHIFT:",
                     window.chemistryShift
                 );
             };
@@ -33999,7 +33999,7 @@ document.body.classList.add("chemistry-mode");
 
 
     // ------------------------------------------
-    // إخفاء الأجزاء القديمة
+    // ط¥ط®ظپط§ط، ط§ظ„ط£ط¬ط²ط§ط، ط§ظ„ظ‚ط¯ظٹظ…ط©
     // ------------------------------------------
 
     const memoryRow =
@@ -34018,7 +34018,7 @@ document.body.classList.add("chemistry-mode");
 
 
     // ------------------------------------------
-    // لوحة الحروف A-Z
+    // ظ„ظˆط­ط© ط§ظ„ط­ط±ظˆظپ A-Z
     // ------------------------------------------
 
     const scientificGrid =
@@ -34033,7 +34033,7 @@ document.body.classList.add("chemistry-mode");
     "g", "h", "i", "j", "k", "l",
     "m", "n", "o", "p", "q", "r",
     "s", "t", "u", "v", "w", "x",
-    "y", "z", "↑", "↓", "←", "→"
+    "y", "z", "â†‘", "â†“", "â†گ", "â†’"
 ];
 
         letters.forEach(letter => {
@@ -34049,7 +34049,7 @@ document.body.classList.add("chemistry-mode");
 
             button.onclick = function () {
 
-    if (["↑", "↓", "←", "→"].includes(letter)) {
+    if (["â†‘", "â†“", "â†گ", "â†’"].includes(letter)) {
         return;
     }
 
@@ -34062,7 +34062,7 @@ document.body.classList.add("chemistry-mode");
 
 
     // ==========================================
-// 🧪 إزالة زر الكسر من لوحة الكيمياء
+// ًں§ھ ط¥ط²ط§ظ„ط© ط²ط± ط§ظ„ظƒط³ط± ظ…ظ† ظ„ظˆط­ط© ط§ظ„ظƒظٹظ…ظٹط§ط،
 // ==========================================
 
 const fractionRow =
@@ -34074,7 +34074,7 @@ if (fractionRow) {
 
 
     // ------------------------------------------
-    // لوحة الأرقام والكيمياء
+    // ظ„ظˆط­ط© ط§ظ„ط£ط±ظ‚ط§ظ… ظˆط§ظ„ظƒظٹظ…ظٹط§ط،
     // ------------------------------------------
 
     const numberGrid =
@@ -34097,8 +34097,8 @@ if (fractionRow) {
     "+",
     "-",
 
-    "×",
-    "÷",
+    "أ—",
+    "أ·",
 
     "(",
     ")",
@@ -34120,12 +34120,12 @@ if (fractionRow) {
 
     button.onclick = function () {
 
-        // زر =
+        // ط²ط± =
         if (value === "=") {
             return;
         }
 
-        // زر Ans
+        // ط²ط± Ans
         if (value === "Ans") {
 
             const field =
@@ -34157,15 +34157,15 @@ if (fractionRow) {
 
 
     console.log(
-        "🧪 Chemistry keyboard loaded"
+        "ًں§ھ Chemistry keyboard loaded"
     );
 };
 
 // ==========================================
-// 🧪 CHEMISTRY - الكتلة المولية
+// ًں§ھ CHEMISTRY - ط§ظ„ظƒطھظ„ط© ط§ظ„ظ…ظˆظ„ظٹط©
 // ==========================================
 
-// الكتل الذرية
+// ط§ظ„ظƒطھظ„ ط§ظ„ط°ط±ظٹط©
 const atomicMasses = {
 
     H: 1.008,
@@ -34200,7 +34200,7 @@ const atomicMasses = {
 
 
 // ==========================================
-// فتح حاسبة الكتلة المولية
+// ظپطھط­ ط­ط§ط³ط¨ط© ط§ظ„ظƒطھظ„ط© ط§ظ„ظ…ظˆظ„ظٹط©
 // ==========================================
 
 window.chemistryMolarMass = function () {
@@ -34213,14 +34213,14 @@ window.chemistryMolarMass = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚖️ الكتلة المولية
+            âڑ–ï¸ڈ ط§ظ„ظƒطھظ„ط© ط§ظ„ظ…ظˆظ„ظٹط©
         </div>
 
         <div style="
             font-size:13px;
             margin-bottom:6px;
         ">
-            أدخل الصيغة الكيميائية:
+            ط£ط¯ط®ظ„ ط§ظ„طµظٹط؛ط© ط§ظ„ظƒظٹظ…ظٹط§ط¦ظٹط©:
         </div>
 
         <input
@@ -34239,7 +34239,7 @@ window.chemistryMolarMass = function () {
 
         <button onclick="calculateMolarMass()"
             style="width:100%; padding:10px;">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemMolarResult"
@@ -34257,7 +34257,7 @@ window.chemistryMolarMass = function () {
                 padding:9px;
                 margin-top:10px;
             ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -34268,7 +34268,7 @@ window.chemistryMolarMass = function () {
 
 
 // ==========================================
-// 🧪 كتابة داخل حقل الكيمياء
+// ًں§ھ ظƒطھط§ط¨ط© ط¯ط§ط®ظ„ ط­ظ‚ظ„ ط§ظ„ظƒظٹظ…ظٹط§ط،
 // ==========================================
 
 window.chemistryWrite = function (value) {
@@ -34279,7 +34279,7 @@ window.chemistryWrite = function (value) {
     if (!activeId) {
 
         console.log(
-            "🧪 لا توجد خانة كيمياء نشطة"
+            "ًں§ھ ظ„ط§ طھظˆط¬ط¯ ط®ط§ظ†ط© ظƒظٹظ…ظٹط§ط، ظ†ط´ط·ط©"
         );
 
         return;
@@ -34292,7 +34292,7 @@ window.chemistryWrite = function (value) {
 
 
     // ------------------------------------------
-    // الحروف
+    // ط§ظ„ط­ط±ظˆظپ
     // ------------------------------------------
 
     if (/^[a-zA-Z]$/.test(value)) {
@@ -34319,7 +34319,7 @@ window.chemistryWrite = function (value) {
         field.value += letter;
 
         console.log(
-            "🧪 LETTER:",
+            "ًں§ھ LETTER:",
             letter
         );
 
@@ -34328,7 +34328,7 @@ window.chemistryWrite = function (value) {
 
 
     // ------------------------------------------
-    // الأرقام
+    // ط§ظ„ط£ط±ظ‚ط§ظ…
     // ------------------------------------------
 
     if (/^[0-9]$/.test(value)) {
@@ -34340,7 +34340,7 @@ window.chemistryWrite = function (value) {
 
 
     // ------------------------------------------
-    // النقطة
+    // ط§ظ„ظ†ظ‚ط·ط©
     // ------------------------------------------
 
     if (value === ".") {
@@ -34352,7 +34352,7 @@ window.chemistryWrite = function (value) {
 
 
     // ------------------------------------------
-    // باقي الرموز
+    // ط¨ط§ظ‚ظٹ ط§ظ„ط±ظ…ظˆط²
     // ------------------------------------------
 
     if (
@@ -34361,8 +34361,8 @@ window.chemistryWrite = function (value) {
             ")",
             "+",
             "-",
-            "×",
-            "÷",
+            "أ—",
+            "أ·",
             ","
         ].includes(value)
     ) {
@@ -34376,7 +34376,7 @@ window.chemistryWrite = function (value) {
 
 
 // ==========================================
-// حذف حرف
+// ط­ط°ظپ ط­ط±ظپ
 // ==========================================
 
 window.chemistryBackspace = function () {
@@ -34415,8 +34415,8 @@ window.chemistryClear = function () {
 
 
 // ==========================================
-// حساب الكتلة المولية
-// يدعم:
+// ط­ط³ط§ط¨ ط§ظ„ظƒطھظ„ط© ط§ظ„ظ…ظˆظ„ظٹط©
+// ظٹط¯ط¹ظ…:
 // H2O
 // CO2
 // Ca(OH)2
@@ -34436,7 +34436,7 @@ window.calculateMolarMass = function () {
     const formula = input.value.trim();
 
     if (!formula) {
-        result.innerHTML = "❌ أدخل الصيغة الكيميائية";
+        result.innerHTML = "â‌Œ ط£ط¯ط®ظ„ ط§ظ„طµظٹط؛ط© ط§ظ„ظƒظٹظ…ظٹط§ط¦ظٹط©";
         return;
     }
 
@@ -34469,7 +34469,7 @@ window.calculateMolarMass = function () {
 
             while (position < formula.length) {
 
-                // نهاية القوس
+                // ظ†ظ‡ط§ظٹط© ط§ظ„ظ‚ظˆط³
                 if (
                     endChar &&
                     formula[position] === endChar
@@ -34479,7 +34479,7 @@ window.calculateMolarMass = function () {
                 }
 
 
-                // فتح قوس
+                // ظپطھط­ ظ‚ظˆط³
                 if (formula[position] === "(") {
 
                     position++;
@@ -34497,7 +34497,7 @@ window.calculateMolarMass = function () {
                 }
 
 
-                // العنصر
+                // ط§ظ„ط¹ظ†طµط±
                 if (/[A-Z]/.test(formula[position])) {
 
                     let symbol =
@@ -34505,7 +34505,7 @@ window.calculateMolarMass = function () {
 
                     position++;
 
-                    // الحرف الثاني
+                    // ط§ظ„ط­ط±ظپ ط§ظ„ط«ط§ظ†ظٹ
                     if (
                         position < formula.length &&
                         /[a-z]/.test(formula[position])
@@ -34523,7 +34523,7 @@ window.calculateMolarMass = function () {
                         )
                     ) {
                         throw new Error(
-                            `العنصر ${symbol} غير معروف`
+                            `ط§ظ„ط¹ظ†طµط± ${symbol} ط؛ظٹط± ظ…ط¹ط±ظˆظپ`
                         );
                     }
 
@@ -34538,12 +34538,12 @@ window.calculateMolarMass = function () {
 
 
                 throw new Error(
-                    `رمز غير صحيح: ${formula[position]}`
+                    `ط±ظ…ط² ط؛ظٹط± طµط­ظٹط­: ${formula[position]}`
                 );
             }
 
             if (endChar && formula[position - 1] !== endChar) {
-                throw new Error("قوس غير مغلق");
+                throw new Error("ظ‚ظˆط³ ط؛ظٹط± ظ…ط؛ظ„ظ‚");
             }
 
             return total;
@@ -34554,15 +34554,15 @@ window.calculateMolarMass = function () {
 window.lastChemistryResult = mass;
 
         if (position !== formula.length) {
-            throw new Error("صيغة غير صحيحة");
+            throw new Error("طµظٹط؛ط© ط؛ظٹط± طµط­ظٹط­ط©");
         }
 
 
         result.innerHTML =
-            `✅ M = ${mass.toFixed(3)} g/mol`;
+            `âœ… M = ${mass.toFixed(3)} g/mol`;
 
         console.log(
-            "🧪 MOLAR MASS:",
+            "ًں§ھ MOLAR MASS:",
             formula,
             mass
         );
@@ -34570,12 +34570,12 @@ window.lastChemistryResult = mass;
     } catch (error) {
 
         result.innerHTML =
-            `❌ ${error.message}`;
+            `â‌Œ ${error.message}`;
     }
 };
 
 // ==========================================
-// 🧪 CHEMISTRY - عدد المولات
+// ًں§ھ CHEMISTRY - ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ
 // n = m / M
 // ==========================================
 
@@ -34589,11 +34589,11 @@ window.chemistryMoles = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🧮 عدد المولات
+            ًں§® ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (g):
+            ط§ظ„ظƒطھظ„ط© m (g):
         </div>
 
         <input id="chemMolesMass"
@@ -34609,7 +34609,7 @@ window.chemistryMoles = function () {
                ">
 
         <div style="margin:6px 0;">
-            الكتلة المولية M (g/mol):
+            ط§ظ„ظƒطھظ„ط© ط§ظ„ظ…ظˆظ„ظٹط© M (g/mol):
         </div>
 
         <input id="chemMolesMolarMass"
@@ -34626,7 +34626,7 @@ window.chemistryMoles = function () {
 
         <button onclick="calculateChemistryMoles()"
                 style="width:100%; padding:10px;">
-            🧮 احسب عدد المولات
+            ًں§® ط§ط­ط³ط¨ ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ
         </button>
 
         <div id="chemMolesResult"
@@ -34644,7 +34644,7 @@ window.chemistryMoles = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
     `);
 
@@ -34676,7 +34676,7 @@ document.getElementById("chemMolesMolarMass")
 
 
 // ==========================================
-// 🧮 حساب عدد المولات
+// ًں§® ط­ط³ط§ط¨ ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ
 // ==========================================
 
 window.calculateChemistryMoles = function () {
@@ -34701,14 +34701,14 @@ window.calculateChemistryMoles = function () {
         !Number.isFinite(molarMass)
     ) {
         result.innerHTML =
-            "❌ أدخل جميع القيم";
+            "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
 
         return;
     }
 
     if (molarMass === 0) {
         result.innerHTML =
-            "❌ الكتلة المولية لا يمكن أن تساوي صفر";
+            "â‌Œ ط§ظ„ظƒطھظ„ط© ط§ظ„ظ…ظˆظ„ظٹط© ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -34717,10 +34717,10 @@ window.calculateChemistryMoles = function () {
         mass / molarMass;
 window.lastChemistryResult = moles;
     result.innerHTML =
-        `✅ n = ${moles.toFixed(6)} mol`;
+        `âœ… n = ${moles.toFixed(6)} mol`;
 
     console.log(
-        "🧪 MOLES:",
+        "ًں§ھ MOLES:",
         moles,
         "mol"
     );
@@ -34728,8 +34728,8 @@ window.lastChemistryResult = moles;
 
 
 // ==========================================
-// 🧪 CHEMISTRY - عدد الجسيمات
-// N = n × NA
+// ًں§ھ CHEMISTRY - ط¹ط¯ط¯ ط§ظ„ط¬ط³ظٹظ…ط§طھ
+// N = n أ— NA
 // ==========================================
 
 window.chemistryParticles = function () {
@@ -34742,11 +34742,11 @@ window.chemistryParticles = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔬 عدد الجسيمات
+            ًں”¬ ط¹ط¯ط¯ ط§ظ„ط¬ط³ظٹظ…ط§طھ
         </div>
 
         <div style="margin:6px 0;">
-            عدد المولات n (mol):
+            ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ n (mol):
         </div>
 
         <input
@@ -34770,7 +34770,7 @@ window.chemistryParticles = function () {
                 padding:10px;
             "
         >
-            🔬 احسب عدد الجسيمات
+            ًں”¬ ط§ط­ط³ط¨ ط¹ط¯ط¯ ط§ظ„ط¬ط³ظٹظ…ط§طھ
         </button>
 
         <div
@@ -34792,7 +34792,7 @@ window.chemistryParticles = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -34803,7 +34803,7 @@ window.chemistryParticles = function () {
 
 
 // ==========================================
-// 🧮 حساب عدد الجسيمات
+// ًں§® ط­ط³ط§ط¨ ط¹ط¯ط¯ ط§ظ„ط¬ط³ظٹظ…ط§طھ
 // ==========================================
 
 window.calculateChemistryParticles = function () {
@@ -34825,12 +34825,12 @@ window.calculateChemistryParticles = function () {
     if (!Number.isFinite(moles)) {
 
         result.innerHTML =
-            "❌ أدخل عدد المولات";
+            "â‌Œ ط£ط¯ط®ظ„ ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ";
 
         return;
     }
 
-    // ثابت أفوجادرو
+    // ط«ط§ط¨طھ ط£ظپظˆط¬ط§ط¯ط±ظˆ
     const AVOGADRO =
         6.02214076e23;
 
@@ -34838,15 +34838,15 @@ window.calculateChemistryParticles = function () {
         moles * AVOGADRO;
 
     result.innerHTML =
-        `✅ N = ${particles.toExponential(6)} جسيم`;
+        `âœ… N = ${particles.toExponential(6)} ط¬ط³ظٹظ…`;
 
     console.log(
-        "🧪 PARTICLES:",
+        "ًں§ھ PARTICLES:",
         particles
     );
 };
 // ==========================================
-// 🧪 CHEMISTRY - التركيز المولاري
+// ًں§ھ CHEMISTRY - ط§ظ„طھط±ظƒظٹط² ط§ظ„ظ…ظˆظ„ط§ط±ظٹ
 // C = n / V
 // ==========================================
 
@@ -34860,11 +34860,11 @@ window.chemistryMolarity = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            💧 التركيز المولاري
+            ًں’§ ط§ظ„طھط±ظƒظٹط² ط§ظ„ظ…ظˆظ„ط§ط±ظٹ
         </div>
 
         <div style="margin:6px 0;">
-            عدد المولات n (mol):
+            ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ n (mol):
         </div>
 
         <input
@@ -34882,7 +34882,7 @@ window.chemistryMolarity = function () {
         >
 
         <div style="margin:6px 0;">
-            حجم المحلول V (L):
+            ط­ط¬ظ… ط§ظ„ظ…ط­ظ„ظˆظ„ V (L):
         </div>
 
         <input
@@ -34906,7 +34906,7 @@ window.chemistryMolarity = function () {
                 padding:10px;
             "
         >
-            🧮 احسب التركيز
+            ًں§® ط§ط­ط³ط¨ ط§ظ„طھط±ظƒظٹط²
         </button>
 
         <div
@@ -34928,7 +34928,7 @@ window.chemistryMolarity = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -34955,7 +34955,7 @@ window.chemistryMolarity = function () {
 
 
 // ==========================================
-// 🧮 حساب التركيز المولاري
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھط±ظƒظٹط² ط§ظ„ظ…ظˆظ„ط§ط±ظٹ
 // ==========================================
 
 window.calculateChemistryMolarity = function () {
@@ -34987,7 +34987,7 @@ window.calculateChemistryMolarity = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل جميع القيم";
+            "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
 
         return;
     }
@@ -34995,7 +34995,7 @@ window.calculateChemistryMolarity = function () {
     if (volume === 0) {
 
         result.innerHTML =
-            "❌ حجم المحلول لا يمكن أن يساوي صفر";
+            "â‌Œ ط­ط¬ظ… ط§ظ„ظ…ط­ظ„ظˆظ„ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -35004,16 +35004,16 @@ window.calculateChemistryMolarity = function () {
         moles / volume;
 
     result.innerHTML =
-        `✅ C = ${concentration.toFixed(6)} mol/L`;
+        `âœ… C = ${concentration.toFixed(6)} mol/L`;
 
     console.log(
-        "🧪 MOLARITY:",
+        "ًں§ھ MOLARITY:",
         concentration,
         "mol/L"
     );
 };
 // ==========================================
-// 🧪 CHEMISTRY - التخفيف
+// ًں§ھ CHEMISTRY - ط§ظ„طھط®ظپظٹظپ
 // C1 V1 = C2 V2
 // ==========================================
 
@@ -35027,7 +35027,7 @@ window.chemistryDilution = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🧪 التخفيف
+            ًں§ھ ط§ظ„طھط®ظپظٹظپ
         </div>
 
         <div style="
@@ -35035,11 +35035,11 @@ window.chemistryDilution = function () {
             font-size:14px;
             margin-bottom:12px;
         ">
-            C₁V₁ = C₂V₂
+            Câ‚پVâ‚پ = Câ‚‚Vâ‚‚
         </div>
 
         <div style="margin:6px 0;">
-            التركيز الابتدائي C₁ (mol/L):
+            ط§ظ„طھط±ظƒظٹط² ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ Câ‚پ (mol/L):
         </div>
 
         <input id="chemDilutionC1"
@@ -35055,7 +35055,7 @@ window.chemistryDilution = function () {
                ">
 
         <div style="margin:6px 0;">
-            الحجم الابتدائي V₁ (L):
+            ط§ظ„ط­ط¬ظ… ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ Vâ‚پ (L):
         </div>
 
         <input id="chemDilutionV1"
@@ -35071,7 +35071,7 @@ window.chemistryDilution = function () {
                ">
 
         <div style="margin:6px 0;">
-            التركيز النهائي C₂ (mol/L):
+            ط§ظ„طھط±ظƒظٹط² ط§ظ„ظ†ظ‡ط§ط¦ظٹ Câ‚‚ (mol/L):
         </div>
 
         <input id="chemDilutionC2"
@@ -35087,7 +35087,7 @@ window.chemistryDilution = function () {
                ">
 
         <div style="margin:6px 0;">
-            الحجم النهائي V₂ (L):
+            ط§ظ„ط­ط¬ظ… ط§ظ„ظ†ظ‡ط§ط¦ظٹ Vâ‚‚ (L):
         </div>
 
         <input id="chemDilutionV2"
@@ -35106,7 +35106,7 @@ window.chemistryDilution = function () {
             margin-bottom:8px;
             font-weight:bold;
         ">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="chemDilutionUnknown"
@@ -35117,10 +35117,10 @@ window.chemistryDilution = function () {
                     margin-bottom:10px;
                 ">
 
-            <option value="C1">C₁</option>
-            <option value="V1">V₁</option>
-            <option value="C2" selected>C₂</option>
-            <option value="V2">V₂</option>
+            <option value="C1">Câ‚پ</option>
+            <option value="V1">Vâ‚پ</option>
+            <option value="C2" selected>Câ‚‚</option>
+            <option value="V2">Vâ‚‚</option>
 
         </select>
 
@@ -35129,7 +35129,7 @@ window.chemistryDilution = function () {
                     width:100%;
                     padding:10px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemDilutionResult"
@@ -35147,7 +35147,7 @@ window.chemistryDilution = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -35175,7 +35175,7 @@ window.chemistryDilution = function () {
 
 
 // ==========================================
-// 🧮 حساب التخفيف
+// ًں§® ط­ط³ط§ط¨ ط§ظ„طھط®ظپظٹظپ
 // ==========================================
 
 window.calculateChemistryDilution = function () {
@@ -35222,8 +35222,8 @@ window.calculateChemistryDilution = function () {
 
 
     // ======================================
-    // حساب C1
-    // C1 = C2 × V2 / V1
+    // ط­ط³ط§ط¨ C1
+    // C1 = C2 أ— V2 / V1
     // ======================================
 
     if (unknown === "C1") {
@@ -35234,13 +35234,13 @@ window.calculateChemistryDilution = function () {
             !Number.isFinite(V1)
         ) {
             result.innerHTML =
-                "❌ أدخل C₂ و V₁ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Câ‚‚ ظˆ Vâ‚پ ظˆ Vâ‚‚";
             return;
         }
 
         if (V1 === 0) {
             result.innerHTML =
-                "❌ V₁ لا يمكن أن يساوي صفر";
+                "â‌Œ Vâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -35248,15 +35248,15 @@ window.calculateChemistryDilution = function () {
             (C2 * V2) / V1;
 
         result.innerHTML =
-            `✅ C₁ = ${answer.toFixed(6)} mol/L`;
+            `âœ… Câ‚پ = ${answer.toFixed(6)} mol/L`;
 
         return;
     }
 
 
     // ======================================
-    // حساب V1
-    // V1 = C2 × V2 / C1
+    // ط­ط³ط§ط¨ V1
+    // V1 = C2 أ— V2 / C1
     // ======================================
 
     if (unknown === "V1") {
@@ -35267,13 +35267,13 @@ window.calculateChemistryDilution = function () {
             !Number.isFinite(C1)
         ) {
             result.innerHTML =
-                "❌ أدخل C₁ و C₂ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Câ‚پ ظˆ Câ‚‚ ظˆ Vâ‚‚";
             return;
         }
 
         if (C1 === 0) {
             result.innerHTML =
-                "❌ C₁ لا يمكن أن يساوي صفر";
+                "â‌Œ Câ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -35281,15 +35281,15 @@ window.calculateChemistryDilution = function () {
             (C2 * V2) / C1;
 
         result.innerHTML =
-            `✅ V₁ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚پ = ${answer.toFixed(6)} L`;
 
         return;
     }
 
 
     // ======================================
-    // حساب C2
-    // C2 = C1 × V1 / V2
+    // ط­ط³ط§ط¨ C2
+    // C2 = C1 أ— V1 / V2
     // ======================================
 
     if (unknown === "C2") {
@@ -35300,13 +35300,13 @@ window.calculateChemistryDilution = function () {
             !Number.isFinite(V2)
         ) {
             result.innerHTML =
-                "❌ أدخل C₁ و V₁ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Câ‚پ ظˆ Vâ‚پ ظˆ Vâ‚‚";
             return;
         }
 
         if (V2 === 0) {
             result.innerHTML =
-                "❌ V₂ لا يمكن أن يساوي صفر";
+                "â‌Œ Vâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -35314,15 +35314,15 @@ window.calculateChemistryDilution = function () {
             (C1 * V1) / V2;
 
         result.innerHTML =
-            `✅ C₂ = ${answer.toFixed(6)} mol/L`;
+            `âœ… Câ‚‚ = ${answer.toFixed(6)} mol/L`;
 
         return;
     }
 
 
     // ======================================
-    // حساب V2
-    // V2 = C1 × V1 / C2
+    // ط­ط³ط§ط¨ V2
+    // V2 = C1 أ— V1 / C2
     // ======================================
 
     if (unknown === "V2") {
@@ -35333,13 +35333,13 @@ window.calculateChemistryDilution = function () {
             !Number.isFinite(C2)
         ) {
             result.innerHTML =
-                "❌ أدخل C₁ و V₁ و C₂";
+                "â‌Œ ط£ط¯ط®ظ„ Câ‚پ ظˆ Vâ‚پ ظˆ Câ‚‚";
             return;
         }
 
         if (C2 === 0) {
             result.innerHTML =
-                "❌ C₂ لا يمكن أن يساوي صفر";
+                "â‌Œ Câ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -35347,14 +35347,14 @@ window.calculateChemistryDilution = function () {
             (C1 * V1) / C2;
 
         result.innerHTML =
-            `✅ V₂ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚‚ = ${answer.toFixed(6)} L`;
 
         return;
     }
 };
 // ==========================================
-// 🧪 CHEMISTRY - النسبة المئوية الكتلية
-// % = (mass solute / mass solution) × 100
+// ًں§ھ CHEMISTRY - ط§ظ„ظ†ط³ط¨ط© ط§ظ„ظ…ط¦ظˆظٹط© ط§ظ„ظƒطھظ„ظٹط©
+// % = (mass solute / mass solution) أ— 100
 // ==========================================
 
 window.chemistryMassPercent = function () {
@@ -35367,7 +35367,7 @@ window.chemistryMassPercent = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚗️ النسبة المئوية الكتلية
+            âڑ—ï¸ڈ ط§ظ„ظ†ط³ط¨ط© ط§ظ„ظ…ط¦ظˆظٹط© ط§ظ„ظƒطھظ„ظٹط©
         </div>
 
         <div style="
@@ -35375,11 +35375,11 @@ window.chemistryMassPercent = function () {
             font-size:14px;
             margin-bottom:12px;
         ">
-            % = (كتلة المذاب ÷ كتلة المحلول) × 100
+            % = (ظƒطھظ„ط© ط§ظ„ظ…ط°ط§ط¨ أ· ظƒطھظ„ط© ط§ظ„ظ…ط­ظ„ظˆظ„) أ— 100
         </div>
 
         <div style="margin:6px 0;">
-            كتلة المذاب (g):
+            ظƒطھظ„ط© ط§ظ„ظ…ط°ط§ط¨ (g):
         </div>
 
         <input
@@ -35397,7 +35397,7 @@ window.chemistryMassPercent = function () {
         >
 
         <div style="margin:6px 0;">
-            كتلة المحلول (g):
+            ظƒطھظ„ط© ط§ظ„ظ…ط­ظ„ظˆظ„ (g):
         </div>
 
         <input
@@ -35421,7 +35421,7 @@ window.chemistryMassPercent = function () {
                 padding:10px;
             "
         >
-            🧮 احسب النسبة
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ†ط³ط¨ط©
         </button>
 
         <div
@@ -35443,7 +35443,7 @@ window.chemistryMassPercent = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -35470,7 +35470,7 @@ window.chemistryMassPercent = function () {
 
 
 // ==========================================
-// 🧮 حساب النسبة المئوية الكتلية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ†ط³ط¨ط© ط§ظ„ظ…ط¦ظˆظٹط© ط§ظ„ظƒطھظ„ظٹط©
 // ==========================================
 
 window.calculateChemistryMassPercent = function () {
@@ -35502,7 +35502,7 @@ window.calculateChemistryMassPercent = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل جميع القيم";
+            "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
 
         return;
     }
@@ -35510,7 +35510,7 @@ window.calculateChemistryMassPercent = function () {
     if (solutionMass === 0) {
 
         result.innerHTML =
-            "❌ كتلة المحلول لا يمكن أن تساوي صفر";
+            "â‌Œ ظƒطھظ„ط© ط§ظ„ظ…ط­ظ„ظˆظ„ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
 
         return;
     }
@@ -35518,7 +35518,7 @@ window.calculateChemistryMassPercent = function () {
     if (soluteMass < 0 || solutionMass < 0) {
 
         result.innerHTML =
-            "❌ الكتل لا يمكن أن تكون سالبة";
+            "â‌Œ ط§ظ„ظƒطھظ„ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط³ط§ظ„ط¨ط©";
 
         return;
     }
@@ -35526,7 +35526,7 @@ window.calculateChemistryMassPercent = function () {
     if (soluteMass > solutionMass) {
 
         result.innerHTML =
-            "❌ كتلة المذاب لا يمكن أن تكون أكبر من كتلة المحلول";
+            "â‌Œ ظƒطھظ„ط© ط§ظ„ظ…ط°ط§ط¨ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† ظƒطھظ„ط© ط§ظ„ظ…ط­ظ„ظˆظ„";
 
         return;
     }
@@ -35535,17 +35535,17 @@ window.calculateChemistryMassPercent = function () {
         (soluteMass / solutionMass) * 100;
 
     result.innerHTML =
-        `✅ ${percent.toFixed(6)} %`;
+        `âœ… ${percent.toFixed(6)} %`;
 
     console.log(
-        "🧪 MASS PERCENT:",
+        "ًں§ھ MASS PERCENT:",
         percent,
         "%"
     );
 };
 // ==========================================
-// 🔥 CHEMISTRY - الحرارة والطاقة الكيميائية
-// q = m × c × ΔT
+// ًں”¥ CHEMISTRY - ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط·ط§ظ‚ط© ط§ظ„ظƒظٹظ…ظٹط§ط¦ظٹط©
+// q = m أ— c أ— خ”T
 // ==========================================
 
 window.chemistryHeatEnergy = function () {
@@ -35558,7 +35558,7 @@ window.chemistryHeatEnergy = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔥 الحرارة والطاقة الكيميائية
+            ًں”¥ ط§ظ„ط­ط±ط§ط±ط© ظˆط§ظ„ط·ط§ظ‚ط© ط§ظ„ظƒظٹظ…ظٹط§ط¦ظٹط©
         </div>
 
         <div style="
@@ -35566,11 +35566,11 @@ window.chemistryHeatEnergy = function () {
             font-size:14px;
             margin-bottom:12px;
         ">
-            q = m × c × ΔT
+            q = m أ— c أ— خ”T
         </div>
 
         <div style="margin:6px 0;">
-            الكتلة m (g):
+            ط§ظ„ظƒطھظ„ط© m (g):
         </div>
 
         <input id="chemHeatMass"
@@ -35586,7 +35586,7 @@ window.chemistryHeatEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            الحرارة النوعية c (J/g°C):
+            ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ظ†ظˆط¹ظٹط© c (J/gآ°C):
         </div>
 
         <input id="chemHeatSpecific"
@@ -35602,7 +35602,7 @@ window.chemistryHeatEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            التغير في درجة الحرارة ΔT (°C):
+            ط§ظ„طھط؛ظٹط± ظپظٹ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© خ”T (آ°C):
         </div>
 
         <input id="chemHeatDeltaT"
@@ -35618,7 +35618,7 @@ window.chemistryHeatEnergy = function () {
                ">
 
         <div style="margin:6px 0;">
-            الحرارة q (J):
+            ط§ظ„ط­ط±ط§ط±ط© q (J):
         </div>
 
         <input id="chemHeatQ"
@@ -35637,7 +35637,7 @@ window.chemistryHeatEnergy = function () {
             margin-bottom:7px;
             font-weight:bold;
         ">
-            اختر القيمة المجهولة:
+            ط§ط®طھط± ط§ظ„ظ‚ظٹظ…ط© ط§ظ„ظ…ط¬ظ‡ظˆظ„ط©:
         </div>
 
         <select id="chemHeatUnknown"
@@ -35651,7 +35651,7 @@ window.chemistryHeatEnergy = function () {
             <option value="q" selected>q</option>
             <option value="m">m</option>
             <option value="c">c</option>
-            <option value="deltaT">ΔT</option>
+            <option value="deltaT">خ”T</option>
 
         </select>
 
@@ -35660,7 +35660,7 @@ window.chemistryHeatEnergy = function () {
                     width:100%;
                     padding:10px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemHeatResult"
@@ -35678,7 +35678,7 @@ window.chemistryHeatEnergy = function () {
                     padding:9px;
                     margin-top:10px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -35705,7 +35705,7 @@ window.chemistryHeatEnergy = function () {
 
 
 // ==========================================
-// 🧮 حساب q = m × c × ΔT
+// ًں§® ط­ط³ط§ط¨ q = m أ— c أ— خ”T
 // ==========================================
 
 window.calculateChemistryHeatEnergy = function () {
@@ -35752,8 +35752,8 @@ window.calculateChemistryHeatEnergy = function () {
 
 
     // ======================================
-    // حساب q
-    // q = m × c × ΔT
+    // ط­ط³ط§ط¨ q
+    // q = m أ— c أ— خ”T
     // ======================================
 
     if (unknown === "q") {
@@ -35765,7 +35765,7 @@ window.calculateChemistryHeatEnergy = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل m و c و ΔT";
+                "â‌Œ ط£ط¯ط®ظ„ m ظˆ c ظˆ خ”T";
 
             return;
         }
@@ -35774,15 +35774,15 @@ window.calculateChemistryHeatEnergy = function () {
             m * c * deltaT;
 
         result.innerHTML =
-            `✅ q = ${answer.toFixed(6)} J`;
+            `âœ… q = ${answer.toFixed(6)} J`;
 
         return;
     }
 
 
     // ======================================
-    // حساب m
-    // m = q / (c × ΔT)
+    // ط­ط³ط§ط¨ m
+    // m = q / (c أ— خ”T)
     // ======================================
 
     if (unknown === "m") {
@@ -35794,7 +35794,7 @@ window.calculateChemistryHeatEnergy = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل q و c و ΔT";
+                "â‌Œ ط£ط¯ط®ظ„ q ظˆ c ظˆ خ”T";
 
             return;
         }
@@ -35805,7 +35805,7 @@ window.calculateChemistryHeatEnergy = function () {
         if (denominator === 0) {
 
             result.innerHTML =
-                "❌ لا يمكن القسمة على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -35814,15 +35814,15 @@ window.calculateChemistryHeatEnergy = function () {
             q / denominator;
 
         result.innerHTML =
-            `✅ m = ${answer.toFixed(6)} g`;
+            `âœ… m = ${answer.toFixed(6)} g`;
 
         return;
     }
 
 
     // ======================================
-    // حساب c
-    // c = q / (m × ΔT)
+    // ط­ط³ط§ط¨ c
+    // c = q / (m أ— خ”T)
     // ======================================
 
     if (unknown === "c") {
@@ -35834,7 +35834,7 @@ window.calculateChemistryHeatEnergy = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل q و m و ΔT";
+                "â‌Œ ط£ط¯ط®ظ„ q ظˆ m ظˆ خ”T";
 
             return;
         }
@@ -35845,7 +35845,7 @@ window.calculateChemistryHeatEnergy = function () {
         if (denominator === 0) {
 
             result.innerHTML =
-                "❌ لا يمكن القسمة على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -35854,15 +35854,15 @@ window.calculateChemistryHeatEnergy = function () {
             q / denominator;
 
         result.innerHTML =
-            `✅ c = ${answer.toFixed(6)} J/g°C`;
+            `âœ… c = ${answer.toFixed(6)} J/gآ°C`;
 
         return;
     }
 
 
     // ======================================
-    // حساب ΔT
-    // ΔT = q / (m × c)
+    // ط­ط³ط§ط¨ خ”T
+    // خ”T = q / (m أ— c)
     // ======================================
 
     if (unknown === "deltaT") {
@@ -35874,7 +35874,7 @@ window.calculateChemistryHeatEnergy = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل q و m و c";
+                "â‌Œ ط£ط¯ط®ظ„ q ظˆ m ظˆ c";
 
             return;
         }
@@ -35885,7 +35885,7 @@ window.calculateChemistryHeatEnergy = function () {
         if (denominator === 0) {
 
             result.innerHTML =
-                "❌ لا يمكن القسمة على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -35894,13 +35894,13 @@ window.calculateChemistryHeatEnergy = function () {
             q / denominator;
 
         result.innerHTML =
-            `✅ ΔT = ${answer.toFixed(6)} °C`;
+            `âœ… خ”T = ${answer.toFixed(6)} آ°C`;
 
         return;
     }
 };
 // ==========================================
-// 🎈 CHEMISTRY - قانون الغاز المثالي
+// ًںژˆ CHEMISTRY - ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
 // PV = nRT
 // ==========================================
 
@@ -35914,7 +35914,7 @@ window.chemistryIdealGas = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🎈 قانون الغاز المثالي
+            ًںژˆ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ظ…ط«ط§ظ„ظٹ
         </div>
 
         <div style="
@@ -35926,7 +35926,7 @@ window.chemistryIdealGas = function () {
         </div>
 
         <div style="margin:5px 0;">
-            الضغط P (atm):
+            ط§ظ„ط¶ط؛ط· P (atm):
         </div>
 
         <input id="chemGasP"
@@ -35942,7 +35942,7 @@ window.chemistryIdealGas = function () {
                ">
 
         <div style="margin:5px 0;">
-            الحجم V (L):
+            ط§ظ„ط­ط¬ظ… V (L):
         </div>
 
         <input id="chemGasV"
@@ -35958,7 +35958,7 @@ window.chemistryIdealGas = function () {
                ">
 
         <div style="margin:5px 0;">
-            عدد المولات n (mol):
+            ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ n (mol):
         </div>
 
         <input id="chemGasN"
@@ -35974,7 +35974,7 @@ window.chemistryIdealGas = function () {
                ">
 
         <div style="margin:5px 0;">
-            درجة الحرارة T (K):
+            ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© T (K):
         </div>
 
         <input id="chemGasT"
@@ -35990,7 +35990,7 @@ window.chemistryIdealGas = function () {
                ">
 
         <div style="margin:5px 0;">
-            ثابت الغاز R:
+            ط«ط§ط¨طھ ط§ظ„ط؛ط§ط² R:
         </div>
 
         <input id="chemGasR"
@@ -36009,7 +36009,7 @@ window.chemistryIdealGas = function () {
             margin-bottom:6px;
             font-weight:bold;
         ">
-            اختر المجهول:
+            ط§ط®طھط± ط§ظ„ظ…ط¬ظ‡ظˆظ„:
         </div>
 
         <select id="chemGasUnknown"
@@ -36020,10 +36020,10 @@ window.chemistryIdealGas = function () {
                     margin-bottom:8px;
                 ">
 
-            <option value="P" selected>P — الضغط</option>
-            <option value="V">V — الحجم</option>
-            <option value="n">n — عدد المولات</option>
-            <option value="T">T — درجة الحرارة</option>
+            <option value="P" selected>P â€” ط§ظ„ط¶ط؛ط·</option>
+            <option value="V">V â€” ط§ظ„ط­ط¬ظ…</option>
+            <option value="n">n â€” ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ</option>
+            <option value="T">T â€” ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط©</option>
 
         </select>
 
@@ -36032,7 +36032,7 @@ window.chemistryIdealGas = function () {
                     width:100%;
                     padding:9px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemGasResult"
@@ -36050,7 +36050,7 @@ window.chemistryIdealGas = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -36077,7 +36077,7 @@ window.chemistryIdealGas = function () {
 
 
 // ==========================================
-// 🧮 حساب PV = nRT
+// ًں§® ط­ط³ط§ط¨ PV = nRT
 // ==========================================
 
 window.calculateChemistryIdealGas = function () {
@@ -36108,14 +36108,14 @@ window.calculateChemistryIdealGas = function () {
     if (!Number.isFinite(R) || R === 0) {
 
         result.innerHTML =
-            "❌ ثابت الغاز R غير صحيح";
+            "â‌Œ ط«ط§ط¨طھ ط§ظ„ط؛ط§ط² R ط؛ظٹط± طµط­ظٹط­";
 
         return;
     }
 
 
     // ======================================
-    // حساب P
+    // ط­ط³ط§ط¨ P
     // P = nRT / V
     // ======================================
 
@@ -36128,7 +36128,7 @@ window.calculateChemistryIdealGas = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل n و T و V";
+                "â‌Œ ط£ط¯ط®ظ„ n ظˆ T ظˆ V";
 
             return;
         }
@@ -36136,7 +36136,7 @@ window.calculateChemistryIdealGas = function () {
         if (V === 0) {
 
             result.innerHTML =
-                "❌ الحجم V لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ط­ط¬ظ… V ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36145,14 +36145,14 @@ window.calculateChemistryIdealGas = function () {
             (n * R * T) / V;
 
         result.innerHTML =
-            `✅ P = ${answer.toFixed(6)} atm`;
+            `âœ… P = ${answer.toFixed(6)} atm`;
 
         return;
     }
 
 
     // ======================================
-    // حساب V
+    // ط­ط³ط§ط¨ V
     // V = nRT / P
     // ======================================
 
@@ -36165,7 +36165,7 @@ window.calculateChemistryIdealGas = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل P و n و T";
+                "â‌Œ ط£ط¯ط®ظ„ P ظˆ n ظˆ T";
 
             return;
         }
@@ -36173,7 +36173,7 @@ window.calculateChemistryIdealGas = function () {
         if (P === 0) {
 
             result.innerHTML =
-                "❌ الضغط P لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ط¶ط؛ط· P ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36182,14 +36182,14 @@ window.calculateChemistryIdealGas = function () {
             (n * R * T) / P;
 
         result.innerHTML =
-            `✅ V = ${answer.toFixed(6)} L`;
+            `âœ… V = ${answer.toFixed(6)} L`;
 
         return;
     }
 
 
     // ======================================
-    // حساب n
+    // ط­ط³ط§ط¨ n
     // n = PV / RT
     // ======================================
 
@@ -36202,7 +36202,7 @@ window.calculateChemistryIdealGas = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل P و V و T";
+                "â‌Œ ط£ط¯ط®ظ„ P ظˆ V ظˆ T";
 
             return;
         }
@@ -36210,7 +36210,7 @@ window.calculateChemistryIdealGas = function () {
         if (T === 0) {
 
             result.innerHTML =
-                "❌ درجة الحرارة T لا يمكن أن تساوي صفر";
+                "â‌Œ ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© T ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36219,14 +36219,14 @@ window.calculateChemistryIdealGas = function () {
             (P * V) / (R * T);
 
         result.innerHTML =
-            `✅ n = ${answer.toFixed(6)} mol`;
+            `âœ… n = ${answer.toFixed(6)} mol`;
 
         return;
     }
 
 
     // ======================================
-    // حساب T
+    // ط­ط³ط§ط¨ T
     // T = PV / nR
     // ======================================
 
@@ -36239,7 +36239,7 @@ window.calculateChemistryIdealGas = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل P و V و n";
+                "â‌Œ ط£ط¯ط®ظ„ P ظˆ V ظˆ n";
 
             return;
         }
@@ -36247,7 +36247,7 @@ window.calculateChemistryIdealGas = function () {
         if (n === 0) {
 
             result.innerHTML =
-                "❌ عدد المولات n لا يمكن أن يساوي صفر";
+                "â‌Œ ط¹ط¯ط¯ ط§ظ„ظ…ظˆظ„ط§طھ n ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36256,14 +36256,14 @@ window.calculateChemistryIdealGas = function () {
             (P * V) / (n * R);
 
         result.innerHTML =
-            `✅ T = ${answer.toFixed(6)} K`;
+            `âœ… T = ${answer.toFixed(6)} K`;
 
         return;
     }
 };
 // ==========================================
-// 📉 CHEMISTRY - قانون بويل
-// P₁V₁ = P₂V₂
+// ًں“‰ CHEMISTRY - ظ‚ط§ظ†ظˆظ† ط¨ظˆظٹظ„
+// Pâ‚پVâ‚پ = Pâ‚‚Vâ‚‚
 // ==========================================
 
 window.chemistryBoyle = function () {
@@ -36276,7 +36276,7 @@ window.chemistryBoyle = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📉 قانون بويل
+            ًں“‰ ظ‚ط§ظ†ظˆظ† ط¨ظˆظٹظ„
         </div>
 
         <div style="
@@ -36284,11 +36284,11 @@ window.chemistryBoyle = function () {
             font-size:14px;
             margin-bottom:10px;
         ">
-            P₁V₁ = P₂V₂
+            Pâ‚پVâ‚پ = Pâ‚‚Vâ‚‚
         </div>
 
         <div style="margin:5px 0;">
-            الضغط الأول P₁ (atm):
+            ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„ Pâ‚پ (atm):
         </div>
 
         <input id="chemBoyleP1"
@@ -36304,7 +36304,7 @@ window.chemistryBoyle = function () {
                ">
 
         <div style="margin:5px 0;">
-            الحجم الأول V₁ (L):
+            ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„ Vâ‚پ (L):
         </div>
 
         <input id="chemBoyleV1"
@@ -36320,7 +36320,7 @@ window.chemistryBoyle = function () {
                ">
 
         <div style="margin:5px 0;">
-            الضغط الثاني P₂ (atm):
+            ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ Pâ‚‚ (atm):
         </div>
 
         <input id="chemBoyleP2"
@@ -36336,7 +36336,7 @@ window.chemistryBoyle = function () {
                ">
 
         <div style="margin:5px 0;">
-            الحجم الثاني V₂ (L):
+            ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ Vâ‚‚ (L):
         </div>
 
         <input id="chemBoyleV2"
@@ -36355,7 +36355,7 @@ window.chemistryBoyle = function () {
             margin-bottom:6px;
             font-weight:bold;
         ">
-            اختر المجهول:
+            ط§ط®طھط± ط§ظ„ظ…ط¬ظ‡ظˆظ„:
         </div>
 
         <select id="chemBoyleUnknown"
@@ -36366,10 +36366,10 @@ window.chemistryBoyle = function () {
                     margin-bottom:8px;
                 ">
 
-            <option value="P1">P₁ — الضغط الأول</option>
-            <option value="V1">V₁ — الحجم الأول</option>
-            <option value="P2">P₂ — الضغط الثاني</option>
-            <option value="V2" selected>V₂ — الحجم الثاني</option>
+            <option value="P1">Pâ‚پ â€” ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„</option>
+            <option value="V1">Vâ‚پ â€” ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„</option>
+            <option value="P2">Pâ‚‚ â€” ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ</option>
+            <option value="V2" selected>Vâ‚‚ â€” ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ</option>
 
         </select>
 
@@ -36378,7 +36378,7 @@ window.chemistryBoyle = function () {
                     width:100%;
                     padding:9px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemBoyleResult"
@@ -36396,7 +36396,7 @@ window.chemistryBoyle = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -36423,7 +36423,7 @@ window.chemistryBoyle = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون بويل
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط¨ظˆظٹظ„
 // ==========================================
 
 window.calculateChemistryBoyle = function () {
@@ -36450,7 +36450,7 @@ window.calculateChemistryBoyle = function () {
 
 
     // ======================================
-    // P₁ = P₂V₂ / V₁
+    // Pâ‚پ = Pâ‚‚Vâ‚‚ / Vâ‚پ
     // ======================================
 
     if (unknown === "P1") {
@@ -36462,7 +36462,7 @@ window.calculateChemistryBoyle = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل P₂ و V₁ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚‚ ظˆ Vâ‚پ ظˆ Vâ‚‚";
 
             return;
         }
@@ -36470,7 +36470,7 @@ window.calculateChemistryBoyle = function () {
         if (V1 === 0) {
 
             result.innerHTML =
-                "❌ V₁ لا يمكن أن يساوي صفر";
+                "â‌Œ Vâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36479,14 +36479,14 @@ window.calculateChemistryBoyle = function () {
             (P2 * V2) / V1;
 
         result.innerHTML =
-            `✅ P₁ = ${answer.toFixed(6)} atm`;
+            `âœ… Pâ‚پ = ${answer.toFixed(6)} atm`;
 
         return;
     }
 
 
     // ======================================
-    // V₁ = P₂V₂ / P₁
+    // Vâ‚پ = Pâ‚‚Vâ‚‚ / Pâ‚پ
     // ======================================
 
     if (unknown === "V1") {
@@ -36498,7 +36498,7 @@ window.calculateChemistryBoyle = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل P₁ و P₂ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Pâ‚‚ ظˆ Vâ‚‚";
 
             return;
         }
@@ -36506,7 +36506,7 @@ window.calculateChemistryBoyle = function () {
         if (P1 === 0) {
 
             result.innerHTML =
-                "❌ P₁ لا يمكن أن يساوي صفر";
+                "â‌Œ Pâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36515,14 +36515,14 @@ window.calculateChemistryBoyle = function () {
             (P2 * V2) / P1;
 
         result.innerHTML =
-            `✅ V₁ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚پ = ${answer.toFixed(6)} L`;
 
         return;
     }
 
 
     // ======================================
-    // P₂ = P₁V₁ / V₂
+    // Pâ‚‚ = Pâ‚پVâ‚پ / Vâ‚‚
     // ======================================
 
     if (unknown === "P2") {
@@ -36534,7 +36534,7 @@ window.calculateChemistryBoyle = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل P₁ و V₁ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Vâ‚پ ظˆ Vâ‚‚";
 
             return;
         }
@@ -36542,7 +36542,7 @@ window.calculateChemistryBoyle = function () {
         if (V2 === 0) {
 
             result.innerHTML =
-                "❌ V₂ لا يمكن أن يساوي صفر";
+                "â‌Œ Vâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36551,14 +36551,14 @@ window.calculateChemistryBoyle = function () {
             (P1 * V1) / V2;
 
         result.innerHTML =
-            `✅ P₂ = ${answer.toFixed(6)} atm`;
+            `âœ… Pâ‚‚ = ${answer.toFixed(6)} atm`;
 
         return;
     }
 
 
     // ======================================
-    // V₂ = P₁V₁ / P₂
+    // Vâ‚‚ = Pâ‚پVâ‚پ / Pâ‚‚
     // ======================================
 
     if (unknown === "V2") {
@@ -36570,7 +36570,7 @@ window.calculateChemistryBoyle = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل P₁ و V₁ و P₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Vâ‚پ ظˆ Pâ‚‚";
 
             return;
         }
@@ -36578,7 +36578,7 @@ window.calculateChemistryBoyle = function () {
         if (P2 === 0) {
 
             result.innerHTML =
-                "❌ P₂ لا يمكن أن يساوي صفر";
+                "â‌Œ Pâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36587,14 +36587,14 @@ window.calculateChemistryBoyle = function () {
             (P1 * V1) / P2;
 
         result.innerHTML =
-            `✅ V₂ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚‚ = ${answer.toFixed(6)} L`;
 
         return;
     }
 };
 // ==========================================
-// 🌡️ CHEMISTRY - قانون شارل
-// V₁ / T₁ = V₂ / T₂
+// ًںŒ،ï¸ڈ CHEMISTRY - ظ‚ط§ظ†ظˆظ† ط´ط§ط±ظ„
+// Vâ‚پ / Tâ‚پ = Vâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.chemistryCharles = function () {
@@ -36607,7 +36607,7 @@ window.chemistryCharles = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            🌡️ قانون شارل
+            ًںŒ،ï¸ڈ ظ‚ط§ظ†ظˆظ† ط´ط§ط±ظ„
         </div>
 
         <div style="
@@ -36615,11 +36615,11 @@ window.chemistryCharles = function () {
             font-size:14px;
             margin-bottom:10px;
         ">
-            V₁ / T₁ = V₂ / T₂
+            Vâ‚پ / Tâ‚پ = Vâ‚‚ / Tâ‚‚
         </div>
 
         <div style="margin:5px 0;">
-            الحجم الأول V₁ (L):
+            ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„ Vâ‚پ (L):
         </div>
 
         <input id="chemCharlesV1"
@@ -36635,7 +36635,7 @@ window.chemistryCharles = function () {
                ">
 
         <div style="margin:5px 0;">
-            درجة الحرارة الأولى T₁ (K):
+            ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰ Tâ‚پ (K):
         </div>
 
         <input id="chemCharlesT1"
@@ -36651,7 +36651,7 @@ window.chemistryCharles = function () {
                ">
 
         <div style="margin:5px 0;">
-            الحجم الثاني V₂ (L):
+            ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ Vâ‚‚ (L):
         </div>
 
         <input id="chemCharlesV2"
@@ -36667,7 +36667,7 @@ window.chemistryCharles = function () {
                ">
 
         <div style="margin:5px 0;">
-            درجة الحرارة الثانية T₂ (K):
+            ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط© Tâ‚‚ (K):
         </div>
 
         <input id="chemCharlesT2"
@@ -36686,7 +36686,7 @@ window.chemistryCharles = function () {
             margin-bottom:6px;
             font-weight:bold;
         ">
-            اختر المجهول:
+            ط§ط®طھط± ط§ظ„ظ…ط¬ظ‡ظˆظ„:
         </div>
 
         <select id="chemCharlesUnknown"
@@ -36697,10 +36697,10 @@ window.chemistryCharles = function () {
                     margin-bottom:8px;
                 ">
 
-            <option value="V1">V₁ — الحجم الأول</option>
-            <option value="T1">T₁ — درجة الحرارة الأولى</option>
-            <option value="V2" selected>V₂ — الحجم الثاني</option>
-            <option value="T2">T₂ — درجة الحرارة الثانية</option>
+            <option value="V1">Vâ‚پ â€” ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„</option>
+            <option value="T1">Tâ‚پ â€” ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰</option>
+            <option value="V2" selected>Vâ‚‚ â€” ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ</option>
+            <option value="T2">Tâ‚‚ â€” ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط©</option>
 
         </select>
 
@@ -36709,7 +36709,7 @@ window.chemistryCharles = function () {
                     width:100%;
                     padding:9px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemCharlesResult"
@@ -36727,7 +36727,7 @@ window.chemistryCharles = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -36754,8 +36754,8 @@ window.chemistryCharles = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون شارل
-// V₁ / T₁ = V₂ / T₂
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط´ط§ط±ظ„
+// Vâ‚پ / Tâ‚پ = Vâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.calculateChemistryCharles = function () {
@@ -36782,7 +36782,7 @@ window.calculateChemistryCharles = function () {
 
 
     // ======================================
-    // V₁ = V₂ × T₁ / T₂
+    // Vâ‚پ = Vâ‚‚ أ— Tâ‚پ / Tâ‚‚
     // ======================================
 
     if (unknown === "V1") {
@@ -36794,7 +36794,7 @@ window.calculateChemistryCharles = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل V₂ و T₁ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Vâ‚‚ ظˆ Tâ‚پ ظˆ Tâ‚‚";
 
             return;
         }
@@ -36802,7 +36802,7 @@ window.calculateChemistryCharles = function () {
         if (T2 === 0) {
 
             result.innerHTML =
-                "❌ T₂ لا يمكن أن تساوي صفر";
+                "â‌Œ Tâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36811,14 +36811,14 @@ window.calculateChemistryCharles = function () {
             (V2 * T1) / T2;
 
         result.innerHTML =
-            `✅ V₁ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚پ = ${answer.toFixed(6)} L`;
 
         return;
     }
 
 
     // ======================================
-    // T₁ = V₁ × T₂ / V₂
+    // Tâ‚پ = Vâ‚پ أ— Tâ‚‚ / Vâ‚‚
     // ======================================
 
     if (unknown === "T1") {
@@ -36830,7 +36830,7 @@ window.calculateChemistryCharles = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل V₁ و V₂ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Vâ‚پ ظˆ Vâ‚‚ ظˆ Tâ‚‚";
 
             return;
         }
@@ -36838,7 +36838,7 @@ window.calculateChemistryCharles = function () {
         if (V2 === 0) {
 
             result.innerHTML =
-                "❌ V₂ لا يمكن أن يساوي صفر";
+                "â‌Œ Vâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36847,14 +36847,14 @@ window.calculateChemistryCharles = function () {
             (V1 * T2) / V2;
 
         result.innerHTML =
-            `✅ T₁ = ${answer.toFixed(6)} K`;
+            `âœ… Tâ‚پ = ${answer.toFixed(6)} K`;
 
         return;
     }
 
 
     // ======================================
-    // V₂ = V₁ × T₂ / T₁
+    // Vâ‚‚ = Vâ‚پ أ— Tâ‚‚ / Tâ‚پ
     // ======================================
 
     if (unknown === "V2") {
@@ -36866,7 +36866,7 @@ window.calculateChemistryCharles = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل V₁ و T₁ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Vâ‚پ ظˆ Tâ‚پ ظˆ Tâ‚‚";
 
             return;
         }
@@ -36874,7 +36874,7 @@ window.calculateChemistryCharles = function () {
         if (T1 === 0) {
 
             result.innerHTML =
-                "❌ T₁ لا يمكن أن تساوي صفر";
+                "â‌Œ Tâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36883,14 +36883,14 @@ window.calculateChemistryCharles = function () {
             (V1 * T2) / T1;
 
         result.innerHTML =
-            `✅ V₂ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚‚ = ${answer.toFixed(6)} L`;
 
         return;
     }
 
 
     // ======================================
-    // T₂ = V₂ × T₁ / V₁
+    // Tâ‚‚ = Vâ‚‚ أ— Tâ‚پ / Vâ‚پ
     // ======================================
 
     if (unknown === "T2") {
@@ -36902,7 +36902,7 @@ window.calculateChemistryCharles = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل V₁ و T₁ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Vâ‚پ ظˆ Tâ‚پ ظˆ Vâ‚‚";
 
             return;
         }
@@ -36910,7 +36910,7 @@ window.calculateChemistryCharles = function () {
         if (V1 === 0) {
 
             result.innerHTML =
-                "❌ V₁ لا يمكن أن يساوي صفر";
+                "â‌Œ Vâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
 
             return;
         }
@@ -36919,14 +36919,14 @@ window.calculateChemistryCharles = function () {
             (V2 * T1) / V1;
 
         result.innerHTML =
-            `✅ T₂ = ${answer.toFixed(6)} K`;
+            `âœ… Tâ‚‚ = ${answer.toFixed(6)} K`;
 
         return;
     }
 };
 // ==========================================
-// 📈 CHEMISTRY - قانون جاي-لوساك
-// P₁ / T₁ = P₂ / T₂
+// ًں“ˆ CHEMISTRY - ظ‚ط§ظ†ظˆظ† ط¬ط§ظٹ-ظ„ظˆط³ط§ظƒ
+// Pâ‚پ / Tâ‚پ = Pâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.chemistryGayLussac = function () {
@@ -36939,7 +36939,7 @@ window.chemistryGayLussac = function () {
             text-align:center;
             margin-bottom:10px;
         ">
-            📈 قانون جاي-لوساك
+            ًں“ˆ ظ‚ط§ظ†ظˆظ† ط¬ط§ظٹ-ظ„ظˆط³ط§ظƒ
         </div>
 
         <div style="
@@ -36947,11 +36947,11 @@ window.chemistryGayLussac = function () {
             font-size:14px;
             margin-bottom:10px;
         ">
-            P₁ / T₁ = P₂ / T₂
+            Pâ‚پ / Tâ‚پ = Pâ‚‚ / Tâ‚‚
         </div>
 
         <div style="margin:5px 0;">
-            الضغط الأول P₁:
+            ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„ Pâ‚پ:
         </div>
 
         <input id="chemGayP1"
@@ -36967,7 +36967,7 @@ window.chemistryGayLussac = function () {
                ">
 
         <div style="margin:5px 0;">
-            درجة الحرارة الأولى T₁ (K):
+            ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰ Tâ‚پ (K):
         </div>
 
         <input id="chemGayT1"
@@ -36983,7 +36983,7 @@ window.chemistryGayLussac = function () {
                ">
 
         <div style="margin:5px 0;">
-            الضغط الثاني P₂:
+            ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ Pâ‚‚:
         </div>
 
         <input id="chemGayP2"
@@ -36999,7 +36999,7 @@ window.chemistryGayLussac = function () {
                ">
 
         <div style="margin:5px 0;">
-            درجة الحرارة الثانية T₂ (K):
+            ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط© Tâ‚‚ (K):
         </div>
 
         <input id="chemGayT2"
@@ -37018,7 +37018,7 @@ window.chemistryGayLussac = function () {
             margin-bottom:6px;
             font-weight:bold;
         ">
-            اختر المجهول:
+            ط§ط®طھط± ط§ظ„ظ…ط¬ظ‡ظˆظ„:
         </div>
 
         <select id="chemGayUnknown"
@@ -37030,19 +37030,19 @@ window.chemistryGayLussac = function () {
                 ">
 
             <option value="P1">
-                P₁ — الضغط الأول
+                Pâ‚پ â€” ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„
             </option>
 
             <option value="T1">
-                T₁ — درجة الحرارة الأولى
+                Tâ‚پ â€” ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰
             </option>
 
             <option value="P2" selected>
-                P₂ — الضغط الثاني
+                Pâ‚‚ â€” ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ
             </option>
 
             <option value="T2">
-                T₂ — درجة الحرارة الثانية
+                Tâ‚‚ â€” ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط©
             </option>
 
         </select>
@@ -37052,7 +37052,7 @@ window.chemistryGayLussac = function () {
                     width:100%;
                     padding:9px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemGayResult"
@@ -37070,7 +37070,7 @@ window.chemistryGayLussac = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -37097,8 +37097,8 @@ window.chemistryGayLussac = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون جاي-لوساك
-// P₁ / T₁ = P₂ / T₂
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط¬ط§ظٹ-ظ„ظˆط³ط§ظƒ
+// Pâ‚پ / Tâ‚پ = Pâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.calculateChemistryGayLussac = function () {
@@ -37125,7 +37125,7 @@ window.calculateChemistryGayLussac = function () {
 
 
     // ======================================
-    // P₁ = P₂ × T₁ / T₂
+    // Pâ‚پ = Pâ‚‚ أ— Tâ‚پ / Tâ‚‚
     // ======================================
 
     if (unknown === "P1") {
@@ -37136,13 +37136,13 @@ window.calculateChemistryGayLussac = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₂ و T₁ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚‚ ظˆ Tâ‚پ ظˆ Tâ‚‚";
             return;
         }
 
         if (T2 === 0) {
             result.innerHTML =
-                "❌ T₂ لا يمكن أن تساوي صفر";
+                "â‌Œ Tâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37150,14 +37150,14 @@ window.calculateChemistryGayLussac = function () {
             (P2 * T1) / T2;
 
         result.innerHTML =
-            `✅ P₁ = ${answer.toFixed(6)}`;
+            `âœ… Pâ‚پ = ${answer.toFixed(6)}`;
 
         return;
     }
 
 
     // ======================================
-    // T₁ = P₁ × T₂ / P₂
+    // Tâ‚پ = Pâ‚پ أ— Tâ‚‚ / Pâ‚‚
     // ======================================
 
     if (unknown === "T1") {
@@ -37168,13 +37168,13 @@ window.calculateChemistryGayLussac = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و P₂ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Pâ‚‚ ظˆ Tâ‚‚";
             return;
         }
 
         if (P2 === 0) {
             result.innerHTML =
-                "❌ P₂ لا يمكن أن يساوي صفر";
+                "â‌Œ Pâ‚‚ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37182,14 +37182,14 @@ window.calculateChemistryGayLussac = function () {
             (P1 * T2) / P2;
 
         result.innerHTML =
-            `✅ T₁ = ${answer.toFixed(6)} K`;
+            `âœ… Tâ‚پ = ${answer.toFixed(6)} K`;
 
         return;
     }
 
 
     // ======================================
-    // P₂ = P₁ × T₂ / T₁
+    // Pâ‚‚ = Pâ‚پ أ— Tâ‚‚ / Tâ‚پ
     // ======================================
 
     if (unknown === "P2") {
@@ -37200,13 +37200,13 @@ window.calculateChemistryGayLussac = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و T₁ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Tâ‚پ ظˆ Tâ‚‚";
             return;
         }
 
         if (T1 === 0) {
             result.innerHTML =
-                "❌ T₁ لا يمكن أن تساوي صفر";
+                "â‌Œ Tâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† طھط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37214,14 +37214,14 @@ window.calculateChemistryGayLussac = function () {
             (P1 * T2) / T1;
 
         result.innerHTML =
-            `✅ P₂ = ${answer.toFixed(6)}`;
+            `âœ… Pâ‚‚ = ${answer.toFixed(6)}`;
 
         return;
     }
 
 
     // ======================================
-    // T₂ = P₂ × T₁ / P₁
+    // Tâ‚‚ = Pâ‚‚ أ— Tâ‚پ / Pâ‚پ
     // ======================================
 
     if (unknown === "T2") {
@@ -37232,13 +37232,13 @@ window.calculateChemistryGayLussac = function () {
             !Number.isFinite(P2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و T₁ و P₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Tâ‚پ ظˆ Pâ‚‚";
             return;
         }
 
         if (P1 === 0) {
             result.innerHTML =
-                "❌ P₁ لا يمكن أن يساوي صفر";
+                "â‌Œ Pâ‚پ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37246,14 +37246,14 @@ window.calculateChemistryGayLussac = function () {
             (P2 * T1) / P1;
 
         result.innerHTML =
-            `✅ T₂ = ${answer.toFixed(6)} K`;
+            `âœ… Tâ‚‚ = ${answer.toFixed(6)} K`;
 
         return;
     }
 };
 // ==========================================
-// 🧊 CHEMISTRY - قانون الغاز العام
-// P₁V₁ / T₁ = P₂V₂ / T₂
+// ًں§ٹ CHEMISTRY - ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ط¹ط§ظ…
+// Pâ‚پVâ‚پ / Tâ‚پ = Pâ‚‚Vâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.chemistryCombinedGas = function () {
@@ -37266,7 +37266,7 @@ window.chemistryCombinedGas = function () {
             text-align:center;
             margin-bottom:8px;
         ">
-            🧊 قانون الغاز العام
+            ًں§ٹ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ط¹ط§ظ…
         </div>
 
         <div style="
@@ -37274,30 +37274,30 @@ window.chemistryCombinedGas = function () {
             font-size:14px;
             margin-bottom:8px;
         ">
-            P₁V₁ / T₁ = P₂V₂ / T₂
+            Pâ‚پVâ‚پ / Tâ‚پ = Pâ‚‚Vâ‚‚ / Tâ‚‚
         </div>
 
-        <div style="margin:4px 0;">الضغط الأول P₁:</div>
+        <div style="margin:4px 0;">ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„ Pâ‚پ:</div>
         <input id="chemGasP1" type="text" readonly dir="ltr"
             style="width:90%;padding:7px;font-size:15px;text-align:center;margin-bottom:5px;">
 
-        <div style="margin:4px 0;">الحجم الأول V₁ (L):</div>
+        <div style="margin:4px 0;">ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„ Vâ‚پ (L):</div>
         <input id="chemGasV1" type="text" readonly dir="ltr"
             style="width:90%;padding:7px;font-size:15px;text-align:center;margin-bottom:5px;">
 
-        <div style="margin:4px 0;">درجة الحرارة الأولى T₁ (K):</div>
+        <div style="margin:4px 0;">ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰ Tâ‚پ (K):</div>
         <input id="chemGasT1" type="text" readonly dir="ltr"
             style="width:90%;padding:7px;font-size:15px;text-align:center;margin-bottom:5px;">
 
-        <div style="margin:4px 0;">الضغط الثاني P₂:</div>
+        <div style="margin:4px 0;">ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ Pâ‚‚:</div>
         <input id="chemGasP2" type="text" readonly dir="ltr"
             style="width:90%;padding:7px;font-size:15px;text-align:center;margin-bottom:5px;">
 
-        <div style="margin:4px 0;">الحجم الثاني V₂ (L):</div>
+        <div style="margin:4px 0;">ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ Vâ‚‚ (L):</div>
         <input id="chemGasV2" type="text" readonly dir="ltr"
             style="width:90%;padding:7px;font-size:15px;text-align:center;margin-bottom:5px;">
 
-        <div style="margin:4px 0;">درجة الحرارة الثانية T₂ (K):</div>
+        <div style="margin:4px 0;">ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط© Tâ‚‚ (K):</div>
         <input id="chemGasT2" type="text" readonly dir="ltr"
             style="width:90%;padding:7px;font-size:15px;text-align:center;margin-bottom:7px;">
 
@@ -37305,7 +37305,7 @@ window.chemistryCombinedGas = function () {
             margin-bottom:5px;
             font-weight:bold;
         ">
-            اختر المجهول:
+            ط§ط®طھط± ط§ظ„ظ…ط¬ظ‡ظˆظ„:
         </div>
 
         <select id="chemGasUnknown"
@@ -37316,19 +37316,19 @@ window.chemistryCombinedGas = function () {
                     margin-bottom:7px;
                 ">
 
-            <option value="P1">P₁ — الضغط الأول</option>
-            <option value="V1">V₁ — الحجم الأول</option>
-            <option value="T1">T₁ — درجة الحرارة الأولى</option>
+            <option value="P1">Pâ‚پ â€” ط§ظ„ط¶ط؛ط· ط§ظ„ط£ظˆظ„</option>
+            <option value="V1">Vâ‚پ â€” ط§ظ„ط­ط¬ظ… ط§ظ„ط£ظˆظ„</option>
+            <option value="T1">Tâ‚پ â€” ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط£ظˆظ„ظ‰</option>
 
-            <option value="P2" selected>P₂ — الضغط الثاني</option>
-            <option value="V2">V₂ — الحجم الثاني</option>
-            <option value="T2">T₂ — درجة الحرارة الثانية</option>
+            <option value="P2" selected>Pâ‚‚ â€” ط§ظ„ط¶ط؛ط· ط§ظ„ط«ط§ظ†ظٹ</option>
+            <option value="V2">Vâ‚‚ â€” ط§ظ„ط­ط¬ظ… ط§ظ„ط«ط§ظ†ظٹ</option>
+            <option value="T2">Tâ‚‚ â€” ط¯ط±ط¬ط© ط§ظ„ط­ط±ط§ط±ط© ط§ظ„ط«ط§ظ†ظٹط©</option>
 
         </select>
 
         <button onclick="calculateChemistryCombinedGas()"
                 style="width:100%;padding:8px;">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemGasResult"
@@ -37346,7 +37346,7 @@ window.chemistryCombinedGas = function () {
                     padding:7px;
                     margin-top:7px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -37375,8 +37375,8 @@ window.chemistryCombinedGas = function () {
 
 
 // ==========================================
-// 🧮 حساب قانون الغاز العام
-// P₁V₁ / T₁ = P₂V₂ / T₂
+// ًں§® ط­ط³ط§ط¨ ظ‚ط§ظ†ظˆظ† ط§ظ„ط؛ط§ط² ط§ظ„ط¹ط§ظ…
+// Pâ‚پVâ‚پ / Tâ‚پ = Pâ‚‚Vâ‚‚ / Tâ‚‚
 // ==========================================
 
 window.calculateChemistryCombinedGas = function () {
@@ -37415,7 +37415,7 @@ window.calculateChemistryCombinedGas = function () {
 
 
     // ======================================
-    // P₁ = P₂ × V₂ × T₁ / (T₂ × V₁)
+    // Pâ‚پ = Pâ‚‚ أ— Vâ‚‚ أ— Tâ‚پ / (Tâ‚‚ أ— Vâ‚پ)
     // ======================================
 
     if (unknown === "P1") {
@@ -37428,13 +37428,13 @@ window.calculateChemistryCombinedGas = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₂ و V₁ و T₁ و V₂ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚‚ ظˆ Vâ‚پ ظˆ Tâ‚پ ظˆ Vâ‚‚ ظˆ Tâ‚‚";
             return;
         }
 
         if (V1 === 0 || T2 === 0) {
             result.innerHTML =
-                "❌ المقام لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37442,14 +37442,14 @@ window.calculateChemistryCombinedGas = function () {
             (P2 * V2 * T1) / (T2 * V1);
 
         result.innerHTML =
-            `✅ P₁ = ${answer.toFixed(6)}`;
+            `âœ… Pâ‚پ = ${answer.toFixed(6)}`;
 
         return;
     }
 
 
     // ======================================
-    // V₁ = P₂ × V₂ × T₁ / (T₂ × P₁)
+    // Vâ‚پ = Pâ‚‚ أ— Vâ‚‚ أ— Tâ‚پ / (Tâ‚‚ أ— Pâ‚پ)
     // ======================================
 
     if (unknown === "V1") {
@@ -37462,13 +37462,13 @@ window.calculateChemistryCombinedGas = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و P₂ و V₂ و T₁ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Pâ‚‚ ظˆ Vâ‚‚ ظˆ Tâ‚پ ظˆ Tâ‚‚";
             return;
         }
 
         if (P1 === 0 || T2 === 0) {
             result.innerHTML =
-                "❌ المقام لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37476,14 +37476,14 @@ window.calculateChemistryCombinedGas = function () {
             (P2 * V2 * T1) / (T2 * P1);
 
         result.innerHTML =
-            `✅ V₁ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚پ = ${answer.toFixed(6)} L`;
 
         return;
     }
 
 
     // ======================================
-    // T₁ = P₁ × V₁ × T₂ / (P₂ × V₂)
+    // Tâ‚پ = Pâ‚پ أ— Vâ‚پ أ— Tâ‚‚ / (Pâ‚‚ أ— Vâ‚‚)
     // ======================================
 
     if (unknown === "T1") {
@@ -37496,13 +37496,13 @@ window.calculateChemistryCombinedGas = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و V₁ و P₂ و V₂ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Vâ‚پ ظˆ Pâ‚‚ ظˆ Vâ‚‚ ظˆ Tâ‚‚";
             return;
         }
 
         if (P2 === 0 || V2 === 0) {
             result.innerHTML =
-                "❌ المقام لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37510,14 +37510,14 @@ window.calculateChemistryCombinedGas = function () {
             (P1 * V1 * T2) / (P2 * V2);
 
         result.innerHTML =
-            `✅ T₁ = ${answer.toFixed(6)} K`;
+            `âœ… Tâ‚پ = ${answer.toFixed(6)} K`;
 
         return;
     }
 
 
     // ======================================
-    // P₂ = P₁ × V₁ × T₂ / (T₁ × V₂)
+    // Pâ‚‚ = Pâ‚پ أ— Vâ‚پ أ— Tâ‚‚ / (Tâ‚پ أ— Vâ‚‚)
     // ======================================
 
     if (unknown === "P2") {
@@ -37530,13 +37530,13 @@ window.calculateChemistryCombinedGas = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و V₁ و T₁ و V₂ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Vâ‚پ ظˆ Tâ‚پ ظˆ Vâ‚‚ ظˆ Tâ‚‚";
             return;
         }
 
         if (T1 === 0 || V2 === 0) {
             result.innerHTML =
-                "❌ المقام لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37544,14 +37544,14 @@ window.calculateChemistryCombinedGas = function () {
             (P1 * V1 * T2) / (T1 * V2);
 
         result.innerHTML =
-            `✅ P₂ = ${answer.toFixed(6)}`;
+            `âœ… Pâ‚‚ = ${answer.toFixed(6)}`;
 
         return;
     }
 
 
     // ======================================
-    // V₂ = P₁ × V₁ × T₂ / (T₁ × P₂)
+    // Vâ‚‚ = Pâ‚پ أ— Vâ‚پ أ— Tâ‚‚ / (Tâ‚پ أ— Pâ‚‚)
     // ======================================
 
     if (unknown === "V2") {
@@ -37564,13 +37564,13 @@ window.calculateChemistryCombinedGas = function () {
             !Number.isFinite(T2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و V₁ و T₁ و P₂ و T₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Vâ‚پ ظˆ Tâ‚پ ظˆ Pâ‚‚ ظˆ Tâ‚‚";
             return;
         }
 
         if (T1 === 0 || P2 === 0) {
             result.innerHTML =
-                "❌ المقام لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37578,14 +37578,14 @@ window.calculateChemistryCombinedGas = function () {
             (P1 * V1 * T2) / (T1 * P2);
 
         result.innerHTML =
-            `✅ V₂ = ${answer.toFixed(6)} L`;
+            `âœ… Vâ‚‚ = ${answer.toFixed(6)} L`;
 
         return;
     }
 
 
     // ======================================
-    // T₂ = P₂ × V₂ × T₁ / (P₁ × V₁)
+    // Tâ‚‚ = Pâ‚‚ أ— Vâ‚‚ أ— Tâ‚پ / (Pâ‚پ أ— Vâ‚پ)
     // ======================================
 
     if (unknown === "T2") {
@@ -37598,13 +37598,13 @@ window.calculateChemistryCombinedGas = function () {
             !Number.isFinite(V2)
         ) {
             result.innerHTML =
-                "❌ أدخل P₁ و V₁ و T₁ و P₂ و V₂";
+                "â‌Œ ط£ط¯ط®ظ„ Pâ‚پ ظˆ Vâ‚پ ظˆ Tâ‚پ ظˆ Pâ‚‚ ظˆ Vâ‚‚";
             return;
         }
 
         if (P1 === 0 || V1 === 0) {
             result.innerHTML =
-                "❌ المقام لا يمكن أن يساوي صفر";
+                "â‌Œ ط§ظ„ظ…ظ‚ط§ظ… ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹط³ط§ظˆظٹ طµظپط±";
             return;
         }
 
@@ -37612,14 +37612,14 @@ window.calculateChemistryCombinedGas = function () {
             (P2 * V2 * T1) / (P1 * V1);
 
         result.innerHTML =
-            `✅ T₂ = ${answer.toFixed(6)} K`;
+            `âœ… Tâ‚‚ = ${answer.toFixed(6)} K`;
 
         return;
     }
 };
 // ==========================================
-// ⚖️ CHEMISTRY - ثابت الاتزان Kc
-// aA + bB ⇌ cC + dD
+// âڑ–ï¸ڈ CHEMISTRY - ط«ط§ط¨طھ ط§ظ„ط§طھط²ط§ظ† Kc
+// aA + bB â‡Œ cC + dD
 // Kc = [C]^c [D]^d / [A]^a [B]^b
 // ==========================================
 
@@ -37633,7 +37633,7 @@ window.chemistryKc = function () {
             text-align:center;
             margin-bottom:8px;
         ">
-            ⚖️ ثابت الاتزان Kc
+            âڑ–ï¸ڈ ط«ط§ط¨طھ ط§ظ„ط§طھط²ط§ظ† Kc
         </div>
 
         <div style="
@@ -37642,13 +37642,13 @@ window.chemistryKc = function () {
             margin-bottom:10px;
             direction:ltr;
         ">
-            aA + bB ⇌ cC + dD
+            aA + bB â‡Œ cC + dD
         </div>
 
         <!-- A -->
 
         <div style="margin:4px 0;font-weight:bold;">
-            المتفاعل A
+            ط§ظ„ظ…طھظپط§ط¹ظ„ A
         </div>
 
         <div style="display:flex;gap:5px;margin-bottom:6px;">
@@ -37656,7 +37656,7 @@ window.chemistryKc = function () {
             <input id="chemKcAcoef"
                    type="text"
                    readonly
-                   placeholder="المعامل"
+                   placeholder="ط§ظ„ظ…ط¹ط§ظ…ظ„"
                    dir="ltr"
                    style="
                        width:35%;
@@ -37682,7 +37682,7 @@ window.chemistryKc = function () {
         <!-- B -->
 
         <div style="margin:4px 0;font-weight:bold;">
-            المتفاعل B
+            ط§ظ„ظ…طھظپط§ط¹ظ„ B
         </div>
 
         <div style="display:flex;gap:5px;margin-bottom:6px;">
@@ -37690,7 +37690,7 @@ window.chemistryKc = function () {
             <input id="chemKcBcoef"
                    type="text"
                    readonly
-                   placeholder="المعامل"
+                   placeholder="ط§ظ„ظ…ط¹ط§ظ…ظ„"
                    dir="ltr"
                    style="
                        width:35%;
@@ -37716,7 +37716,7 @@ window.chemistryKc = function () {
         <!-- C -->
 
         <div style="margin:4px 0;font-weight:bold;">
-            الناتج C
+            ط§ظ„ظ†ط§طھط¬ C
         </div>
 
         <div style="display:flex;gap:5px;margin-bottom:6px;">
@@ -37724,7 +37724,7 @@ window.chemistryKc = function () {
             <input id="chemKcCcoef"
                    type="text"
                    readonly
-                   placeholder="المعامل"
+                   placeholder="ط§ظ„ظ…ط¹ط§ظ…ظ„"
                    dir="ltr"
                    style="
                        width:35%;
@@ -37750,7 +37750,7 @@ window.chemistryKc = function () {
         <!-- D -->
 
         <div style="margin:4px 0;font-weight:bold;">
-            الناتج D
+            ط§ظ„ظ†ط§طھط¬ D
         </div>
 
         <div style="display:flex;gap:5px;margin-bottom:8px;">
@@ -37758,7 +37758,7 @@ window.chemistryKc = function () {
             <input id="chemKcDcoef"
                    type="text"
                    readonly
-                   placeholder="المعامل"
+                   placeholder="ط§ظ„ظ…ط¹ط§ظ…ظ„"
                    dir="ltr"
                    style="
                        width:35%;
@@ -37786,7 +37786,7 @@ window.chemistryKc = function () {
                     width:100%;
                     padding:8px;
                 ">
-            🧮 احسب Kc
+            ًں§® ط§ط­ط³ط¨ Kc
         </button>
 
         <div id="chemKcResult"
@@ -37805,12 +37805,12 @@ window.chemistryKc = function () {
                     padding:7px;
                     margin-top:7px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
 
-    // أول خانة نشطة
+    // ط£ظˆظ„ ط®ط§ظ†ط© ظ†ط´ط·ط©
     window.activeChemistryField = "chemKcAcoef";
 
     [
@@ -37837,7 +37837,7 @@ window.chemistryKc = function () {
 
 
 // ==========================================
-// 🧮 حساب Kc
+// ًں§® ط­ط³ط§ط¨ Kc
 // ==========================================
 
 window.calculateChemistryKc = function () {
@@ -37881,7 +37881,7 @@ window.calculateChemistryKc = function () {
 
 
     // ======================================
-    // التحقق
+    // ط§ظ„طھط­ظ‚ظ‚
     // ======================================
 
     if (
@@ -37896,7 +37896,7 @@ window.calculateChemistryKc = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل جميع القيم";
+            "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
 
         return;
     }
@@ -37910,7 +37910,7 @@ window.calculateChemistryKc = function () {
     ) {
 
         result.innerHTML =
-            "❌ المعاملات يجب أن تكون أكبر من صفر";
+            "â‌Œ ط§ظ„ظ…ط¹ط§ظ…ظ„ط§طھ ظٹط¬ط¨ ط£ظ† طھظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
         return;
     }
@@ -37924,14 +37924,14 @@ window.calculateChemistryKc = function () {
     ) {
 
         result.innerHTML =
-            "❌ التركيز لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„طھط±ظƒظٹط² ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
 
         return;
     }
 
 
     // ======================================
-    // المقام
+    // ط§ظ„ظ…ظ‚ط§ظ…
     // ======================================
 
     const denominator =
@@ -37942,14 +37942,14 @@ window.calculateChemistryKc = function () {
     if (denominator === 0) {
 
         result.innerHTML =
-            "❌ لا يمكن أن يكون المقام صفرًا";
+            "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط§ظ„ظ…ظ‚ط§ظ… طµظپط±ظ‹ط§";
 
         return;
     }
 
 
     // ======================================
-    // البسط
+    // ط§ظ„ط¨ط³ط·
     // ======================================
 
     const numerator =
@@ -37968,22 +37968,22 @@ window.calculateChemistryKc = function () {
     if (!Number.isFinite(Kc)) {
 
         result.innerHTML =
-            "❌ النتيجة كبيرة جدًا أو غير صالحة";
+            "â‌Œ ط§ظ„ظ†طھظٹط¬ط© ظƒط¨ظٹط±ط© ط¬ط¯ظ‹ط§ ط£ظˆ ط؛ظٹط± طµط§ظ„ط­ط©";
 
         return;
     }
 
 
     result.innerHTML =
-        `✅ Kc = ${Kc.toFixed(6)}`;
+        `âœ… Kc = ${Kc.toFixed(6)}`;
 
     console.log(
-        "⚖️ Kc:",
+        "âڑ–ï¸ڈ Kc:",
         Kc
     );
 };
 // ==========================================
-// 🧪 CHEMISTRY - pH
+// ًں§ھ CHEMISTRY - pH
 // pH = -log10[H+]
 // ==========================================
 
@@ -37997,7 +37997,7 @@ window.chemistryPH = function () {
             text-align:center;
             margin-bottom:8px;
         ">
-            🧪 pH
+            ًں§ھ pH
         </div>
 
         <div style="
@@ -38006,14 +38006,14 @@ window.chemistryPH = function () {
             margin-bottom:10px;
             direction:ltr;
         ">
-            pH = −log₁₀[H⁺]
+            pH = âˆ’logâ‚پâ‚€[Hâپ؛]
         </div>
 
         <div style="
             margin:5px 0;
             font-weight:bold;
         ">
-            اختر العملية:
+            ط§ط®طھط± ط§ظ„ط¹ظ…ظ„ظٹط©:
         </div>
 
         <select id="chemPHMode"
@@ -38026,11 +38026,11 @@ window.chemistryPH = function () {
                 ">
 
             <option value="fromH">
-                حساب pH من [H⁺]
+                ط­ط³ط§ط¨ pH ظ…ظ† [Hâپ؛]
             </option>
 
             <option value="fromPH">
-                حساب [H⁺] من pH
+                ط­ط³ط§ط¨ [Hâپ؛] ظ…ظ† pH
             </option>
 
         </select>
@@ -38043,7 +38043,7 @@ window.chemistryPH = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemPHResult"
@@ -38062,7 +38062,7 @@ window.chemistryPH = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -38072,7 +38072,7 @@ window.chemistryPH = function () {
 
 
 // ==========================================
-// 🔄 تغيير حقل pH
+// ًں”„ طھط؛ظٹظٹط± ط­ظ‚ظ„ pH
 // ==========================================
 
 window.updateChemPHFields = function () {
@@ -38090,7 +38090,7 @@ window.updateChemPHFields = function () {
         fields.innerHTML = `
 
             <div style="margin:5px 0;">
-                تركيز أيونات الهيدروجين [H⁺] (mol/L):
+                طھط±ظƒظٹط² ط£ظٹظˆظ†ط§طھ ط§ظ„ظ‡ظٹط¯ط±ظˆط¬ظٹظ† [Hâپ؛] (mol/L):
             </div>
 
             <input id="chemPHH"
@@ -38113,7 +38113,7 @@ window.updateChemPHFields = function () {
         fields.innerHTML = `
 
             <div style="margin:5px 0;">
-                قيمة pH:
+                ظ‚ظٹظ…ط© pH:
             </div>
 
             <input id="chemPHValue"
@@ -38147,7 +38147,7 @@ window.updateChemPHFields = function () {
 
 
 // ==========================================
-// 🧮 حساب pH
+// ًں§® ط­ط³ط§ط¨ pH
 // ==========================================
 
 window.calculateChemistryPH = function () {
@@ -38162,7 +38162,7 @@ window.calculateChemistryPH = function () {
 
 
     // ======================================
-    // pH من H+
+    // pH ظ…ظ† H+
     // ======================================
 
     if (mode === "fromH") {
@@ -38178,7 +38178,7 @@ window.calculateChemistryPH = function () {
         ) {
 
             result.innerHTML =
-                "❌ تركيز H⁺ يجب أن يكون أكبر من صفر";
+                "â‌Œ طھط±ظƒظٹط² Hâپ؛ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
             return;
         }
@@ -38187,10 +38187,10 @@ window.calculateChemistryPH = function () {
             -Math.log10(H);
 
         result.innerHTML =
-            `✅ pH = ${pH.toFixed(6)}`;
+            `âœ… pH = ${pH.toFixed(6)}`;
 
         console.log(
-            "🧪 pH:",
+            "ًں§ھ pH:",
             pH
         );
 
@@ -38199,7 +38199,7 @@ window.calculateChemistryPH = function () {
 
 
     // ======================================
-    // H+ من pH
+    // H+ ظ…ظ† pH
     // ======================================
 
     if (mode === "fromPH") {
@@ -38212,7 +38212,7 @@ window.calculateChemistryPH = function () {
         if (!Number.isFinite(pH)) {
 
             result.innerHTML =
-                "❌ أدخل قيمة pH";
+                "â‌Œ ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© pH";
 
             return;
         }
@@ -38221,16 +38221,16 @@ window.calculateChemistryPH = function () {
             Math.pow(10, -pH);
 
         result.innerHTML =
-            `✅ [H⁺] = ${H.toExponential(6)} mol/L`;
+            `âœ… [Hâپ؛] = ${H.toExponential(6)} mol/L`;
 
         console.log(
-            "🧪 H+:",
+            "ًں§ھ H+:",
             H
         );
     }
 };
 // ==========================================
-// 💧 CHEMISTRY - pOH
+// ًں’§ CHEMISTRY - pOH
 // pOH = -log10[OH-]
 // ==========================================
 
@@ -38244,7 +38244,7 @@ window.chemistryPOH = function () {
             text-align:center;
             margin-bottom:8px;
         ">
-            💧 pOH
+            ًں’§ pOH
         </div>
 
         <div style="
@@ -38253,14 +38253,14 @@ window.chemistryPOH = function () {
             margin-bottom:10px;
             direction:ltr;
         ">
-            pOH = −log₁₀[OH⁻]
+            pOH = âˆ’logâ‚پâ‚€[OHâپ»]
         </div>
 
         <div style="
             margin:5px 0;
             font-weight:bold;
         ">
-            اختر العملية:
+            ط§ط®طھط± ط§ظ„ط¹ظ…ظ„ظٹط©:
         </div>
 
         <select id="chemPOHMode"
@@ -38273,11 +38273,11 @@ window.chemistryPOH = function () {
                 ">
 
             <option value="fromOH">
-                حساب pOH من [OH⁻]
+                ط­ط³ط§ط¨ pOH ظ…ظ† [OHâپ»]
             </option>
 
             <option value="fromPOH">
-                حساب [OH⁻] من pOH
+                ط­ط³ط§ط¨ [OHâپ»] ظ…ظ† pOH
             </option>
 
         </select>
@@ -38290,7 +38290,7 @@ window.chemistryPOH = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div id="chemPOHResult"
@@ -38309,7 +38309,7 @@ window.chemistryPOH = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -38319,7 +38319,7 @@ window.chemistryPOH = function () {
 
 
 // ==========================================
-// 🔄 تغيير حقل pOH
+// ًں”„ طھط؛ظٹظٹط± ط­ظ‚ظ„ pOH
 // ==========================================
 
 window.updateChemPOHFields = function () {
@@ -38337,7 +38337,7 @@ window.updateChemPOHFields = function () {
         fields.innerHTML = `
 
             <div style="margin:5px 0;">
-                تركيز أيونات الهيدروكسيد [OH⁻] (mol/L):
+                طھط±ظƒظٹط² ط£ظٹظˆظ†ط§طھ ط§ظ„ظ‡ظٹط¯ط±ظˆظƒط³ظٹط¯ [OHâپ»] (mol/L):
             </div>
 
             <input id="chemPOHOH"
@@ -38360,7 +38360,7 @@ window.updateChemPOHFields = function () {
         fields.innerHTML = `
 
             <div style="margin:5px 0;">
-                قيمة pOH:
+                ظ‚ظٹظ…ط© pOH:
             </div>
 
             <input id="chemPOHValue"
@@ -38394,7 +38394,7 @@ window.updateChemPOHFields = function () {
 
 
 // ==========================================
-// 🧮 حساب pOH
+// ًں§® ط­ط³ط§ط¨ pOH
 // ==========================================
 
 window.calculateChemistryPOH = function () {
@@ -38409,7 +38409,7 @@ window.calculateChemistryPOH = function () {
 
 
     // ======================================
-    // pOH من OH-
+    // pOH ظ…ظ† OH-
     // ======================================
 
     if (mode === "fromOH") {
@@ -38425,7 +38425,7 @@ window.calculateChemistryPOH = function () {
         ) {
 
             result.innerHTML =
-                "❌ تركيز OH⁻ يجب أن يكون أكبر من صفر";
+                "â‌Œ طھط±ظƒظٹط² OHâپ» ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
             return;
         }
@@ -38434,10 +38434,10 @@ window.calculateChemistryPOH = function () {
             -Math.log10(OH);
 
         result.innerHTML =
-            `✅ pOH = ${pOH.toFixed(6)}`;
+            `âœ… pOH = ${pOH.toFixed(6)}`;
 
         console.log(
-            "💧 pOH:",
+            "ًں’§ pOH:",
             pOH
         );
 
@@ -38446,7 +38446,7 @@ window.calculateChemistryPOH = function () {
 
 
     // ======================================
-    // OH- من pOH
+    // OH- ظ…ظ† pOH
     // ======================================
 
     if (mode === "fromPOH") {
@@ -38459,7 +38459,7 @@ window.calculateChemistryPOH = function () {
         if (!Number.isFinite(pOH)) {
 
             result.innerHTML =
-                "❌ أدخل قيمة pOH";
+                "â‌Œ ط£ط¯ط®ظ„ ظ‚ظٹظ…ط© pOH";
 
             return;
         }
@@ -38468,18 +38468,18 @@ window.calculateChemistryPOH = function () {
             Math.pow(10, -pOH);
 
         result.innerHTML =
-            `✅ [OH⁻] = ${OH.toExponential(6)} mol/L`;
+            `âœ… [OHâپ»] = ${OH.toExponential(6)} mol/L`;
 
         console.log(
-            "💧 OH-:",
+            "ًں’§ OH-:",
             OH
         );
     }
 };
 // ==========================================
-// 🔴 CHEMISTRY - ثابت تأين الحمض Ka
-// HA ⇌ H⁺ + A⁻
-// Ka = [H⁺][A⁻] / [HA]
+// ًں”´ CHEMISTRY - ط«ط§ط¨طھ طھط£ظٹظ† ط§ظ„ط­ظ…ط¶ Ka
+// HA â‡Œ Hâپ؛ + Aâپ»
+// Ka = [Hâپ؛][Aâپ»] / [HA]
 // ==========================================
 
 window.chemistryKa = function () {
@@ -38492,7 +38492,7 @@ window.chemistryKa = function () {
             text-align:center;
             margin-bottom:8px;
         ">
-            🔴 ثابت تأين الحمض Ka
+            ًں”´ ط«ط§ط¨طھ طھط£ظٹظ† ط§ظ„ط­ظ…ط¶ Ka
         </div>
 
         <div style="
@@ -38501,11 +38501,11 @@ window.chemistryKa = function () {
             margin-bottom:12px;
             direction:ltr;
         ">
-            Ka = [H⁺][A⁻] / [HA]
+            Ka = [Hâپ؛][Aâپ»] / [HA]
         </div>
 
         <div style="margin:6px 0;font-weight:bold;">
-            تركيز H⁺ (mol/L):
+            طھط±ظƒظٹط² Hâپ؛ (mol/L):
         </div>
 
         <input id="chemKaH"
@@ -38521,7 +38521,7 @@ window.chemistryKa = function () {
                ">
 
         <div style="margin:6px 0;font-weight:bold;">
-            تركيز A⁻ (mol/L):
+            طھط±ظƒظٹط² Aâپ» (mol/L):
         </div>
 
         <input id="chemKaA"
@@ -38537,7 +38537,7 @@ window.chemistryKa = function () {
                ">
 
         <div style="margin:6px 0;font-weight:bold;">
-            تركيز HA (mol/L):
+            طھط±ظƒظٹط² HA (mol/L):
         </div>
 
         <input id="chemKaHA"
@@ -38557,7 +38557,7 @@ window.chemistryKa = function () {
                     width:100%;
                     padding:9px;
                 ">
-            🧮 احسب Ka
+            ًں§® ط§ط­ط³ط¨ Ka
         </button>
 
         <div id="chemKaResult"
@@ -38576,7 +38576,7 @@ window.chemistryKa = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -38602,7 +38602,7 @@ window.chemistryKa = function () {
 
 
 // ==========================================
-// 🧮 حساب Ka
+// ًں§® ط­ط³ط§ط¨ Ka
 // ==========================================
 
 window.calculateChemistryKa = function () {
@@ -38629,7 +38629,7 @@ window.calculateChemistryKa = function () {
 
 
     // ======================================
-    // التحقق من القيم
+    // ط§ظ„طھط­ظ‚ظ‚ ظ…ظ† ط§ظ„ظ‚ظٹظ…
     // ======================================
 
     if (
@@ -38639,7 +38639,7 @@ window.calculateChemistryKa = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل جميع القيم";
+            "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
 
         return;
     }
@@ -38648,7 +38648,7 @@ window.calculateChemistryKa = function () {
     if (H < 0 || A < 0) {
 
         result.innerHTML =
-            "❌ التركيز لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„طھط±ظƒظٹط² ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
 
         return;
     }
@@ -38657,7 +38657,7 @@ window.calculateChemistryKa = function () {
     if (HA <= 0) {
 
         result.innerHTML =
-            "❌ تركيز HA يجب أن يكون أكبر من صفر";
+            "â‌Œ طھط±ظƒظٹط² HA ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
         return;
     }
@@ -38674,24 +38674,24 @@ window.calculateChemistryKa = function () {
     if (!Number.isFinite(Ka)) {
 
         result.innerHTML =
-            "❌ النتيجة غير صالحة";
+            "â‌Œ ط§ظ„ظ†طھظٹط¬ط© ط؛ظٹط± طµط§ظ„ط­ط©";
 
         return;
     }
 
 
     result.innerHTML =
-        `✅ Ka = ${Ka.toExponential(6)}`;
+        `âœ… Ka = ${Ka.toExponential(6)}`;
 
     console.log(
-        "🔴 Ka:",
+        "ًں”´ Ka:",
         Ka
     );
 };
 // ==========================================
-// 🔵 CHEMISTRY - ثابت تأين القاعدة Kb
-// BOH ⇌ B⁺ + OH⁻
-// Kb = [B⁺][OH⁻] / [BOH]
+// ًں”µ CHEMISTRY - ط«ط§ط¨طھ طھط£ظٹظ† ط§ظ„ظ‚ط§ط¹ط¯ط© Kb
+// BOH â‡Œ Bâپ؛ + OHâپ»
+// Kb = [Bâپ؛][OHâپ»] / [BOH]
 // ==========================================
 
 window.chemistryKb = function () {
@@ -38704,7 +38704,7 @@ window.chemistryKb = function () {
             text-align:center;
             margin-bottom:8px;
         ">
-            🔵 ثابت تأين القاعدة Kb
+            ًں”µ ط«ط§ط¨طھ طھط£ظٹظ† ط§ظ„ظ‚ط§ط¹ط¯ط© Kb
         </div>
 
         <div style="
@@ -38713,11 +38713,11 @@ window.chemistryKb = function () {
             margin-bottom:12px;
             direction:ltr;
         ">
-            Kb = [B⁺][OH⁻] / [BOH]
+            Kb = [Bâپ؛][OHâپ»] / [BOH]
         </div>
 
         <div style="margin:6px 0;font-weight:bold;">
-            تركيز B⁺ (mol/L):
+            طھط±ظƒظٹط² Bâپ؛ (mol/L):
         </div>
 
         <input id="chemKbB"
@@ -38733,7 +38733,7 @@ window.chemistryKb = function () {
                ">
 
         <div style="margin:6px 0;font-weight:bold;">
-            تركيز OH⁻ (mol/L):
+            طھط±ظƒظٹط² OHâپ» (mol/L):
         </div>
 
         <input id="chemKbOH"
@@ -38749,7 +38749,7 @@ window.chemistryKb = function () {
                ">
 
         <div style="margin:6px 0;font-weight:bold;">
-            تركيز BOH (mol/L):
+            طھط±ظƒظٹط² BOH (mol/L):
         </div>
 
         <input id="chemKbBOH"
@@ -38769,7 +38769,7 @@ window.chemistryKb = function () {
                     width:100%;
                     padding:9px;
                 ">
-            🧮 احسب Kb
+            ًں§® ط§ط­ط³ط¨ Kb
         </button>
 
         <div id="chemKbResult"
@@ -38788,7 +38788,7 @@ window.chemistryKb = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -38814,7 +38814,7 @@ window.chemistryKb = function () {
 
 
 // ==========================================
-// 🧮 حساب Kb
+// ًں§® ط­ط³ط§ط¨ Kb
 // ==========================================
 
 window.calculateChemistryKb = function () {
@@ -38841,7 +38841,7 @@ window.calculateChemistryKb = function () {
 
 
     // ======================================
-    // التحقق
+    // ط§ظ„طھط­ظ‚ظ‚
     // ======================================
 
     if (
@@ -38851,7 +38851,7 @@ window.calculateChemistryKb = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل جميع القيم";
+            "â‌Œ ط£ط¯ط®ظ„ ط¬ظ…ظٹط¹ ط§ظ„ظ‚ظٹظ…";
 
         return;
     }
@@ -38860,7 +38860,7 @@ window.calculateChemistryKb = function () {
     if (B < 0 || OH < 0) {
 
         result.innerHTML =
-            "❌ التركيز لا يمكن أن يكون سالبًا";
+            "â‌Œ ط§ظ„طھط±ظƒظٹط² ظ„ط§ ظٹظ…ظƒظ† ط£ظ† ظٹظƒظˆظ† ط³ط§ظ„ط¨ظ‹ط§";
 
         return;
     }
@@ -38869,7 +38869,7 @@ window.calculateChemistryKb = function () {
     if (BOH <= 0) {
 
         result.innerHTML =
-            "❌ تركيز BOH يجب أن يكون أكبر من صفر";
+            "â‌Œ طھط±ظƒظٹط² BOH ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
         return;
     }
@@ -38886,22 +38886,22 @@ window.calculateChemistryKb = function () {
     if (!Number.isFinite(Kb)) {
 
         result.innerHTML =
-            "❌ النتيجة غير صالحة";
+            "â‌Œ ط§ظ„ظ†طھظٹط¬ط© ط؛ظٹط± طµط§ظ„ط­ط©";
 
         return;
     }
 
 
     result.innerHTML =
-        `✅ Kb = ${Kb.toExponential(6)}`;
+        `âœ… Kb = ${Kb.toExponential(6)}`;
 
     console.log(
-        "🔵 Kb:",
+        "ًں”µ Kb:",
         Kb
     );
 };
 // ==========================================
-// ⏳ CHEMISTRY - نصف عمر التفاعل
+// âڈ³ CHEMISTRY - ظ†طµظپ ط¹ظ…ط± ط§ظ„طھظپط§ط¹ظ„
 // Zero / First / Second Order
 // ==========================================
 
@@ -38915,7 +38915,7 @@ window.chemistryHalfLife = function () {
             text-align:center;
             margin-bottom:8px;
         ">
-            ⏳ نصف عمر التفاعل
+            âڈ³ ظ†طµظپ ط¹ظ…ط± ط§ظ„طھظپط§ط¹ظ„
         </div>
 
         <div style="
@@ -38924,7 +38924,7 @@ window.chemistryHalfLife = function () {
             margin-bottom:10px;
             direction:ltr;
         ">
-            اختر رتبة التفاعل
+            ط§ط®طھط± ط±طھط¨ط© ط§ظ„طھظپط§ط¹ظ„
         </div>
 
         <select id="chemHalfLifeOrder"
@@ -38937,15 +38937,15 @@ window.chemistryHalfLife = function () {
                 ">
 
             <option value="zero">
-                الرتبة صفر
+                ط§ظ„ط±طھط¨ط© طµظپط±
             </option>
 
             <option value="first">
-                الرتبة الأولى
+                ط§ظ„ط±طھط¨ط© ط§ظ„ط£ظˆظ„ظ‰
             </option>
 
             <option value="second">
-                الرتبة الثانية
+                ط§ظ„ط±طھط¨ط© ط§ظ„ط«ط§ظ†ظٹط©
             </option>
 
         </select>
@@ -38958,7 +38958,7 @@ window.chemistryHalfLife = function () {
                     padding:9px;
                     margin-top:8px;
                 ">
-            🧮 احسب نصف العمر
+            ًں§® ط§ط­ط³ط¨ ظ†طµظپ ط§ظ„ط¹ظ…ط±
         </button>
 
         <div id="chemHalfLifeResult"
@@ -38977,7 +38977,7 @@ window.chemistryHalfLife = function () {
                     padding:8px;
                     margin-top:8px;
                 ">
-            ← رجوع للكيمياء
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ظƒظٹظ…ظٹط§ط،
         </button>
 
     `);
@@ -38987,7 +38987,7 @@ window.chemistryHalfLife = function () {
 
 
 // ==========================================
-// 🔄 تغيير حقول نصف العمر
+// ًں”„ طھط؛ظٹظٹط± ط­ظ‚ظˆظ„ ظ†طµظپ ط§ظ„ط¹ظ…ط±
 // ==========================================
 
 window.updateChemHalfLifeFields = function () {
@@ -39006,7 +39006,7 @@ window.updateChemHalfLifeFields = function () {
 
 
     // ======================================
-    // الرتبة صفر
+    // ط§ظ„ط±طھط¨ط© طµظپط±
     // t1/2 = [A]0 / 2k
     // ======================================
 
@@ -39015,7 +39015,7 @@ window.updateChemHalfLifeFields = function () {
         fields.innerHTML = `
 
             <div style="margin:5px 0;font-weight:bold;">
-                التركيز الابتدائي [A]₀ (mol/L):
+                ط§ظ„طھط±ظƒظٹط² ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ [A]â‚€ (mol/L):
             </div>
 
             <input id="chemHalfA0"
@@ -39031,7 +39031,7 @@ window.updateChemHalfLifeFields = function () {
                    ">
 
             <div style="margin:5px 0;font-weight:bold;">
-                ثابت السرعة k (mol/L·s):
+                ط«ط§ط¨طھ ط§ظ„ط³ط±ط¹ط© k (mol/Lآ·s):
             </div>
 
             <input id="chemHalfK"
@@ -39053,7 +39053,7 @@ window.updateChemHalfLifeFields = function () {
 
 
     // ======================================
-    // الرتبة الأولى
+    // ط§ظ„ط±طھط¨ط© ط§ظ„ط£ظˆظ„ظ‰
     // t1/2 = ln(2) / k
     // ======================================
 
@@ -39062,7 +39062,7 @@ window.updateChemHalfLifeFields = function () {
         fields.innerHTML = `
 
             <div style="margin:5px 0;font-weight:bold;">
-                ثابت السرعة k (s⁻¹):
+                ط«ط§ط¨طھ ط§ظ„ط³ط±ط¹ط© k (sâپ»آ¹):
             </div>
 
             <input id="chemHalfK"
@@ -39084,7 +39084,7 @@ window.updateChemHalfLifeFields = function () {
 
 
     // ======================================
-    // الرتبة الثانية
+    // ط§ظ„ط±طھط¨ط© ط§ظ„ط«ط§ظ†ظٹط©
     // t1/2 = 1 / (k[A]0)
     // ======================================
 
@@ -39093,7 +39093,7 @@ window.updateChemHalfLifeFields = function () {
         fields.innerHTML = `
 
             <div style="margin:5px 0;font-weight:bold;">
-                التركيز الابتدائي [A]₀ (mol/L):
+                ط§ظ„طھط±ظƒظٹط² ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ [A]â‚€ (mol/L):
             </div>
 
             <input id="chemHalfA0"
@@ -39109,7 +39109,7 @@ window.updateChemHalfLifeFields = function () {
                    ">
 
             <div style="margin:5px 0;font-weight:bold;">
-                ثابت السرعة k (L/mol·s):
+                ط«ط§ط¨طھ ط§ظ„ط³ط±ط¹ط© k (L/molآ·s):
             </div>
 
             <input id="chemHalfK"
@@ -39131,7 +39131,7 @@ window.updateChemHalfLifeFields = function () {
 
 
     // ======================================
-    // تفعيل اختيار الحقل
+    // طھظپط¹ظٹظ„ ط§ط®طھظٹط§ط± ط§ظ„ط­ظ‚ظ„
     // ======================================
 
     [
@@ -39152,7 +39152,7 @@ window.updateChemHalfLifeFields = function () {
 
 
 // ==========================================
-// 🧮 حساب نصف العمر
+// ًں§® ط­ط³ط§ط¨ ظ†طµظپ ط§ظ„ط¹ظ…ط±
 // ==========================================
 
 window.calculateChemistryHalfLife = function () {
@@ -39186,20 +39186,20 @@ window.calculateChemistryHalfLife = function () {
 
 
     // ======================================
-    // التحقق من k
+    // ط§ظ„طھط­ظ‚ظ‚ ظ…ظ† k
     // ======================================
 
     if (!Number.isFinite(k) || k <= 0) {
 
         result.innerHTML =
-            "❌ ثابت السرعة k يجب أن يكون أكبر من صفر";
+            "â‌Œ ط«ط§ط¨طھ ط§ظ„ط³ط±ط¹ط© k ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
         return;
     }
 
 
     // ======================================
-    // الرتبة صفر
+    // ط§ظ„ط±طھط¨ط© طµظپط±
     // ======================================
 
     if (order === "zero") {
@@ -39207,7 +39207,7 @@ window.calculateChemistryHalfLife = function () {
         if (!Number.isFinite(A0) || A0 <= 0) {
 
             result.innerHTML =
-                "❌ التركيز الابتدائي يجب أن يكون أكبر من صفر";
+                "â‌Œ ط§ظ„طھط±ظƒظٹط² ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
             return;
         }
@@ -39216,10 +39216,10 @@ window.calculateChemistryHalfLife = function () {
             A0 / (2 * k);
 
         result.innerHTML =
-            `✅ t₁/₂ = ${halfLife.toFixed(6)} s`;
+            `âœ… tâ‚پ/â‚‚ = ${halfLife.toFixed(6)} s`;
 
         console.log(
-            "⏳ Zero Order Half-Life:",
+            "âڈ³ Zero Order Half-Life:",
             halfLife
         );
 
@@ -39228,7 +39228,7 @@ window.calculateChemistryHalfLife = function () {
 
 
     // ======================================
-    // الرتبة الأولى
+    // ط§ظ„ط±طھط¨ط© ط§ظ„ط£ظˆظ„ظ‰
     // ======================================
 
     if (order === "first") {
@@ -39237,10 +39237,10 @@ window.calculateChemistryHalfLife = function () {
             Math.log(2) / k;
 
         result.innerHTML =
-            `✅ t₁/₂ = ${halfLife.toFixed(6)} s`;
+            `âœ… tâ‚پ/â‚‚ = ${halfLife.toFixed(6)} s`;
 
         console.log(
-            "⏳ First Order Half-Life:",
+            "âڈ³ First Order Half-Life:",
             halfLife
         );
 
@@ -39249,7 +39249,7 @@ window.calculateChemistryHalfLife = function () {
 
 
     // ======================================
-    // الرتبة الثانية
+    // ط§ظ„ط±طھط¨ط© ط§ظ„ط«ط§ظ†ظٹط©
     // ======================================
 
     if (order === "second") {
@@ -39257,7 +39257,7 @@ window.calculateChemistryHalfLife = function () {
         if (!Number.isFinite(A0) || A0 <= 0) {
 
             result.innerHTML =
-                "❌ التركيز الابتدائي يجب أن يكون أكبر من صفر";
+                "â‌Œ ط§ظ„طھط±ظƒظٹط² ط§ظ„ط§ط¨طھط¯ط§ط¦ظٹ ظٹط¬ط¨ ط£ظ† ظٹظƒظˆظ† ط£ظƒط¨ط± ظ…ظ† طµظپط±";
 
             return;
         }
@@ -39266,16 +39266,16 @@ window.calculateChemistryHalfLife = function () {
             1 / (k * A0);
 
         result.innerHTML =
-            `✅ t₁/₂ = ${halfLife.toFixed(6)} s`;
+            `âœ… tâ‚پ/â‚‚ = ${halfLife.toFixed(6)} s`;
 
         console.log(
-            "⏳ Second Order Half-Life:",
+            "âڈ³ Second Order Half-Life:",
             halfLife
         );
     }
 };
 // ==========================================
-// 💻 Programming - Number Systems
+// ًں’» Programming - Number Systems
 // ==========================================
 
 window.programmingNumberSystems = function () {
@@ -39288,11 +39288,11 @@ window.programmingNumberSystems = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔢 أنظمة الأعداد
+            ًں”¢ ط£ظ†ط¸ظ…ط© ط§ظ„ط£ط¹ط¯ط§ط¯
         </div>
 
         <div style="margin:6px 0;">
-            اختر النظام:
+            ط§ط®طھط± ط§ظ„ظ†ط¸ط§ظ…:
         </div>
 
         <select id="programmingBase"
@@ -39303,10 +39303,10 @@ window.programmingNumberSystems = function () {
                     margin-bottom:10px;
                 ">
 
-            <option value="10">DEC — عشري</option>
-            <option value="2">BIN — ثنائي</option>
-            <option value="8">OCT — ثماني</option>
-            <option value="16">HEX — سداسي عشري</option>
+            <option value="10">DEC â€” ط¹ط´ط±ظٹ</option>
+            <option value="2">BIN â€” ط«ظ†ط§ط¦ظٹ</option>
+            <option value="8">OCT â€” ط«ظ…ط§ظ†ظٹ</option>
+            <option value="16">HEX â€” ط³ط¯ط§ط³ظٹ ط¹ط´ط±ظٹ</option>
 
         </select>
 
@@ -39315,7 +39315,7 @@ window.programmingNumberSystems = function () {
             type="text"
             readonly
             dir="ltr"
-            placeholder="أدخل الرقم"
+            placeholder="ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ…"
             style="
                 width:90%;
                 padding:9px;
@@ -39332,7 +39332,7 @@ window.programmingNumberSystems = function () {
                 padding:10px;
             "
         >
-            🧮 تحويل
+            ًں§® طھط­ظˆظٹظ„
         </button>
 
         <div id="programmingBasesResult"
@@ -39354,7 +39354,7 @@ window.programmingNumberSystems = function () {
         margin-top:10px;
     "
 >
-    ← رجوع للبرمجة
+    â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
 </button>
 
     `);
@@ -39364,7 +39364,7 @@ window.programmingNumberSystems = function () {
 };
 
 // ==========================================
-// 💻 Programming - Main Menu
+// ًں’» Programming - Main Menu
 // ==========================================
 
 window.openProgrammingMenu = function () {
@@ -39377,7 +39377,7 @@ window.openProgrammingMenu = function () {
             text-align:center;
             margin-bottom:15px;
         ">
-            💻 البرمجة
+            ًں’» ط§ظ„ط¨ط±ظ…ط¬ط©
         </div>
 
         <button
@@ -39389,7 +39389,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            1️⃣ 🔢 التحويل بين الأنظمة
+            1ï¸ڈâƒ£ ًں”¢ ط§ظ„طھط­ظˆظٹظ„ ط¨ظٹظ† ط§ظ„ط£ظ†ط¸ظ…ط©
         </button>
 
         <button
@@ -39401,7 +39401,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            2️⃣ ⚙️ AND
+            2ï¸ڈâƒ£ âڑ™ï¸ڈ AND
         </button>
 
         <button
@@ -39413,7 +39413,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            3️⃣ ⚙️ OR
+            3ï¸ڈâƒ£ âڑ™ï¸ڈ OR
         </button>
 
         <button
@@ -39425,7 +39425,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            4️⃣ ⚙️ XOR
+            4ï¸ڈâƒ£ âڑ™ï¸ڈ XOR
         </button>
 
         <button
@@ -39437,7 +39437,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            5️⃣ 🚫 NOT
+            5ï¸ڈâƒ£ ًںڑ« NOT
         </button>
 
         <button
@@ -39449,7 +39449,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            6️⃣ ⬅️ إزاحة لليسار
+            6ï¸ڈâƒ£ â¬…ï¸ڈ ط¥ط²ط§ط­ط© ظ„ظ„ظٹط³ط§ط±
         </button>
 
         <button
@@ -39461,7 +39461,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            7️⃣ ➡️ إزاحة لليمين
+            7ï¸ڈâƒ£ â‍،ï¸ڈ ط¥ط²ط§ط­ط© ظ„ظ„ظٹظ…ظٹظ†
         </button>
 
         <button
@@ -39473,7 +39473,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            8️⃣ 🧮 العمليات الثنائية
+            8ï¸ڈâƒ£ ًں§® ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط«ظ†ط§ط¦ظٹط©
         </button>
 
         <button
@@ -39485,7 +39485,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            9️⃣ 🔄 المكملات والمتممات
+            9ï¸ڈâƒ£ ًں”„ ط§ظ„ظ…ظƒظ…ظ„ط§طھ ظˆط§ظ„ظ…طھظ…ظ…ط§طھ
         </button>
 
         <button
@@ -39497,7 +39497,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            🔟 🧮 العمليات الحسابية
+            ًں”ں ًں§® ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط­ط³ط§ط¨ظٹط©
         </button>
 
         <button
@@ -39509,7 +39509,7 @@ window.openProgrammingMenu = function () {
         font-size:14px;
     "
 >
-    1️⃣1️⃣ 🔄 العمليات باستخدام المكملات
+    1ï¸ڈâƒ£1ï¸ڈâƒ£ ًں”„ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط¨ط§ط³طھط®ط¯ط§ظ… ط§ظ„ظ…ظƒظ…ظ„ط§طھ
 </button>
 <button
     onclick="programmingHexArithmetic()"
@@ -39520,7 +39520,7 @@ window.openProgrammingMenu = function () {
         font-size:14px;
     "
 >
-    1️⃣2️⃣ 🧮 حسابات Hexadecimal
+    1ï¸ڈâƒ£2ï¸ڈâƒ£ ًں§® ط­ط³ط§ط¨ط§طھ Hexadecimal
 </button>
 <button
     onclick="programmingOctalArithmetic()"
@@ -39531,7 +39531,7 @@ window.openProgrammingMenu = function () {
         font-size:14px;
     "
 >
-    1️⃣3️⃣ 🧮 حسابات Octal
+    1ï¸ڈâƒ£3ï¸ڈâƒ£ ًں§® ط­ط³ط§ط¨ط§طھ Octal
 </button>
 <button
     onclick="programmingAdvancedComplements()"
@@ -39542,7 +39542,7 @@ window.openProgrammingMenu = function () {
         font-size:14px;
     "
 >
-    1️⃣4️⃣ 🔄 مكملات Hex وOctal
+    1ï¸ڈâƒ£4ï¸ڈâƒ£ ًں”„ ظ…ظƒظ…ظ„ط§طھ Hex ظˆOctal
 </button>
         <button
             onclick="openCalculatorHome()"
@@ -39553,7 +39553,7 @@ window.openProgrammingMenu = function () {
                 font-size:14px;
             "
         >
-            ← الرجوع للقائمة الرئيسية
+            â†گ ط§ظ„ط±ط¬ظˆط¹ ظ„ظ„ظ‚ط§ط¦ظ…ط© ط§ظ„ط±ط¦ظٹط³ظٹط©
         </button>
 
     `);
@@ -39561,7 +39561,7 @@ window.openProgrammingMenu = function () {
     setupProgrammingKeys();
 };
 // ==========================================
-// ✏️ كتابة أرقام البرمجة
+// âœڈï¸ڈ ظƒطھط§ط¨ط© ط£ط±ظ‚ط§ظ… ط§ظ„ط¨ط±ظ…ط¬ط©
 // ==========================================
 
 window.programmingWrite = function (value) {
@@ -39578,7 +39578,7 @@ window.programmingWrite = function (value) {
 
 
 // ==========================================
-// 🧮 التحويل
+// ًں§® ط§ظ„طھط­ظˆظٹظ„
 // ==========================================
 
 window.calculateProgrammingBases = function () {
@@ -39607,7 +39607,7 @@ window.calculateProgrammingBases = function () {
 
     if (!value) {
         result.innerHTML =
-            "❌ أدخل رقمًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظ‹ط§";
         return;
     }
 
@@ -39621,7 +39621,7 @@ window.calculateProgrammingBases = function () {
             decimal < 0
         ) {
             throw new Error(
-                "رقم غير صحيح"
+                "ط±ظ‚ظ… ط؛ظٹط± طµط­ظٹط­"
             );
         }
 
@@ -39638,11 +39638,11 @@ window.calculateProgrammingBases = function () {
     } catch (error) {
 
         result.innerHTML =
-            `❌ ${error.message}`;
+            `â‌Œ ${error.message}`;
     }
 };
 // ==========================================
-// 💻 كتابة في حقل البرمجة
+// ًں’» ظƒطھط§ط¨ط© ظپظٹ ط­ظ‚ظ„ ط§ظ„ط¨ط±ظ…ط¬ط©
 // ==========================================
 
 window.programmingWrite = function (value) {
@@ -39652,7 +39652,7 @@ window.programmingWrite = function (value) {
             window.activeProgrammingField
         );
 
-    // لو مفيش خانة نشطة، استخدم خانة AND الأولى
+    // ظ„ظˆ ظ…ظپظٹط´ ط®ط§ظ†ط© ظ†ط´ط·ط©طŒ ط§ط³طھط®ط¯ظ… ط®ط§ظ†ط© AND ط§ظ„ط£ظˆظ„ظ‰
     if (!field) {
         field =
             document.getElementById("programmingAND_A");
@@ -39794,7 +39794,7 @@ window.setupProgrammingKeys = function () {
 
 
         // ==============================
-        // باقي الأزرار
+        // ط¨ط§ظ‚ظٹ ط§ظ„ط£ط²ط±ط§ط±
         // ==============================
 
         programmingWrite(value);
@@ -39806,7 +39806,7 @@ window.setupProgrammingKeys = function () {
     }
 };
 // ==========================================
-// 💻 Programming - NEG
+// ًں’» Programming - NEG
 // ==========================================
 
 window.programmingToggleSign = function () {
@@ -39832,7 +39832,7 @@ window.programmingToggleSign = function () {
     }
 };
 // ==========================================
-// 💻 Programming - Clear
+// ًں’» Programming - Clear
 // ==========================================
 
 window.programmingClear = function () {
@@ -39846,7 +39846,7 @@ window.programmingClear = function () {
         field.value = "";
     }
 
-    // مسح نتيجة AND إن وجدت
+    // ظ…ط³ط­ ظ†طھظٹط¬ط© AND ط¥ظ† ظˆط¬ط¯طھ
     const andResult =
         document.getElementById(
             "programmingANDResult"
@@ -39856,7 +39856,7 @@ window.programmingClear = function () {
         andResult.innerHTML = "";
     }
 
-    // مسح نتيجة التحويل إن وجدت
+    // ظ…ط³ط­ ظ†طھظٹط¬ط© ط§ظ„طھط­ظˆظٹظ„ ط¥ظ† ظˆط¬ط¯طھ
     const basesResult =
         document.getElementById(
             "programmingBasesResult"
@@ -39869,7 +39869,7 @@ window.programmingClear = function () {
 
 
 // ==========================================
-// 💻 Programming - Backspace
+// ًں’» Programming - Backspace
 // ==========================================
 
 window.programmingBackspace = function () {
@@ -39885,7 +39885,7 @@ window.programmingBackspace = function () {
         field.value.slice(0, -1);
 };
 // ==========================================
-// 💻 Programming - AND
+// ًں’» Programming - AND
 // ==========================================
 
 window.programmingAND = function () {
@@ -39898,11 +39898,11 @@ window.programmingAND = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚙️ AND
+            âڑ™ï¸ڈ AND
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -39920,7 +39920,7 @@ window.programmingAND = function () {
         >
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -39944,7 +39944,7 @@ window.programmingAND = function () {
                 padding:10px;
             "
         >
-            🧮 احسب AND
+            ًں§® ط§ط­ط³ط¨ AND
         </button>
 
         <div
@@ -39966,7 +39966,7 @@ window.programmingAND = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -39997,7 +39997,7 @@ if (fieldB) {
 setupProgrammingKeys();
 };
 // ==========================================
-// 🧮 حساب AND
+// ًں§® ط­ط³ط§ط¨ AND
 // ==========================================
 
 window.calculateProgrammingAND = function () {
@@ -40019,7 +40019,7 @@ window.calculateProgrammingAND = function () {
 
     if (!fieldA || !fieldB || !result) {
         console.error(
-            "❌ عناصر AND غير موجودة"
+            "â‌Œ ط¹ظ†ط§طµط± AND ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©"
         );
         return;
     }
@@ -40033,7 +40033,7 @@ window.calculateProgrammingAND = function () {
     if (!aText || !bText) {
 
         result.innerHTML =
-            "❌ أدخل الرقمين أولًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ…ظٹظ† ط£ظˆظ„ظ‹ط§";
 
         return;
     }
@@ -40050,7 +40050,7 @@ window.calculateProgrammingAND = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل أرقامًا صحيحة";
+            "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ…ظ‹ط§ طµط­ظٹط­ط©";
 
         return;
     }
@@ -40059,13 +40059,13 @@ window.calculateProgrammingAND = function () {
         a & b;
 
     result.innerHTML =
-        `✅ ${a} AND ${b} = ${answer}`;
+        `âœ… ${a} AND ${b} = ${answer}`;
 
     window.lastProgrammingResult =
         answer;
 };
 // ==========================================
-// 💻 Programming - OR
+// ًں’» Programming - OR
 // ==========================================
 
 window.programmingOR = function () {
@@ -40078,11 +40078,11 @@ window.programmingOR = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚙️ OR
+            âڑ™ï¸ڈ OR
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -40100,7 +40100,7 @@ window.programmingOR = function () {
         >
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -40124,7 +40124,7 @@ window.programmingOR = function () {
                 padding:10px;
             "
         >
-            🧮 احسب OR
+            ًں§® ط§ط­ط³ط¨ OR
         </button>
 
         <div
@@ -40146,7 +40146,7 @@ window.programmingOR = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -40175,7 +40175,7 @@ window.programmingOR = function () {
 
 
 // ==========================================
-// 🧮 حساب OR
+// ًں§® ط­ط³ط§ط¨ OR
 // ==========================================
 
 window.calculateProgrammingOR = function () {
@@ -40197,7 +40197,7 @@ window.calculateProgrammingOR = function () {
 
     if (!fieldA || !fieldB || !result) {
         console.error(
-            "❌ عناصر OR غير موجودة"
+            "â‌Œ ط¹ظ†ط§طµط± OR ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©"
         );
         return;
     }
@@ -40211,7 +40211,7 @@ window.calculateProgrammingOR = function () {
     if (!aText || !bText) {
 
         result.innerHTML =
-            "❌ أدخل الرقمين أولًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ…ظٹظ† ط£ظˆظ„ظ‹ط§";
 
         return;
     }
@@ -40228,7 +40228,7 @@ window.calculateProgrammingOR = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل أرقامًا صحيحة";
+            "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ…ظ‹ط§ طµط­ظٹط­ط©";
 
         return;
     }
@@ -40237,13 +40237,13 @@ window.calculateProgrammingOR = function () {
         a | b;
 
     result.innerHTML =
-        `✅ ${a} OR ${b} = ${answer}`;
+        `âœ… ${a} OR ${b} = ${answer}`;
 
     window.lastProgrammingResult =
         answer;
 };
 // ==========================================
-// 💻 Programming - XOR
+// ًں’» Programming - XOR
 // ==========================================
 
 window.programmingXOR = function () {
@@ -40256,11 +40256,11 @@ window.programmingXOR = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⚙️ XOR
+            âڑ™ï¸ڈ XOR
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -40278,7 +40278,7 @@ window.programmingXOR = function () {
         >
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -40302,7 +40302,7 @@ window.programmingXOR = function () {
                 padding:10px;
             "
         >
-            🧮 احسب XOR
+            ًں§® ط§ط­ط³ط¨ XOR
         </button>
 
         <div
@@ -40324,7 +40324,7 @@ window.programmingXOR = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -40353,7 +40353,7 @@ window.programmingXOR = function () {
 
 
 // ==========================================
-// 🧮 حساب XOR
+// ًں§® ط­ط³ط§ط¨ XOR
 // ==========================================
 
 window.calculateProgrammingXOR = function () {
@@ -40375,7 +40375,7 @@ window.calculateProgrammingXOR = function () {
 
     if (!fieldA || !fieldB || !result) {
         console.error(
-            "❌ عناصر XOR غير موجودة"
+            "â‌Œ ط¹ظ†ط§طµط± XOR ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©"
         );
         return;
     }
@@ -40389,7 +40389,7 @@ window.calculateProgrammingXOR = function () {
     if (!aText || !bText) {
 
         result.innerHTML =
-            "❌ أدخل الرقمين أولًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ…ظٹظ† ط£ظˆظ„ظ‹ط§";
 
         return;
     }
@@ -40406,7 +40406,7 @@ window.calculateProgrammingXOR = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل أرقامًا صحيحة";
+            "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ…ظ‹ط§ طµط­ظٹط­ط©";
 
         return;
     }
@@ -40415,13 +40415,13 @@ window.calculateProgrammingXOR = function () {
         a ^ b;
 
     result.innerHTML =
-        `✅ ${a} XOR ${b} = ${answer}`;
+        `âœ… ${a} XOR ${b} = ${answer}`;
 
     window.lastProgrammingResult =
         answer;
 };
 // ==========================================
-// 💻 Programming - NOT
+// ًں’» Programming - NOT
 // ==========================================
 
 window.programmingNOT = function () {
@@ -40434,11 +40434,11 @@ window.programmingNOT = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🚫 NOT
+            ًںڑ« NOT
         </div>
 
         <div style="margin:6px 0;">
-            الرقم:
+            ط§ظ„ط±ظ‚ظ…:
         </div>
 
         <input
@@ -40462,7 +40462,7 @@ window.programmingNOT = function () {
                 padding:10px;
             "
         >
-            🧮 احسب NOT
+            ًں§® ط§ط­ط³ط¨ NOT
         </button>
 
         <div
@@ -40484,7 +40484,7 @@ window.programmingNOT = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -40497,7 +40497,7 @@ window.programmingNOT = function () {
 
 
 // ==========================================
-// 🧮 حساب NOT
+// ًں§® ط­ط³ط§ط¨ NOT
 // ==========================================
 
 window.calculateProgrammingNOT = function () {
@@ -40514,7 +40514,7 @@ window.calculateProgrammingNOT = function () {
 
     if (!field || !result) {
         console.error(
-            "❌ عناصر NOT غير موجودة"
+            "â‌Œ ط¹ظ†ط§طµط± NOT ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©"
         );
         return;
     }
@@ -40525,7 +40525,7 @@ window.calculateProgrammingNOT = function () {
     if (!value) {
 
         result.innerHTML =
-            "❌ أدخل الرقم أولًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ… ط£ظˆظ„ظ‹ط§";
 
         return;
     }
@@ -40536,7 +40536,7 @@ window.calculateProgrammingNOT = function () {
     if (!Number.isInteger(number)) {
 
         result.innerHTML =
-            "❌ أدخل رقمًا صحيحًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظ‹ط§ طµط­ظٹط­ظ‹ط§";
 
         return;
     }
@@ -40545,13 +40545,13 @@ window.calculateProgrammingNOT = function () {
         ~number;
 
     result.innerHTML =
-        `✅ NOT ${number} = ${answer}`;
+        `âœ… NOT ${number} = ${answer}`;
 
     window.lastProgrammingResult =
         answer;
 };
 // ==========================================
-// 💻 Programming - Shift Left
+// ًں’» Programming - Shift Left
 // ==========================================
 
 window.programmingShiftLeft = function () {
@@ -40564,11 +40564,11 @@ window.programmingShiftLeft = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ⬅️ إزاحة لليسار
+            â¬…ï¸ڈ ط¥ط²ط§ط­ط© ظ„ظ„ظٹط³ط§ط±
         </div>
 
         <div style="margin:6px 0;">
-            الرقم:
+            ط§ظ„ط±ظ‚ظ…:
         </div>
 
         <input
@@ -40586,7 +40586,7 @@ window.programmingShiftLeft = function () {
         >
 
         <div style="margin:6px 0;">
-            عدد مرات الإزاحة:
+            ط¹ط¯ط¯ ظ…ط±ط§طھ ط§ظ„ط¥ط²ط§ط­ط©:
         </div>
 
         <input
@@ -40610,7 +40610,7 @@ window.programmingShiftLeft = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -40632,7 +40632,7 @@ window.programmingShiftLeft = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -40661,7 +40661,7 @@ window.programmingShiftLeft = function () {
 
 
 // ==========================================
-// 🧮 حساب Shift Left
+// ًں§® ط­ط³ط§ط¨ Shift Left
 // ==========================================
 
 window.calculateProgrammingShiftLeft = function () {
@@ -40683,7 +40683,7 @@ window.calculateProgrammingShiftLeft = function () {
 
     if (!fieldA || !fieldB || !result) {
         console.error(
-            "❌ عناصر Shift Left غير موجودة"
+            "â‌Œ ط¹ظ†ط§طµط± Shift Left ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©"
         );
         return;
     }
@@ -40701,7 +40701,7 @@ window.calculateProgrammingShiftLeft = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل رقمًا صحيحًا وعدد إزاحات صحيحًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظ‹ط§ طµط­ظٹط­ظ‹ط§ ظˆط¹ط¯ط¯ ط¥ط²ط§ط­ط§طھ طµط­ظٹط­ظ‹ط§";
 
         return;
     }
@@ -40710,13 +40710,13 @@ window.calculateProgrammingShiftLeft = function () {
         a << b;
 
     result.innerHTML =
-        `✅ ${a} << ${b} = ${answer}`;
+        `âœ… ${a} << ${b} = ${answer}`;
 
     window.lastProgrammingResult =
         answer;
 };
 // ==========================================
-// 💻 Programming - Shift Right
+// ًں’» Programming - Shift Right
 // ==========================================
 
 window.programmingShiftRight = function () {
@@ -40729,11 +40729,11 @@ window.programmingShiftRight = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            ➡️ إزاحة لليمين
+            â‍،ï¸ڈ ط¥ط²ط§ط­ط© ظ„ظ„ظٹظ…ظٹظ†
         </div>
 
         <div style="margin:6px 0;">
-            الرقم:
+            ط§ظ„ط±ظ‚ظ…:
         </div>
 
         <input
@@ -40751,7 +40751,7 @@ window.programmingShiftRight = function () {
         >
 
         <div style="margin:6px 0;">
-            عدد مرات الإزاحة:
+            ط¹ط¯ط¯ ظ…ط±ط§طھ ط§ظ„ط¥ط²ط§ط­ط©:
         </div>
 
         <input
@@ -40775,7 +40775,7 @@ window.programmingShiftRight = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -40797,7 +40797,7 @@ window.programmingShiftRight = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -40826,7 +40826,7 @@ window.programmingShiftRight = function () {
 
 
 // ==========================================
-// 🧮 حساب Shift Right
+// ًں§® ط­ط³ط§ط¨ Shift Right
 // ==========================================
 
 window.calculateProgrammingShiftRight = function () {
@@ -40848,7 +40848,7 @@ window.calculateProgrammingShiftRight = function () {
 
     if (!fieldA || !fieldB || !result) {
         console.error(
-            "❌ عناصر Shift Right غير موجودة"
+            "â‌Œ ط¹ظ†ط§طµط± Shift Right ط؛ظٹط± ظ…ظˆط¬ظˆط¯ط©"
         );
         return;
     }
@@ -40866,7 +40866,7 @@ window.calculateProgrammingShiftRight = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل رقمًا صحيحًا وعدد إزاحات صحيحًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظ‹ط§ طµط­ظٹط­ظ‹ط§ ظˆط¹ط¯ط¯ ط¥ط²ط§ط­ط§طھ طµط­ظٹط­ظ‹ط§";
 
         return;
     }
@@ -40875,13 +40875,13 @@ window.calculateProgrammingShiftRight = function () {
         a >> b;
 
     result.innerHTML =
-        `✅ ${a} >> ${b} = ${answer}`;
+        `âœ… ${a} >> ${b} = ${answer}`;
 
     window.lastProgrammingResult =
         answer;
 };
 // ==========================================
-// 💻 Programming - Bitwise Operations
+// ًں’» Programming - Bitwise Operations
 // ==========================================
 
 window.programmingBitwise = function () {
@@ -40894,7 +40894,7 @@ window.programmingBitwise = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🧮 العمليات الثنائية
+            ًں§® ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط«ظ†ط§ط¦ظٹط©
         </div>
 
         <select
@@ -40912,7 +40912,7 @@ window.programmingBitwise = function () {
         </select>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -40930,7 +40930,7 @@ window.programmingBitwise = function () {
         >
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -40954,7 +40954,7 @@ window.programmingBitwise = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -40976,7 +40976,7 @@ window.programmingBitwise = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -41005,7 +41005,7 @@ window.programmingBitwise = function () {
 
 
 // ==========================================
-// 🧮 حساب العمليات الثنائية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط«ظ†ط§ط¦ظٹط©
 // ==========================================
 
 window.calculateProgrammingBitwise = function () {
@@ -41051,7 +41051,7 @@ window.calculateProgrammingBitwise = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل رقمين صحيحين";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظٹظ† طµط­ظٹط­ظٹظ†";
 
         return;
     }
@@ -41073,13 +41073,13 @@ window.calculateProgrammingBitwise = function () {
     }
 
     result.innerHTML =
-        `✅ ${a} ${operation} ${b} = ${answer}`;
+        `âœ… ${a} ${operation} ${b} = ${answer}`;
 
     window.lastProgrammingResult =
         answer;
 };
 // ==========================================
-// 💻 Programming - Complements
+// ًں’» Programming - Complements
 // ==========================================
 
 window.programmingComplements = function () {
@@ -41092,7 +41092,7 @@ window.programmingComplements = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔄 المكملات والمتممات
+            ًں”„ ط§ظ„ظ…ظƒظ…ظ„ط§طھ ظˆط§ظ„ظ…طھظ…ظ…ط§طھ
         </div>
 
         <select
@@ -41105,24 +41105,24 @@ window.programmingComplements = function () {
             "
         >
             <option value="ones">
-                1's Complement — المتمم الأول
+                1's Complement â€” ط§ظ„ظ…طھظ…ظ… ط§ظ„ط£ظˆظ„
             </option>
 
             <option value="twos">
-                2's Complement — المتمم الثاني
+                2's Complement â€” ط§ظ„ظ…طھظ…ظ… ط§ظ„ط«ط§ظ†ظٹ
             </option>
 
             <option value="nines">
-                9's Complement — مكمل 9
+                9's Complement â€” ظ…ظƒظ…ظ„ 9
             </option>
 
             <option value="tens">
-                10's Complement — مكمل 10
+                10's Complement â€” ظ…ظƒظ…ظ„ 10
             </option>
         </select>
 
         <div style="margin:6px 0;">
-            الرقم:
+            ط§ظ„ط±ظ‚ظ…:
         </div>
 
         <input
@@ -41130,7 +41130,7 @@ window.programmingComplements = function () {
             type="text"
             readonly
             dir="ltr"
-            placeholder="أدخل الرقم"
+            placeholder="ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ…"
             style="
                 width:90%;
                 padding:9px;
@@ -41147,7 +41147,7 @@ window.programmingComplements = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -41170,7 +41170,7 @@ window.programmingComplements = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -41183,7 +41183,7 @@ window.programmingComplements = function () {
 
 
 // ==========================================
-// 🧮 حساب المكملات والمتممات
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ظ…ظƒظ…ظ„ط§طھ ظˆط§ظ„ظ…طھظ…ظ…ط§طھ
 // ==========================================
 
 window.calculateProgrammingComplement = function () {
@@ -41211,14 +41211,14 @@ window.calculateProgrammingComplement = function () {
     if (!value) {
 
         result.innerHTML =
-            "❌ أدخل رقمًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظ‹ط§";
 
         return;
     }
 
 
     // ======================================
-    // 1's و 2's Complement
+    // 1's ظˆ 2's Complement
     // ======================================
 
     if (
@@ -41229,7 +41229,7 @@ window.calculateProgrammingComplement = function () {
         if (!/^[01]+$/.test(value)) {
 
             result.innerHTML =
-                "❌ يجب أن يحتوي الرقم على 0 و1 فقط";
+                "â‌Œ ظٹط¬ط¨ ط£ظ† ظٹط­طھظˆظٹ ط§ظ„ط±ظ‚ظ… ط¹ظ„ظ‰ 0 ظˆ1 ظپظ‚ط·";
 
             return;
         }
@@ -41260,7 +41260,7 @@ window.calculateProgrammingComplement = function () {
         }
 
         result.innerHTML =
-            `✅ النتيجة = ${answer}`;
+            `âœ… ط§ظ„ظ†طھظٹط¬ط© = ${answer}`;
 
         window.lastProgrammingResult =
             answer;
@@ -41278,7 +41278,7 @@ window.calculateProgrammingComplement = function () {
         if (!/^[0-9]+$/.test(value)) {
 
             result.innerHTML =
-                "❌ مكمل 9 يحتاج رقمًا عشريًا";
+                "â‌Œ ظ…ظƒظ…ظ„ 9 ظٹط­طھط§ط¬ ط±ظ‚ظ…ظ‹ط§ ط¹ط´ط±ظٹظ‹ط§";
 
             return;
         }
@@ -41292,7 +41292,7 @@ window.calculateProgrammingComplement = function () {
                 .join("");
 
         result.innerHTML =
-            `✅ النتيجة = ${answer}`;
+            `âœ… ط§ظ„ظ†طھظٹط¬ط© = ${answer}`;
 
         window.lastProgrammingResult =
             answer;
@@ -41310,7 +41310,7 @@ window.calculateProgrammingComplement = function () {
         if (!/^[0-9]+$/.test(value)) {
 
             result.innerHTML =
-                "❌ مكمل 10 يحتاج رقمًا عشريًا";
+                "â‌Œ ظ…ظƒظ…ظ„ 10 ظٹط­طھط§ط¬ ط±ظ‚ظ…ظ‹ط§ ط¹ط´ط±ظٹظ‹ط§";
 
             return;
         }
@@ -41331,14 +41331,14 @@ window.calculateProgrammingComplement = function () {
             .padStart(value.length, "0");
 
         result.innerHTML =
-            `✅ النتيجة = ${answer}`;
+            `âœ… ط§ظ„ظ†طھظٹط¬ط© = ${answer}`;
 
         window.lastProgrammingResult =
             answer;
     }
 };
 // ==========================================
-// 💻 Programming - Arithmetic
+// ًں’» Programming - Arithmetic
 // ==========================================
 
 window.programmingArithmetic = function () {
@@ -41351,7 +41351,7 @@ window.programmingArithmetic = function () {
             text-align:center;
             margin-bottom:15px;
         ">
-            🧮 العمليات الحسابية
+            ًں§® ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط­ط³ط§ط¨ظٹط©
         </div>
 
         <div style="
@@ -41359,7 +41359,7 @@ window.programmingArithmetic = function () {
             font-size:14px;
             margin-bottom:15px;
         ">
-            اختر النظام:
+            ط§ط®طھط± ط§ظ„ظ†ط¸ط§ظ…:
         </div>
 
         <button
@@ -41371,7 +41371,7 @@ window.programmingArithmetic = function () {
                 font-size:14px;
             "
         >
-            🔵 Binary — ثنائي
+            ًں”µ Binary â€” ط«ظ†ط§ط¦ظٹ
         </button>
 
         <button
@@ -41383,7 +41383,7 @@ window.programmingArithmetic = function () {
                 font-size:14px;
             "
         >
-            🔢 Decimal — عشري
+            ًں”¢ Decimal â€” ط¹ط´ط±ظٹ
         </button>
 
         <button
@@ -41395,13 +41395,13 @@ window.programmingArithmetic = function () {
                 font-size:14px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
 };
 // ==========================================
-// 🔵 Binary Arithmetic
+// ًں”µ Binary Arithmetic
 // ==========================================
 
 window.programmingBinaryArithmetic = function () {
@@ -41414,11 +41414,11 @@ window.programmingBinaryArithmetic = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔵 العمليات الثنائية
+            ًں”µ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط«ظ†ط§ط¦ظٹط©
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -41446,14 +41446,14 @@ window.programmingBinaryArithmetic = function () {
             "
         >
             <option value="+">+</option>
-            <option value="-">−</option>
-            <option value="*">×</option>
-            <option value="/">÷</option>
+            <option value="-">âˆ’</option>
+            <option value="*">أ—</option>
+            <option value="/">أ·</option>
             <option value="%">MOD</option>
         </select>
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -41478,7 +41478,7 @@ window.programmingBinaryArithmetic = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -41501,7 +41501,7 @@ window.programmingBinaryArithmetic = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للعمليات الحسابية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط­ط³ط§ط¨ظٹط©
         </button>
 
     `);
@@ -41530,7 +41530,7 @@ window.programmingBinaryArithmetic = function () {
 
 
 // ==========================================
-// 🧮 حساب العمليات الثنائية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط«ظ†ط§ط¦ظٹط©
 // ==========================================
 
 window.calculateBinaryArithmetic = function () {
@@ -41576,7 +41576,7 @@ window.calculateBinaryArithmetic = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل أرقامًا ثنائية صحيحة";
+            "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ…ظ‹ط§ ط«ظ†ط§ط¦ظٹط© طµط­ظٹط­ط©";
 
         return;
     }
@@ -41606,7 +41606,7 @@ window.calculateBinaryArithmetic = function () {
         if (b === 0n) {
 
             result.innerHTML =
-                "❌ لا يمكن القسمة على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -41618,7 +41618,7 @@ window.calculateBinaryArithmetic = function () {
         if (b === 0n) {
 
             result.innerHTML =
-                "❌ لا يمكن MOD على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† MOD ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -41643,7 +41643,7 @@ window.calculateBinaryArithmetic = function () {
         answer;
 };
 // ==========================================
-// 🔢 Decimal Arithmetic
+// ًں”¢ Decimal Arithmetic
 // ==========================================
 
 window.programmingDecimalArithmetic = function () {
@@ -41656,11 +41656,11 @@ window.programmingDecimalArithmetic = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔢 العمليات العشرية
+            ًں”¢ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط¹ط´ط±ظٹط©
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -41688,14 +41688,14 @@ window.programmingDecimalArithmetic = function () {
             "
         >
             <option value="+">+</option>
-            <option value="-">−</option>
-            <option value="*">×</option>
-            <option value="/">÷</option>
+            <option value="-">âˆ’</option>
+            <option value="*">أ—</option>
+            <option value="/">أ·</option>
             <option value="%">MOD</option>
         </select>
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -41720,7 +41720,7 @@ window.programmingDecimalArithmetic = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -41743,7 +41743,7 @@ window.programmingDecimalArithmetic = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للعمليات الحسابية
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط­ط³ط§ط¨ظٹط©
         </button>
 
     `);
@@ -41772,7 +41772,7 @@ window.programmingDecimalArithmetic = function () {
 
 
 // ==========================================
-// 🧮 حساب العمليات العشرية
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط§ظ„ط¹ط´ط±ظٹط©
 // ==========================================
 
 window.calculateDecimalArithmetic = function () {
@@ -41818,7 +41818,7 @@ window.calculateDecimalArithmetic = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل رقمين صحيحين";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظٹظ† طµط­ظٹط­ظٹظ†";
 
         return;
     }
@@ -41842,7 +41842,7 @@ window.calculateDecimalArithmetic = function () {
         if (b === 0) {
 
             result.innerHTML =
-                "❌ لا يمكن القسمة على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -41854,7 +41854,7 @@ window.calculateDecimalArithmetic = function () {
         if (b === 0) {
 
             result.innerHTML =
-                "❌ لا يمكن MOD على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† MOD ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -41869,7 +41869,7 @@ window.calculateDecimalArithmetic = function () {
         answer;
 };
 // ==========================================
-// 💻 Programming - Complement Arithmetic
+// ًں’» Programming - Complement Arithmetic
 // ==========================================
 
 window.programmingComplementArithmetic = function () {
@@ -41882,7 +41882,7 @@ window.programmingComplementArithmetic = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🔄 العمليات باستخدام المكملات
+            ًں”„ ط§ظ„ط¹ظ…ظ„ظٹط§طھ ط¨ط§ط³طھط®ط¯ط§ظ… ط§ظ„ظ…ظƒظ…ظ„ط§طھ
         </div>
 
         <select
@@ -41895,11 +41895,11 @@ window.programmingComplementArithmetic = function () {
             "
         >
             <option value="binary">
-                🔵 Binary — باستخدام 1's / 2's
+                ًں”µ Binary â€” ط¨ط§ط³طھط®ط¯ط§ظ… 1's / 2's
             </option>
 
             <option value="decimal">
-                🔢 Decimal — باستخدام 9's / 10's
+                ًں”¢ Decimal â€” ط¨ط§ط³طھط®ط¯ط§ظ… 9's / 10's
             </option>
         </select>
 
@@ -41922,7 +41922,7 @@ window.programmingComplementArithmetic = function () {
 </select>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -41945,11 +41945,11 @@ window.programmingComplementArithmetic = function () {
             font-size:20px;
             margin:4px;
         ">
-            −
+            âˆ’
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -41974,7 +41974,7 @@ window.programmingComplementArithmetic = function () {
                 padding:10px;
             "
         >
-            🧮 احسب بالـ Complement
+            ًں§® ط§ط­ط³ط¨ ط¨ط§ظ„ظ€ Complement
         </button>
 
         <div
@@ -41997,7 +41997,7 @@ window.programmingComplementArithmetic = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -42068,7 +42068,7 @@ if (systemSelect && typeSelect) {
 
 
 // ==========================================
-// 🧮 حساب الطرح باستخدام المكمل
+// ًں§® ط­ط³ط§ط¨ ط§ظ„ط·ط±ط­ ط¨ط§ط³طھط®ط¯ط§ظ… ط§ظ„ظ…ظƒظ…ظ„
 // ==========================================
 
 window.calculateComplementArithmetic = function () {
@@ -42117,13 +42117,13 @@ window.calculateComplementArithmetic = function () {
     if (!aText || !bText) {
 
         result.innerHTML =
-            "❌ أدخل الرقمين أولًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط§ظ„ط±ظ‚ظ…ظٹظ† ط£ظˆظ„ظ‹ط§";
 
         return;
     }
 
     // ======================================
-    // 🔵 Binary
+    // ًں”µ Binary
     // ======================================
 
     if (system === "binary") {
@@ -42134,7 +42134,7 @@ window.calculateComplementArithmetic = function () {
         ) {
 
             result.innerHTML =
-                "❌ أدخل أرقامًا ثنائية فقط";
+                "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ…ظ‹ط§ ط«ظ†ط§ط¦ظٹط© ظپظ‚ط·";
 
             return;
         }
@@ -42216,7 +42216,7 @@ if (type === "ones" && carry) {
 
 
     // ======================================
-    // 🔢 Decimal
+    // ًں”¢ Decimal
     // ======================================
 
     if (system === "decimal") {
@@ -42227,7 +42227,7 @@ if (type === "ones" && carry) {
         ) {
 
             result.innerHTML =
-                "❌ أدخل أرقامًا عشرية فقط";
+                "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ…ظ‹ط§ ط¹ط´ط±ظٹط© ظپظ‚ط·";
 
             return;
         }
@@ -42269,14 +42269,14 @@ if (type === "ones" && carry) {
 
     if (type === "nines") {
 
-        // End-Around Carry في 9's Complement
+        // End-Around Carry ظپظٹ 9's Complement
         answer =
             (sum - base) + 1n;
 
     } else {
 
         // 10's Complement:
-        // نحذف الـ Carry فقط
+        // ظ†ط­ط°ظپ ط§ظ„ظ€ Carry ظپظ‚ط·
         answer =
             sum - base;
     }
@@ -42295,7 +42295,7 @@ if (type === "ones" && carry) {
     }
 };
 // ==========================================
-// 💻 Programming - Hexadecimal Arithmetic
+// ًں’» Programming - Hexadecimal Arithmetic
 // ==========================================
 
 window.programmingHexArithmetic = function () {
@@ -42308,11 +42308,11 @@ window.programmingHexArithmetic = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🧮 حسابات Hexadecimal
+            ًں§® ط­ط³ط§ط¨ط§طھ Hexadecimal
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -42340,14 +42340,14 @@ window.programmingHexArithmetic = function () {
             "
         >
             <option value="+">+</option>
-            <option value="-">−</option>
-            <option value="*">×</option>
-            <option value="/">÷</option>
+            <option value="-">âˆ’</option>
+            <option value="*">أ—</option>
+            <option value="/">أ·</option>
             <option value="%">MOD</option>
         </select>
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -42372,7 +42372,7 @@ window.programmingHexArithmetic = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -42395,7 +42395,7 @@ window.programmingHexArithmetic = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -42424,7 +42424,7 @@ window.programmingHexArithmetic = function () {
 
 
 // ==========================================
-// 🧮 حساب Hexadecimal
+// ًں§® ط­ط³ط§ط¨ Hexadecimal
 // ==========================================
 
 window.calculateHexArithmetic = function () {
@@ -42470,7 +42470,7 @@ window.calculateHexArithmetic = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل أرقام Hex صحيحة";
+            "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ… Hex طµط­ظٹط­ط©";
 
         return;
     }
@@ -42500,7 +42500,7 @@ window.calculateHexArithmetic = function () {
         if (b === 0n) {
 
             result.innerHTML =
-                "❌ لا يمكن القسمة على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -42512,7 +42512,7 @@ window.calculateHexArithmetic = function () {
         if (b === 0n) {
 
             result.innerHTML =
-                "❌ لا يمكن MOD على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† MOD ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -42534,7 +42534,7 @@ window.calculateHexArithmetic = function () {
         answer;
 };
 // ==========================================
-// 💻 Programming - Octal Arithmetic
+// ًں’» Programming - Octal Arithmetic
 // ==========================================
 
 window.programmingOctalArithmetic = function () {
@@ -42547,11 +42547,11 @@ window.programmingOctalArithmetic = function () {
             text-align:center;
             margin-bottom:12px;
         ">
-            🧮 حسابات Octal
+            ًں§® ط­ط³ط§ط¨ط§طھ Octal
         </div>
 
         <div style="margin:6px 0;">
-            الرقم الأول:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط£ظˆظ„:
         </div>
 
         <input
@@ -42579,14 +42579,14 @@ window.programmingOctalArithmetic = function () {
             "
         >
             <option value="+">+</option>
-            <option value="-">−</option>
-            <option value="*">×</option>
-            <option value="/">÷</option>
+            <option value="-">âˆ’</option>
+            <option value="*">أ—</option>
+            <option value="/">أ·</option>
             <option value="%">MOD</option>
         </select>
 
         <div style="margin:6px 0;">
-            الرقم الثاني:
+            ط§ظ„ط±ظ‚ظ… ط§ظ„ط«ط§ظ†ظٹ:
         </div>
 
         <input
@@ -42611,7 +42611,7 @@ window.programmingOctalArithmetic = function () {
                 padding:10px;
             "
         >
-            🧮 احسب
+            ًں§® ط§ط­ط³ط¨
         </button>
 
         <div
@@ -42634,7 +42634,7 @@ window.programmingOctalArithmetic = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -42663,7 +42663,7 @@ window.programmingOctalArithmetic = function () {
 
 
 // ==========================================
-// 🧮 حساب Octal
+// ًں§® ط­ط³ط§ط¨ Octal
 // ==========================================
 
 window.calculateOctalArithmetic = function () {
@@ -42709,7 +42709,7 @@ window.calculateOctalArithmetic = function () {
     ) {
 
         result.innerHTML =
-            "❌ أدخل أرقام Octal صحيحة";
+            "â‌Œ ط£ط¯ط®ظ„ ط£ط±ظ‚ط§ظ… Octal طµط­ظٹط­ط©";
 
         return;
     }
@@ -42739,7 +42739,7 @@ window.calculateOctalArithmetic = function () {
         if (b === 0n) {
 
             result.innerHTML =
-                "❌ لا يمكن القسمة على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† ط§ظ„ظ‚ط³ظ…ط© ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -42751,7 +42751,7 @@ window.calculateOctalArithmetic = function () {
         if (b === 0n) {
 
             result.innerHTML =
-                "❌ لا يمكن MOD على صفر";
+                "â‌Œ ظ„ط§ ظٹظ…ظƒظ† MOD ط¹ظ„ظ‰ طµظپط±";
 
             return;
         }
@@ -42773,7 +42773,7 @@ window.calculateOctalArithmetic = function () {
         answer;
 };
 // ==========================================
-// 💻 Advanced Complements - Hex & Octal
+// ًں’» Advanced Complements - Hex & Octal
 // ==========================================
 
 window.programmingAdvancedComplements = function () {
@@ -42786,7 +42786,7 @@ window.programmingAdvancedComplements = function () {
             text-align:center;
             margin-bottom:15px;
         ">
-            🔄 مكملات Hex وOctal
+            ًں”„ ظ…ظƒظ…ظ„ط§طھ Hex ظˆOctal
         </div>
 
         <div style="
@@ -42794,7 +42794,7 @@ window.programmingAdvancedComplements = function () {
             font-size:14px;
             margin-bottom:10px;
         ">
-            اختر النظام:
+            ط§ط®طھط± ط§ظ„ظ†ط¸ط§ظ…:
         </div>
 
         <select
@@ -42807,11 +42807,11 @@ window.programmingAdvancedComplements = function () {
             "
         >
             <option value="octal">
-                🟠 Octal — 7's / 8's
+                ًںں  Octal â€” 7's / 8's
             </option>
 
             <option value="hex">
-                🟣 Hexadecimal — 15's / 16's
+                ًںں£ Hexadecimal â€” 15's / 16's
             </option>
         </select>
 
@@ -42855,7 +42855,7 @@ window.programmingAdvancedComplements = function () {
                 padding:10px;
             "
         >
-            🧮 احسب المكمل
+            ًں§® ط§ط­ط³ط¨ ط§ظ„ظ…ظƒظ…ظ„
         </button>
 
         <div
@@ -42878,7 +42878,7 @@ window.programmingAdvancedComplements = function () {
                 margin-top:10px;
             "
         >
-            ← رجوع للبرمجة
+            â†گ ط±ط¬ظˆط¹ ظ„ظ„ط¨ط±ظ…ط¬ط©
         </button>
 
     `);
@@ -42961,13 +42961,13 @@ window.calculateAdvancedComplement = function () {
     if (!value) {
 
         result.innerHTML =
-            "❌ أدخل رقمًا";
+            "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ…ظ‹ط§";
 
         return;
     }
 
     // ======================================
-    // 🟠 Octal
+    // ًںں  Octal
     // ======================================
 
     if (system === "octal") {
@@ -42975,7 +42975,7 @@ window.calculateAdvancedComplement = function () {
         if (!/^[0-7]+$/.test(value)) {
 
             result.innerHTML =
-                "❌ أدخل رقم Octal صحيح";
+                "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ… Octal طµط­ظٹط­";
 
             return;
         }
@@ -43010,7 +43010,7 @@ window.calculateAdvancedComplement = function () {
 
 
     // ======================================
-    // 🟣 Hexadecimal
+    // ًںں£ Hexadecimal
     // ======================================
 
     if (system === "hex") {
@@ -43018,7 +43018,7 @@ window.calculateAdvancedComplement = function () {
         if (!/^[0-9A-Fa-f]+$/.test(value)) {
 
             result.innerHTML =
-                "❌ أدخل رقم Hex صحيح";
+                "â‌Œ ط£ط¯ط®ظ„ ط±ظ‚ظ… Hex طµط­ظٹط­";
 
             return;
         }
@@ -43051,7 +43051,7 @@ window.calculateAdvancedComplement = function () {
 };
 
 // ==========================================
-// ⚛️ إعداد أزرار الفيزياء
+// âڑ›ï¸ڈ ط¥ط¹ط¯ط§ط¯ ط£ط²ط±ط§ط± ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 let originalScientificHTML = null;
@@ -43059,7 +43059,7 @@ let originalNumberHTML = null;
 
 function setupPhysicsKeys() {
 document.body.classList.add("physics-mode");
-    // ➗ إخفاء زر الكسر في الفيزياء
+    // â‍— ط¥ط®ظپط§ط، ط²ط± ط§ظ„ظƒط³ط± ظپظٹ ط§ظ„ظپظٹط²ظٹط§ط،
     const fractionRow = document.querySelector(".fraction-row");
 
 if (fractionRow) {
@@ -43072,11 +43072,11 @@ if (fractionRow) {
         document.querySelector(".number-grid");
 
     if (!scientificGrid || !numberGrid) {
-        console.error("❌ لم يتم العثور على لوحة الأزرار");
+        console.error("â‌Œ ظ„ظ… ظٹطھظ… ط§ظ„ط¹ط«ظˆط± ط¹ظ„ظ‰ ظ„ظˆط­ط© ط§ظ„ط£ط²ط±ط§ط±");
         return;
     }
 
-    // حفظ أزرار الرياضيات أول مرة فقط
+    // ط­ظپط¸ ط£ط²ط±ط§ط± ط§ظ„ط±ظٹط§ط¶ظٹط§طھ ط£ظˆظ„ ظ…ط±ط© ظپظ‚ط·
     if (originalScientificHTML === null) {
         originalScientificHTML = scientificGrid.innerHTML;
     }
@@ -43086,7 +43086,7 @@ if (fractionRow) {
     }
 
     // ==========================================
-    // ⚛️ أزرار الفيزياء العلمية
+    // âڑ›ï¸ڈ ط£ط²ط±ط§ط± ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط¹ظ„ظ…ظٹط©
     // ==========================================
 
     scientificGrid.innerHTML = `
@@ -43107,7 +43107,7 @@ if (fractionRow) {
         <button data-physics-key="KE">KE</button>
         <button data-physics-key="PE">PE</button>
         <button data-physics-key="p">p</button>
-        <button data-physics-key="rho">ρ</button>
+        <button data-physics-key="rho">دپ</button>
 
         <button data-physics-key="V">V</button>
         <button data-physics-key="I">I</button>
@@ -43115,16 +43115,16 @@ if (fractionRow) {
         <button data-physics-key="Q">Q</button>
         <button data-physics-key="T">T</button>
 
-        <button data-physics-key="lambda">λ</button>
+        <button data-physics-key="lambda">خ»</button>
         <button data-physics-key="f">f</button>
-        <button data-physics-key="sqrt">√</button>
-        <button data-physics-key="square">x²</button>
+        <button data-physics-key="sqrt">âˆڑ</button>
+        <button data-physics-key="square">xآ²</button>
 
-        <button id="sciExpBtn">×10ˣ</button>
+        <button id="sciExpBtn">أ—10ث£</button>
     `;
 
     // ==========================================
-    // 🔢 لوحة الأرقام
+    // ًں”¢ ظ„ظˆط­ط© ط§ظ„ط£ط±ظ‚ط§ظ…
     // ==========================================
 
     numberGrid.innerHTML = `
@@ -43146,8 +43146,8 @@ if (fractionRow) {
         <button>5</button>
         <button>6</button>
 
-        <button class="operator">×</button>
-        <button class="operator">÷</button>
+        <button class="operator">أ—</button>
+        <button class="operator">أ·</button>
 
 
         <button>1</button>
@@ -43155,7 +43155,7 @@ if (fractionRow) {
         <button>3</button>
 
         <button class="operator">+</button>
-        <button class="operator">−</button>
+        <button class="operator">âˆ’</button>
 
 
         <button>0</button>
@@ -43168,9 +43168,9 @@ if (fractionRow) {
         </button>
     `;
 
-    console.log("⚛️ تم تشغيل لوحة أزرار الفيزياء");
+    console.log("âڑ›ï¸ڈ طھظ… طھط´ط؛ظٹظ„ ظ„ظˆط­ط© ط£ط²ط±ط§ط± ط§ظ„ظپظٹط²ظٹط§ط،");
         // ==========================================
-    // ⚛️ تشغيل أزرار الفيزياء الجديدة
+    // âڑ›ï¸ڈ طھط´ط؛ظٹظ„ ط£ط²ط±ط§ط± ط§ظ„ظپظٹط²ظٹط§ط، ط§ظ„ط¬ط¯ظٹط¯ط©
     // ==========================================
 
     document.querySelectorAll("[data-physics-key]").forEach(button => {
@@ -43180,7 +43180,7 @@ if (fractionRow) {
             const key = button.dataset.physicsKey;
 
             if (!window.activePhysicsField) {
-                console.warn("⚠️ لا توجد خانة فيزياء نشطة");
+                console.warn("âڑ ï¸ڈ ظ„ط§ طھظˆط¬ط¯ ط®ط§ظ†ط© ظپظٹط²ظٹط§ط، ظ†ط´ط·ط©");
                 return;
             }
 
@@ -43188,24 +43188,24 @@ if (fractionRow) {
                 document.getElementById(window.activePhysicsField);
 
             if (!input) {
-                console.warn("⚠️ لم يتم العثور على خانة الإدخال");
+                console.warn("âڑ ï¸ڈ ظ„ظ… ظٹطھظ… ط§ظ„ط¹ط«ظˆط± ط¹ظ„ظ‰ ط®ط§ظ†ط© ط§ظ„ط¥ط¯ط®ط§ظ„");
                 return;
             }
 
             let value = key;
 
-            // الرموز الخاصة
+            // ط§ظ„ط±ظ…ظˆط² ط§ظ„ط®ط§طµط©
             if (key === "sqrt") {
-                value = "√";
+                value = "âˆڑ";
             }
 
             if (key === "square") {
-                value = "²";
+                value = "آ²";
             }
 
             input.value += value;
 
-            // تشغيل حدث input لو أي جزء من الكود محتاجه
+            // طھط´ط؛ظٹظ„ ط­ط¯ط« input ظ„ظˆ ط£ظٹ ط¬ط²ط، ظ…ظ† ط§ظ„ظƒظˆط¯ ظ…ط­طھط§ط¬ظ‡
             input.dispatchEvent(new Event("input", {
                 bubbles: true
             }));
@@ -43215,7 +43215,7 @@ if (fractionRow) {
 
     });
         // ==========================================
-    // 🔢 تشغيل أزرار الأرقام والعمليات
+    // ًں”¢ طھط´ط؛ظٹظ„ ط£ط²ط±ط§ط± ط§ظ„ط£ط±ظ‚ط§ظ… ظˆط§ظ„ط¹ظ…ظ„ظٹط§طھ
     // ==========================================
 
     numberGrid.querySelectorAll("button").forEach(button => {
@@ -43256,7 +43256,7 @@ if (fractionRow) {
 
     });
         // ==========================================
-    // ✖️ زر ×10ˣ في الفيزياء
+    // âœ–ï¸ڈ ط²ط± أ—10ث£ ظپظٹ ط§ظ„ظپظٹط²ظٹط§ط،
     // ==========================================
 
     const sciExpBtn = document.getElementById("sciExpBtn");
@@ -43271,7 +43271,7 @@ if (fractionRow) {
 
             if (!input) return;
 
-            input.value += "×10^";
+            input.value += "أ—10^";
 
             input.dispatchEvent(new Event("input", {
                 bubbles: true
@@ -43281,15 +43281,15 @@ if (fractionRow) {
         });
     }
     // ==========================================
-// 📱 منع لوحة مفاتيح الهاتف والتابلت في الفيزياء
+// ًں“± ظ…ظ†ط¹ ظ„ظˆط­ط© ظ…ظپط§طھظٹط­ ط§ظ„ظ‡ط§طھظپ ظˆط§ظ„طھط§ط¨ظ„طھ ظپظٹ ط§ظ„ظپظٹط²ظٹط§ط،
 // ==========================================
 
 document.querySelectorAll(".physics-mode input").forEach(input => {
 
-    // منع لوحة المفاتيح الافتراضية
+    // ظ…ظ†ط¹ ظ„ظˆط­ط© ط§ظ„ظ…ظپط§طھظٹط­ ط§ظ„ط§ظپطھط±ط§ط¶ظٹط©
     input.setAttribute("readonly", "readonly");
 
-    // منع ظهور لوحة المفاتيح عند الضغط
+    // ظ…ظ†ط¹ ط¸ظ‡ظˆط± ظ„ظˆط­ط© ط§ظ„ظ…ظپط§طھظٹط­ ط¹ظ†ط¯ ط§ظ„ط¶ط؛ط·
     input.addEventListener("focus", () => {
         input.setAttribute("readonly", "readonly");
     });
@@ -43309,11 +43309,11 @@ function restoreMathKeys() {
         document.querySelector(".number-grid");
 
     if (!scientificGrid || !numberGrid) {
-        console.error("❌ لم يتم العثور على لوحات الأزرار");
+        console.error("â‌Œ ظ„ظ… ظٹطھظ… ط§ظ„ط¹ط«ظˆط± ط¹ظ„ظ‰ ظ„ظˆط­ط§طھ ط§ظ„ط£ط²ط±ط§ط±");
         return;
     }
 
-    // استرجاع أزرار الرياضيات
+    // ط§ط³طھط±ط¬ط§ط¹ ط£ط²ط±ط§ط± ط§ظ„ط±ظٹط§ط¶ظٹط§طھ
     if (originalScientificHTML !== null) {
         scientificGrid.innerHTML =
             originalScientificHTML;
@@ -43324,10 +43324,10 @@ function restoreMathKeys() {
             originalNumberHTML;
     }
 
-    // إزالة وضع الفيزياء
+    // ط¥ط²ط§ظ„ط© ظˆط¶ط¹ ط§ظ„ظپظٹط²ظٹط§ط،
     document.body.classList.remove("physics-mode");
 
-    console.log("🧮 تم استرجاع أزرار الرياضيات");
+    console.log("ًں§® طھظ… ط§ط³طھط±ط¬ط§ط¹ ط£ط²ط±ط§ط± ط§ظ„ط±ظٹط§ط¶ظٹط§طھ");
 }
 function showFractionButton() {
     const fractionRow = document.querySelector(".fraction-row");
@@ -43345,8 +43345,8 @@ function hideFractionButton() {
     }
 }
 // ==========================================
-// 🧹 UNIVERSAL AC
-// يعمل في كل أوضاع الرياضيات
+// ًں§¹ UNIVERSAL AC
+// ظٹط¹ظ…ظ„ ظپظٹ ظƒظ„ ط£ظˆط¶ط§ط¹ ط§ظ„ط±ظٹط§ط¶ظٹط§طھ
 // COMP / CMPLX / STAT / EQN / MATRIX / TABLE / VECTOR
 // ==========================================
 
@@ -43358,16 +43358,16 @@ document.addEventListener("click", function (event) {
 
     const text = btn.textContent.trim();
 
-    // زر AC فقط
+    // ط²ط± AC ظپظ‚ط·
     if (text !== "AC") return;
 
-    console.log("🧹 UNIVERSAL AC:", currentMode);
+    console.log("ًں§¹ UNIVERSAL AC:", currentMode);
 
-    // منع أي AC قديم من الاشتغال
+    // ظ…ظ†ط¹ ط£ظٹ AC ظ‚ط¯ظٹظ… ظ…ظ† ط§ظ„ط§ط´طھط؛ط§ظ„
     event.stopImmediatePropagation();
 
     // ==========================================
-    // 🧹 مسح حالة الكسر بالكامل
+    // ًں§¹ ظ…ط³ط­ ط­ط§ظ„ط© ط§ظ„ظƒط³ط± ط¨ط§ظ„ظƒط§ظ…ظ„
     // ==========================================
 
     if (typeof resetFractionState === "function") {
@@ -43375,7 +43375,7 @@ document.addEventListener("click", function (event) {
     }
 
     // ==========================================
-    // 🧹 إزالة واجهة إدخال الكسر
+    // ًں§¹ ط¥ط²ط§ظ„ط© ظˆط§ط¬ظ‡ط© ط¥ط¯ط®ط§ظ„ ط§ظ„ظƒط³ط±
     // ==========================================
 
     const fractionEditor =
@@ -43393,7 +43393,7 @@ document.addEventListener("click", function (event) {
     }
 
     // ==========================================
-    // 🧹 إعادة الشاشة الرئيسية
+    // ًں§¹ ط¥ط¹ط§ط¯ط© ط§ظ„ط´ط§ط´ط© ط§ظ„ط±ط¦ظٹط³ظٹط©
     // ==========================================
 
     if (typeof display !== "undefined" && display) {
@@ -43414,16 +43414,16 @@ document.addEventListener("click", function (event) {
     }
 
     // ==========================================
-    // 🧮 COMP
+    // ًں§® COMP
     // ==========================================
 
     if (currentMode === "COMP") {
 
-        console.log("🧮 COMP CLEARED");
+        console.log("ًں§® COMP CLEARED");
     }
 
     // ==========================================
-    // 🔢 CMPLX
+    // ًں”¢ CMPLX
     // ==========================================
 
     if (currentMode === "CMPLX") {
@@ -43440,11 +43440,11 @@ document.addEventListener("click", function (event) {
             complexResult = "";
         }
 
-        console.log("🔢 CMPLX CLEARED");
+        console.log("ًں”¢ CMPLX CLEARED");
     }
 
     // ==========================================
-    // 📊 STAT
+    // ًں“ٹ STAT
     // ==========================================
 
     if (currentMode === "STAT") {
@@ -43466,11 +43466,11 @@ document.addEventListener("click", function (event) {
             input.value = "";
         });
 
-        console.log("📊 STAT CLEARED");
+        console.log("ًں“ٹ STAT CLEARED");
     }
 
     // ==========================================
-    // 📐 EQN
+    // ًں“گ EQN
     // ==========================================
 
     if (currentMode === "EQN") {
@@ -43532,11 +43532,11 @@ document.addEventListener("click", function (event) {
             }
         }
 
-        console.log("📐 EQN CLEARED COMPLETELY");
+        console.log("ًں“گ EQN CLEARED COMPLETELY");
     }
 
     // ==========================================
-    // 🔲 MATRIX
+    // ًں”² MATRIX
     // ==========================================
 
     if (currentMode === "MATRIX") {
@@ -43574,11 +43574,11 @@ document.addEventListener("click", function (event) {
             }
         });
 
-        console.log("🔲 MATRIX CLEARED COMPLETELY");
+        console.log("ًں”² MATRIX CLEARED COMPLETELY");
     }
 
     // ==========================================
-    // 📋 TABLE
+    // ًں“‹ TABLE
     // ==========================================
 
     if (currentMode === "TABLE") {
@@ -43593,11 +43593,11 @@ document.addEventListener("click", function (event) {
             input.value = "";
         });
 
-        console.log("📋 TABLE CLEARED");
+        console.log("ًں“‹ TABLE CLEARED");
     }
 
     // ==========================================
-    // ➡️ VECTOR
+    // â‍،ï¸ڈ VECTOR
     // ==========================================
 
     if (currentMode === "VECTOR") {
@@ -43619,12 +43619,12 @@ document.addEventListener("click", function (event) {
             vectorRes.innerHTML = "";
         }
 
-        console.log("➡️ VECTOR CLEARED");
+        console.log("â‍،ï¸ڈ VECTOR CLEARED");
     }
 
     // ==========================================
-    // 🌡️ PHYSICS
-    // 🧪 CHEMISTRY
+    // ًںŒ،ï¸ڈ PHYSICS
+    // ًں§ھ CHEMISTRY
     // ==========================================
 
     if (typeof window.activePhysicsField !== "undefined") {
@@ -43636,7 +43636,7 @@ document.addEventListener("click", function (event) {
     }
 
     // ==========================================
-    // 🧹 أوضاع الإدخال الخاصة
+    // ًں§¹ ط£ظˆط¶ط§ط¹ ط§ظ„ط¥ط¯ط®ط§ظ„ ط§ظ„ط®ط§طµط©
     // ==========================================
 
     if (typeof absMode !== "undefined") {
@@ -43644,7 +43644,7 @@ document.addEventListener("click", function (event) {
     }
 
     // ==========================================
-    // ✅ النهاية
+    // âœ… ط§ظ„ظ†ظ‡ط§ظٹط©
     // ==========================================
 
     if (typeof display !== "undefined" && display) {
@@ -43652,13 +43652,13 @@ document.addEventListener("click", function (event) {
         display.value = "";
     }
 
-    console.log("✅ AC FINISHED:", currentMode);
+    console.log("âœ… AC FINISHED:", currentMode);
 
 }, true);
 
 
 /* ==========================================
-🎨 نظام أشكال الآلة
+ًںژ¨ ظ†ط¸ط§ظ… ط£ط´ظƒط§ظ„ ط§ظ„ط¢ظ„ط©
 ========================================== */
 
 const themePage = document.getElementById("themePage");
@@ -43673,7 +43673,7 @@ localStorage.getItem("calculatorTheme") || "blue";
 
 let temporaryTheme = selectedTheme;
 
-/* فتح صفحة الخلفيات */
+/* ظپطھط­ طµظپط­ط© ط§ظ„ط®ظ„ظپظٹط§طھ */
 
 if (themeBtn) {
 
@@ -43698,7 +43698,7 @@ themeBtn.addEventListener("click", () => {
 
 }
 
-/* اختيار شكل */
+/* ط§ط®طھظٹط§ط± ط´ظƒظ„ */
 
 themeOptions.forEach(option => {
 
@@ -43718,7 +43718,7 @@ option.addEventListener("click", () => {
 
 });
 
-/* تطبيق */
+/* طھط·ط¨ظٹظ‚ */
 
 if (applyThemeBtn) {
 
@@ -43741,7 +43741,7 @@ applyThemeBtn.addEventListener("click", () => {
 
 }
 
-/* رجوع بدون تطبيق */
+/* ط±ط¬ظˆط¹ ط¨ط¯ظˆظ† طھط·ط¨ظٹظ‚ */
 
 if (backThemeBtn) {
 
@@ -43757,7 +43757,7 @@ backThemeBtn.addEventListener("click", () => {
 
 }
 
-/* تطبيق الشكل على الآلة */
+/* طھط·ط¨ظٹظ‚ ط§ظ„ط´ظƒظ„ ط¹ظ„ظ‰ ط§ظ„ط¢ظ„ط© */
 
 function applyCalculatorTheme(theme) {
 
@@ -43780,7 +43780,7 @@ document.body.classList.add(
 
 }
 
-/* تشغيل الشكل المحفوظ عند فتح الآلة */
+/* طھط´ط؛ظٹظ„ ط§ظ„ط´ظƒظ„ ط§ظ„ظ…ط­ظپظˆط¸ ط¹ظ†ط¯ ظپطھط­ ط§ظ„ط¢ظ„ط© */
 
 document.addEventListener("DOMContentLoaded", () => {
     applyCalculatorTheme(selectedTheme);
@@ -43789,20 +43789,20 @@ document.addEventListener("DOMContentLoaded", () => {
 function inputFractionDigit(digit) {
 
     // ==========================================
-    // 🔢 إدخال الرقم داخل الكسر
+    // ًں”¢ ط¥ط¯ط®ط§ظ„ ط§ظ„ط±ظ‚ظ… ط¯ط§ط®ظ„ ط§ظ„ظƒط³ط±
     // ==========================================
 
     if (!fractionMode) return false;
 
     if (fractionStage === 1) {
 
-        // البسط
+        // ط§ظ„ط¨ط³ط·
         fractionNumerator += digit;
 
     }
     else if (fractionStage === 2) {
 
-        // المقام
+        // ط§ظ„ظ…ظ‚ط§ظ…
         fractionDenominator += digit;
 
     }
@@ -43810,10 +43810,11 @@ function inputFractionDigit(digit) {
     updateFractionDisplay();
 
     console.log(
-        "🔢 FRACTION INPUT:",
+        "ًں”¢ FRACTION INPUT:",
         fractionStage === 1 ? "NUMERATOR" : "DENOMINATOR",
         digit
     );
 
     return true;
 }
+
