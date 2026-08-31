@@ -33436,30 +33436,97 @@ document.addEventListener("focusout", function (e) {
         return;
     }
 
-    document.querySelectorAll(".home-choice").forEach(button => {
+  document.querySelectorAll(".home-choice").forEach(button => {
 
-        button.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
-            const choice = button.dataset.calculation;
+        const choice = button.dataset.calculation;
 
-            console.log("طريقة الحساب:", choice);
+        console.log("طريقة الحساب:", choice);
 
-            if (choice === "math") {
 
-    window.activePhysicsField = null;
-    window.activeChemistryField = null;
-    activeStatField = null;
-    activeVectorField = null;
+        // ==========================================
+        // 🧮 الرياضيات
+        // ==========================================
 
-    currentMode = "COMP";
+        if (choice === "math") {
 
-    homeScreen.classList.add("hidden");
-    calcScreen.classList.remove("hidden");
-}
+            window.activePhysicsField = null;
+            window.activeChemistryField = null;
 
-        });
+            if (typeof activeStatField !== "undefined") {
+                activeStatField = null;
+            }
+
+            if (typeof activeVectorField !== "undefined") {
+                activeVectorField = null;
+            }
+
+            currentMode = "COMP";
+
+            homeScreen.classList.add("hidden");
+            calcScreen.classList.remove("hidden");
+
+            return;
+        }
+
+
+        // ==========================================
+        // ⚛️ الفيزياء
+        // ==========================================
+
+        if (choice === "physics") {
+
+            homeScreen.classList.add("hidden");
+            calcScreen.classList.remove("hidden");
+
+            if (typeof openPhysicsModern === "function") {
+                openPhysicsModern();
+            }
+
+            return;
+        }
+
+
+        // ==========================================
+        // 🧪 الكيمياء
+        // ==========================================
+
+        if (choice === "chemistry") {
+
+            homeScreen.classList.add("hidden");
+            calcScreen.classList.remove("hidden");
+
+            if (typeof openChemistryMode === "function") {
+                openChemistryMode();
+            }
+
+            return;
+        }
+
+
+        // ==========================================
+        // 💻 البرمجة
+        // ==========================================
+
+        if (choice === "programming") {
+
+            console.log("Programming mode selected");
+
+            homeScreen.classList.add("hidden");
+            calcScreen.classList.remove("hidden");
+
+            // لو عندنا وضع برمجة موجود بالفعل
+            if (typeof openProgrammingMode === "function") {
+                openProgrammingMode();
+            }
+
+            return;
+        }
 
     });
+
+});
 
 })();
 
