@@ -1,6 +1,6 @@
-const CACHE_NAME = "scientific-calculator-v9";
+const CACHE_NAME = "scientific-calculator-v10";
 
-const FILES_TO_CACHE = [
+const APP_FILES = [
     "./",
     "./index.html",
     "./style.css",
@@ -11,137 +11,132 @@ const FILES_TO_CACHE = [
 ];
 
 
-// ===============================
+// ================================
 // INSTALL
-// ===============================
+// ================================
 
 self.addEventListener("install", event => {
 
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(FILES_TO_CACHE))
+            .then(cache => cache.addAll(APP_FILES))
+            .catch(error => {
+                console.error("Cache install error:", error);
+            })
     );
 
     self.skipWaiting();
 });
 
 
-// ===============================
+// ================================
 // ACTIVATE
-// ===============================
+// ================================
 
 self.addEventListener("activate", event => {
 
     event.waitUntil(
-
         caches.keys()
             .then(keys => {
-
                 return Promise.all(
-
                     keys
                         .filter(key => key !== CACHE_NAME)
                         .map(key => caches.delete(key))
-
                 );
-
             })
             .then(() => self.clients.claim())
-
     );
 });
 
 
-// ===============================
+// ================================
 // FETCH
-// ===============================
+// ================================
 
 self.addEventListener("fetch", event => {
 
-    // نسمح فقط بطلبات GET
-    if (event.request.method !== "GET") {
+    const request = event.request;
+    const url = new URL(request.url);
+
+    // لا نتدخل في طلبات غير GET
+    if (request.method !== "GET") {
         return;
     }
 
-    const url = new URL(event.request.url);
+    // لا نتدخل في sw.js نفسه
+    if (url.pathname.endsWith("/sw.js")) {
+        return;
+    }
 
-    // ملفات الموقع الأساسية
-    const isMainFile =
-        url.pathname.endsWith("/") ||
+    // ملفات الموقع المهمة:
+    // الشبكة أولًا ثم الكاش
+    if (
         url.pathname.endsWith("/index.html") ||
         url.pathname.endsWith("/style.css") ||
         url.pathname.endsWith("/app.js") ||
-        url.pathname.endsWith("/manifest.json");
-
-    if (isMainFile) {
+        url.pathname.endsWith("/")
+    ) {
 
         event.respondWith(
 
-            fetch(event.request, {
-                cache: "no-store"
-            })
+            fetch(request)
+                .then(response => {
 
-            .then(response => {
+                    if (response && response.ok) {
 
-                if (!response || !response.ok) {
-                    throw new Error("Network response not OK");
-                }
+                        const copy = response.clone();
 
-                const copy = response.clone();
+                        caches.open(CACHE_NAME)
+                            .then(cache => {
+                                cache.put(request, copy);
+                            })
+                            .catch(() => {});
 
-                caches.open(CACHE_NAME)
-                    .then(cache => {
-                        cache.put(event.request, copy);
-                    })
-                    .catch(() => {});
+                    }
 
-                return response;
-            })
+                    return response;
+                })
+                .catch(() => {
 
-            .catch(() => {
+                    return caches.match(request)
+                        .then(cached => {
 
-                return caches.match(event.request)
-                    .then(cached => {
-
-                        if (cached) {
-                            return cached;
-                        }
-
-                        return new Response(
-                            "Offline",
-                            {
-                                status: 503,
-                                statusText: "Offline"
+                            if (cached) {
+                                return cached;
                             }
-                        );
 
-                    });
+                            return new Response(
+                                "Offline",
+                                {
+                                    status: 503,
+                                    statusText: "Offline"
+                                }
+                            );
 
-            })
+                        });
 
+                })
         );
 
         return;
     }
 
 
-    // ===============================
-    // باقي الملفات
-    // ===============================
+    // باقي الملفات:
+    // الكاش أولًا ثم الشبكة
 
     event.respondWith(
 
-        caches.match(event.request)
-            .then(cachedResponse => {
+        caches.match(request)
+            .then(cached => {
 
-                if (cachedResponse) {
-                    return cachedResponse;
+                if (cached) {
+                    return cached;
                 }
 
-                return fetch(event.request);
+                return fetch(request);
 
             })
-
             .catch(() => {
 
                 return new Response(
@@ -153,7 +148,6 @@ self.addEventListener("fetch", event => {
                 );
 
             })
-
     );
 
 });
