@@ -1,0 +1,1312 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ==========================================
+   جسم الآلة
+========================================== */
+
+.calculator {
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(145deg, #2d3136, #1f2225);
+    padding: 16px;
+    border-radius: 20px;
+    border: 2px solid #444;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.7),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   الشاشة
+========================================== */
+
+.screen-container {
+    position: relative;
+    width: 100%;
+    height: 82px;
+
+    background: #cbdbb8;
+    border: 4px solid #111;
+    border-radius: 8px;
+
+    padding: 8px 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.45),
+        0 2px 4px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 11px;
+    font-weight: bold;
+    color: #111;
+}
+
+.expression-display {
+    width: 100%;
+    height: 20px;
+
+    font-size: 13px;
+    color: #333;
+
+    text-align: right;
+    overflow: hidden;
+
+    font-family: monospace;
+}
+
+.main-display {
+    width: 100%;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #000;
+
+    text-align: right;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    font-family: monospace;
+}
+
+/* ==========================================
+   القوائم
+========================================== */
+
+.menu-panel {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #cbdbb8;
+
+    padding: 8px;
+
+    border-radius: 4px;
+
+    z-index: 100;
+
+    overflow-y: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.menu-title {
+    font-size: 11px;
+    font-weight: bold;
+
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid #000;
+}
+
+.menu-panel button {
+    display: block;
+
+    width: 100%;
+
+    margin: 3px 0;
+
+    padding: 5px;
+
+    background: #aab896;
+
+    border: 1px solid #555;
+
+    color: #000;
+
+    font-size: 11px;
+
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+/* ==========================================
+   الصفوف
+========================================== */
+
+.top-row,
+.memory-row {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 6px;
+
+    margin-bottom: 7px;
+
+    width: 100%;
+}
+
+/* ==========================================
+   Navigation
+========================================== */
+
+.navigation {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin: 7px 0;
+}
+
+.navigation button {
+    width: 42px;
+    height: 28px;
+
+    padding: 2px;
+
+    font-size: 15px;
+}
+
+/* ==========================================
+   Scientific Grid
+========================================== */
+
+.scientific-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.key-wrap {
+    position: relative;
+    min-width: 0;
+    padding-top: 15px;
+}
+
+.key-wrap button {
+    width: 100%;
+    height: 42px;
+    position: relative;
+    z-index: 2;
+}
+
+.shift-label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #ffd400;
+    font-size: 9px;
+    font-weight: bold;
+
+    white-space: nowrap;
+    line-height: 11px;
+    pointer-events: none;
+}
+
+.scientific-grid button {
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==========================================
+   Number Grid
+========================================== */
+
+.number-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 6px;
+
+    width: 100%;
+
+    margin-top: 14px;
+}
+
+/* ==========================================
+   الأزرار العامة
+========================================== */
+
+button {
+    width: 100%;
+
+    min-width: 0;
+
+    background: #383c40;
+
+    color: #fff;
+
+    border: none;
+
+    padding: 10px 2px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 3px 0 #181a1b,
+        0 4px 5px rgba(0, 0, 0, 0.3);
+
+    transition: 0.05s;
+}
+
+button:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 1px 0 #181a1b;
+}
+
+/* ==========================================
+   ألوان خاصة
+========================================== */
+
+.btn-shift {
+    background: #d97706;
+}
+
+.btn-alpha {
+    background: #dc2626;
+}
+
+.btn-mode,
+.btn-setup,
+.btn-history {
+    background: #4b5563;
+}
+
+.btn-ac {
+    background: #b91c1c;
+}
+
+.btn-del {
+    background: #c2410c;
+}
+
+.btn-equals {
+    background: #1d4ed8;
+}
+
+/* ==========================================
+   زر ±
+========================================== */
+
+#plusMinus {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================
+   شاشة الكسر
+========================================== */
+
+.fraction-display-screen {
+    position: absolute;
+
+    left: 50%;
+    top: 45px;
+
+    transform: translateX(-50%);
+
+    width: 100px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    z-index: 20;
+}
+
+.fraction-display-screen.hidden {
+    display: none !important;
+}
+
+.fraction-display-screen #fractionTop,
+.fraction-display-screen #fractionBottom {
+    min-height: 25px;
+
+    line-height: 25px;
+}
+
+.fraction-display-screen .fraction-line {
+    width: 60px;
+
+    height: 2px;
+
+    background: #000;
+
+    margin: 2px auto;
+}
+
+/* ==========================================
+   محرر الكسر
+========================================== */
+
+#fractionEditor {
+    color: #000 !important;
+}
+
+#fractionEditor #fractionTop,
+#fractionEditor #fractionBottom {
+    color: #000 !important;
+
+    visibility: visible !important;
+
+    opacity: 1 !important;
+}
+/* =========================
+   زر الكسر
+========================= */
+
+.fraction-key {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.fraction-num,
+.fraction-den {
+    font-size: 14px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.fraction-bar {
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+}
+
+/* ==========================================
+   شكل أزرار SHIFT
+========================================== */
+
+.shift-key {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+/* الوظيفة الصغيرة فوق الزر */
+.shift-label {
+    display: block;
+    font-size: 10px;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+/* الوظيفة الأساسية */
+.main-label {
+    display: block;
+    font-size: 15px;
+    line-height: 1;
+}
+
+
+/* ==========================================
+   وظائف خاصة بـ CMPLX / VECTOR
+========================================== */
+
+.cmplx-only,
+.vector-only {
+    display: none;
+}
+
+
+/* ==========================================
+   زر Ans
+========================================== */
+
+#ansBtn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#ansBtn .shift-label {
+    display: block;
+    font-size: 10px;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+
+/* ==========================================
+   زر الكسر يفضل بشكله الخاص
+========================================== */
+
+.fraction-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* ==========================================
+   SHIFT LABELS - خارج الزر
+========================================== */
+
+.key-wrap {
+    position: relative;
+    min-width: 0;
+    padding-top: 12px;
+}
+
+.key-wrap button {
+    width: 100%;
+    height: 42px;
+    position: relative;
+    z-index: 2;
+}
+
+.shift-label {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 10px;
+    
+    white-space: nowrap;
+    pointer-events: none;
+}
+.scientific-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.key-wrap {
+    position: relative;
+    min-width: 0;
+    padding-top: 13px;
+}
+
+.key-wrap button {
+    width: 100%;
+    height: 42px;
+    position: relative;
+    z-index: 2;
+}
+
+.shift-label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #ffd400;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 11px;
+
+    white-space: nowrap;
+    pointer-events: none;
+}
+/* منع زر الكسر من تكوين صف منفصل */
+
+
+/* نخلي آخر صف يبدأ من أول الشبكة بشكل مرتب */
+.fraction-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 8px;
+    margin-bottom: 64px;
+}
+
+.fraction-row .fraction-key {
+    width: 72px;
+    height: 12px;
+    padding: 4px;
+}
+/* ==========================================
+   Nested Fraction Editor
+   ========================================== */
+
+#nestedFractionEditor {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.nested-fraction-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.nested-fraction-box input {
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #777;
+    border-radius: 5px;
+}
+
+.nested-fraction-line {
+    width: 100px;
+    height: 2px;
+    background: #000;
+}
+#nestedFractionEditor {
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+.nested-fraction-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.nested-fraction-box input {
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.nested-fraction-line {
+    width: 70px;
+    height: 2px;
+    background: #000;
+}
+/* ==========================================
+   الكسر الداخلي داخل الكسر الخارجي
+========================================== */
+
+.nested-fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    vertical-align: middle;
+
+    font-size: 0.55em;
+    line-height: 1;
+
+    margin: 0 4px;
+}
+
+.nested-num,
+.nested-den {
+    min-width: 18px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.nested-line {
+    width: 100%;
+    min-width: 18px;
+    height: 1px;
+    background: currentColor;
+    margin: 2px 0;
+}
+
+/* fx-991EX ClassWiz skin — overrides the original layout without changing its controls. */
+:root { color-scheme: dark; }
+body {
+    min-width: 320px;
+    background: radial-gradient(circle at 50% 0, #3c4652, #101419 70%);
+    padding: 24px 12px;
+}
+
+.calculator {
+    width: min(100%, 460px);
+    max-width: 460px;
+    padding: 13px 14px 18px;
+    background: linear-gradient(142deg, #46525e, #151c24 50%, #313c47);
+    border: 2px solid #070b0e;
+    border-radius: 18px 18px 24px 24px;
+    box-shadow: 0 24px 48px rgba(0,0,0,.62), inset 0 1px rgba(255,255,255,.3), inset 0 -3px rgba(0,0,0,.7);
+}
+
+.calculator-brand {
+    height: 33px;
+    display: flex;
+    direction: ltr;
+    align-items: baseline;
+    gap: 9px;
+    padding: 0 6px;
+    color: #f5f7fa;
+    text-shadow: 0 1px 1px #000;
+}
+.brand-casio { font-size: 17px; font-weight: 800; letter-spacing: 1.3px; }
+.brand-model { font-size: 14px; font-weight: 600; }
+.brand-classwiz { margin-left: auto; color: #d5dce3; font-size: 9px; letter-spacing: .7px; }
+
+.screen-container {
+    height: 118px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    background: linear-gradient(145deg, #dce8c4, #afbf94);
+    border: 5px solid #111820;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 7px rgba(0,0,0,.48), 0 1px rgba(255,255,255,.2);
+}
+.status-bar { direction: ltr; color: #26301e; font-family: monospace; font-size: 10px; }
+.expression-display { color: #45503b; direction: ltr; font: 12px/19px monospace; }
+.main-display { color: #18210f; direction: ltr; font: 700 27px/36px monospace; }
+
+.top-row, .memory-row { gap: 5px; margin-bottom: 7px; }
+.top-row button { min-height: 29px; padding: 4px 1px; font-size: 9px; }
+.memory-row button { min-height: 25px; padding: 3px 1px; color: #d9e0e5; background: linear-gradient(#35414b, #1f2932); font-size: 9px; }
+
+button {
+    min-height: 34px;
+    border: 1px solid #080d12;
+    border-radius: 5px;
+    background: linear-gradient(#53606c, #26313c 74%);
+    box-shadow: 0 2px 0 #070c10, inset 0 1px rgba(255,255,255,.16);
+}
+button:active { transform: translateY(2px); box-shadow: inset 0 1px rgba(0,0,0,.7); }
+.btn-shift { background: linear-gradient(#efb43d, #bb6704); color: #261700; }
+.btn-alpha { background: linear-gradient(#dd5b5d, #9a252c); }
+.btn-mode, .btn-setup, .btn-history { background: linear-gradient(#768491, #3d4955); }
+.btn-ac { background: linear-gradient(#e85e58, #a52729); }
+.btn-del { background: linear-gradient(#e99b49, #ae5814); }
+.btn-equals { background: linear-gradient(#6daadf, #226cab); }
+
+.navigation {
+    display: grid;
+    grid-template-columns: repeat(3, 42px);
+    grid-template-rows: 25px 25px;
+    width: 130px;
+    margin: 8px auto 10px;
+    gap: 2px;
+    direction: ltr;
+}
+.navigation button { width: auto; height: auto; padding: 0; min-height: 0; font-size: 12px; background: linear-gradient(#5b6875,#27323c); }
+#navUp { grid-column: 2; grid-row: 1; } #navLeft { grid-column: 1; grid-row: 2; } #navDown { grid-column: 2; grid-row: 2; } #navRight { grid-column: 3; grid-row: 2; }
+
+.scientific-grid { gap: 5px; margin-top: 8px; }
+.key-wrap { padding-top: 12px; }
+.key-wrap button, .scientific-grid button { height: 32px; min-height: 32px; padding: 3px 1px; background: linear-gradient(#5c6874, #303b46); font-size: 10px; }
+.shift-label { color: #f1bd4e; font-size: 8px; line-height: 10px; text-shadow: 0 1px #000; }
+.number-grid { gap: 6px; margin-top: 12px; }
+.number-grid button { min-height: 45px; font-size: 17px; background: linear-gradient(#606b76, #343e49); }
+.number-grid .operator { color: #101a22; background: linear-gradient(#e6e9e8, #a8b1b6); font-size: 20px; }
+
+.fraction-key { width: 67px; height: 35px; min-height: 35px; margin: 7px 0 1px 0; background: linear-gradient(#5c6874, #303b46); }
+.fraction-num, .fraction-den { font-size: 11px; height: 9px; }.fraction-bar { width: 19px; height: 1px; }
+.menu-panel { background: #dce8c4; color: #121a0f; }.menu-panel button { color: #101510; background: #bdcaa9; border: 1px solid #6c7861; box-shadow: none; }
+.menu-panel input { width: 100%; color: #111; background: #edf3dd; border: 1px solid #728066; padding: 4px; margin: 2px 0; border-radius: 3px; }
+
+@media (max-width: 380px) {
+    body { padding: 8px; }.calculator { padding: 10px; border-radius: 12px; }
+    .scientific-grid, .number-grid, .top-row, .memory-row { gap: 4px; }
+    .key-wrap button, .scientific-grid button { font-size: 8px; }
+    .number-grid button { min-height: 39px; font-size: 15px; }
+}
+/* ==========================================
+   وضوح نتيجة CMPLX على شاشة Casio
+========================================== */
+
+.main-display {
+    font-family: monospace;
+    font-size: 29px;
+    font-weight: 900;
+    line-height: 38px;
+    color: #11180b;
+    text-shadow: 0 0 0.5px #11180b;
+}
+/* ==========================================
+   إصلاح ترتيب شاشة CASIO
+========================================== */
+
+.screen-container {
+    position: relative;
+}
+
+.status-bar {
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+/* النتيجة الرئيسية */
+.main-display {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    width: calc(100% - 20px);
+
+    font-family: monospace;
+    font-size: 29px;
+    font-weight: 900;
+    line-height: 38px;
+
+    color: #11180b;
+    text-align: right;
+
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/* السطر الصغير الخاص بالتعبير */
+.expression-display {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 48px;
+
+    width: calc(100% - 20px);
+    height: 20px;
+
+    font-family: monospace;
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #45503b;
+    text-align: right;
+}
+/* ==========================================
+   ضبط نتيجة CMPLX داخل شاشة CASIO
+========================================== */
+
+.main-display {
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+    bottom: 6px;
+
+    width: calc(100% - 20px);
+
+    font-family: "Courier New", monospace;
+    font-size: 29px;
+    font-weight: 900;
+    line-height: 38px;
+
+    color: #11180b;
+    text-align: right;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    text-shadow: 0 0 0.7px #010201;
+}
+#screen {
+    position: relative;
+}
+
+#calculatorCursor {
+    position: absolute;
+    width: 3px;
+    height: 30px;
+    background: red;
+    display: none;
+    pointer-events: none;
+    z-index: 9999;
+}
+/* ==========================================
+   زر الكسر = صف كامل
+========================================== */
+
+.fraction-row {
+    display: block !important;
+    width: 100% !important;
+    margin: 4px 0 !important;
+    padding: 0 !important;
+}
+
+.fraction-row .fraction-key {
+    display: flex !important;
+    width: 100% !important;
+    height: 34px !important;
+    min-height: 34px !important;
+
+    margin: 0 !important;
+    padding: 2px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* الموبايل */
+@media (max-width: 599px) {
+    .fraction-row {
+        width: 100% !important;
+        margin: 3px 0 !important;
+    }
+
+    .fraction-row .fraction-key {
+        width: 100% !important;
+        height: 32px !important;
+        min-height: 32px !important;
+    }
+}
+/* =========================================================
+   FINAL LAYOUT
+   FULL SCREEN + NO HIDDEN ROWS + BIGGER SCREEN
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+body {
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+
+    background: #101419;
+}
+
+/* =========================================================
+   جسم الآلة
+========================================================= */
+
+.calculator {
+    width: 100vw !important;
+    max-width: none !important;
+
+    height: 100dvh !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding: clamp(4px, 1vw, 12px) !important;
+
+    border-radius: 0 !important;
+
+    overflow: hidden !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* =========================================================
+   اسم الآلة
+========================================================= */
+
+.calculator-brand {
+    flex: 0 0 auto !important;
+    height: clamp(24px, 4dvh, 34px) !important;
+}
+
+/* =========================================================
+   الشاشة — أكبر شوية
+========================================================= */
+
+.screen-container {
+    width: 100% !important;
+
+    height: clamp(90px, 16dvh, 140px) !important;
+    min-height: 0 !important;
+
+    flex: 0 0 auto !important;
+
+    margin-bottom: clamp(4px, 0.8dvh, 8px) !important;
+}
+
+/* تكبير الرقم داخل الشاشة */
+
+.main-display {
+    font-size: clamp(27px, 4vw, 36px) !important;
+    line-height: 40px !important;
+}
+
+.expression-display {
+    font-size: clamp(12px, 1.8vw, 15px) !important;
+}
+
+.status-bar {
+    font-size: clamp(9px, 1.4vw, 12px) !important;
+}
+
+/* =========================================================
+   الصفوف العلوية
+========================================================= */
+
+.top-row,
+.memory-row {
+    flex: 0 0 auto !important;
+
+    width: 100% !important;
+
+    gap: clamp(3px, .5vw, 6px) !important;
+
+    margin-bottom: clamp(3px, .6dvh, 6px) !important;
+}
+
+.top-row button {
+    height: clamp(24px, 4dvh, 32px) !important;
+    min-height: 0 !important;
+    padding: 2px !important;
+    font-size: clamp(7px, 1vw, 10px) !important;
+}
+
+.memory-row button {
+    height: clamp(22px, 3.5dvh, 29px) !important;
+    min-height: 0 !important;
+    padding: 2px !important;
+    font-size: clamp(7px, 1vw, 10px) !important;
+}
+
+/* =========================================================
+   الأسهم
+========================================================= */
+
+.navigation {
+    flex: 0 0 auto !important;
+
+    width: clamp(100px, 18vw, 130px) !important;
+
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(2, 22px) !important;
+
+    margin: clamp(2px, .6dvh, 6px) auto !important;
+
+    gap: 2px !important;
+}
+
+.navigation button {
+    min-height: 0 !important;
+    padding: 0 !important;
+}
+
+/* =========================================================
+   الأزرار العلمية
+========================================================= */
+
+.scientific-grid {
+    flex: 0 0 auto !important;
+
+    width: 100% !important;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+
+    gap: clamp(2px, .45vw, 5px) !important;
+
+    margin-top: clamp(2px, .5dvh, 6px) !important;
+}
+
+.key-wrap {
+    min-width: 0 !important;
+
+    padding-top: clamp(6px, 1dvh, 10px) !important;
+}
+
+.key-wrap button,
+.scientific-grid button {
+    width: 100% !important;
+
+    height: clamp(24px, 4dvh, 34px) !important;
+    min-height: 0 !important;
+
+    padding: 1px !important;
+
+    font-size: clamp(7px, 1.1vw, 10px) !important;
+}
+
+.shift-label {
+    font-size: clamp(6px, .8vw, 8px) !important;
+    line-height: 7px !important;
+}
+
+/* =========================================================
+   زر الكسر — صف كامل
+========================================================= */
+
+.fraction-row {
+    display: block !important;
+
+    flex: 0 0 auto !important;
+
+    width: 100% !important;
+
+    margin: clamp(2px, .5dvh, 5px) 0 !important;
+    padding: 0 !important;
+}
+
+.fraction-row .fraction-key {
+    display: flex !important;
+
+    width: 100% !important;
+
+    height: clamp(27px, 4.5dvh, 36px) !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* =========================================================
+   لوحة الأرقام
+========================================================= */
+
+.number-grid {
+    flex: 1 1 auto !important;
+
+    width: 100% !important;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+
+    gap: clamp(2px, .5vw, 6px) !important;
+
+    margin-top: clamp(2px, .6dvh, 7px) !important;
+
+    min-height: 0 !important;
+}
+
+.number-grid button {
+    width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+
+    padding: 1px !important;
+
+    font-size: clamp(13px, 2vw, 18px) !important;
+}
+
+/* =========================================================
+   الموبايل
+========================================================= */
+
+@media (max-width: 599px) {
+
+    .calculator {
+        padding: 3px !important;
+    }
+
+    .calculator-brand {
+        height: 25px !important;
+    }
+
+    /* شاشة أكبر */
+    .screen-container {
+        height: 100px !important;
+    }
+
+    .main-display {
+        font-size: 28px !important;
+        line-height: 35px !important;
+    }
+
+    .expression-display {
+        font-size: 11px !important;
+        bottom: 40px !important;
+    }
+
+    .status-bar {
+        font-size: 8px !important;
+    }
+
+    /* الأزرار */
+    .top-row,
+    .memory-row {
+        gap: 2px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .top-row button {
+        height: 24px !important;
+        font-size: 7px !important;
+    }
+
+    .memory-row button {
+        height: 22px !important;
+        font-size: 7px !important;
+    }
+
+    /* الأسهم */
+    .navigation {
+        width: 105px !important;
+        grid-template-rows: 19px 19px !important;
+        margin: 2px auto !important;
+    }
+
+    /* العلمية */
+    .scientific-grid {
+        gap: 2px !important;
+        margin-top: 2px !important;
+    }
+
+    .key-wrap {
+        padding-top: 6px !important;
+    }
+
+    .key-wrap button,
+    .scientific-grid button {
+        height: 25px !important;
+        min-height: 25px !important;
+        font-size: 6.5px !important;
+    }
+
+    .shift-label {
+        font-size: 5.5px !important;
+    }
+
+    /* الكسر */
+    .fraction-row {
+        margin: 2px 0 !important;
+    }
+
+    .fraction-row .fraction-key {
+        width: 100% !important;
+        height: 29px !important;
+    }
+
+    /* الأرقام */
+    .number-grid {
+        gap: 2px !important;
+        margin-top: 2px !important;
+    }
+
+    .number-grid button {
+        font-size: 14px !important;
+    }
+}
+/* ==========================================
+   ضبط الشاشة والآلة بالكامل
+========================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* الشاشة أكبر شوية */
+.screen-container {
+    width: 100% !important;
+    height: 145px !important;
+    min-height: 145px !important;
+}
+
+/* منع اختفاء آخر صف */
+.scientific-grid {
+    width: 100%;
+}
+
+.number-grid {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* زر الكسر يكون صف كامل */
+.fraction-key {
+    width: 100% !important;
+    height: 35px !important;
+    margin: 7px 0 1px 0 !important;
+}
+
+/* نخلي حاوية زر الكسر صف كامل */
+.fraction-key-wrap {
+    width: 100%;
+}
+
+/* على الشاشات الصغيرة */
+@media (max-width: 600px) {
+    body {
+        padding: 6px;
+        align-items: flex-start;
+    }
+
+    .calculator {
+        width: 100%;
+        max-width: none;
+    }
+
+    .screen-container {
+        height: 145px !important;
+        min-height: 145px !important;
+    }
+}
