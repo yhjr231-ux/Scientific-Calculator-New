@@ -1,4 +1,4 @@
-const CACHE_NAME = "scientific-calculator-v8";
+const CACHE_NAME = "scientific-calculator-v9";
 
 const FILES_TO_CACHE = [
     "./",
@@ -10,11 +10,13 @@ const FILES_TO_CACHE = [
     "./icons/calculator-icon-512.png"
 ];
 
+
 // ===============================
 // INSTALL
 // ===============================
 
 self.addEventListener("install", event => {
+
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => cache.addAll(FILES_TO_CACHE))
@@ -29,14 +31,23 @@ self.addEventListener("install", event => {
 // ===============================
 
 self.addEventListener("activate", event => {
+
     event.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(
-                keys
-                    .filter(key => key !== CACHE_NAME)
-                    .map(key => caches.delete(key))
-            )
-        ).then(() => self.clients.claim())
+
+        caches.keys()
+            .then(keys => {
+
+                return Promise.all(
+
+                    keys
+                        .filter(key => key !== CACHE_NAME)
+                        .map(key => caches.delete(key))
+
+                );
+
+            })
+            .then(() => self.clients.claim())
+
     );
 });
 
@@ -47,48 +58,79 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
 
-    const url = new URL(event.request.url);
-
-    // لا تجعل Service Worker يمسك طلب sw.js نفسه
-    if (url.pathname.endsWith("/sw.js")) {
+    // نسمح فقط بطلبات GET
+    if (event.request.method !== "GET") {
         return;
     }
 
-    // الملفات المهمة:
-    // الإنترنت أولاً ثم الكاش
-    if (
+    const url = new URL(event.request.url);
+
+    // ملفات الموقع الأساسية
+    const isMainFile =
+        url.pathname.endsWith("/") ||
         url.pathname.endsWith("/index.html") ||
         url.pathname.endsWith("/style.css") ||
-        url.pathname.endsWith("/app.js")
-    ) {
+        url.pathname.endsWith("/app.js") ||
+        url.pathname.endsWith("/manifest.json");
+
+    if (isMainFile) {
 
         event.respondWith(
+
             fetch(event.request, {
                 cache: "no-store"
             })
+
             .then(response => {
 
-                if (response && response.ok) {
-                    const copy = response.clone();
-
-                    caches.open(CACHE_NAME)
-                        .then(cache => cache.put(event.request, copy));
+                if (!response || !response.ok) {
+                    throw new Error("Network response not OK");
                 }
+
+                const copy = response.clone();
+
+                caches.open(CACHE_NAME)
+                    .then(cache => {
+                        cache.put(event.request, copy);
+                    })
+                    .catch(() => {});
 
                 return response;
             })
+
             .catch(() => {
-                return caches.match(event.request);
+
+                return caches.match(event.request)
+                    .then(cached => {
+
+                        if (cached) {
+                            return cached;
+                        }
+
+                        return new Response(
+                            "Offline",
+                            {
+                                status: 503,
+                                statusText: "Offline"
+                            }
+                        );
+
+                    });
+
             })
+
         );
 
         return;
     }
 
 
-    // باقي الملفات:
-    // الكاش أولاً ثم الإنترنت
+    // ===============================
+    // باقي الملفات
+    // ===============================
+
     event.respondWith(
+
         caches.match(event.request)
             .then(cachedResponse => {
 
@@ -97,6 +139,21 @@ self.addEventListener("fetch", event => {
                 }
 
                 return fetch(event.request);
+
             })
+
+            .catch(() => {
+
+                return new Response(
+                    "",
+                    {
+                        status: 503,
+                        statusText: "Offline"
+                    }
+                );
+
+            })
+
     );
+
 });
