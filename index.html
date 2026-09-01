@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scientific Calculator fx-991</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+
+    <script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+       navigator.serviceWorker.register("./sw.js")
+            .then(() => console.log("✅ Service Worker registered"))
+            .catch(err => console.error("❌ Service Worker error:", err));
+    });
+}
+</script>
+</head>
+
+
+<body>
+<div id="calculatorHome" class="calculator-home">
+
+    <div class="home-title">
+        اختر طريقة الحساب
+    </div>
+
+    <div class="home-buttons">
+
+        <button class="home-choice math-choice" data-calculation="math">
+            <span>√x</span>
+            <strong>رياضيات</strong>
+        </button>
+
+        <button class="home-choice physics-choice" data-calculation="physics">
+            <span>⚛</span>
+            <strong>فيزياء</strong>
+        </button>
+
+        <button class="home-choice chemistry-choice" data-calculation="chemistry">
+            <span>⚗</span>
+            <strong>كيمياء</strong>
+        </button>
+
+        <button class="home-choice programmer-choice" data-calculation="programming">
+            <span>&lt;/&gt;</span>
+            <strong>برمجة</strong>
+        </button>
+</div>
+    
+        </div>
+
+
+
+</div>
+
+<div id="themePage" class="theme-page hidden">
+
+    <h2>🎨 اختر شكل الآلة</h2>
+
+    <div class="theme-options">
+
+        <button class="theme-option" data-theme="blue">
+            🔵
+            <span>أزرق</span>
+        </button>
+
+        <button class="theme-option" data-theme="green">
+            🟢
+            <span>أخضر</span>
+        </button>
+
+        <button class="theme-option" data-theme="orange">
+            🟠
+            <span>برتقالي</span>
+        </button>
+
+        <button class="theme-option" data-theme="purple">
+            🟣
+            <span>بنفسجي</span>
+        </button>
+
+        <button class="theme-option" data-theme="red">
+            🔴
+            <span>أحمر</span>
+        </button>
+
+        <button class="theme-option" data-theme="dark">
+            ⚫
+            <span>داكن</span>
+        </button>
+
+        <button class="theme-option" data-theme="silver">
+            ⚪
+            <span>فضي</span>
+        </button>
+
+        <button class="theme-option" data-theme="cyan">
+            🔷
+            <span>سماوي</span>
+        </button>
+
+    </div>
+
+    <div class="theme-actions">
+        <button id="applyThemeBtn">✅ تطبيق</button>
+        <button id="backThemeBtn">↩️ رجوع</button>
+    </div>
+
+</div>
+<div class="calculator">
+    <div class="calculator-brand" aria-label="Casio fx-991EX ClassWiz">
+        <span class="brand-casio">model VIP</span>
+        <span class="brand-model"></span>
+        <button id="themeBtn" class="theme-btn">
+    🎨 الخلفية
+</button>
+
+        <span class="brand-classwiz">بتحسب اي حاجة</span>
+    </div>
+
+    <!-- =========================
+         الشاشة
+    ========================== -->
+    <div class="screen-container" id="screen">
+
+        <div class="status-bar">           
+            <span id="status">DEG</span>
+            <span class="brand">احسب اي حاجة مع الة يوسف الذكية</span>
+        </div>
+
+        <div class="expression-display" id="expression"></div>
+
+        <div id="fractionDisplay"
+     class="fraction-display-screen hidden">
+
+    <div id="fractionTop">_</div>
+
+    <div class="fraction-line"></div>
+
+    <div id="fractionBottom">_</div>
+
+</div>
+
+        <input
+    type="text"
+    id="display"
+    class="main-display"
+    readonly
+    placeholder="0"
+>
+<div id="calculatorCursor"></div>
+    </div>
+
+
+    <!-- =========================
+         MODE
+    ========================== -->
+
+    <div id="modeMenu" class="menu-panel hidden">
+
+        <div class="menu-title">
+            اختر الوضع (MODE):
+        </div>
+
+        <button data-mode="COMP">
+            1: COMP (عادي)
+        </button>
+
+        <button data-mode="CMPLX">
+            2: CMPLX (مركب)
+        </button>
+
+        <button data-mode="STAT">
+            3: STAT (إحصاء)
+        </button>
+
+        <button data-mode="EQN">
+            5: EQN (معادلات)
+        </button>
+
+        <button data-mode="MATRIX">
+            6: MATRIX (مصفوفات)
+        </button>
+
+        <button data-mode="TABLE">
+            7: TABLE (جدول)
+        </button>
+
+        <button data-mode="VECTOR">
+            8: VECTOR (متجهات)
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         SETUP
+    ========================== -->
+
+    <div id="setupMenu" class="menu-panel hidden">
+
+        <div class="menu-title">
+            نظام الزوايا (SETUP):
+        </div>
+
+        <button data-angle="DEG">
+            1: Deg (درجات)
+        </button>
+
+        <button data-angle="RAD">
+            2: Rad (دائري)
+        </button>
+
+        <button data-angle="GRAD">
+            3: Gra (جراد)
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         الأزرار العلوية
+    ========================== -->
+
+    <div class="top-row">
+
+        <button id="shiftBtn" class="btn-shift">
+            SHIFT
+        </button>
+
+        <button id="alphaBtn" class="btn-alpha">
+            ALPHA
+        </button>
+
+        <button id="modeBtn" class="btn-mode">
+            MODE
+        </button>
+
+        <button id="setupBtn" class="btn-setup">
+            SETUP
+        </button>
+
+        <button id="historyBtn" class="btn-history">
+            HIST
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         الذاكرة
+    ========================== -->
+
+    <div class="memory-row">
+
+        <button>M+</button>
+        <button>M-</button>
+        <button>MR</button>
+        <button>MC</button>
+
+        <button id="memoryAnsBtn">
+            <span class="shift-label">Rect</span>
+            Ans
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         الاتجاهات
+    ========================== -->
+
+    <div class="navigation">
+
+        <button id="navLeft">◀</button>
+        <button id="navUp">▲</button>
+        <button id="navDown">▼</button>
+        <button id="navRight">▶</button>
+
+    </div>
+
+
+    <!-- =========================
+         الأزرار العلمية
+    ========================== -->
+
+<div class="scientific-grid">
+
+    <!-- الصف 1 -->
+    <div class="key-wrap">
+        <span class="shift-label">sin⁻¹</span>
+        <button>sin</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">cos⁻¹</span>
+        <button>cos</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">tan⁻¹</span>
+        <button>tan</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">sinh⁻¹</span>
+        <button>sinh</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">cosh⁻¹</span>
+        <button>cosh</button>
+    </div>
+
+
+    <!-- الصف 2 -->
+    <div class="key-wrap">
+        <span class="shift-label">tanh⁻¹</span>
+        <button>tanh</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">∛</span>
+        <button id="sqrtBtn">√</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">z²</span>
+        <button id="x2Btn">x²</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">z³</span>
+        <button id="x3Btn">x³</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">^</span>
+        <button>xʸ</button>
+    </div>
+
+
+    <!-- الصف 3 -->
+    <div class="key-wrap">
+        <span class="shift-label">x⁻¹</span>
+        <button>1/x</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">nCr</span>
+        <button>nPr</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">n!</span>
+        <button>nCr</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">ln</span>
+        <button>ln</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">log</span>
+        <button>log</button>
+    </div>
+
+
+    <!-- الصف 4 -->
+    <div class="key-wrap">
+        <span class="shift-label">Re</span>
+        <button id="absBtn">|x|</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">Im</span>
+        <button id="percentBtn">%</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">Conjg</span>
+        <button id="argBtn">Arg</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">Polar</span>
+        <button id="expBtn">EXP</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label">Rect</span>
+        <button id="ansBtn">Ans</button>
+    </div>
+
+
+    <!-- الصف 5 -->
+    <div class="key-wrap">
+        <span class="shift-label">,</span>
+        <button id="dotBtn">.</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button>π</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button>e</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button>n!</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button id="fractionBtn">S⇔D</button>
+    </div>
+
+
+    <!-- الصف 6 -->
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button id="primeBtn">PRIME</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button id="dmsBtn">° ′ ″</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button id="sciExpBtn">×10ˣ</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button id="plusMinus">±</button>
+    </div>
+
+    <div class="key-wrap">
+        <span class="shift-label"></span>
+        <button id="complexIBtn">i</button>
+    </div>
+
+
+    <!-- الصف 7 -->
+   
+
+</div>
+ <div class="fraction-row">
+    <button id="fractionInputBtn" class="fraction-key">
+        <span class="fraction-num">□</span>
+        <span class="fraction-bar">_</span>
+        <span class="fraction-den">□</span>
+    </button>
+</div>
+    <!-- =========================
+         لوحة الأرقام
+    ========================== -->
+
+    <div class="number-grid">
+
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+
+        <button id="delete" class="btn-del">
+            DEL
+        </button>
+
+        <button id="ac" class="btn-ac">
+    AC
+</button>
+
+
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+
+        <button class="operator">×</button>
+        <button class="operator">÷</button>
+
+
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+
+        <button class="operator">+</button>
+        <button class="operator">-</button>
+
+
+        <button>0</button>
+
+        <div class="key-wrap">
+    <span class="shift-label">X</span>
+    <button id="open">(</button>
+</div>
+
+        <button id="close">
+            )
+        </button>
+
+        <button class="operator">
+            -
+        </button>
+
+        <button id="equals" class="btn-equals">
+            =
+        </button>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
