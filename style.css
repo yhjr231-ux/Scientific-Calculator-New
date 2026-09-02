@@ -2398,3 +2398,45 @@ body[class*="theme-"] .btn-equals {
         radial-gradient(circle at 85% 80%, #b000ff, transparent 40%),
         linear-gradient(135deg, #071b3a, #17265c, #351052) !important;
 }
+/* =========================================================
+   FINAL MODE SIZES - SCIENTIFIC CALCULATOR
+   ========================================================= */
+
+/* ---------- الوضع الرياضي ---------- */
+body.math-mode .screen-container {
+    height: clamp(150px, 21dvh, 190px) !important;
+    min-height: 150px !important;
+}
+
+body.math-mode .main-display {
+    min-height: 85px !important;
+    font-size: clamp(30px, 4.5vw, 40px) !important;
+}
+
+/* أزرار الأرقام والعمليات والقوسين */
+body.math-mode .number-grid {
+    gap: 5px !important;
+}
+
+body.math-mode .number-grid button {
+    height: 42px !important;
+    min-height: 42px !important;
+    font-size: 18px !important;
+}
+
+/* القوسين خصوصًا */
+body.math-mode .number-grid button[onclick*="("],
+body.math-mode .number-grid button[onclick*=")"] {
+    height: 42px !important;
+    min-height: 42px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+
+/* أزرار العمليات */
+body.math-mode .number-grid button.operator,
+body.math-mode .number-grid button[data-action="operator"] {
+    height: 42px !important;
+    min-height: 42px !important;
+    font-size: 19px !important;
+}
