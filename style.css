@@ -2404,7 +2404,7 @@ body[class*="theme-"] .btn-equals {
 
 /* ---------- الوضع الرياضي ---------- */
 body.math-mode .screen-container {
-    height: clamp(150px, 21dvh, 190px) !important;
+    height: clamp(190px, 21dvh, 190px) !important;
     min-height: 150px !important;
 }
 
