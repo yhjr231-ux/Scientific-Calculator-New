@@ -1,4 +1,4 @@
-// ==========================================
+﻿// ==========================================
 // 🔊 صوت أزرار الآلة
 // ==========================================
 
@@ -140,20 +140,27 @@ const homeChoices =
 
 function clearSectionScreen() {
 
-    // احذف أي شاشة قسم قديمة
+    closeCustomPanel();
+
+    const fractionEditor = document.getElementById('fractionEditor');
+    if (fractionEditor) fractionEditor.remove();
+
+    fractionMode = false;
+    fractionStage = 0;
+    fractionNumerator = '';
+    fractionDenominator = '';
+    fractionExpression = '';
+
+    // ����� ���� ����� ������ �������
+    document.body.classList.remove('physics-mode');
+    document.body.classList.remove('chemistry-mode');
+    document.body.classList.remove('programming-mode');
+    document.body.classList.remove('math-mode');
+
+    // ����� �� ���� ��� �����
     removeCustomModePanel();
 
-    // تأكيد حذف أي شاشات أقسام إضافية
-    document.querySelectorAll("[id^='customModePanel']").forEach(panel => {
-        panel.remove();
-    });
-
 }
-
-
-// ==========================================
-// 🏠 فتح شاشة اختيار طريقة الحساب
-// ==========================================
 
 function openCalculatorHome() {
 
@@ -207,7 +214,12 @@ homeChoices.forEach(button => {
 
         const calculationType =
             button.dataset.calculation;
-currentCalculationType = calculationType;
+
+        saveOriginalCalculatorUI();
+
+        // تنظيف شاشة القسم السابق قبل فتح القسم الجديد
+        clearSectionScreen();
+        currentCalculationType = calculationType;
         playKeySound(620);
 
 
@@ -218,8 +230,10 @@ currentCalculationType = calculationType;
         clearSectionScreen();
 
 if (calculationType === "math") {
-currentCalculationType = "math";
+    currentCalculationType = "math";
+    currentMode = "COMP";
     clearSectionScreen();
+    closeCustomPanel();
 
     currentMode = "COMP";
 
@@ -244,6 +258,9 @@ currentCalculationType = "math";
 
     closeCalculatorHome();
 
+    restoreOriginalCalculatorUI();
+    restoreMathKeys();
+    showFractionButton();
     return;
 }
 
@@ -321,8 +338,10 @@ hideFractionButton();
         style="width:100%; padding:10px; margin-top:10px;">
         ← الرجوع
     </button>
-    
-`);
+ `);
+    return;
+}
+
 // ==========================================
 // ⚡ قائمة الكهرباء
 // ==========================================
@@ -777,8 +796,6 @@ window.calculateTemperatureConversion = function (type) {
 
     result.innerHTML = `✅ ${answer.toFixed(6)} ${unit}`;
 };
-};
-return;
 // 🎯 تحديد خانة الفيزياء النشطة
 const physicsInput1 = document.getElementById("physicsInput1");
 const physicsInput2 = document.getElementById("physicsInput2");
@@ -1166,9 +1183,9 @@ setupProgrammingKeys();
     `);
 
     return;
-}
-    });
 
+}
+});
 });
 window.openPhysicsMechanics = function() {
 
@@ -19835,8 +19852,9 @@ function fromRadians(val) {
 // 5. أدوات الشاشة المدمجة لنظام (fx-991)
 // ==========================================
 function closeCustomPanel() {
-    let p = document.getElementById("customModePanel");
-    if (p) p.remove();
+
+    document.querySelectorAll('#customModePanel, [id^=customModePanel]').forEach(panel => panel.remove());
+
 }
 
 function createScreenPanel(htmlContent) {
@@ -33348,7 +33366,7 @@ if (equalsBtn) {
         // ABS originally converted its contents with Number(...), which makes
         // expressions such as |1+2| fail.  Use the calculator's own parser.
         if (absMode && currentMode !== "CMPLX") {
-            event.stopImmediatePropagation();
+            if(document.body.classList.contains('physics-mode')){const f=window.activePhysicsField?document.getElementById(window.activePhysicsField):null;if(f){f.value='';f.dispatchEvent(new Event('input',{bubbles:true}));}window.activePhysicsField=null;event.stopImmediatePropagation();return;}if(document.body.classList.contains('programming-mode')){if(typeof window.programmingClear==='function'){window.programmingClear();}event.stopImmediatePropagation();return;}event.stopImmediatePropagation();
             const inside = display.value
                 .replace(/^\|\s*/, "")
                 .replace(/\s*\|$/, "")
@@ -33372,7 +33390,7 @@ if (equalsBtn) {
         // to the original outer-fraction code.  This supports an inner
         // fraction in either the numerator or denominator.
         if (fractionMode && nestedFractionMode) {
-            event.stopImmediatePropagation();
+            if(document.body.classList.contains('physics-mode')){const f=window.activePhysicsField?document.getElementById(window.activePhysicsField):null;if(f){f.value='';f.dispatchEvent(new Event('input',{bubbles:true}));}window.activePhysicsField=null;event.stopImmediatePropagation();return;}if(document.body.classList.contains('programming-mode')){if(typeof window.programmingClear==='function'){window.programmingClear();}event.stopImmediatePropagation();return;}event.stopImmediatePropagation();
 
             if (nestedFractionStage === 1) {
                 if (nestedFractionNumerator) {
@@ -43055,7 +43073,51 @@ window.calculateAdvancedComplement = function () {
 // ==========================================
 
 let originalScientificHTML = null;
+
+let originalTopRowNodes = null;
+let originalMemoryRowNodes = null;
+let originalNavigationNodes = null;
+let originalFractionRowNode = null;
+
+function restoreOriginalCalculatorUI() {
+    const topRow = document.querySelector('.top-row');
+    const memoryRow = document.querySelector('.memory-row');
+    const navigation = document.querySelector('.navigation');
+    const fractionRow = document.querySelector('.fraction-row');
+    const scientificGrid = document.querySelector('.scientific-grid');
+    const numberGrid = document.querySelector('.number-grid');
+    if (topRow && originalTopRowNodes !== null) topRow.replaceChildren(...originalTopRowNodes);
+    if (memoryRow && originalMemoryRowNodes !== null) memoryRow.replaceChildren(...originalMemoryRowNodes);
+    if (navigation && originalNavigationNodes !== null) navigation.replaceChildren(...originalNavigationNodes);
+    if (!fractionRow && originalFractionRowNode && numberGrid && numberGrid.parentElement) numberGrid.parentElement.insertBefore(originalFractionRowNode, numberGrid);
+    if (scientificGrid && originalScientificNodes !== null) scientificGrid.replaceChildren(...originalScientificNodes);
+    if (numberGrid && originalNumberNodes !== null) numberGrid.replaceChildren(...originalNumberNodes);
+    if (memoryRow) memoryRow.style.removeProperty('display');
+    if (navigation) navigation.style.removeProperty('display');
+    document.body.classList.remove('chemistry-mode');
+    document.body.classList.remove('programming-mode');
+}
+
+function saveOriginalCalculatorUI() {
+    if (originalTopRowNodes !== null) return;
+    const topRow = document.querySelector('.top-row');
+    const memoryRow = document.querySelector('.memory-row');
+    const navigation = document.querySelector('.navigation');
+    const fractionRow = document.querySelector('.fraction-row');
+    const scientificGrid = document.querySelector('.scientific-grid');
+    const numberGrid = document.querySelector('.number-grid');
+    originalTopRowNodes = topRow ? Array.from(topRow.children) : [];
+    originalMemoryRowNodes = memoryRow ? Array.from(memoryRow.children) : [];
+    originalNavigationNodes = navigation ? Array.from(navigation.children) : [];
+    originalFractionRowNode = fractionRow || null;
+    if (scientificGrid && originalScientificHTML === null) originalScientificHTML = scientificGrid.innerHTML;
+    if (numberGrid && originalNumberHTML === null) originalNumberHTML = numberGrid.innerHTML;
+    if (scientificGrid && originalScientificNodes === null) originalScientificNodes = Array.from(scientificGrid.children);
+    if (numberGrid && originalNumberNodes === null) originalNumberNodes = Array.from(numberGrid.children);
+}
 let originalNumberHTML = null;
+let originalScientificNodes = null;
+let originalNumberNodes = null;
 
 function setupPhysicsKeys() {
 document.body.classList.add("physics-mode");
@@ -43314,14 +43376,12 @@ function restoreMathKeys() {
     }
 
     // استرجاع أزرار الرياضيات
-    if (originalScientificHTML !== null) {
-        scientificGrid.innerHTML =
-            originalScientificHTML;
+    if (originalScientificNodes !== null) {
+        scientificGrid.replaceChildren(...originalScientificNodes);
     }
 
-    if (originalNumberHTML !== null) {
-        numberGrid.innerHTML =
-            originalNumberHTML;
+    if (originalNumberNodes !== null) {
+        numberGrid.replaceChildren(...originalNumberNodes);
     }
 
     // إزالة وضع الفيزياء
@@ -43364,7 +43424,7 @@ document.addEventListener("click", function (event) {
     console.log("🧹 UNIVERSAL AC:", currentMode);
 
     // منع أي AC قديم من الاشتغال
-    event.stopImmediatePropagation();
+    if(document.body.classList.contains('physics-mode')){const f=window.activePhysicsField?document.getElementById(window.activePhysicsField):null;if(f){f.value='';f.dispatchEvent(new Event('input',{bubbles:true}));}window.activePhysicsField=null;event.stopImmediatePropagation();return;}if(document.body.classList.contains('programming-mode')){if(typeof window.programmingClear==='function'){window.programmingClear();}event.stopImmediatePropagation();return;}event.stopImmediatePropagation();
 
     // ==========================================
     // 🧹 مسح حالة الكسر بالكامل
@@ -43817,4 +43877,5 @@ function inputFractionDigit(digit) {
 
     return true;
 }
+
 
