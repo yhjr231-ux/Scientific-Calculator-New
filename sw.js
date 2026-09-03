@@ -1,4 +1,4 @@
-const CACHE_NAME = "scientific-calculator-v4";
+const CACHE_NAME = "scientific-calculator-v5";
 
 const FILES_TO_CACHE = [
     "./",
@@ -18,9 +18,9 @@ self.addEventListener("install", event => {
                 for (const file of FILES_TO_CACHE) {
                     try {
                         await cache.add(file);
-                        console.log("✅ CACHED:", file);
+                        console.log("CACHED:", file);
                     } catch (error) {
-                        console.error("❌ CACHE FAILED:", file, error);
+                        console.error("CACHE FAILED:", file, error);
                     }
                 }
 
