@@ -23754,6 +23754,7 @@ document.querySelectorAll("#setupMenu button").forEach(btn => {
 document.querySelectorAll("#modeMenu button").forEach(btn => {
     btn.onclick = function () {
         currentMode = this.dataset.mode || "COMP";
+        document.body.classList.toggle('comp-mode', currentMode === 'COMP');
         if (status) status.textContent = currentMode;
         if (expression) expression.textContent = "MODE: " + currentMode;
         if (modeMenu) modeMenu.classList.add("hidden");
@@ -43828,6 +43829,7 @@ document.body.classList.add(
 
 document.addEventListener("DOMContentLoaded", () => {
     applyCalculatorTheme(selectedTheme);
+    document.body.classList.toggle('comp-mode', currentMode === 'COMP');
 });
 
 function inputFractionDigit(digit) {

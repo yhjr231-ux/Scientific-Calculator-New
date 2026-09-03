@@ -2415,8 +2415,28 @@ body.math-mode .main-display {
 
 /* أزرار الأرقام والعمليات والقوسين */
 body.math-mode .number-grid {
+    flex: 0 0 auto !important;
+    height: 183px !important;
+    grid-auto-rows: 42px !important;
+    align-content: start !important;
     gap: 5px !important;
 }
+
+/* COMP - تثبيت حجم لوحة الأرقام */
+.comp-mode .number-grid {
+    flex: 0 0 auto !important;
+    height: 183px !important;
+    grid-auto-rows: 42px !important;
+    align-content: start !important;
+    gap: 5px !important;
+}
+
+.comp-mode .number-grid button {
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+}
+
 
 body.math-mode .number-grid button {
     height: 42px !important;
