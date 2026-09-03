@@ -2456,20 +2456,3 @@ body.math-mode .number-grid button {
     height: 42px !important;
     min-height: 42px !important;
 }
-/* ==========================================
-   COMP / Math - ضبط شبكة الأرقام
-   ========================================== */
-
-body.math-mode .number-grid {
-    flex: 0 0 auto !important;
-    height: 183px !important;
-    grid-auto-rows: 42px !important;
-    align-content: start !important;
-    gap: 5px !important;
-}
-
-body.math-mode .number-grid button {
-    height: 42px !important;
-    min-height: 42px !important;
-    max-height: 42px !important;
-}
