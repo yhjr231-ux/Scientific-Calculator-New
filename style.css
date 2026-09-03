@@ -2510,3 +2510,8 @@ body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) #close {
     min-height: 42px !important;
     max-height: 42px !important;
 }
+
+/* إزالة المساحة الفارغة أسفل لوحة الأرقام */
+body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) .calculator {
+    justify-content: flex-end !important;
+}
