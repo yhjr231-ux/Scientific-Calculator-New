@@ -2512,5 +2512,5 @@ body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) #close {
 }
 /* إزالة المساحة الفارغة أسفل لوحة الأرقام */
 body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) .calculator {
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
 }
