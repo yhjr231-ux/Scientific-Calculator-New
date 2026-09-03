@@ -20321,7 +20321,7 @@ if (currentMode === "COMP" && !fractionMode) {
     // 🔢 الرقم
     if (/^[0-9]$/.test(value)) {
 
-        display.value += value;
+        writeToDisplay(value);
 
         console.log(
             "🧮 COMP NUMBER:",
@@ -20379,22 +20379,6 @@ if (currentMode === "COMP" && !fractionMode) {
 // ==========================================
 
 if (currentMode === "COMP" && !fractionMode) {
-
-    // 🔢 الأرقام
-    if (/^[0-9]$/.test(value)) {
-
-        display.value += value;
-
-        console.log(
-            "🧮 COMP NUMBER:",
-            value,
-            "=>",
-            display.value
-        );
-
-        return;
-    }
-
     // 🔵 النقطة العشرية
     if (value === ".") {
 
@@ -20496,7 +20480,7 @@ if (currentMode === "CMPLX") {
     // الأرقام
     if (/^[0-9]$/.test(value)) {
 
-        display.value += value;
+        writeToDisplay(value);
 
         console.log(
             "🔵 CMPLX NUMBER:",
@@ -43877,5 +43861,6 @@ function inputFractionDigit(digit) {
 
     return true;
 }
+
 
 
