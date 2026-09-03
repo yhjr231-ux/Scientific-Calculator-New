@@ -1253,7 +1253,7 @@ body {
 }
 
 body {
-    padding: 10px;
+    padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
 }
