@@ -2476,3 +2476,37 @@ body.math-mode .number-grid button {
     height: 42px !important;
     min-height: 42px !important;
 }
+
+
+/* ALL-MATH-GRID-FIX */
+body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) .number-grid {
+    flex: 0 0 auto !important;
+    height: 183px !important;
+    grid-auto-rows: 42px !important;
+    align-content: start !important;
+    gap: 5px !important;
+}
+
+body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) .number-grid button {
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+}
+
+
+
+body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) .number-grid #open,
+body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) .number-grid #close {
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+}
+
+
+/* FIX MATH PARENTHESES FINAL */
+body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) #open,
+body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) #close {
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+}
