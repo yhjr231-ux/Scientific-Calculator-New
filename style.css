@@ -2514,3 +2514,34 @@ body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) #close {
 body:not(.chemistry-mode):not(.programming-mode):not(.physics-mode) .calculator {
     justify-content: flex-start !important;
 }
+
+
+/* FINAL - Fill remaining vertical space */
+body .calculator .number-grid {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    grid-auto-rows: 1fr !important;
+    align-content: stretch !important;
+}
+
+body .calculator .number-grid button {
+    height: 100% !important;
+    min-height: 0 !important;
+}
+
+
+/* FINAL - Programming mode vertical fix */
+body.programming-mode .calculator .number-grid {
+    flex: 1 1 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    grid-auto-rows: 1fr !important;
+    gap: 3px !important;
+    align-content: stretch !important;
+}
+
+body.programming-mode .calculator .number-grid button {
+    height: 100% !important;
+    min-height: 0 !important;
+}
