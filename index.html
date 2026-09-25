@@ -112,13 +112,69 @@ if ("serviceWorker" in navigator) {
     </div>
 
 </div>
+<!-- =========================
+     📚 صفحة القوانين
+========================= -->
+
+<div id="lawsPage" class="laws-page hidden">
+
+    <h2 id="lawsTitle">📚 القوانين</h2>
+
+    <div class="law-categories">
+
+        <button class="law-category" data-category="algebra">
+            🔢
+            <span>الجبر</span>
+        </button>
+
+        <button class="law-category" data-category="geometry">
+            📐
+            <span>الهندسة</span>
+        </button>
+
+        <button class="law-category" data-category="trigonometry">
+            🔺
+            <span>المثلثات</span>
+        </button>
+
+        <button class="law-category" data-category="statistics">
+            📊
+            <span>الإحصاء والاحتمالات</span>
+        </button>
+
+        <button class="law-category" data-category="sequences">
+            📈
+            <span>المتتابعات والمتسلسلات</span>
+        </button>
+
+        <button class="law-category" data-category="calculus">
+            ∫
+            <span>التفاضل والتكامل</span>
+        </button>
+
+    </div>
+
+    <div id="lawsContent"></div>
+
+    <button id="backLawsBtn" class="back-laws-btn">
+        ↩️ رجوع
+    </button>
+
+</div>
+
 <div class="calculator">
     <div class="calculator-brand" aria-label="Casio fx-991EX ClassWiz">
         <span class="brand-casio">model VIP</span>
         <span class="brand-model"></span>
-        <button id="themeBtn" class="theme-btn">
-    🎨 الخلفية
-</button>
+       <div class="calculator-tools">
+    <button id="themeBtn" class="theme-btn">
+        🎨 الخلفية
+    </button>
+
+    <button id="lawsBtn" class="laws-btn">
+        📚 القوانين
+    </button>
+</div>
 
         <span class="brand-classwiz">بتحسب اي حاجة</span>
     </div>

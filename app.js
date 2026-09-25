@@ -107,7 +107,2162 @@ const display = document.getElementById("display");
 const expression = document.getElementById("expression");
 const status = document.getElementById("status");
 const screen = document.getElementById("screen");
+const lawsBtn = document.getElementById("lawsBtn");
+const lawsPage = document.getElementById("lawsPage");
+const lawsTitle = document.getElementById("lawsTitle");
+const lawsContent = document.getElementById("lawsContent");
+const backLawsBtn = document.getElementById("backLawsBtn");
 
+lawsBtn.addEventListener("click", () => {
+
+    document.querySelector(".calculator").classList.add("hidden");
+    lawsPage.classList.remove("hidden");
+const lawCategories = document.querySelector(".law-categories");
+
+if (currentCalculationType === "math") {
+
+    lawCategories.innerHTML = `
+
+        <button class="law-category" data-category="algebra">
+            🔢
+            <span>الجبر</span>
+        </button>
+
+        <button class="law-category" data-category="geometry">
+            📐
+            <span>الهندسة</span>
+        </button>
+
+        <button class="law-category" data-category="trigonometry">
+            🔺
+            <span>المثلثات</span>
+        </button>
+
+        <button class="law-category" data-category="statistics">
+            📊
+            <span>الإحصاء والاحتمالات</span>
+        </button>
+
+        <button class="law-category" data-category="sequences">
+            📈
+            <span>المتتابعات والمتسلسلات</span>
+        </button>
+
+        <button class="law-category" data-category="calculus">
+            ∫
+            <span>التفاضل والتكامل</span>
+        </button>
+
+    `;
+}
+    // =========================
+    // 📚 قوانين الرياضيات
+    // =========================
+
+    if (currentCalculationType === "math") {
+
+        lawsTitle.textContent = "📐 قوانين الرياضيات";
+
+        lawsContent.innerHTML = `
+
+        <div class="law-card">
+            <h3>⭕ مساحة الدائرة</h3>
+            <div class="law-formula">م = π × نق²</div>
+            <p><strong>م</strong> = مساحة الدائرة</p>
+            <p><strong>π</strong> = ثابت باي ≈ 3.14159</p>
+            <p><strong>نق</strong> = نصف قطر الدائرة</p>
+        </div>
+
+
+            <div class="law-card">
+
+                <h3>⭕ محيط الدائرة</h3>
+
+                <div class="law-formula">
+                    ح = 2 × π × نق
+                </div>
+
+                <p><strong>ح</strong> = محيط الدائرة</p>
+                <p><strong>π</strong> = ثابت باي</p>
+                <p><strong>نق</strong> = نصف قطر الدائرة</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔺 مساحة المثلث</h3>
+
+                <div class="law-formula">
+                    م = ½ × ق × ع
+                </div>
+
+                <p><strong>م</strong> = مساحة المثلث</p>
+                <p><strong>ق</strong> = طول القاعدة</p>
+                <p><strong>ع</strong> = الارتفاع</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>▭ مساحة المستطيل</h3>
+
+                <div class="law-formula">
+                    م = ط × ع
+                </div>
+
+                <p><strong>م</strong> = مساحة المستطيل</p>
+                <p><strong>ط</strong> = الطول</p>
+                <p><strong>ع</strong> = العرض</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>□ مساحة المربع</h3>
+
+                <div class="law-formula">
+                    م = ض²
+                </div>
+
+                <p><strong>م</strong> = مساحة المربع</p>
+                <p><strong>ض</strong> = طول الضلع</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>□ محيط المربع</h3>
+
+                <div class="law-formula">
+                    ح = 4 × ض
+                </div>
+
+                <p><strong>ح</strong> = محيط المربع</p>
+                <p><strong>ض</strong> = طول الضلع</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📦 حجم المكعب</h3>
+
+                <div class="law-formula">
+                    ح = ض³
+                </div>
+
+                <p><strong>ح</strong> = حجم المكعب</p>
+                <p><strong>ض</strong> = طول الحرف</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📦 حجم متوازي المستطيلات</h3>
+
+                <div class="law-formula">
+                    ح = ط × ع × ا
+                </div>
+
+                <p><strong>ح</strong> = الحجم</p>
+                <p><strong>ط</strong> = الطول</p>
+                <p><strong>ع</strong> = العرض</p>
+                <p><strong>ا</strong> = الارتفاع</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 نظرية فيثاغورس</h3>
+
+                <div class="law-formula">
+                    و² = ض₁² + ض₂²
+                </div>
+
+                <p><strong>و</strong> = الوتر</p>
+                <p><strong>ض₁</strong> = الضلع القائم الأول</p>
+                <p><strong>ض₂</strong> = الضلع القائم الثاني</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>➗ النسبة المئوية</h3>
+
+                <div class="law-formula">
+                    النسبة المئوية = (الجزء ÷ الكل) × 100
+                </div>
+
+                <p><strong>الجزء</strong> = القيمة المطلوبة</p>
+                <p><strong>الكل</strong> = القيمة الكلية</p>
+
+            </div>
+
+                        <div class="law-card">
+
+                <h3>📐 مجموع زوايا المثلث</h3>
+
+                <div class="law-formula">
+                    أ + ب + ج = 180°
+                </div>
+
+                <p><strong>أ</strong> = الزاوية الأولى</p>
+                <p><strong>ب</strong> = الزاوية الثانية</p>
+                <p><strong>ج</strong> = الزاوية الثالثة</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📊 المتوسط الحسابي</h3>
+
+                <div class="law-formula">
+                    س̄ = (س₁ + س₂ + س₃ + ... + سₙ) ÷ ن
+                </div>
+
+                <p><strong>س̄</strong> = المتوسط الحسابي</p>
+                <p><strong>س₁، س₂، س₃</strong> = القيم</p>
+                <p><strong>ن</strong> = عدد القيم</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 قوانين الأسس</h3>
+
+                <div class="law-formula">
+                    سᵃ × سᵇ = سᵃ⁺ᵇ
+                </div>
+
+                <div class="law-formula">
+                    سᵃ ÷ سᵇ = سᵃ⁻ᵇ
+                </div>
+
+                <div class="law-formula">
+                    (سᵃ)ᵇ = سᵃᵇ
+                </div>
+
+                <p><strong>س</strong> = الأساس</p>
+                <p><strong>أ، ب</strong> = الأسس</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>√ قوانين الجذور</h3>
+
+                <div class="law-formula">
+                    √(س × ص) = √س × √ص
+                </div>
+
+                <div class="law-formula">
+                    √(س ÷ ص) = √س ÷ √ص
+                </div>
+
+                <p><strong>س، ص</strong> = أعداد حقيقية مناسبة للقانون</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 اللوغاريتمات</h3>
+
+                <div class="law-formula">
+                    log(س × ص) = log س + log ص
+                </div>
+
+                <div class="law-formula">
+                    log(س ÷ ص) = log س − log ص
+                </div>
+
+                <div class="law-formula">
+                    log(سᵃ) = أ × log س
+                </div>
+
+                <p><strong>س، ص</strong> = أعداد موجبة</p>
+                <p><strong>أ</strong> = الأس</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔺 المعادلة التربيعية</h3>
+
+                <div class="law-formula">
+                    أ س² + ب س + ج = 0
+                </div>
+
+                <div class="law-formula">
+                    س = (−ب ± √(ب² − 4أج)) ÷ 2أ
+                </div>
+
+                <p><strong>أ</strong> = معامل س²</p>
+                <p><strong>ب</strong> = معامل س</p>
+                <p><strong>ج</strong> = الحد الثابت</p>
+                <p><strong>س</strong> = المجهول</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 المتتابعة الحسابية</h3>
+
+                <div class="law-formula">
+                    حₙ = ح₁ + (ن − 1) × د
+                </div>
+
+                <p><strong>حₙ</strong> = الحد النوني</p>
+                <p><strong>ح₁</strong> = الحد الأول</p>
+                <p><strong>ن</strong> = رقم الحد</p>
+                <p><strong>د</strong> = أساس المتتابعة</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 المتتابعة الهندسية</h3>
+
+                <div class="law-formula">
+                    حₙ = ح₁ × رⁿ⁻¹
+                </div>
+
+                <p><strong>حₙ</strong> = الحد النوني</p>
+                <p><strong>ح₁</strong> = الحد الأول</p>
+                <p><strong>ن</strong> = رقم الحد</p>
+                <p><strong>ر</strong> = أساس المتتابعة الهندسية</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔄 التباديل</h3>
+
+                <div class="law-formula">
+                    ⁿPᵣ = ن! ÷ (ن − ر)!
+                </div>
+
+                <p><strong>ن</strong> = عدد العناصر الكلي</p>
+                <p><strong>ر</strong> = عدد العناصر المختارة</p>
+                <p><strong>!</strong> = المضروب</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔄 التوافيق</h3>
+
+                <div class="law-formula">
+                    ⁿCᵣ = ن! ÷ [ر! × (ن − ر)!]
+                </div>
+
+                <p><strong>ن</strong> = عدد العناصر الكلي</p>
+                <p><strong>ر</strong> = عدد العناصر المختارة</p>
+                <p><strong>!</strong> = المضروب</p>
+
+            </div>
+                        <div class="law-card">
+
+                <h3>🔺 قانون الجيب</h3>
+
+                <div class="law-formula">
+                    أ ÷ جا أ = ب ÷ جا ب = ج ÷ جا ج
+                </div>
+
+                <p><strong>أ، ب، ج</strong> = أطوال أضلاع المثلث</p>
+                <p><strong>أ، ب، ج</strong> = الزوايا المقابلة للأضلاع</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔺 قانون جيب التمام</h3>
+
+                <div class="law-formula">
+                    ج² = أ² + ب² − 2 × أ × ب × جتا ج
+                </div>
+
+                <p><strong>أ، ب، ج</strong> = أطوال أضلاع المثلث</p>
+                <p><strong>ج</strong> = الزاوية المحصورة بين أ و ب</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔺 مساحة المثلث باستخدام ضلعين وزاوية</h3>
+
+                <div class="law-formula">
+                    م = ½ × أ × ب × جا ج
+                </div>
+
+                <p><strong>م</strong> = مساحة المثلث</p>
+                <p><strong>أ، ب</strong> = ضلعان من المثلث</p>
+                <p><strong>ج</strong> = الزاوية المحصورة بينهما</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 النسب المثلثية</h3>
+
+                <div class="law-formula">
+                    جا θ = المقابل ÷ الوتر
+                </div>
+
+                <div class="law-formula">
+                    جتا θ = المجاور ÷ الوتر
+                </div>
+
+                <div class="law-formula">
+                    ظا θ = المقابل ÷ المجاور
+                </div>
+
+                <p><strong>θ</strong> = الزاوية</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 العلاقة الأساسية</h3>
+
+                <div class="law-formula">
+                    جا² θ + جتا² θ = 1
+                </div>
+
+                <p><strong>θ</strong> = الزاوية</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>▱ مساحة متوازي الأضلاع</h3>
+
+                <div class="law-formula">
+                    م = ق × ع
+                </div>
+
+                <p><strong>م</strong> = المساحة</p>
+                <p><strong>ق</strong> = طول القاعدة</p>
+                <p><strong>ع</strong> = الارتفاع</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔷 مساحة المعين</h3>
+
+                <div class="law-formula">
+                    م = ½ × ق₁ × ق₂
+                </div>
+
+                <p><strong>م</strong> = المساحة</p>
+                <p><strong>ق₁</strong> = القطر الأول</p>
+                <p><strong>ق₂</strong> = القطر الثاني</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>⏢ مساحة شبه المنحرف</h3>
+
+                <div class="law-formula">
+                    م = ½ × (ق₁ + ق₂) × ع
+                </div>
+
+                <p><strong>م</strong> = المساحة</p>
+                <p><strong>ق₁، ق₂</strong> = طولا القاعدتين</p>
+                <p><strong>ع</strong> = الارتفاع</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>⭕ طول القوس</h3>
+
+                <div class="law-formula">
+                    ل = (θ ÷ 360°) × 2 × π × نق
+                </div>
+
+                <p><strong>ل</strong> = طول القوس</p>
+                <p><strong>θ</strong> = الزاوية المركزية</p>
+                <p><strong>نق</strong> = نصف القطر</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>⭕ مساحة القطاع الدائري</h3>
+
+                <div class="law-formula">
+                    م = (θ ÷ 360°) × π × نق²
+                </div>
+
+                <p><strong>م</strong> = مساحة القطاع</p>
+                <p><strong>θ</strong> = الزاوية المركزية</p>
+                <p><strong>نق</strong> = نصف القطر</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📊 المدى</h3>
+
+                <div class="law-formula">
+                    المدى = أكبر قيمة − أصغر قيمة
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📊 الاحتمال</h3>
+
+                <div class="law-formula">
+                    ح(أ) = عدد النتائج المطلوبة ÷ عدد النتائج الكلية
+                </div>
+
+                <p><strong>ح(أ)</strong> = احتمال وقوع الحدث أ</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📊 احتمال المتمم</h3>
+
+                <div class="law-formula">
+                    ح(أ̄) = 1 − ح(أ)
+                </div>
+
+                <p><strong>ح(أ̄)</strong> = احتمال عدم وقوع الحدث أ</p>
+                <p><strong>ح(أ)</strong> = احتمال وقوع الحدث أ</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📊 احتمال حدثين مستقلين</h3>
+
+                <div class="law-formula">
+                    ح(أ ∩ ب) = ح(أ) × ح(ب)
+                </div>
+
+                <p><strong>أ، ب</strong> = حدثان مستقلان</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📊 الاحتمال الشرطي</h3>
+
+                <div class="law-formula">
+                    ح(أ | ب) = ح(أ ∩ ب) ÷ ح(ب)
+                </div>
+
+                <p><strong>ح(أ | ب)</strong> = احتمال أ بشرط وقوع ب</p>
+
+            </div>
+                        <div class="law-card">
+
+                <h3>📈 الحد النوني للمتتابعة الحسابية</h3>
+
+                <div class="law-formula">
+                    حₙ = ح₁ + (ن − 1)د
+                </div>
+
+                <p><strong>حₙ</strong> = الحد النوني</p>
+                <p><strong>ح₁</strong> = الحد الأول</p>
+                <p><strong>ن</strong> = رقم الحد</p>
+                <p><strong>د</strong> = الفرق المشترك</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 مجموع المتتابعة الحسابية</h3>
+
+                <div class="law-formula">
+                    مₙ = ن ÷ 2 × (ح₁ + حₙ)
+                </div>
+
+                <p><strong>مₙ</strong> = مجموع أول ن حد</p>
+                <p><strong>ن</strong> = عدد الحدود</p>
+                <p><strong>ح₁</strong> = الحد الأول</p>
+                <p><strong>حₙ</strong> = الحد الأخير</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 الحد النوني للمتتابعة الهندسية</h3>
+
+                <div class="law-formula">
+                    حₙ = ح₁ × رⁿ⁻¹
+                </div>
+
+                <p><strong>حₙ</strong> = الحد النوني</p>
+                <p><strong>ح₁</strong> = الحد الأول</p>
+                <p><strong>ر</strong> = الأساس أو النسبة المشتركة</p>
+                <p><strong>ن</strong> = رقم الحد</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 مجموع المتتابعة الهندسية</h3>
+
+                <div class="law-formula">
+                    مₙ = ح₁ × (رⁿ − 1) ÷ (ر − 1)
+                </div>
+
+                <p><strong>مₙ</strong> = مجموع أول ن حد</p>
+                <p><strong>ح₁</strong> = الحد الأول</p>
+                <p><strong>ر</strong> = النسبة المشتركة</p>
+                <p><strong>ن</strong> = عدد الحدود</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 مربع مجموع حدين</h3>
+
+                <div class="law-formula">
+                    (أ + ب)² = أ² + 2أب + ب²
+                </div>
+
+                <p><strong>أ، ب</strong> = أي حدين</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 مربع الفرق بين حدين</h3>
+
+                <div class="law-formula">
+                    (أ − ب)² = أ² − 2أب + ب²
+                </div>
+
+                <p><strong>أ، ب</strong> = أي حدين</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 الفرق بين مربعين</h3>
+
+                <div class="law-formula">
+                    أ² − ب² = (أ − ب)(أ + ب)
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 مكعب مجموع حدين</h3>
+
+                <div class="law-formula">
+                    (أ + ب)³ = أ³ + 3أ²ب + 3أب² + ب³
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 مكعب الفرق بين حدين</h3>
+
+                <div class="law-formula">
+                    (أ − ب)³ = أ³ − 3أ²ب + 3أب² − ب³
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 مجموع مكعبين</h3>
+
+                <div class="law-formula">
+                    أ³ + ب³ = (أ + ب)(أ² − أب + ب²)
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>🔢 الفرق بين مكعبين</h3>
+
+                <div class="law-formula">
+                    أ³ − ب³ = (أ − ب)(أ² + أب + ب²)
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>∫ التكامل الأساسي</h3>
+
+                <div class="law-formula">
+                    ∫ سⁿ د س = سⁿ⁺¹ ÷ (ن + 1) + ث
+                </div>
+
+                <p><strong>ن</strong> ≠ −1</p>
+                <p><strong>ث</strong> = ثابت التكامل</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>∫ تكامل الثابت</h3>
+
+                <div class="law-formula">
+                    ∫ ك د س = ك س + ث
+                </div>
+
+                <p><strong>ك</strong> = ثابت</p>
+                <p><strong>ث</strong> = ثابت التكامل</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة القوة</h3>
+
+                <div class="law-formula">
+                    د(سⁿ) ÷ د س = ن سⁿ⁻¹
+                </div>
+
+                <p><strong>ن</strong> = الأس</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة الثابت</h3>
+
+                <div class="law-formula">
+                    د(ك) ÷ د س = 0
+                </div>
+
+                <p><strong>ك</strong> = ثابت</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة الجمع والطرح</h3>
+
+                <div class="law-formula">
+                    د(أ ± ب) = دأ ± دب
+                </div>
+
+                <p>يمكن اشتقاق كل حد بشكل منفصل.</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة حاصل الضرب</h3>
+
+                <div class="law-formula">
+                    د(أب) = أ × دب + ب × دأ
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة حاصل القسمة</h3>
+
+                <div class="law-formula">
+                    د(أ ÷ ب) = (ب × دأ − أ × دب) ÷ ب²
+                </div>
+
+                <p><strong>ب</strong> ≠ 0</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة الجيب</h3>
+
+                <div class="law-formula">
+                    د(جا س) = جتا س
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة جيب التمام</h3>
+
+                <div class="law-formula">
+                    د(جتا س) = −جا س
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📐 مشتقة الظل</h3>
+
+                <div class="law-formula">
+                    د(ظا س) = قا² س
+                </div>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 مشتقة الدالة الأسية</h3>
+
+                <div class="law-formula">
+                    د(هـˣ) = هـˣ
+                </div>
+
+                <p><strong>هـ</strong> = عدد أويلر ≈ 2.71828</p>
+
+            </div>
+
+
+            <div class="law-card">
+
+                <h3>📈 مشتقة اللوغاريتم الطبيعي</h3>
+
+                <div class="law-formula">
+                    د(ln س) = 1 ÷ س
+                </div>
+
+                <p><strong>س</strong> &gt; 0</p>
+
+            </div>
+                `;
+
+    }
+
+
+    // =========================
+    // ⚛️ قوانين الفيزياء
+    // =========================
+
+    if (currentCalculationType === "physics") {
+
+        lawsTitle.textContent = "⚛️ قوانين الفيزياء";
+
+        const lawCategories = document.querySelector(".law-categories");
+
+        lawCategories.innerHTML = `
+
+            <button class="law-category" data-category="mechanics">
+                🏃
+                <span>الميكانيكا والحركة</span>
+            </button>
+
+            <button class="law-category" data-category="electricity">
+                ⚡
+                <span>الكهرباء</span>
+            </button>
+
+            <button class="law-category" data-category="heat">
+                🌡️
+                <span>الحرارة</span>
+            </button>
+
+            <button class="law-category" data-category="fluids">
+                💧
+                <span>الموائع والضغط</span>
+            </button>
+
+            <button class="law-category" data-category="waves">
+                🌊
+                <span>الموجات</span>
+            </button>
+
+            <button class="law-category" data-category="optics">
+                🔭
+                <span>البصريات</span>
+            </button>
+
+            <button class="law-category" data-category="magnetism">
+                🧲
+                <span>المغناطيسية</span>
+            </button>
+
+            <button class="law-category" data-category="modern">
+                ⚛️
+                <span>الفيزياء الحديثة</span>
+            </button>
+
+        `;
+
+        lawsContent.innerHTML = `
+
+            <!-- 🏃 الميكانيكا والحركة -->
+
+            <div class="law-card" data-category="mechanics">
+                <h3>🏃 السرعة</h3>
+
+                <div class="law-formula">
+                    ع = ف ÷ ز
+                </div>
+
+                <p><strong>ع</strong> = السرعة</p>
+                <p><strong>ف</strong> = المسافة</p>
+                <p><strong>ز</strong> = الزمن</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>🏃 المسافة</h3>
+
+                <div class="law-formula">
+                    ف = ع × ز
+                </div>
+
+                <p><strong>ف</strong> = المسافة</p>
+                <p><strong>ع</strong> = السرعة</p>
+                <p><strong>ز</strong> = الزمن</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>⏱️ الزمن</h3>
+
+                <div class="law-formula">
+                    ز = ف ÷ ع
+                </div>
+
+                <p><strong>ز</strong> = الزمن</p>
+                <p><strong>ف</strong> = المسافة</p>
+                <p><strong>ع</strong> = السرعة</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>🏎️ العجلة</h3>
+
+                <div class="law-formula">
+                    ت = (ع₂ − ع₁) ÷ ز
+                </div>
+
+                <p><strong>ت</strong> = العجلة</p>
+                <p><strong>ع₁</strong> = السرعة الابتدائية</p>
+                <p><strong>ع₂</strong> = السرعة النهائية</p>
+                <p><strong>ز</strong> = الزمن</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>💪 القوة</h3>
+
+                <div class="law-formula">
+                    ق = ك × ت
+                </div>
+
+                <p><strong>ق</strong> = القوة</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ت</strong> = العجلة</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>⚖️ الوزن</h3>
+
+                <div class="law-formula">
+                    و = ك × ج
+                </div>
+
+                <p><strong>و</strong> = الوزن</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ج</strong> = عجلة الجاذبية ≈ 9.80665 م/ث²</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>⚡ الطاقة الحركية</h3>
+
+                <div class="law-formula">
+                    طₖ = ½ × ك × ع²
+                </div>
+
+                <p><strong>طₖ</strong> = الطاقة الحركية</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ع</strong> = السرعة</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>⬆️ طاقة الوضع</h3>
+
+                <div class="law-formula">
+                    طₚ = ك × ج × ف
+                </div>
+
+                <p><strong>طₚ</strong> = طاقة الوضع</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ج</strong> = عجلة الجاذبية</p>
+                <p><strong>ف</strong> = الارتفاع</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>🎯 كمية الحركة</h3>
+
+                <div class="law-formula">
+                    زَخ = ك × ع
+                </div>
+
+                <p><strong>زَخ</strong> = كمية الحركة</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ع</strong> = السرعة</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>🔨 الشغل</h3>
+
+                <div class="law-formula">
+                    ش = ق × ف
+                </div>
+
+                <p><strong>ش</strong> = الشغل</p>
+                <p><strong>ق</strong> = القوة</p>
+                <p><strong>ف</strong> = الإزاحة</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>⚙️ القدرة</h3>
+
+                <div class="law-formula">
+                    قُد = ش ÷ ز
+                </div>
+
+                <p><strong>قُد</strong> = القدرة</p>
+                <p><strong>ش</strong> = الشغل</p>
+                <p><strong>ز</strong> = الزمن</p>
+            </div>
+
+
+            <div class="law-card" data-category="mechanics">
+                <h3>🚀 المقذوفات</h3>
+
+                <div class="law-formula">
+                    ز = 2 × ع₀ × جا θ ÷ ج
+                </div>
+
+                <p><strong>ز</strong> = زمن التحليق</p>
+                <p><strong>ع₀</strong> = السرعة الابتدائية</p>
+                <p><strong>θ</strong> = زاوية القذف</p>
+                <p><strong>ج</strong> = عجلة الجاذبية</p>
+            </div>
+
+
+            <!-- ⚡ الكهرباء -->
+
+            <div class="law-card" data-category="electricity">
+                <h3>⚡ قانون أوم</h3>
+
+                <div class="law-formula">
+                    ج = ت × م
+                </div>
+
+                <p><strong>ج</strong> = فرق الجهد</p>
+                <p><strong>ت</strong> = شدة التيار</p>
+                <p><strong>م</strong> = المقاومة</p>
+            </div>
+
+
+            <div class="law-card" data-category="electricity">
+                <h3>🔌 القدرة الكهربائية</h3>
+
+                <div class="law-formula">
+                    قُد = ج × ت
+                </div>
+
+                <p><strong>قُد</strong> = القدرة الكهربائية</p>
+                <p><strong>ج</strong> = فرق الجهد</p>
+                <p><strong>ت</strong> = شدة التيار</p>
+            </div>
+
+
+            <div class="law-card" data-category="electricity">
+                <h3>🔋 الطاقة الكهربائية</h3>
+
+                <div class="law-formula">
+                    ط = قُد × ز
+                </div>
+
+                <p><strong>ط</strong> = الطاقة الكهربائية</p>
+                <p><strong>قُد</strong> = القدرة</p>
+                <p><strong>ز</strong> = الزمن</p>
+            </div>
+
+
+            <!-- 🌡️ الحرارة -->
+
+            <div class="law-card" data-category="heat">
+                <h3>🌡️ كمية الحرارة</h3>
+
+                <div class="law-formula">
+                    ح = ك × ن × Δد
+                </div>
+
+                <p><strong>ح</strong> = كمية الحرارة</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ن</strong> = الحرارة النوعية</p>
+                <p><strong>Δد</strong> = التغير في درجة الحرارة</p>
+            </div>
+
+
+            <div class="law-card" data-category="heat">
+                <h3>🔥 الحرارة الكامنة</h3>
+
+                <div class="law-formula">
+                    ح = ك × ل
+                </div>
+
+                <p><strong>ح</strong> = كمية الحرارة</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ل</strong> = الحرارة الكامنة النوعية</p>
+            </div>
+
+
+            <!-- 💧 الموائع والضغط -->
+
+            <div class="law-card" data-category="fluids">
+                <h3>💧 الضغط</h3>
+
+                <div class="law-formula">
+                    ض = ق ÷ م
+                </div>
+
+                <p><strong>ض</strong> = الضغط</p>
+                <p><strong>ق</strong> = القوة</p>
+                <p><strong>م</strong> = المساحة</p>
+            </div>
+
+
+            <div class="law-card" data-category="fluids">
+                <h3>💧 ضغط السائل</h3>
+
+                <div class="law-formula">
+                    ض = ρ × ج × ع
+                </div>
+
+                <p><strong>ض</strong> = ضغط السائل</p>
+                <p><strong>ρ</strong> = كثافة السائل</p>
+                <p><strong>ج</strong> = عجلة الجاذبية</p>
+                <p><strong>ع</strong> = العمق</p>
+            </div>
+
+
+            <!-- 🌊 الموجات -->
+
+            <div class="law-card" data-category="waves">
+                <h3>🌊 سرعة الموجة</h3>
+
+                <div class="law-formula">
+                    ع = λ × ت
+                </div>
+
+                <p><strong>ع</strong> = سرعة الموجة</p>
+                <p><strong>λ</strong> = الطول الموجي</p>
+                <p><strong>ت</strong> = التردد</p>
+            </div>
+
+
+            <div class="law-card" data-category="waves">
+                <h3>〰️ التردد والزمن الدوري</h3>
+
+                <div class="law-formula">
+                    ت = 1 ÷ ز
+                </div>
+
+                <p><strong>ت</strong> = التردد</p>
+                <p><strong>ز</strong> = الزمن الدوري</p>
+            </div>
+
+
+            <!-- 🔭 البصريات -->
+
+            <div class="law-card" data-category="optics">
+                <h3>🔭 قانون العدسة</h3>
+
+                <div class="law-formula">
+                    1 ÷ ب = 1 ÷ ع + 1 ÷ ص
+                </div>
+
+                <p><strong>ب</strong> = البعد البؤري</p>
+                <p><strong>ع</strong> = بعد الجسم</p>
+                <p><strong>ص</strong> = بعد الصورة</p>
+            </div>
+
+
+            <div class="law-card" data-category="optics">
+                <h3>🔍 التكبير</h3>
+
+                <div class="law-formula">
+                    ت = ص ÷ ع
+                </div>
+
+                <p><strong>ت</strong> = التكبير</p>
+                <p><strong>ص</strong> = طول الصورة</p>
+                <p><strong>ع</strong> = طول الجسم</p>
+            </div>
+
+
+            <!-- 🧲 المغناطيسية -->
+
+            <div class="law-card" data-category="magnetism">
+                <h3>🧲 القوة المغناطيسية</h3>
+
+                <div class="law-formula">
+                    ق = ب × ت × ل × جا θ
+                </div>
+
+                <p><strong>ق</strong> = القوة المغناطيسية</p>
+                <p><strong>ب</strong> = كثافة الفيض المغناطيسي</p>
+                <p><strong>ت</strong> = شدة التيار</p>
+                <p><strong>ل</strong> = طول السلك</p>
+                <p><strong>θ</strong> = الزاوية</p>
+            </div>
+
+
+            <!-- ⚛️ الفيزياء الحديثة -->
+
+            <div class="law-card" data-category="modern">
+                <h3>⚛️ تكافؤ الكتلة والطاقة</h3>
+
+                <div class="law-formula">
+                    ط = ك × ج²
+                </div>
+
+                <p><strong>ط</strong> = الطاقة</p>
+                <p><strong>ك</strong> = الكتلة</p>
+                <p><strong>ج</strong> = سرعة الضوء</p>
+            </div>
+
+        `;
+
+
+        // تشغيل أزرار تصنيفات الفيزياء
+
+        lawCategories
+            .querySelectorAll(".law-category")
+            .forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const category = button.dataset.category;
+
+                    lawsContent
+                        .querySelectorAll(".law-card")
+                        .forEach(card => {
+
+                            card.style.display =
+                                card.dataset.category === category
+                                    ? ""
+                                    : "none";
+
+                        });
+
+                });
+
+            });
+
+    }
+ // =========================
+// 🧪 قوانين الكيمياء
+// =========================
+
+if (currentCalculationType === "chemistry") {
+
+    lawsTitle.textContent = "🧪 قوانين الكيمياء";
+
+    lawCategories.innerHTML = `
+
+        <button class="law-category" data-category="moles">
+            ⚖️
+            <span>المول والكتلة</span>
+        </button>
+
+        <button class="law-category" data-category="solutions">
+            🧪
+            <span>المحاليل والتركيز</span>
+        </button>
+
+        <button class="law-category" data-category="gases">
+            🎈
+            <span>الغازات</span>
+        </button>
+
+        <button class="law-category" data-category="equilibrium">
+            ⚖️
+            <span>الاتزان الكيميائي</span>
+        </button>
+
+        <button class="law-category" data-category="acids">
+            🧫
+            <span>الأحماض والقواعد</span>
+        </button>
+
+        <button class="law-category" data-category="kinetics">
+            ⏳
+            <span>سرعة التفاعل ونصف العمر</span>
+        </button>
+
+        <button class="law-category" data-category="thermochemistry">
+            🔥
+            <span>الحرارة والطاقة الكيميائية</span>
+        </button>
+
+    `;
+
+    lawsContent.innerHTML = `
+
+        <!-- ⚖️ المول والكتلة -->
+
+        <div class="law-card" data-category="moles">
+
+            <h3>⚖️ عدد المولات</h3>
+
+            <div class="law-formula">
+                ن = ك ÷ كₘ
+            </div>
+
+            <p><strong>ن</strong> = عدد المولات</p>
+            <p><strong>ك</strong> = الكتلة</p>
+            <p><strong>كₘ</strong> = الكتلة المولية</p>
+
+        </div>
+
+
+        <div class="law-card" data-category="moles">
+
+            <h3>⚖️ الكتلة</h3>
+
+            <div class="law-formula">
+                ك = ن × كₘ
+            </div>
+
+            <p><strong>ك</strong> = الكتلة</p>
+            <p><strong>ن</strong> = عدد المولات</p>
+            <p><strong>كₘ</strong> = الكتلة المولية</p>
+
+        </div>
+
+
+        <div class="law-card" data-category="moles">
+
+            <h3>⚖️ الكتلة المولية</h3>
+
+            <div class="law-formula">
+                كₘ = ك ÷ ن
+            </div>
+
+            <p><strong>كₘ</strong> = الكتلة المولية</p>
+            <p><strong>ك</strong> = الكتلة</p>
+            <p><strong>ن</strong> = عدد المولات</p>
+
+        </div>
+
+
+        <!-- 🧪 المحاليل والتركيز -->
+
+        <div class="law-card" data-category="solutions">
+
+            <h3>🧪 التركيز المولاري</h3>
+
+            <div class="law-formula">
+                م = ن ÷ ح
+            </div>
+
+            <p><strong>م</strong> = التركيز المولاري</p>
+            <p><strong>ن</strong> = عدد المولات</p>
+            <p><strong>ح</strong> = حجم المحلول باللتر</p>
+
+        </div>
+
+
+        <div class="law-card" data-category="solutions">
+
+            <h3>🧪 قانون التخفيف</h3>
+
+            <div class="law-formula">
+                م₁ح₁ = م₂ح₂
+            </div>
+
+            <p><strong>م₁</strong> = التركيز الابتدائي</p>
+            <p><strong>ح₁</strong> = الحجم الابتدائي</p>
+            <p><strong>م₂</strong> = التركيز النهائي</p>
+            <p><strong>ح₂</strong> = الحجم النهائي</p>
+
+        </div>
+<!-- 🎈 الغازات -->
+
+<div class="law-card" data-category="gases">
+
+    <h3>🎈 قانون الغاز المثالي</h3>
+
+    <div class="law-formula">
+        ض ح = ن ث د
+    </div>
+
+    <p><strong>ض</strong> = الضغط</p>
+    <p><strong>ح</strong> = الحجم</p>
+    <p><strong>ن</strong> = عدد المولات</p>
+    <p><strong>ث</strong> = ثابت الغازات العام</p>
+    <p><strong>د</strong> = درجة الحرارة المطلقة بالكلفن</p>
+
+</div>
+
+
+<div class="law-card" data-category="gases">
+
+    <h3>🎈 قانون بويل</h3>
+
+    <div class="law-formula">
+        ض₁ح₁ = ض₂ح₂
+    </div>
+
+    <p><strong>ض₁</strong> = الضغط الابتدائي</p>
+    <p><strong>ح₁</strong> = الحجم الابتدائي</p>
+    <p><strong>ض₂</strong> = الضغط النهائي</p>
+    <p><strong>ح₂</strong> = الحجم النهائي</p>
+
+</div>
+
+
+<div class="law-card" data-category="gases">
+
+    <h3>🎈 قانون شارل</h3>
+
+    <div class="law-formula">
+        ح₁ ÷ د₁ = ح₂ ÷ د₂
+    </div>
+
+    <p><strong>ح₁</strong> = الحجم الابتدائي</p>
+    <p><strong>د₁</strong> = درجة الحرارة الابتدائية بالكلفن</p>
+    <p><strong>ح₂</strong> = الحجم النهائي</p>
+    <p><strong>د₂</strong> = درجة الحرارة النهائية بالكلفن</p>
+
+</div>
+
+
+<div class="law-card" data-category="gases">
+
+    <h3>🎈 قانون جاي-لوساك</h3>
+
+    <div class="law-formula">
+        ض₁ ÷ د₁ = ض₂ ÷ د₂
+    </div>
+
+    <p><strong>ض₁</strong> = الضغط الابتدائي</p>
+    <p><strong>د₁</strong> = درجة الحرارة الابتدائية بالكلفن</p>
+    <p><strong>ض₂</strong> = الضغط النهائي</p>
+    <p><strong>د₂</strong> = درجة الحرارة النهائية بالكلفن</p>
+
+</div>
+
+
+<div class="law-card" data-category="gases">
+
+    <h3>🎈 القانون العام للغازات</h3>
+
+    <div class="law-formula">
+        ض₁ح₁ ÷ د₁ = ض₂ح₂ ÷ د₂
+    </div>
+
+    <p><strong>ض</strong> = الضغط</p>
+    <p><strong>ح</strong> = الحجم</p>
+    <p><strong>د</strong> = درجة الحرارة بالكلفن</p>
+
+</div>
+<!-- ⚖️ الاتزان الكيميائي -->
+
+<div class="law-card" data-category="equilibrium">
+
+    <h3>⚖️ ثابت الاتزان Kc</h3>
+
+    <div class="law-formula">
+        Kc = [C]ᶜ[D]ᵈ ÷ [A]ᵃ[B]ᵇ
+    </div>
+
+    <p><strong>Kc</strong> = ثابت الاتزان</p>
+    <p><strong>[A] و [B]</strong> = تركيز المواد المتفاعلة</p>
+    <p><strong>[C] و [D]</strong> = تركيز المواد الناتجة</p>
+    <p><strong>a,b,c,d</strong> = معاملات المواد في المعادلة الكيميائية الموزونة</p>
+
+</div>
+
+
+<!-- 🧫 الأحماض والقواعد -->
+
+<div class="law-card" data-category="acids">
+
+    <h3>🧫 الأس الهيدروجيني pH</h3>
+
+    <div class="law-formula">
+        pH = -log[H⁺]
+    </div>
+
+    <p><strong>pH</strong> = الأس الهيدروجيني</p>
+    <p><strong>[H⁺]</strong> = تركيز أيونات الهيدروجين</p>
+    <p><strong>log</strong> = اللوغاريتم العشري</p>
+
+</div>
+
+
+<div class="law-card" data-category="acids">
+
+    <h3>🧫 الأس الهيدروكسيدي pOH</h3>
+
+    <div class="law-formula">
+        pOH = -log[OH⁻]
+    </div>
+
+    <p><strong>pOH</strong> = الأس الهيدروكسيدي</p>
+    <p><strong>[OH⁻]</strong> = تركيز أيونات الهيدروكسيد</p>
+
+</div>
+
+
+<div class="law-card" data-category="acids">
+
+    <h3>🧫 العلاقة بين pH و pOH</h3>
+
+    <div class="law-formula">
+        pH + pOH = 14
+    </div>
+
+    <p><strong>pH</strong> = الأس الهيدروجيني</p>
+    <p><strong>pOH</strong> = الأس الهيدروكسيدي</p>
+    <p>العلاقة تكون عند درجة حرارة 25°C تقريبًا.</p>
+
+</div>
+
+
+<div class="law-card" data-category="acids">
+
+    <h3>🧫 ثابت تأين الحمض Ka</h3>
+
+    <div class="law-formula">
+        Ka = [H⁺][A⁻] ÷ [HA]
+    </div>
+
+    <p><strong>Ka</strong> = ثابت تأين الحمض</p>
+    <p><strong>[H⁺]</strong> = تركيز أيونات الهيدروجين</p>
+    <p><strong>[A⁻]</strong> = تركيز القاعدة المرافقة</p>
+    <p><strong>[HA]</strong> = تركيز الحمض</p>
+
+</div>
+
+
+<div class="law-card" data-category="acids">
+
+    <h3>🧫 ثابت تأين القاعدة Kb</h3>
+
+    <div class="law-formula">
+        Kb = [BH⁺][OH⁻] ÷ [B]
+    </div>
+
+    <p><strong>Kb</strong> = ثابت تأين القاعدة</p>
+    <p><strong>[BH⁺]</strong> = تركيز الحمض المرافق</p>
+    <p><strong>[OH⁻]</strong> = تركيز أيونات الهيدروكسيد</p>
+    <p><strong>[B]</strong> = تركيز القاعدة</p>
+
+</div>
+
+
+<!-- ⏳ سرعة التفاعل ونصف العمر -->
+
+<div class="law-card" data-category="kinetics">
+
+    <h3>⏳ معدل التفاعل</h3>
+
+    <div class="law-formula">
+        معدل التفاعل = Δالتركيز ÷ Δالزمن
+    </div>
+
+    <p><strong>Δالتركيز</strong> = التغير في التركيز</p>
+    <p><strong>Δالزمن</strong> = التغير في الزمن</p>
+
+</div>
+
+
+<div class="law-card" data-category="kinetics">
+
+    <h3>⏳ نصف العمر للتفاعل من الرتبة الأولى</h3>
+
+    <div class="law-formula">
+        t½ = 0.693 ÷ k
+    </div>
+
+    <p><strong>t½</strong> = نصف العمر</p>
+    <p><strong>k</strong> = ثابت سرعة التفاعل</p>
+
+</div>
+
+
+<!-- 🔥 الحرارة والطاقة الكيميائية -->
+
+<div class="law-card" data-category="thermochemistry">
+
+    <h3>🔥 كمية الحرارة</h3>
+
+    <div class="law-formula">
+        q = m c ΔT
+    </div>
+
+    <p><strong>q</strong> = كمية الحرارة</p>
+    <p><strong>m</strong> = الكتلة</p>
+    <p><strong>c</strong> = السعة الحرارية النوعية</p>
+    <p><strong>ΔT</strong> = التغير في درجة الحرارة</p>
+
+</div>
+
+
+<div class="law-card" data-category="thermochemistry">
+
+    <h3>🔥 الحرارة الكامنة</h3>
+
+    <div class="law-formula">
+        q = m L
+    </div>
+
+    <p><strong>q</strong> = كمية الحرارة</p>
+    <p><strong>m</strong> = الكتلة</p>
+    <p><strong>L</strong> = الحرارة الكامنة النوعية</p>
+
+</div>
+
+
+<div class="law-card" data-category="thermochemistry">
+
+    <h3>🔥 التغير في الإنثالبي</h3>
+
+    <div class="law-formula">
+        ΔH = Hالنواتج − Hالمتفاعلات
+    </div>
+
+    <p><strong>ΔH</strong> = التغير في الإنثالبي</p>
+    <p><strong>Hالنواتج</strong> = إنثالبي النواتج</p>
+    <p><strong>Hالمتفاعلات</strong> = إنثالبي المتفاعلات</p>
+
+</div>
+    `;
+
+}
+// =========================
+// 💻 قوانين البرمجة
+// =========================
+
+if (currentCalculationType === "programming") {
+
+    lawsTitle.textContent = "💻 قواعد البرمجة";
+
+    lawCategories.innerHTML = `
+
+        <button class="law-category" data-category="variables">
+            📦
+            <span>المتغيرات</span>
+        </button>
+
+        <button class="law-category" data-category="conditions">
+            🔀
+            <span>الشروط</span>
+        </button>
+
+        <button class="law-category" data-category="loops">
+            🔄
+            <span>الحلقات</span>
+        </button>
+
+        <button class="law-category" data-category="functions">
+            ⚙️
+            <span>الدوال</span>
+        </button>
+
+        <button class="law-category" data-category="arrays">
+            📋
+            <span>المصفوفات</span>
+        </button>
+
+        <button class="law-category" data-category="operators">
+            ➕
+            <span>العوامل</span>
+        </button>
+
+        <button class="law-category" data-category="logic">
+            🧠
+            <span>المنطق البرمجي</span>
+        </button>
+
+        <button class="law-category" data-category="conversion">
+            🔢
+            <span>أنظمة الأعداد</span>
+        </button>
+
+    `;
+
+    lawsContent.innerHTML = `
+
+       <!-- 📦 المتغيرات -->
+
+<div class="law-card" data-category="variables">
+
+    <h3>📦 إنشاء متغير</h3>
+
+    <div class="law-formula">
+        let x = 10;
+    </div>
+
+    <p><strong>let</strong> = إنشاء متغير يمكن تغيير قيمته</p>
+    <p><strong>x</strong> = اسم المتغير</p>
+    <p><strong>10</strong> = قيمة المتغير</p>
+
+</div>
+
+
+<div class="law-card" data-category="variables">
+
+    <h3>📦 ثابت لا تتغير قيمته</h3>
+
+    <div class="law-formula">
+        const PI = 3.14;
+    </div>
+
+    <p><strong>const</strong> = إنشاء ثابت لا يمكن إعادة إسناد قيمته</p>
+    <p><strong>PI</strong> = اسم الثابت</p>
+    <p><strong>3.14</strong> = قيمة الثابت</p>
+
+</div>
+
+
+<!-- 🔀 الشروط -->
+
+<div class="law-card" data-category="conditions">
+
+    <h3>🔀 شرط if</h3>
+
+    <div class="law-formula">
+        if (condition) { }
+    </div>
+
+    <p><strong>if</strong> = تنفيذ الكود عند تحقق الشرط</p>
+    <p><strong>condition</strong> = الشرط</p>
+
+</div>
+
+
+<div class="law-card" data-category="conditions">
+
+    <h3>🔀 if / else</h3>
+
+    <div class="law-formula">
+        if (condition) { } else { }
+    </div>
+
+    <p><strong>if</strong> = إذا تحقق الشرط</p>
+    <p><strong>else</strong> = إذا لم يتحقق الشرط</p>
+
+</div>
+
+
+<!-- 🔄 الحلقات -->
+
+<div class="law-card" data-category="loops">
+
+    <h3>🔄 حلقة for</h3>
+
+    <div class="law-formula">
+        for (let i = 0; i &lt; 10; i++) { }
+    </div>
+
+    <p><strong>for</strong> = تكرار مجموعة من التعليمات</p>
+    <p><strong>i</strong> = عداد الحلقة</p>
+    <p><strong>i &lt; 10</strong> = شرط استمرار الحلقة</p>
+    <p><strong>i++</strong> = زيادة العداد بمقدار 1</p>
+
+</div>
+
+
+<div class="law-card" data-category="loops">
+
+    <h3>🔄 حلقة while</h3>
+
+    <div class="law-formula">
+        while (condition) { }
+    </div>
+
+    <p><strong>while</strong> = تكرار الكود طالما الشرط صحيح</p>
+    <p><strong>condition</strong> = شرط استمرار التكرار</p>
+
+</div>
+
+
+<!-- ⚙️ الدوال -->
+
+<div class="law-card" data-category="functions">
+
+    <h3>⚙️ إنشاء دالة</h3>
+
+    <div class="law-formula">
+        function add(a, b) { return a + b; }
+    </div>
+
+    <p><strong>function</strong> = إنشاء دالة</p>
+    <p><strong>add</strong> = اسم الدالة</p>
+    <p><strong>a و b</strong> = معاملات الدالة</p>
+    <p><strong>return</strong> = إرجاع نتيجة</p>
+
+</div>
+
+
+<div class="law-card" data-category="functions">
+
+    <h3>⚙️ استدعاء دالة</h3>
+
+    <div class="law-formula">
+        add(5, 3);
+    </div>
+
+    <p><strong>add</strong> = اسم الدالة</p>
+    <p><strong>5 و 3</strong> = القيم المرسلة للدالة</p>
+
+</div>
+
+
+<!-- 📋 المصفوفات -->
+
+<div class="law-card" data-category="arrays">
+
+    <h3>📋 إنشاء مصفوفة</h3>
+
+    <div class="law-formula">
+        let numbers = [1, 2, 3];
+    </div>
+
+    <p><strong>numbers</strong> = اسم المصفوفة</p>
+    <p><strong>[1, 2, 3]</strong> = عناصر المصفوفة</p>
+
+</div>
+
+
+<div class="law-card" data-category="arrays">
+
+    <h3>📋 الوصول إلى عنصر</h3>
+
+    <div class="law-formula">
+        numbers[0]
+    </div>
+
+    <p><strong>numbers</strong> = اسم المصفوفة</p>
+    <p><strong>0</strong> = فهرس أول عنصر</p>
+    <p>الفهرسة في JavaScript تبدأ من 0.</p>
+
+</div>
+
+
+<!-- ➕ العوامل -->
+
+<div class="law-card" data-category="operators">
+
+    <h3>➕ العمليات الحسابية</h3>
+
+    <div class="law-formula">
+        + &nbsp; - &nbsp; * &nbsp; / &nbsp; %
+    </div>
+
+    <p><strong>+</strong> = جمع</p>
+    <p><strong>-</strong> = طرح</p>
+    <p><strong>*</strong> = ضرب</p>
+    <p><strong>/</strong> = قسمة</p>
+    <p><strong>%</strong> = باقي القسمة</p>
+
+</div>
+
+
+<div class="law-card" data-category="operators">
+
+    <h3>➕ المقارنة</h3>
+
+    <div class="law-formula">
+        === &nbsp; !== &nbsp; &gt; &nbsp; &lt;
+    </div>
+
+    <p><strong>===</strong> = يساوي في القيمة والنوع</p>
+    <p><strong>!==</strong> = لا يساوي في القيمة أو النوع</p>
+    <p><strong>&gt;</strong> = أكبر من</p>
+    <p><strong>&lt;</strong> = أصغر من</p>
+
+</div>
+
+
+<!-- 🧠 المنطق البرمجي -->
+
+<div class="law-card" data-category="logic">
+
+    <h3>🧠 AND</h3>
+
+    <div class="law-formula">
+        condition1 &amp;&amp; condition2
+    </div>
+
+    <p><strong>&amp;&amp;</strong> = يجب أن يكون الشرطان صحيحين</p>
+
+</div>
+
+
+<div class="law-card" data-category="logic">
+
+    <h3>🧠 OR</h3>
+
+    <div class="law-formula">
+        condition1 || condition2
+    </div>
+
+    <p><strong>||</strong> = يكفي تحقق أحد الشرطين</p>
+
+</div>
+
+
+<div class="law-card" data-category="logic">
+
+    <h3>🧠 NOT</h3>
+
+    <div class="law-formula">
+        !condition
+    </div>
+
+    <p><strong>!</strong> = عكس القيمة المنطقية</p>
+
+</div>
+
+
+<!-- 🔢 أنظمة الأعداد -->
+
+<div class="law-card" data-category="conversion">
+
+    <h3>🔢 النظام الثنائي</h3>
+
+    <div class="law-formula">
+        1010₂ = 10₁₀
+    </div>
+
+    <p><strong>₂</strong> = النظام الثنائي</p>
+    <p><strong>₁₀</strong> = النظام العشري</p>
+
+</div>
+
+
+<div class="law-card" data-category="conversion">
+
+    <h3>🔢 النظام الثماني</h3>
+
+    <div class="law-formula">
+        12₈ = 10₁₀
+    </div>
+
+    <p><strong>₈</strong> = النظام الثماني</p>
+    <p><strong>₁₀</strong> = النظام العشري</p>
+
+</div>
+
+
+<div class="law-card" data-category="conversion">
+
+    <h3>🔢 النظام السداسي عشري</h3>
+
+    <div class="law-formula">
+        A₁₆ = 10₁₀
+    </div>
+
+    <p><strong>₁₆</strong> = النظام السداسي عشري</p>
+    <p><strong>A</strong> = القيمة 10 في النظام السداسي عشري</p>
+
+</div>
+
+    `;
+}
+});
+
+
+// ==========================================
+// ↩️ الرجوع من صفحة القوانين
+// ==========================================
+
+backLawsBtn.addEventListener("click", () => {
+
+    lawsPage.classList.add("hidden");
+
+    const calculator = document.querySelector(".calculator");
+
+    if (calculator) {
+        calculator.classList.remove("hidden");
+        calculator.style.display = "";
+    }
+
+});
+// ==========================================
+// 📚 أزرار تصنيفات القوانين
+// ==========================================
+
+document.querySelector(".law-categories").addEventListener("click", (event) => {
+
+    const button = event.target.closest(".law-category");
+
+    if (!button) return;
+
+    const category = button.dataset.category;
+
+    const lawCards =
+        lawsContent.querySelectorAll(".law-card");
+
+    lawCards.forEach(card => {
+
+        // ⚛️ قوانين الفيزياء
+        if (card.dataset.category) {
+
+            card.style.display =
+                card.dataset.category === category
+                    ? ""
+                    : "none";
+
+            return;
+        }
+
+        // 📐 قوانين الرياضيات
+        const title =
+            card.querySelector("h3")?.textContent || "";
+
+        let showCard = false;
+
+        // 🔢 الجبر
+        if (category === "algebra") {
+
+            showCard =
+                title.includes("الأسس") ||
+                title.includes("الجذور") ||
+                title.includes("اللوغاريتمات") ||
+                title.includes("المعادلة التربيعية") ||
+                title.includes("التباديل") ||
+                title.includes("التوافيق") ||
+                title.includes("مربع") ||
+                title.includes("مكعب") ||
+                title.includes("الفرق بين") ||
+                title.includes("مجموع مكعبين");
+        }
+
+        // 📐 الهندسة
+        if (category === "geometry") {
+
+            showCard =
+                title.includes("الدائرة") ||
+                title.includes("المثلث") ||
+                title.includes("المستطيل") ||
+                title.includes("المربع") ||
+                title.includes("المكعب") ||
+                title.includes("متوازي المستطيلات") ||
+                title.includes("متوازي الأضلاع") ||
+                title.includes("المعين") ||
+                title.includes("شبه المنحرف") ||
+                title.includes("القوس") ||
+                title.includes("القطاع") ||
+                title.includes("فيثاغورس");
+        }
+
+        // 🔺 المثلثات
+        if (category === "trigonometry") {
+
+            showCard =
+                title.includes("قانون الجيب") ||
+                title.includes("جيب التمام") ||
+                title.includes("النسب المثلثية") ||
+                title.includes("العلاقة الأساسية") ||
+                title.includes("مساحة المثلث باستخدام ضلعين");
+        }
+
+        // 📊 الإحصاء والاحتمالات
+        if (category === "statistics") {
+
+            showCard =
+                title.includes("المتوسط الحسابي") ||
+                title.includes("المدى") ||
+                title.includes("الاحتمال");
+        }
+
+        // 📈 المتتابعات والمتسلسلات
+        if (category === "sequences") {
+
+            showCard =
+                title.includes("المتتابعة الحسابية") ||
+                title.includes("المتتابعة الهندسية") ||
+                title.includes("الحد النوني") ||
+                title.includes("مجموع المتتابعة");
+        }
+
+        // ∫ التفاضل والتكامل
+        if (category === "calculus") {
+
+            showCard =
+                title.includes("التكامل") ||
+                title.includes("مشتقة");
+        }
+
+        card.style.display = showCard ? "" : "none";
+
+    });
+
+});
 let currentCalculationType = "math";
 
 let answer = 0;
@@ -263,85 +2418,12 @@ if (calculationType === "math") {
     showFractionButton();
     return;
 }
-
-       
-// ==========================================
-// ⚛️ الفيزياء
-// ==========================================
-
-if (calculationType === "physics") {
-    currentCalculationType = "physics";
-currentMode = "PHYSICS";
-window.activePhysicsField = "physicsInput1";
+if (calculationType === "chemistry") {
+    currentCalculationType = "chemistry";
     closeCalculatorHome();
-setupPhysicsKeys();
-hideFractionButton();
-    createScreenPanel(`
-    <div style="
-        font-size:18px;
-        font-weight:bold;
-        text-align:center;
-        margin-bottom:12px;
-    ">
-        ⚛️ الفيزياء
-    </div>
-
-    <div style="
-        font-size:14px;
-        font-weight:bold;
-        margin-bottom:8px;
-    ">
-        اختر القسم:
-    </div>
-
-    <button onclick="openPhysicsMechanics()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        🏎️ الميكانيكا والحركة
-    </button>
-
-    <button onclick="openPhysicsElectricity()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        ⚡ الكهرباء
-    </button>
-
-    <button onclick="openPhysicsHeat()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        🌡️ الحرارة والديناميكا الحرارية
-    </button>
-
-    <button onclick="openPhysicsFluids()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        💧 الموائع والضغط
-    </button>
-
-    <button onclick="openPhysicsWaves()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        🌊 الموجات والصوت
-    </button>
-
-    <button onclick="openPhysicsOptics()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        🔦 البصريات
-    </button>
-
-    <button onclick="openPhysicsMagnetism()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        🧲 المغناطيسية
-    </button>
-
-    <button onclick="openPhysicsModern()"
-        style="width:100%; padding:10px; margin:3px 0;">
-        ⚛️ الفيزياء الحديثة
-    </button>
-
-    <button onclick="openCalculatorHome()"
-        style="width:100%; padding:10px; margin-top:10px;">
-        ← الرجوع
-    </button>
- `);
+    openChemistryMenu();
     return;
 }
-
 // ==========================================
 // ⚡ قائمة الكهرباء
 // ==========================================
@@ -439,6 +2521,88 @@ window.openPhysicsElectricity = function () {
             ← رجوع للفيزياء
         </button>
     `);
+
+};
+       
+// ==========================================
+// ⚛️ الفيزياء
+// ==========================================
+
+if (calculationType === "physics") {
+    currentCalculationType = "physics";
+currentMode = "PHYSICS";
+window.activePhysicsField = "physicsInput1";
+    closeCalculatorHome();
+setupPhysicsKeys();
+hideFractionButton();
+    createScreenPanel(`
+    <div style="
+        font-size:18px;
+        font-weight:bold;
+        text-align:center;
+        margin-bottom:12px;
+    ">
+        ⚛️ الفيزياء
+    </div>
+
+    <div style="
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:8px;
+    ">
+        اختر القسم:
+    </div>
+
+    <button onclick="openPhysicsMechanics()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        🏎️ الميكانيكا والحركة
+    </button>
+
+    <button onclick="openPhysicsElectricity()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        ⚡ الكهرباء
+    </button>
+
+    <button onclick="openPhysicsHeat()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        🌡️ الحرارة والديناميكا الحرارية
+    </button>
+
+    <button onclick="openPhysicsFluids()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        💧 الموائع والضغط
+    </button>
+
+    <button onclick="openPhysicsWaves()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        🌊 الموجات والصوت
+    </button>
+
+    <button onclick="openPhysicsOptics()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        🔦 البصريات
+    </button>
+
+    <button onclick="openPhysicsMagnetism()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        🧲 المغناطيسية
+    </button>
+
+    <button onclick="openPhysicsModern()"
+        style="width:100%; padding:10px; margin:3px 0;">
+        ⚛️ الفيزياء الحديثة
+    </button>
+
+    <button onclick="openCalculatorHome()"
+        style="width:100%; padding:10px; margin-top:10px;">
+        ← الرجوع
+    </button>
+ `);
+    return;
+}
+
+   
+
     // ==========================================
 // 🌡️ الحرارة والديناميكا الحرارية
 // ==========================================
@@ -975,17 +3139,8 @@ if (physicsInput2) {
 
     updatePhysicsInputs();
 
-    return;
-}
 
-if (calculationType === "chemistry") {
-currentCalculationType = "chemistry";
-    closeCalculatorHome();
 
-    openChemistryMenu();
-
-    return;
-}
 
         // ==========================================
 // 💻 البرمجة
@@ -1240,11 +3395,44 @@ window.openPhysicsMechanics = function() {
             ⚡ القدرة
         </button>
 
+<button onclick="physicsBoatMenu()"
+    style="width:100%; padding:9px; margin:2px 0;">
+    🚤 القوارب والتيارات
+</button>
+
+<button onclick="physicsProjectiles()"
+    style="width:100%; padding:9px; margin:2px 0;">
+    🏹 المقذوفات
+</button>
+
         <button onclick="openCalculatorHome()"
             style="width:100%; padding:9px; margin-top:8px;">
             ← الرجوع
         </button>
     `);
+};
+window.physicsBoats = function() {
+
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🚤 القوارب والتيارات
+        </div>
+
+        <div style="text-align:center; margin:15px 0;">
+            سنضيف حاسبة القوارب والتيارات هنا 🚤
+        </div>
+
+        <button onclick="openPhysicsMechanics()"
+            style="width:100%; padding:9px; margin-top:8px;">
+            ← الرجوع
+        </button>
+    `);
+
 };
 // ==========================================
 // 🚗 PHYSICS - حاسبة السرعة
@@ -2522,6 +4710,178 @@ window.calculatePhysicsPower = function () {
 
     result.innerHTML =
         `✅ P = ${power.toFixed(6)} W`;
+};
+// ==========================================
+// 🚤 حاسبة القوارب والتيارات
+// ==========================================
+
+window.physicsBoats = function () {
+
+    window.activePhysicsField = null;
+    window.physicsWeightNewInput = true;
+
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🚤 حاسبة القوارب والتيارات
+        </div>
+
+        <div style="margin:6px 0;">
+            عرض النهر d (m):
+        </div>
+
+        <input id="physicsBoatWidth"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            سرعة القارب نحو الضفة v (m/s):
+        </div>
+
+        <input id="physicsBoatSpeed"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            سرعة التيار u (m/s):
+        </div>
+
+        <input id="physicsBoatCurrent"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <button onclick="calculatePhysicsBoats()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:4px 0;
+                ">
+            🧮 احسب
+        </button>
+
+        <div id="physicsBoatResult"
+             style="
+                 margin-top:10px;
+                 text-align:center;
+                 font-weight:bold;
+                 font-size:15px;
+             ">
+        </div>
+
+        <button onclick="openPhysicsMechanics()"
+                style="
+                    width:100%;
+                    padding:9px;
+                    margin-top:8px;
+                ">
+            ← رجوع للميكانيكا
+        </button>
+    `);
+
+    window.activePhysicsField = "physicsBoatWidth";
+    window.physicsWeightNewInput = true;
+
+    document.getElementById("physicsBoatWidth")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatWidth";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatSpeed")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatSpeed";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatCurrent")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatCurrent";
+            window.physicsWeightNewInput = true;
+        });
+};
+
+
+// ==========================================
+// 🧮 حساب القارب
+// ==========================================
+
+window.calculatePhysicsBoats = function () {
+
+    const width =
+        parseFloat(
+            document.getElementById("physicsBoatWidth")?.value
+        );
+
+    const speed =
+        parseFloat(
+            document.getElementById("physicsBoatSpeed")?.value
+        );
+
+    const current =
+        parseFloat(
+            document.getElementById("physicsBoatCurrent")?.value
+        );
+
+    const result =
+        document.getElementById("physicsBoatResult");
+
+    if (!Number.isFinite(width) ||
+        !Number.isFinite(speed) ||
+        !Number.isFinite(current)) {
+
+        result.innerHTML =
+            "⚠️ أدخل عرض النهر وسرعة القارب وسرعة التيار أولاً";
+
+        return;
+    }
+
+    if (width <= 0 || speed <= 0 || current < 0) {
+
+        result.innerHTML =
+            "❌ تأكد من أن القيم المدخلة صحيحة";
+
+        return;
+    }
+
+    const time = width / speed;
+
+    const drift = current * time;
+
+    result.innerHTML = `
+        ⏱️ زمن العبور = ${time.toFixed(6)} s<br>
+        🌊 الانجراف مع التيار = ${drift.toFixed(6)} m
+    `;
 };
 // ==========================================
 // 🔌 قانون أوم
@@ -20321,8 +22681,13 @@ if (currentMode === "COMP" && !fractionMode) {
     // 🔢 الرقم
     if (/^[0-9]$/.test(value)) {
 
-        writeToDisplay(value);
+    console.log("🔴 BEFORE NUMBER:", {
+        value: value,
+        display: display.value,
+        cursorPosition: cursorPosition
+    });
 
+    writeToDisplay(value);
         console.log(
             "🧮 COMP NUMBER:",
             value,
@@ -20333,44 +22698,55 @@ if (currentMode === "COMP" && !fractionMode) {
         return;
     }
 
-    // 🔵 النقطة
-    if (value === ".") {
+   // 🔵 النقطة
 
-        const current = display.value;
+if (value === ".") {
 
-        // الشاشة فاضية
-        if (current === "") {
-            display.value = "0.";
-            return;
-        }
+    const current = display.value;
 
-        // آخر حاجة نقطة
-        if (current.endsWith(".")) {
-            return;
-        }
-
-        // لو آخر جزء من العملية فيه نقطة بالفعل
-        const lastPart = current.split(/[+−×÷\-]/).pop();
-
-        if (lastPart.includes(".")) {
-            return;
-        }
-
-        // لو بعد عملية حسابية
-        if (/[+−×÷\-]$/.test(current)) {
-            display.value += "0.";
-            return;
-        }
-
-        display.value += ".";
-
-        console.log(
-            "🧮 COMP DOT:",
-            display.value
-        );
-
+    // الشاشة فاضية
+    if (current === "") {
+        display.value = "0.";
+        cursorPosition = display.value.length;
+        updateCursor();
         return;
     }
+
+    // آخر حاجة نقطة
+    if (current.endsWith(".")) {
+        return;
+    }
+
+    // لو بعد عملية حسابية
+    if (/[+−×÷]$/.test(current)) {
+        display.value += "0.";
+        cursorPosition = display.value.length;
+        updateCursor();
+        return;
+    }
+
+    // نجيب آخر رقم في العملية
+    const lastPart = current.split(/[+−×÷]/).pop();
+
+    // لو آخر رقم فيه نقطة بالفعل
+    if (lastPart.includes(".")) {
+        return;
+    }
+
+    // إضافة النقطة
+    display.value += ".";
+
+    // تحديث مكان المؤشر
+    cursorPosition = display.value.length;
+    updateCursor();
+
+    console.log(
+        "🧮 COMP DOT:",
+        display.value
+    );
+
+    return;
+}
 }
 
 
@@ -20385,6 +22761,8 @@ if (currentMode === "COMP" && !fractionMode) {
         // الشاشة فاضية
         if (display.value === "") {
             display.value = "0.";
+            cursorPosition = display.value.length;
+            updateCursor();
             return;
         }
 
@@ -20406,19 +22784,25 @@ if (currentMode === "COMP" && !fractionMode) {
         }
 
         // لو آخر حاجة عملية حسابية
-        if (/[+\-×÷]$/.test(display.value)) {
-            display.value += "0.";
-            return;
-        }
+        if (/[+\\-×÷]$/.test(display.value)) {
+    display.value += "0.";
+    cursorPosition = display.value.length;
+    updateCursor();
+    return;
+}
 
-        display.value += ".";
+display.value += ".";
 
-        console.log(
-            "🔵 COMP DOT:",
-            display.value
-        );
+// تحديث مكان المؤشر
+cursorPosition = display.value.length;
+updateCursor();
 
-        return;
+console.log(
+    "🔵 COMP DOT:",
+    display.value
+);
+
+return;
     }
 }
         
@@ -23678,6 +26062,8 @@ if (currentMode === "COMP" && !fractionMode) {
     // الشاشة فاضية
     if (display.value === "") {
         display.value = "0.";
+        cursorPosition = display.value.length;
+        updateCursor();
         return;
     }
 
@@ -23698,20 +26084,26 @@ if (currentMode === "COMP" && !fractionMode) {
     // لو آخر حاجة عملية
     if (/[+\-×÷]$/.test(display.value)) {
         display.value += "0.";
+        cursorPosition = display.value.length;
+        updateCursor();
         return;
     }
 
     // إضافة النقطة في نهاية الرقم
     display.value += ".";
+    cursorPosition = display.value.length;
+    updateCursor();
 
     console.log(
         "🟢 COMP DOT:",
-        display.value
+        display.value,
+        "CURSOR:",
+        cursorPosition
     );
 
     return;
 }
-    };
+};
 }
 
 const alphaBtn = document.getElementById("alphaBtn");
@@ -33483,9 +35875,9 @@ document.addEventListener("focusout", function (e) {
             homeScreen.classList.add("hidden");
             calcScreen.classList.remove("hidden");
 
-            if (typeof openPhysicsModern === "function") {
-                openPhysicsModern();
-            }
+            if (typeof openPhysics === "function") {
+    openPhysics();
+}
 
             return;
         }
@@ -33749,36 +36141,6 @@ window.chemistryWrite = function (value) {
 };
 
 
-// ==========================================
-// 🧹 AC
-// ==========================================
-
-window.chemistryClear = function () {
-
-    const display =
-        document.getElementById("display");
-
-    if (!display) return;
-
-    display.value = "";
-};
-
-
-// ==========================================
-// ⌫ DEL
-// ==========================================
-
-window.chemistryBackspace = function () {
-
-    const display =
-        document.getElementById("display");
-
-    if (!display) return;
-
-    display.value =
-        display.value.slice(0, -1);
-};
-
 
 // ==========================================
 // 🔙 الرجوع للوضع العادي
@@ -33986,18 +36348,30 @@ document.body.classList.add("chemistry-mode");
             };
 
         document
-            .getElementById("chemACBtn")
-            .onclick = function () {
+    .getElementById("chemACBtn")
+    .onclick = function () {
 
-                chemistryClear();
-            };
+        console.log("🧪 AC BUTTON PRESSED");
+        console.log(
+            "🧪 ACTIVE FIELD:",
+            window.activeChemistryField
+        );
 
-        document
-            .getElementById("chemDELBtn")
-            .onclick = function () {
+        window.chemistryClear();
+    };
 
-                chemistryBackspace();
-            };
+document
+    .getElementById("chemDELBtn")
+    .onclick = function () {
+
+        console.log("🧪 DEL BUTTON PRESSED");
+        console.log(
+            "🧪 ACTIVE FIELD:",
+            window.activeChemistryField
+        );
+
+        window.chemistryBackspace();
+    };
     }
 
 
@@ -34397,24 +36771,41 @@ window.chemistryBackspace = function () {
 
 window.chemistryClear = function () {
 
+    // مسح الحقل النشط لو موجود
     const field =
         document.getElementById(
             window.activeChemistryField
         );
 
-    if (!field) return;
-
-    field.value = "";
-
-    const result =
-        document.getElementById(
-            "chemMolarResult"
-        );
-
-    if (result) {
-        result.innerHTML = "";
+    if (field) {
+        field.value = "";
     }
+
+    // مسح كل حقول الإدخال الموجودة في شاشة الكيمياء
+    const panel =
+        document.getElementById("customModePanel");
+
+    if (panel) {
+
+        panel.querySelectorAll("input").forEach(input => {
+            input.value = "";
+        });
+
+        // مسح النتائج
+        panel.querySelectorAll(
+            "[id*='Result'], [id*='result']"
+        ).forEach(result => {
+            result.innerHTML = "";
+            result.textContent = "";
+        });
+    }
+
+    // تصفير آخر نتيجة كيميائية
+    window.lastChemistryResult = undefined;
+
+    console.log("🧪 Chemistry AC");
 };
+
 
 
 // ==========================================
@@ -43409,8 +45800,52 @@ document.addEventListener("click", function (event) {
     console.log("🧹 UNIVERSAL AC:", currentMode);
 
     // منع أي AC قديم من الاشتغال
-    if(document.body.classList.contains('physics-mode')){const f=window.activePhysicsField?document.getElementById(window.activePhysicsField):null;if(f){f.value='';f.dispatchEvent(new Event('input',{bubbles:true}));}window.activePhysicsField=null;event.stopImmediatePropagation();return;}if(document.body.classList.contains('programming-mode')){if(typeof window.programmingClear==='function'){window.programmingClear();}event.stopImmediatePropagation();return;}event.stopImmediatePropagation();
 
+// 🧪 الكيمياء
+if (document.body.classList.contains("chemistry-mode")) {
+
+    if (typeof window.chemistryClear === "function") {
+        window.chemistryClear();
+    }
+
+    event.stopImmediatePropagation();
+    return;
+}
+
+// ⚛️ الفيزياء
+if (document.body.classList.contains("physics-mode")) {
+
+    const f =
+        window.activePhysicsField
+            ? document.getElementById(window.activePhysicsField)
+            : null;
+
+    if (f) {
+        f.value = "";
+        f.dispatchEvent(
+            new Event("input", { bubbles: true })
+        );
+    }
+
+    window.activePhysicsField = null;
+
+    event.stopImmediatePropagation();
+    return;
+}
+
+// 💻 البرمجة
+if (document.body.classList.contains("programming-mode")) {
+
+    if (typeof window.programmingClear === "function") {
+        window.programmingClear();
+    }
+
+    event.stopImmediatePropagation();
+    return;
+}
+
+// منع AC القديم
+event.stopImmediatePropagation();
     // ==========================================
     // 🧹 مسح حالة الكسر بالكامل
     // ==========================================
@@ -43863,6 +46298,1149 @@ function inputFractionDigit(digit) {
 
     return true;
 }
+// ==========================================
+// 🏹 حاسبة المقذوفات
+// ==========================================
 
+window.physicsProjectiles = function () {
 
+    window.activePhysicsField = null;
+    window.physicsWeightNewInput = true;
 
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🏹 حاسبة المقذوفات
+        </div>
+
+        <div style="margin:6px 0;">
+            السرعة الابتدائية v₀ (m/s):
+        </div>
+
+        <input id="physicsProjectileSpeed"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            زاوية القذف θ (°):
+        </div>
+
+        <input id="physicsProjectileAngle"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+<div style="margin:6px 0;">
+    الارتفاع الابتدائي h₀ (m):
+</div>
+
+<input id="physicsProjectileHeight"
+       type="text"
+       readonly
+       dir="ltr"
+       style="
+           width:90%;
+           padding:8px;
+           margin-bottom:8px;
+           direction:ltr;
+           text-align:left;
+           font-size:14px;
+       ">
+
+        <div style="margin:6px 0;">
+            الجاذبية g (m/s²):
+        </div>
+
+        <input id="physicsProjectileGravity"
+               type="text"
+               value="9.80665"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+               <div style="margin:6px 0;">
+    الزمن t (s):
+</div>
+
+<input id="physicsProjectileTime"
+       type="text"
+       readonly
+       dir="ltr"
+       style="
+           width:90%;
+           padding:8px;
+           margin-bottom:8px;
+           direction:ltr;
+           text-align:left;
+           font-size:14px;
+       ">
+
+        <button onclick="calculatePhysicsProjectiles()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:4px 0;
+                ">
+            🧮 احسب
+        </button>
+
+        <div id="physicsProjectileResult"
+             style="
+                 margin-top:10px;
+                 text-align:center;
+                 font-weight:bold;
+                 font-size:15px;
+             ">
+        </div>
+
+        <button onclick="openPhysicsMechanics()"
+                style="
+                    width:100%;
+                    padding:9px;
+                    margin-top:8px;
+                ">
+            ← رجوع للميكانيكا
+        </button>
+    `);
+
+    window.activePhysicsField = "physicsProjectileSpeed";
+    window.physicsWeightNewInput = true;
+
+    document.getElementById("physicsProjectileSpeed")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsProjectileSpeed";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsProjectileAngle")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsProjectileAngle";
+            window.physicsWeightNewInput = true;
+        });
+        document.getElementById("physicsProjectileHeight")
+    ?.addEventListener("click", () => {
+        window.activePhysicsField = "physicsProjectileHeight";
+        window.physicsWeightNewInput = true;
+    });
+    document.getElementById("physicsProjectileTime")
+    ?.addEventListener("click", () => {
+        window.activePhysicsField = "physicsProjectileTime";
+        window.physicsWeightNewInput = true;
+    });
+};
+window.calculatePhysicsProjectiles = function () {
+
+    const speed =
+        parseFloat(
+            document.getElementById("physicsProjectileSpeed")?.value
+        );
+
+    const angle =
+        parseFloat(
+            document.getElementById("physicsProjectileAngle")?.value
+        );
+
+    const height =
+        parseFloat(
+            document.getElementById("physicsProjectileHeight")?.value
+        );
+
+    const gravity =
+        parseFloat(
+            document.getElementById("physicsProjectileGravity")?.value
+        );
+
+    const selectedTime =
+        parseFloat(
+            document.getElementById("physicsProjectileTime")?.value
+        );
+
+    const result =
+        document.getElementById("physicsProjectileResult");
+
+    if (!Number.isFinite(speed) ||
+        !Number.isFinite(angle) ||
+        !Number.isFinite(height) ||
+        !Number.isFinite(gravity)) {
+
+        result.innerHTML =
+            "⚠️ أدخل السرعة والزاوية والارتفاع والجاذبية أولاً";
+
+        return;
+    }
+
+    if (speed <= 0 ||
+        angle <= 0 ||
+        angle >= 90 ||
+        height < 0 ||
+        gravity <= 0) {
+
+        result.innerHTML =
+            "❌ تأكد من أن القيم المدخلة صحيحة";
+
+        return;
+    }
+
+    const radians =
+        angle * Math.PI / 180;
+
+    const verticalSpeed =
+        speed * Math.sin(radians);
+
+    const horizontalSpeed =
+        speed * Math.cos(radians);
+
+    // زمن الوصول للأرض
+    const flightTime =
+        (
+            verticalSpeed +
+            Math.sqrt(
+                verticalSpeed * verticalSpeed +
+                2 * gravity * height
+            )
+        ) / gravity;
+
+    // المدى الأفقي
+    const range =
+        horizontalSpeed * flightTime;
+
+    // أقصى ارتفاع
+    const maxHeight =
+        height +
+        (verticalSpeed * verticalSpeed) /
+        (2 * gravity);
+
+        const timeToMaxHeight =
+    verticalSpeed / gravity;
+
+    const distanceAtMaxHeight =
+    horizontalSpeed * timeToMaxHeight;
+
+    // معلومات عند زمن محدد
+    let instantResult = "";
+
+    if (Number.isFinite(selectedTime)) {
+
+        if (selectedTime < 0 ||
+            selectedTime > flightTime) {
+
+            instantResult =
+                `<br>⚠️ الزمن يجب أن يكون بين 0 و ${flightTime.toFixed(6)} s`;
+
+        } else {
+
+            const x =
+                horizontalSpeed * selectedTime;
+
+            const y =
+                height +
+                verticalSpeed * selectedTime -
+                0.5 * gravity *
+                selectedTime * selectedTime;
+
+            const vy =
+                verticalSpeed -
+                gravity * selectedTime;
+
+            const totalSpeed =
+                Math.sqrt(
+                    horizontalSpeed * horizontalSpeed +
+                    vy * vy
+                );
+
+            instantResult = `
+                <hr>
+                ⏱️ عند t = ${selectedTime.toFixed(6)} s<br>
+                📍 الإزاحة الأفقية = ${x.toFixed(6)} m<br>
+                🏔️ الارتفاع = ${y.toFixed(6)} m<br>
+                ➡️ السرعة الأفقية = ${horizontalSpeed.toFixed(6)} m/s<br>
+                ⬆️ السرعة الرأسية = ${vy.toFixed(6)} m/s<br>
+                🚀 السرعة الكلية = ${totalSpeed.toFixed(6)} m/s
+            `;
+        }
+    }
+
+    result.innerHTML = `
+        ⏱️ زمن الوصول = ${flightTime.toFixed(6)} s<br>
+📏 المدى الأفقي = ${range.toFixed(6)} m<br>
+🏔️ أقصى ارتفاع = ${maxHeight.toFixed(6)} m<br>
+⏱️ زمن الوصول لأقصى ارتفاع = ${timeToMaxHeight.toFixed(6)} s<br>
+📍 المسافة عند أقصى ارتفاع = ${distanceAtMaxHeight.toFixed(6)} m
+    ${instantResult}
+    `;
+};
+window.physicsBoatMenu = function () {
+
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🚤 القوارب والتيارات
+        </div>
+
+        <button onclick="physicsBoatDirect()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:3px 0;
+                ">
+            🚤 عبور النهر
+        </button>
+
+        <button onclick="physicsBoatAgainstCurrent()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:3px 0;
+                ">
+            🌊 السرعة مع/عكس التيار
+        </button>
+
+        <button onclick="physicsBoatRoundTrip()"
+        style="
+            width:100%;
+            padding:10px;
+            margin:3px 0;
+        ">
+    🔄 ذهاب وإياب
+</button>
+
+<button onclick="physicsBoatAngle()"
+        style="
+            width:100%;
+            padding:10px;
+            margin:3px 0;
+        ">
+    🚣‍♂️ عبور النهر بزاوية
+</button>
+
+<button onclick="physicsBoatNoDrift()"
+        style="
+            width:100%;
+            padding:10px;
+            margin:3px 0;
+        ">
+    🎯 إلغاء الانجراف
+</button>
+
+        <button onclick="openPhysicsMechanics()"
+                style="
+                    width:100%;
+                    padding:9px;
+                    margin-top:8px;
+                ">
+            ← رجوع للميكانيكا
+        </button>
+    `);
+};
+window.physicsBoatDirect = function () {
+    physicsBoats();
+};
+window.physicsBoatAgainstCurrent = function () {
+
+    window.activePhysicsField = null;
+    window.physicsWeightNewInput = true;
+
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🌊 السرعة مع / عكس التيار
+        </div>
+
+        <div style="margin:6px 0;">
+            سرعة القارب v (m/s):
+        </div>
+
+        <input id="physicsBoatRelativeSpeed"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            سرعة التيار u (m/s):
+        </div>
+
+        <input id="physicsBoatCurrentSpeed"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            المسافة d (m):
+        </div>
+
+        <input id="physicsBoatDistance"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <button onclick="calculatePhysicsBoatCurrent()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:4px 0;
+                ">
+            🧮 احسب
+        </button>
+
+        <div id="physicsBoatCurrentResult"
+             style="
+                 margin-top:10px;
+                 text-align:center;
+                 font-weight:bold;
+                 font-size:15px;
+             ">
+        </div>
+
+        <button onclick="physicsBoatMenu()"
+                style="
+                    width:100%;
+                    padding:9px;
+                    margin-top:8px;
+                ">
+            ← رجوع
+        </button>
+    `);
+
+    window.activePhysicsField = "physicsBoatRelativeSpeed";
+    window.physicsWeightNewInput = true;
+
+    document.getElementById("physicsBoatRelativeSpeed")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatRelativeSpeed";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatCurrentSpeed")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatCurrentSpeed";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatDistance")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatDistance";
+            window.physicsWeightNewInput = true;
+        });
+};
+window.calculatePhysicsBoatCurrent = function () {
+
+    const boatSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatRelativeSpeed")?.value
+        );
+
+    const currentSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatCurrentSpeed")?.value
+        );
+
+    const distance =
+        parseFloat(
+            document.getElementById("physicsBoatDistance")?.value
+        );
+
+    const result =
+        document.getElementById("physicsBoatCurrentResult");
+
+    if (!Number.isFinite(boatSpeed) ||
+        !Number.isFinite(currentSpeed) ||
+        !Number.isFinite(distance)) {
+
+        result.innerHTML =
+            "⚠️ أدخل سرعة القارب والتيار والمسافة أولاً";
+
+        return;
+    }
+
+    if (boatSpeed <= 0 ||
+        currentSpeed < 0 ||
+        distance <= 0) {
+
+        result.innerHTML =
+            "❌ تأكد من أن القيم المدخلة صحيحة";
+
+        return;
+    }
+
+    const withCurrent =
+        boatSpeed + currentSpeed;
+
+    const againstCurrent =
+        boatSpeed - currentSpeed;
+
+    const timeWithCurrent =
+        distance / withCurrent;
+
+    let againstResult = "";
+
+    if (againstCurrent <= 0) {
+
+        againstResult =
+            "❌ القارب لا يستطيع التحرك عكس التيار بهذه السرعة";
+
+    } else {
+
+        const timeAgainstCurrent =
+            distance / againstCurrent;
+
+        againstResult = `
+            ⬅️ السرعة عكس التيار = ${againstCurrent.toFixed(6)} m/s<br>
+            ⏱️ زمن عكس التيار = ${timeAgainstCurrent.toFixed(6)} s
+        `;
+    }
+
+    result.innerHTML = `
+        ➡️ السرعة مع التيار = ${withCurrent.toFixed(6)} m/s<br>
+        ⏱️ زمن مع التيار = ${timeWithCurrent.toFixed(6)} s<br>
+        <br>
+        ${againstResult}
+    `;
+};
+window.physicsBoatRoundTrip = function () {
+
+    window.activePhysicsField = null;
+    window.physicsWeightNewInput = true;
+
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🔄 رحلة ذهاب وإياب
+        </div>
+
+        <div style="margin:6px 0;">
+            سرعة القارب v (m/s):
+        </div>
+
+        <input id="physicsBoatRoundSpeed"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            سرعة التيار u (m/s):
+        </div>
+
+        <input id="physicsBoatRoundCurrent"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            مسافة الذهاب d (m):
+        </div>
+
+        <input id="physicsBoatRoundDistance"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <button onclick="calculatePhysicsBoatRoundTrip()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:4px 0;
+                ">
+            🧮 احسب
+        </button>
+
+        <div id="physicsBoatRoundResult"
+             style="
+                 margin-top:10px;
+                 text-align:center;
+                 font-weight:bold;
+                 font-size:15px;
+             ">
+        </div>
+
+        <button onclick="physicsBoatMenu()"
+                style="
+                    width:100%;
+                    padding:9px;
+                    margin-top:8px;
+                ">
+            ← رجوع
+        </button>
+    `);
+
+    window.activePhysicsField = "physicsBoatRoundSpeed";
+    window.physicsWeightNewInput = true;
+
+    document.getElementById("physicsBoatRoundSpeed")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatRoundSpeed";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatRoundCurrent")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatRoundCurrent";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatRoundDistance")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatRoundDistance";
+            window.physicsWeightNewInput = true;
+        });
+};
+window.calculatePhysicsBoatRoundTrip = function () {
+
+    const boatSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatRoundSpeed")?.value
+        );
+
+    const currentSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatRoundCurrent")?.value
+        );
+
+    const distance =
+        parseFloat(
+            document.getElementById("physicsBoatRoundDistance")?.value
+        );
+
+    const result =
+        document.getElementById("physicsBoatRoundResult");
+
+    if (!Number.isFinite(boatSpeed) ||
+        !Number.isFinite(currentSpeed) ||
+        !Number.isFinite(distance)) {
+
+        result.innerHTML =
+            "⚠️ أدخل سرعة القارب والتيار والمسافة أولاً";
+
+        return;
+    }
+
+    if (boatSpeed <= 0 ||
+        currentSpeed < 0 ||
+        distance <= 0) {
+
+        result.innerHTML =
+            "❌ تأكد من أن القيم المدخلة صحيحة";
+
+        return;
+    }
+
+    const withCurrent =
+        boatSpeed + currentSpeed;
+
+    const againstCurrent =
+        boatSpeed - currentSpeed;
+
+    if (againstCurrent <= 0) {
+
+        result.innerHTML =
+            "❌ القارب لا يستطيع العودة عكس التيار بهذه السرعة";
+
+        return;
+    }
+
+    const timeGo =
+        distance / withCurrent;
+
+    const timeReturn =
+        distance / againstCurrent;
+
+    const totalTime =
+        timeGo + timeReturn;
+
+    const totalDistance =
+        distance * 2;
+
+    result.innerHTML = `
+        ➡️ السرعة مع التيار = ${withCurrent.toFixed(6)} m/s<br>
+        ⏱️ زمن الذهاب = ${timeGo.toFixed(6)} s<br>
+        <br>
+        ⬅️ السرعة عكس التيار = ${againstCurrent.toFixed(6)} m/s<br>
+        ⏱️ زمن العودة = ${timeReturn.toFixed(6)} s<br>
+        <br>
+        ⏱️ الزمن الكلي = ${totalTime.toFixed(6)} s<br>
+        📏 المسافة الكلية = ${totalDistance.toFixed(6)} m
+    `;
+};
+window.physicsBoatAngle = function () {
+
+    window.activePhysicsField = null;
+    window.physicsWeightNewInput = true;
+
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🚣‍♂️ عبور النهر بزاوية
+        </div>
+
+        <div style="margin:6px 0;">
+            سرعة القارب v (m/s):
+        </div>
+
+        <input id="physicsBoatAngleSpeed"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            سرعة التيار u (m/s):
+        </div>
+
+        <input id="physicsBoatAngleCurrent"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            عرض النهر d (m):
+        </div>
+
+        <input id="physicsBoatAngleWidth"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            زاوية القارب θ (درجة):
+        </div>
+
+        <input id="physicsBoatAngleValue"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <button onclick="calculatePhysicsBoatAngle()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:4px 0;
+                ">
+            🧮 احسب
+        </button>
+
+        <div id="physicsBoatAngleResult"
+             style="
+                 margin-top:10px;
+                 text-align:center;
+                 font-weight:bold;
+                 font-size:15px;
+             ">
+        </div>
+
+        <button onclick="physicsBoatMenu()"
+                style="
+                    width:100%;
+                    padding:9px;
+                    margin-top:8px;
+                ">
+            ← رجوع
+        </button>
+    `);
+
+    window.activePhysicsField = "physicsBoatAngleSpeed";
+    window.physicsWeightNewInput = true;
+
+    document.getElementById("physicsBoatAngleSpeed")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatAngleSpeed";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatAngleCurrent")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatAngleCurrent";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatAngleWidth")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatAngleWidth";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatAngleValue")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatAngleValue";
+            window.physicsWeightNewInput = true;
+        });
+};
+window.calculatePhysicsBoatAngle = function () {
+
+    const boatSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatAngleSpeed")?.value
+        );
+
+    const currentSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatAngleCurrent")?.value
+        );
+
+    const width =
+        parseFloat(
+            document.getElementById("physicsBoatAngleWidth")?.value
+        );
+
+    const angle =
+        parseFloat(
+            document.getElementById("physicsBoatAngleValue")?.value
+        );
+
+    const result =
+        document.getElementById("physicsBoatAngleResult");
+
+    if (!Number.isFinite(boatSpeed) ||
+        !Number.isFinite(currentSpeed) ||
+        !Number.isFinite(width) ||
+        !Number.isFinite(angle)) {
+
+        result.innerHTML =
+            "⚠️ أدخل سرعة القارب والتيار وعرض النهر والزاوية أولاً";
+
+        return;
+    }
+
+    if (boatSpeed <= 0 ||
+        currentSpeed < 0 ||
+        width <= 0 ||
+        angle < 0 ||
+        angle >= 90) {
+
+        result.innerHTML =
+            "❌ تأكد من أن القيم المدخلة صحيحة";
+
+        return;
+    }
+
+    const radians =
+        angle * Math.PI / 180;
+
+    const crossSpeed =
+        boatSpeed * Math.cos(radians);
+
+    const time =
+        width / crossSpeed;
+
+    const drift =
+        currentSpeed * time;
+
+    const resultantSpeed =
+        Math.sqrt(
+            boatSpeed * boatSpeed +
+            currentSpeed * currentSpeed
+        );
+
+    result.innerHTML = `
+        🚣‍♂️ سرعة العبور = ${crossSpeed.toFixed(6)} m/s<br>
+        ⏱️ زمن عبور النهر = ${time.toFixed(6)} s<br>
+        🌊 الانجراف مع التيار = ${drift.toFixed(6)} m<br>
+        🚀 السرعة المحصلة = ${resultantSpeed.toFixed(6)} m/s
+    `;
+};
+window.physicsBoatNoDrift = function () {
+
+    window.activePhysicsField = null;
+    window.physicsWeightNewInput = true;
+
+    createScreenPanel(`
+        <div style="
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            margin-bottom:10px;
+        ">
+            🎯 إلغاء الانجراف
+        </div>
+
+        <div style="margin:6px 0;">
+            سرعة القارب v (m/s):
+        </div>
+
+        <input id="physicsBoatNoDriftSpeed"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            سرعة التيار u (m/s):
+        </div>
+
+        <input id="physicsBoatNoDriftCurrent"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <div style="margin:6px 0;">
+            عرض النهر d (m):
+        </div>
+
+        <input id="physicsBoatNoDriftWidth"
+               type="text"
+               readonly
+               dir="ltr"
+               style="
+                   width:90%;
+                   padding:8px;
+                   margin-bottom:8px;
+                   direction:ltr;
+                   text-align:left;
+                   font-size:14px;
+               ">
+
+        <button onclick="calculatePhysicsBoatNoDrift()"
+                style="
+                    width:100%;
+                    padding:10px;
+                    margin:4px 0;
+                ">
+            🧮 احسب
+        </button>
+
+        <div id="physicsBoatNoDriftResult"
+             style="
+                 margin-top:10px;
+                 text-align:center;
+                 font-weight:bold;
+                 font-size:15px;
+             ">
+        </div>
+
+        <button onclick="physicsBoatMenu()"
+                style="
+                    width:100%;
+                    padding:9px;
+                    margin-top:8px;
+                ">
+            ← رجوع
+        </button>
+    `);
+
+    window.activePhysicsField = "physicsBoatNoDriftSpeed";
+    window.physicsWeightNewInput = true;
+
+    document.getElementById("physicsBoatNoDriftSpeed")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatNoDriftSpeed";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatNoDriftCurrent")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatNoDriftCurrent";
+            window.physicsWeightNewInput = true;
+        });
+
+    document.getElementById("physicsBoatNoDriftWidth")
+        ?.addEventListener("click", () => {
+            window.activePhysicsField = "physicsBoatNoDriftWidth";
+            window.physicsWeightNewInput = true;
+        });
+};
+window.calculatePhysicsBoatNoDrift = function () {
+
+    const boatSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatNoDriftSpeed")?.value
+        );
+
+    const currentSpeed =
+        parseFloat(
+            document.getElementById("physicsBoatNoDriftCurrent")?.value
+        );
+
+    const width =
+        parseFloat(
+            document.getElementById("physicsBoatNoDriftWidth")?.value
+        );
+
+    const result =
+        document.getElementById("physicsBoatNoDriftResult");
+
+    if (!Number.isFinite(boatSpeed) ||
+        !Number.isFinite(currentSpeed) ||
+        !Number.isFinite(width)) {
+
+        result.innerHTML =
+            "⚠️ أدخل سرعة القارب والتيار وعرض النهر أولاً";
+
+        return;
+    }
+
+    if (boatSpeed <= 0 ||
+        currentSpeed < 0 ||
+        width <= 0) {
+
+        result.innerHTML =
+            "❌ تأكد من أن القيم المدخلة صحيحة";
+
+        return;
+    }
+
+    if (currentSpeed >= boatSpeed) {
+
+        result.innerHTML =
+            "❌ سرعة التيار يجب أن تكون أقل من سرعة القارب";
+
+        return;
+    }
+
+    const ratio =
+        currentSpeed / boatSpeed;
+
+    const angle =
+        Math.asin(ratio) * 180 / Math.PI;
+
+    const crossSpeed =
+        Math.sqrt(
+            boatSpeed * boatSpeed -
+            currentSpeed * currentSpeed
+        );
+
+    const time =
+        width / crossSpeed;
+
+    result.innerHTML = `
+        🎯 زاوية إلغاء الانجراف = ${angle.toFixed(6)}°<br>
+        🚣‍♂️ سرعة العبور = ${crossSpeed.toFixed(6)} m/s<br>
+        ⏱️ زمن عبور النهر = ${time.toFixed(6)} s<br>
+        🌊 الانجراف = 0.000000 m
+    `;
+};
