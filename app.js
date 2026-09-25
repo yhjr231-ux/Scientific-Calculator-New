@@ -42268,15 +42268,26 @@ window.programmingClear = function () {
 
 window.programmingBackspace = function () {
 
-    const field =
-        document.getElementById(
-            window.activeProgrammingField
-        );
+    const activeId =
+        window.activeProgrammingField ||
+        window.lastProgrammingField;
 
-    if (!field) return;
+    const field =
+        document.getElementById(activeId);
+
+    if (!field) {
+        console.log("💻 DEL: لا يوجد حقل برمجة نشط");
+        return;
+    }
 
     field.value =
         field.value.slice(0, -1);
+
+    console.log(
+        "💻 DEL:",
+        field.id,
+        field.value
+    );
 };
 // ==========================================
 // 💻 Programming - AND
@@ -42366,6 +42377,8 @@ window.programmingAND = function () {
     `);
 
     window.activeProgrammingField =
+    "programmingAND_A";
+    window.lastProgrammingField =
     "programmingAND_A";
 
 const fieldA =
