@@ -1,4 +1,6 @@
-const CACHE_NAME = "scientific-calculator-v8";
+
+const CACHE_NAME = "scientific-calculator-v9";
+
 const FILES_TO_CACHE = [
     "./",
     "./index.html",
@@ -12,44 +14,32 @@ const FILES_TO_CACHE = [
 self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(async cache => {
-
-                for (const file of FILES_TO_CACHE) {
-                    try {
-                        await cache.add(file);
-                        console.log("CACHED:", file);
-                    } catch (error) {
-                        console.error("CACHE FAILED:", file, error);
-                    }
-                }
-
-            })
+            .then(cache => cache.addAll(FILES_TO_CACHE))
+            .then(() => self.skipWaiting())
     );
-
-    self.skipWaiting();
 });
+
 self.addEventListener("activate", event => {
     event.waitUntil(
         caches.keys().then(keys =>
             Promise.all(
                 keys
-                    .filter(key => key !== CACHE_NAME)
+                    .filter(key =>
+                        key.startsWith("scientific-calculator-") &&
+                        key !== CACHE_NAME
+                    )
                     .map(key => caches.delete(key))
             )
-        )
+        ).then(() => self.clients.claim())
     );
-
-    self.clients.claim();
 });
 
 self.addEventListener("fetch", event => {
+    if (event.request.method !== "GET") return;
+
     event.respondWith(
         caches.match(event.request).then(cachedResponse => {
-            if (cachedResponse) {
-                return cachedResponse;
-            }
-
-            return fetch(event.request);
+            return cachedResponse || fetch(event.request);
         })
     );
 });
